@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SadAge — Meta Second</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:       #0a0a0a;
+    --fg:       #f0ede6;
+    --muted:    #5e5c56;
+    --accent:   #c4b49a;
+    --border:   rgba(240,237,230,0.07);
+    --border-h: rgba(240,237,230,0.18);
+    --avail:    #7a9e7e;
+    --reserved: #b8935a;
+    --sold:     #3e3d3a;
+  }
+
+  html, body { height: 100%; }
+
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: 'Space Mono', monospace;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── Header ── */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 40px 12px;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    background: var(--bg);
+    z-index: 20;
+  }
+
+  .header-left { display: flex; flex-direction: column; gap: 3px; }
+  .brand { font-family: 'Bebas Neue', sans-serif; font-size: 26px; letter-spacing: 0.1em; line-height: 1; }
+  .page-tag { font-size: 9px; color: var(--accent); letter-spacing: 0.24em; text-transform: uppercase; line-height: 1; }
+
+  .header-link {
+    font-size: 10px; color: var(--muted);
+    letter-spacing: 0.22em; text-transform: uppercase;
+    text-decoration: none; transition: color 0.18s;
+  }
+  .header-link:hover { color: var(--fg); }
+
+  /* ════════════════════
+     GRID VIEW
+  ════════════════════ */
+  #viewGrid { display: block; }
+  #viewItem { display: none; }
+
+  .grid-header {
+    padding: 32px 40px 20px;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .grid-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 48px;
+    letter-spacing: 0.06em;
+    line-height: 1;
+  }
+
+  .grid-count {
+    font-size: 9px;
+    color: var(--muted);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  .grid-intro {
+    padding: 18px 40px;
+    font-size: 10px;
+    line-height: 1.9;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    border-bottom: 1px solid var(--border);
+    max-width: 640px;
+  }
+
+  /* Filter bar */
+  .filter-bar {
+    padding: 14px 40px;
+    display: flex;
+    gap: 6px;
+    border-bottom: 1px solid var(--border);
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .filter-bar::-webkit-scrollbar { display: none; }
+
+  .flt {
+    padding: 6px 14px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--muted);
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.18s;
+    flex-shrink: 0;
+  }
+  .flt:hover { border-color: var(--border-h); color: var(--fg); }
+  .flt.on { border-color: var(--fg); color: var(--fg); background: rgba(240,237,230,0.05); }
+
+  /* Item grid */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border-top: 1px solid var(--border);
+  }
+
+  .card {
+    background: var(--bg);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 1;
+    transition: background 0.2s;
+  }
+  .card:hover { background: #111; }
+  .card:hover .card-img { transform: scale(1.03); }
+
+  .card-img-wrap {
+    width: 100%; height: 72%;
+    overflow: hidden;
+    background: #111;
+  }
+
+  .card-img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+
+  /* placeholder when no image */
+  .card-img-wrap.no-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .card-img-wrap.no-img::after {
+    content: attr(data-code);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    letter-spacing: 0.08em;
+    color: #222;
+  }
+
+  .card-info {
+    padding: 10px 12px 8px;
+    height: 28%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .card-name {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--fg);
+    line-height: 1.3;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+
+  .card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 4px;
+  }
+
+  .card-size {
+    font-size: 8px;
+    color: var(--muted);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .status-dot {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 8px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  .status-dot::before {
+    content: '';
+    display: block;
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .status-dot.available { color: var(--avail); }
+  .status-dot.available::before { background: var(--avail); }
+  .status-dot.reserved { color: var(--reserved); }
+  .status-dot.reserved::before { background: var(--reserved); }
+  .status-dot.sold { color: var(--sold); }
+  .status-dot.sold::before { background: var(--sold); }
+
+  /* sold overlay */
+  .card.sold-card .card-img-wrap { filter: grayscale(1) brightness(0.4); }
+  .card.sold-card .card-name { color: var(--muted); text-decoration: line-through; text-decoration-color: var(--sold); }
+
+  /* empty state */
+  .grid-empty {
+    grid-column: 1 / -1;
+    padding: 80px 40px;
+    text-align: center;
+    font-size: 9px;
+    color: var(--muted);
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    display: none;
+  }
+
+  /* ════════════════════
+     ITEM DETAIL VIEW
+  ════════════════════ */
+  #viewItem {
+    min-height: calc(100vh - 62px);
+  }
+
+  .item-back {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 40px;
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+    background: transparent;
+    border-left: none; border-right: none; border-top: none;
+    color: var(--muted);
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    transition: color 0.18s;
+    width: 100%;
+    text-align: left;
+  }
+  .item-back:hover { color: var(--fg); }
+  .item-back-arrow { font-size: 14px; line-height: 1; }
+
+  .item-layout {
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    min-height: calc(100vh - 62px - 49px);
+  }
+
+  /* Gallery */
+  .item-gallery {
+    position: sticky;
+    top: 62px;
+    height: calc(100vh - 62px);
+    background: #0d0d0d;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .gallery-main {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  .gallery-main-img {
+    width: 100%; height: 100%;
+    object-fit: contain;
+    display: block;
+    position: absolute;
+    top: 0; left: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .gallery-main-img.on { opacity: 1; }
+
+  /* placeholder */
+  .gallery-placeholder {
+    width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 64px; letter-spacing: 0.06em; color: #1a1a1a;
+  }
+
+  .gallery-nav {
+    position: absolute;
+    top: 50%; transform: translateY(-50%);
+    display: flex; justify-content: space-between;
+    width: 100%; padding: 0 16px;
+    pointer-events: none;
+  }
+
+  .gallery-btn {
+    pointer-events: all;
+    background: rgba(10,10,10,0.7);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-family: 'Space Mono', monospace;
+    font-size: 16px; line-height: 1;
+    width: 36px; height: 36px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    transition: all 0.18s;
+  }
+  .gallery-btn:hover { color: var(--fg); border-color: var(--border-h); }
+
+  .gallery-counter {
+    position: absolute;
+    bottom: 14px; right: 16px;
+    font-size: 8px; color: var(--muted); letter-spacing: 0.16em;
+  }
+
+  .gallery-thumbs {
+    display: flex;
+    gap: 2px;
+    padding: 8px;
+    background: #080808;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .gallery-thumbs::-webkit-scrollbar { display: none; }
+
+  .g-thumb {
+    flex-shrink: 0;
+    width: 56px; height: 56px;
+    object-fit: cover;
+    cursor: pointer;
+    opacity: 0.4;
+    transition: opacity 0.18s;
+    border: 1px solid transparent;
+  }
+  .g-thumb.on { opacity: 1; border-color: var(--fg); }
+
+  /* Item details panel */
+  .item-details {
+    padding: 36px 36px 48px;
+    border-left: 1px solid var(--border);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .item-code-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .item-code {
+    font-size: 9px;
+    color: var(--muted);
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+
+  .item-status-badge {
+    font-size: 8px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border: 1px solid;
+  }
+  .item-status-badge.available { color: var(--avail); border-color: var(--avail); }
+  .item-status-badge.reserved  { color: var(--reserved); border-color: var(--reserved); }
+  .item-status-badge.sold      { color: var(--sold); border-color: var(--sold); }
+
+  .item-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 44px;
+    letter-spacing: 0.04em;
+    line-height: 1.05;
+  }
+
+  .item-specs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px 20px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 20px 0;
+  }
+
+  .spec { display: flex; flex-direction: column; gap: 4px; }
+  .spec-label { font-size: 8px; color: var(--muted); letter-spacing: 0.22em; text-transform: uppercase; }
+  .spec-value { font-size: 11px; color: var(--fg); letter-spacing: 0.08em; }
+
+  .item-desc {
+    font-size: 11px;
+    line-height: 1.9;
+    color: rgba(240,237,230,0.7);
+    letter-spacing: 0.04em;
+  }
+
+  .item-actions {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+  }
+
+  .btn-copy {
+    width: 100%; padding: 15px;
+    background: transparent;
+    border: 1px solid var(--border-h);
+    color: var(--fg);
+    font-family: 'Space Mono', monospace;
+    font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+    cursor: pointer; transition: all 0.18s;
+  }
+  .btn-copy:hover { background: rgba(240,237,230,0.05); border-color: var(--fg); }
+  .btn-copy.done { border-color: var(--avail); color: var(--avail); }
+
+  .btn-ig {
+    width: 100%; padding: 16px;
+    background: var(--fg);
+    border: none;
+    color: var(--bg);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px; letter-spacing: 0.1em;
+    cursor: pointer; transition: background 0.18s;
+  }
+  .btn-ig:hover { background: var(--accent); }
+  .btn-ig:disabled { opacity: 0.3; pointer-events: none; }
+
+  .action-note {
+    font-size: 8px; color: var(--muted);
+    letter-spacing: 0.14em; text-transform: uppercase;
+    text-align: center; line-height: 1.7;
+  }
+
+  /* sold overlay on detail */
+  .sold-banner {
+    background: rgba(62,61,58,0.25);
+    border: 1px solid var(--sold);
+    padding: 10px 16px;
+    font-size: 9px; color: var(--sold);
+    letter-spacing: 0.2em; text-transform: uppercase;
+    text-align: center;
+    display: none;
+  }
+  .sold-banner.show { display: block; }
+
+  /* ════════════════════
+     MOBILE  ≤ 720px
+  ════════════════════ */
+  @media (max-width: 720px) {
+    header { padding: 12px 16px; }
+    .brand { font-size: 22px; }
+    .page-tag { font-size: 8px; }
+    .header-link { font-size: 9px; letter-spacing: 0.18em; }
+
+    .grid-header { padding: 20px 16px 14px; }
+    .grid-title { font-size: 36px; }
+    .grid-intro { padding: 14px 16px; font-size: 10px; }
+    .filter-bar { padding: 12px 16px; }
+
+    .grid { grid-template-columns: repeat(2, 1fr); }
+
+    .card-info { padding: 8px 10px 6px; }
+    .card-name { font-size: 9px; }
+
+    /* Item detail — stacked */
+    .item-back { padding: 12px 16px; }
+    .item-layout { grid-template-columns: 1fr; }
+
+    .item-gallery {
+      position: relative;
+      top: 0;
+      height: 100vw;
+    }
+
+    .gallery-main { height: 72vw; }
+
+    .item-details {
+      padding: 24px 16px 40px;
+      border-left: none;
+      border-top: 1px solid var(--border);
+      gap: 20px;
+    }
+
+    .item-name { font-size: 36px; }
+    .item-specs { grid-template-columns: 1fr 1fr; gap: 12px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-left">
+    <span class="brand">SadAge</span>
+    <span class="page-tag">Meta Second</span>
+  </div>
+  <a class="header-link" href="sadage-print-room.html">Go to Print Room</a>
+</header>
+
+
+<!-- ════ GRID VIEW ════ -->
+<div id="viewGrid">
+
+  <div class="grid-header">
+    <div class="grid-title">Archive</div>
+    <div class="grid-count" id="gridCount">— items</div>
+  </div>
+
+  <div class="grid-intro">
+    This is a small SadAge second-hand interface. Each piece exists in one version only. Open an item, check the photos, copy the item message and write us on Instagram.
+  </div>
+
+  <div class="filter-bar">
+    <button class="flt on" data-filter="all" onclick="setFilter(this,'all')">All</button>
+    <button class="flt" data-filter="available" onclick="setFilter(this,'available')">Available</button>
+    <button class="flt" data-filter="reserved" onclick="setFilter(this,'reserved')">Reserved</button>
+    <button class="flt" data-filter="sold" onclick="setFilter(this,'sold')">Sold</button>
+    <button class="flt" data-filter="jacket" onclick="setFilter(this,'jacket')">Jackets</button>
+    <button class="flt" data-filter="top" onclick="setFilter(this,'top')">Tops</button>
+    <button class="flt" data-filter="bottom" onclick="setFilter(this,'bottom')">Bottoms</button>
+  </div>
+
+  <div class="grid" id="itemGrid">
+    <div class="grid-empty" id="gridEmpty">No items in this category yet</div>
+  </div>
+
+</div>
+
+
+<!-- ════ ITEM DETAIL VIEW ════ -->
+<div id="viewItem">
+
+  <button class="item-back" onclick="showGrid()">
+    <span class="item-back-arrow">←</span>
+    <span>Back to Archive</span>
+  </button>
+
+  <div class="item-layout">
+
+    <!-- Gallery -->
+    <div class="item-gallery">
+      <div class="gallery-main" id="galleryMain" onclick="galleryNext()">
+        <div class="gallery-placeholder" id="galleryPlaceholder"></div>
+        <!-- images injected by JS -->
+        <div class="gallery-nav">
+          <button class="gallery-btn" onclick="event.stopPropagation();galleryPrev()">←</button>
+          <button class="gallery-btn" onclick="event.stopPropagation();galleryNext()">→</button>
+        </div>
+        <div class="gallery-counter" id="galleryCounter"></div>
+      </div>
+      <div class="gallery-thumbs" id="galleryThumbs"></div>
+    </div>
+
+    <!-- Details -->
+    <div class="item-details">
+
+      <div class="item-code-row">
+        <span class="item-code" id="detailCode"></span>
+        <span class="item-status-badge" id="detailStatus"></span>
+      </div>
+
+      <div class="sold-banner" id="soldBanner">This piece has found its person</div>
+
+      <div class="item-name" id="detailName"></div>
+
+      <div class="item-specs">
+        <div class="spec">
+          <span class="spec-label">Size</span>
+          <span class="spec-value" id="detailSize"></span>
+        </div>
+        <div class="spec">
+          <span class="spec-label">Condition</span>
+          <span class="spec-value" id="detailCondition"></span>
+        </div>
+        <div class="spec">
+          <span class="spec-label">Material</span>
+          <span class="spec-value" id="detailMaterial"></span>
+        </div>
+        <div class="spec">
+          <span class="spec-label">Category</span>
+          <span class="spec-value" id="detailCategory"></span>
+        </div>
+      </div>
+
+      <div class="item-desc" id="detailDesc"></div>
+
+      <div class="item-actions">
+        <button class="btn-copy" id="btnCopy" onclick="copyMessage()">Copy item message</button>
+        <button class="btn-ig" id="btnIG" onclick="openIG()">Open Instagram DM →</button>
+        <div class="action-note" id="actionNote">
+          Copy the message, then paste it in the DM field
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<script>
+/*
+  ╔══════════════════════════════════════════════════════════════════╗
+  ║  ITEMS — ADD YOUR PIECES HERE                                   ║
+  ║                                                                  ║
+  ║  Each item:                                                      ║
+  ║    code       — unique reference, e.g. 'MS-001'                ║
+  ║    name       — piece name                                      ║
+  ║    size       — 'S', 'M/L', 'One size', etc.                   ║
+  ║    condition  — 'Excellent', 'Good', 'Well-loved', etc.        ║
+  ║    material   — fabric or material description                  ║
+  ║    category   — used for filtering: 'jacket','top','bottom'    ║
+  ║    description — free text, shown on item page                  ║
+  ║    status     — 'available' | 'reserved' | 'sold'              ║
+  ║    photos     — array of image paths (can be empty [])         ║
+  ║                 e.g. ['items/MS-001-1.jpg','items/MS-001-2.jpg']║
+  ║                                                                  ║
+  ║  FILE STRUCTURE:                                                 ║
+  ║    /your-folder/                                                 ║
+  ║      meta-second.html   ← this file                            ║
+  ║      items/                                                      ║
+  ║        MS-001-1.jpg                                              ║
+  ║        MS-001-2.jpg                                              ║
+  ║        MS-002-1.jpg                                              ║
+  ║        ...                                                       ║
+  ╚══════════════════════════════════════════════════════════════════╝
+*/
+const ITEMS = [
+  {
+    code:        'MS-001',
+    name:        'Reworked Leather Jacket',
+    size:        'M',
+    condition:   'Good',
+    material:    '100% leather, cotton lining',
+    category:    'jacket',
+    description: 'Vintage biker silhouette, hand-tattooed with original SadAge motifs. No two are the same. The leather has memory — worn-in creases and a patina that no new jacket will ever have.',
+    status:      'available',
+    photos:      ['items/MS-001-1.jpg', 'items/MS-001-2.jpg', 'items/MS-001-3.jpg', 'items/MS-001-4.jpg', 'items/MS-001-5.jpg']
+  },
+  {
+    code:        'MS-002',
+    name:        'Oversized Denim Shirt',
+    size:        'L / XL',
+    condition:   'Excellent',
+    material:    '100% cotton denim',
+    category:    'top',
+    description: 'Deadstock denim from a closed factory. Heavy weight, structured shoulders. Worn once and kept folded. Fades like nothing you can buy new.',
+    status:      'available',
+    photos:      ['items/MS-002-1.jpg', 'items/MS-002-2.jpg']
+  },
+  {
+    code:        'MS-003',
+    name:        'Military Field Jacket',
+    size:        'S / M',
+    condition:   'Well-loved',
+    material:    'Cotton canvas, polyester lining',
+    category:    'jacket',
+    description: 'Real surplus, not reproduction. Ink marks on the inner pocket. The kind of wear that comes from actual years, not distressing machines.',
+    status:      'reserved',
+    photos:      ['items/MS-003-1.jpg']
+  },
+  {
+    code:        'MS-004',
+    name:        'Silk Slip Dress',
+    size:        'XS / S',
+    condition:   'Excellent',
+    material:    '100% silk',
+    category:    'bottom',
+    description: 'Early 90s cut, bias-cut silk. Barely worn. The kind of thing you find once in ten years at a market.',
+    status:      'sold',
+    photos:      ['items/MS-004-1.jpg', 'items/MS-004-2.jpg']
+  },
+  {
+    code:        'MS-005',
+    name:        'Wool Coach Jacket',
+    size:        'M / L',
+    condition:   'Good',
+    material:    'Wool blend, satin lining',
+    category:    'jacket',
+    description: 'Varsity-adjacent but quieter. Solid charcoal wool, no logos, no patches — just a clean silhouette and a surprisingly good lining.',
+    status:      'available',
+    photos:      []
+  },
+  {
+    code:        'MS-006',
+    name:        'Linen Wide Trousers',
+    size:        'M',
+    condition:   'Good',
+    material:    'Linen, natural dye',
+    category:    'bottom',
+    description: 'Hand-dyed in SadAge studio with natural walnut ink. The color is uneven by design — no two pairs read the same in different light.',
+    status:      'available',
+    photos:      []
+  }
+  /*
+    ADD MORE ITEMS:
+  ,{
+    code:        'MS-007',
+    name:        '',
+    size:        '',
+    condition:   '',
+    material:    '',
+    category:    '',
+    description: '',
+    status:      'available',
+    photos:      []
+  }
+  */
+];
+
+/* ── Replace with your SadAge Instagram handle ── */
+const IG_HANDLE = 'yoursadagehandle';
+
+/* ════ STATE ════ */
+let activeFilter = 'all';
+let currentItem  = null;
+let galleryIndex = 0;
+
+/* ════ GRID ════ */
+function buildGrid(filter) {
+  const grid  = document.getElementById('itemGrid');
+  const empty = document.getElementById('gridEmpty');
+
+  /* clear existing cards */
+  document.querySelectorAll('.card').forEach(c => c.remove());
+
+  const filtered = filter === 'all'
+    ? ITEMS
+    : ITEMS.filter(i => i.status === filter || i.category === filter);
+
+  document.getElementById('gridCount').textContent =
+    `${filtered.length} item${filtered.length !== 1 ? 's' : ''}`;
+
+  if (filtered.length === 0) {
+    empty.style.display = 'block';
+    return;
+  }
+  empty.style.display = 'none';
+
+  filtered.forEach(item => {
+    const card = document.createElement('div');
+    card.className = 'card' + (item.status === 'sold' ? ' sold-card' : '');
+    card.onclick = () => showItem(item);
+
+    const hasPhoto = item.photos.length > 0;
+
+    card.innerHTML = `
+      <div class="card-img-wrap${hasPhoto ? '' : ' no-img'}" data-code="${item.code}">
+        ${hasPhoto
+          ? `<img class="card-img" src="${item.photos[0]}" alt="${item.name}" loading="lazy">`
+          : ''}
+      </div>
+      <div class="card-info">
+        <div class="card-name">${item.name}</div>
+        <div class="card-meta">
+          <span class="card-size">${item.size}</span>
+          <span class="status-dot ${item.status}">${item.status}</span>
+        </div>
+      </div>`;
+
+    grid.appendChild(card);
+  });
+}
+
+function setFilter(btn, filter) {
+  document.querySelectorAll('.flt').forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
+  activeFilter = filter;
+  buildGrid(filter);
+}
+
+/* ════ ITEM DETAIL ════ */
+function showItem(item) {
+  currentItem  = item;
+  galleryIndex = 0;
+
+  /* populate fields */
+  document.getElementById('detailCode').textContent     = item.code;
+  document.getElementById('detailName').textContent     = item.name;
+  document.getElementById('detailSize').textContent     = item.size;
+  document.getElementById('detailCondition').textContent = item.condition;
+  document.getElementById('detailMaterial').textContent  = item.material;
+  document.getElementById('detailCategory').textContent  = item.category.charAt(0).toUpperCase() + item.category.slice(1);
+  document.getElementById('detailDesc').textContent      = item.description;
+
+  /* status badge */
+  const badge = document.getElementById('detailStatus');
+  badge.textContent  = item.status;
+  badge.className    = 'item-status-badge ' + item.status;
+
+  /* sold banner */
+  document.getElementById('soldBanner').classList.toggle('show', item.status === 'sold');
+
+  /* action buttons */
+  const isSold = item.status === 'sold';
+  document.getElementById('btnCopy').disabled = isSold;
+  document.getElementById('btnIG').disabled   = isSold;
+  document.getElementById('actionNote').textContent = isSold
+    ? 'This piece is no longer available'
+    : 'Copy the message, then paste it in the DM field';
+  document.getElementById('btnCopy').classList.remove('done');
+
+  /* gallery */
+  buildGallery(item);
+
+  /* switch views */
+  document.getElementById('viewGrid').style.display = 'none';
+  document.getElementById('viewItem').style.display = 'block';
+  window.scrollTo(0, 0);
+
+  /* push hash for browser back support */
+  history.pushState({ itemCode: item.code }, '', '#' + item.code);
+}
+
+function showGrid() {
+  document.getElementById('viewItem').style.display = 'none';
+  document.getElementById('viewGrid').style.display = 'block';
+  history.pushState(null, '', window.location.pathname);
+  window.scrollTo(0, 0);
+}
+
+/* Browser back button */
+window.addEventListener('popstate', e => {
+  if (!e.state || !e.state.itemCode) showGrid();
+});
+
+/* ════ GALLERY ════ */
+function buildGallery(item) {
+  const main   = document.getElementById('galleryMain');
+  const thumbs = document.getElementById('galleryThumbs');
+  const ph     = document.getElementById('galleryPlaceholder');
+
+  /* remove old images */
+  main.querySelectorAll('.gallery-main-img').forEach(el => el.remove());
+  thumbs.innerHTML = '';
+
+  if (item.photos.length === 0) {
+    ph.textContent = item.code;
+    ph.style.display = 'flex';
+    document.getElementById('galleryCounter').textContent = '';
+    return;
+  }
+
+  ph.style.display = 'none';
+
+  item.photos.forEach((src, i) => {
+    /* main image */
+    const img = document.createElement('img');
+    img.className = 'gallery-main-img' + (i === 0 ? ' on' : '');
+    img.src = src; img.alt = item.name;
+    main.insertBefore(img, main.querySelector('.gallery-nav'));
+
+    /* thumbnail */
+    const t = document.createElement('img');
+    t.className = 'g-thumb' + (i === 0 ? ' on' : '');
+    t.src = src; t.alt = '';
+    t.onclick = () => setGallery(i);
+    thumbs.appendChild(t);
+  });
+
+  updateGalleryCounter();
+}
+
+function setGallery(i) {
+  const item = currentItem;
+  if (!item || item.photos.length === 0) return;
+  galleryIndex = (i + item.photos.length) % item.photos.length;
+  document.querySelectorAll('.gallery-main-img').forEach((el, j) => {
+    el.classList.toggle('on', j === galleryIndex);
+  });
+  document.querySelectorAll('.g-thumb').forEach((el, j) => {
+    el.classList.toggle('on', j === galleryIndex);
+  });
+  updateGalleryCounter();
+}
+
+function galleryNext() { setGallery(galleryIndex + 1); }
+function galleryPrev() { setGallery(galleryIndex - 1); }
+
+function updateGalleryCounter() {
+  const item = currentItem;
+  if (!item) return;
+  const n = item.photos.length;
+  document.getElementById('galleryCounter').textContent =
+    n > 1 ? `${galleryIndex + 1} / ${n}` : '';
+}
+
+/* Touch swipe on gallery */
+let touchStartX = 0;
+document.getElementById('galleryMain').addEventListener('touchstart', e => {
+  touchStartX = e.touches[0].clientX;
+}, { passive: true });
+document.getElementById('galleryMain').addEventListener('touchend', e => {
+  const dx = e.changedTouches[0].clientX - touchStartX;
+  if (Math.abs(dx) > 40) dx < 0 ? galleryNext() : galleryPrev();
+});
+
+/* ════ ACTIONS ════ */
+function buildMessage() {
+  const i = currentItem;
+  return `Hi SadAge! I'm interested in this piece:
+
+Item:      ${i.code}
+Name:      ${i.name}
+Size:      ${i.size}
+Condition: ${i.condition}
+—
+Could you tell me more / confirm availability?`;
+}
+
+function copyMessage() {
+  const msg = buildMessage();
+  navigator.clipboard.writeText(msg).catch(() => {
+    const ta = document.createElement('textarea');
+    ta.value = msg; ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.select(); document.execCommand('copy');
+    document.body.removeChild(ta);
+  });
+  const btn = document.getElementById('btnCopy');
+  btn.textContent = 'Copied ✓';
+  btn.classList.add('done');
+  setTimeout(() => {
+    btn.textContent = 'Copy item message';
+    btn.classList.remove('done');
+  }, 2500);
+}
+
+function openIG() {
+  window.open(`https://ig.me/m/${IG_HANDLE}`, '_blank');
+}
+
+/* ════ INIT ════ */
+buildGrid('all');
+
+/* handle direct URL with hash */
+if (location.hash) {
+  const code = location.hash.slice(1);
+  const item = ITEMS.find(i => i.code === code);
+  if (item) showItem(item);
+}
+</script>
+</body>
+</html>
