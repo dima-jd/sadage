@@ -123,35 +123,37 @@
     transition: opacity 0.35s ease;
     position: absolute;
     top: 0; left: 0;
+	opacity: 0;
   }
 
-  .shirt-img-white { opacity: 1; }
-  .shirt-img-black { opacity: 0; }
-
-  .shirt-wrap.black .shirt-img-white { opacity: 0; }
-  .shirt-wrap.black .shirt-img-black { opacity: 1; }
-  .shirt-wrap.white .shirt-img-white { opacity: 1; }
-  .shirt-wrap.white .shirt-img-black { opacity: 0; }
-
+  /* Only one of the 4 images visible at a time */
+  .shirt-wrap.white.front .s-white-front { opacity: 1; }
+  .shirt-wrap.white.back  .s-white-back  { opacity: 1; }
+  .shirt-wrap.black.front .s-black-front { opacity: 1; }
+  .shirt-wrap.black.back  .s-black-back  { opacity: 1; }
+ 
   /*
    * ── PRINT OVERLAY ─────────────────────────────────────────
-   * This layer sits on top of the shirt image.
-   * Position it over the chest area using top/left/transform.
-   * Adjust these values to match your specific shirt photo.
+   * top-front / top-back: adjust to match your shirt photos.
+   * front chest is typically ~38-42% from top.
+   * back yoke is typically ~30-36% from top.
    * ──────────────────────────────────────────────────────────
    */
   .print-layer {
     position: absolute;
     width: 140px; height: 140px;
-    top: 50%;                         /* ← adjust to chest position */
+    top: var(--print-top, 38%);
     left: 50%;
     transform: translate(-50%, -50%);
     pointer-events: none;
     opacity: 0;
-    transition: opacity 0.4s ease;
+    transition: opacity 0.4s ease, top 0.35s ease;
   }
   .print-layer.on { opacity: 1; }
-
+ 
+  .shirt-wrap.front { --print-top: 50%; }
+  .shirt-wrap.back  { --print-top: 43%; }
+ 
   /* ── Print image inside overlay ── */
   .print-img {
     width: 100%; height: 100%;
@@ -368,13 +370,15 @@
     .m-shirt-area { flex: 1; position: relative; display: flex; justify-content: center; }
  
     .m-shirt-wrap { position: relative; width: 100%; height: 380px; user-select: none; }
-    .m-shirt-wrap .shirt-img { width: 100%; height: 100%; object-fit: contain; display: block; position: absolute; top: 0; left: 0; transition: opacity 0.35s; }
-    .m-shirt-wrap .shirt-img-white { opacity: 1; }
-    .m-shirt-wrap .shirt-img-black { opacity: 0; }
-    .m-shirt-wrap.black .shirt-img-white { opacity: 0; }
-    .m-shirt-wrap.black .shirt-img-black { opacity: 1; }
+    .m-shirt-wrap .shirt-img { width: 100%; height: 100%; object-fit: contain; display: block; position: absolute; top: 0; left: 0; transition: opacity 0.35s; opacity: 0; }
+    .m-shirt-wrap.white.front .s-white-front { opacity: 1; }
+    .m-shirt-wrap.white.back  .s-white-back  { opacity: 1; }
+    .m-shirt-wrap.black.front .s-black-front { opacity: 1; }
+    .m-shirt-wrap.black.back  .s-black-back  { opacity: 1; }
  
-    .m-shirt-wrap .print-layer { width: 140px; height: 140px; top: 50%; }
+    .m-shirt-wrap .print-layer { width: 140px; height: 140px; top: var(--print-top, 38%); transition: opacity 0.4s ease, top 0.35s ease; }
+    .m-shirt-wrap.front { --print-top: 50%; }
+    .m-shirt-wrap.back  { --print-top: 43%; }
     .m-shirt-wrap.white .print-img-dark  { opacity: 1; }
     .m-shirt-wrap.white .print-img-light { opacity: 0; }
     .m-shirt-wrap.black .print-img-dark  { opacity: 0; }
@@ -466,7 +470,7 @@
 <!-- ════ DESKTOP ════ -->
 <div class="workspace">
   <div class="stage">
-    <div class="shirt-wrap white" id="dShirtWrap">
+    <div class="shirt-wrap white front" id="dShirtWrap">
 
       <!--
         ╔══════════════════════════════════════════════════════╗
@@ -475,9 +479,11 @@
         ║  or use a subfolder: e.g. images/tshirt-white.png   ║
         ╚══════════════════════════════════════════════════════╝
       -->
-      <img class="shirt-img shirt-img-white" src="images/tshirt-white.png" alt="White T-shirt">
-      <img class="shirt-img shirt-img-black" src="images/tshirt-black.png" alt="Black T-shirt">
-
+      <img class="shirt-img s-white-front" src="images/tshirt-white-front.png" alt="White T-shirt front">
+      <img class="shirt-img s-white-back"  src="images/tshirt-white-back.png"  alt="White T-shirt back">
+      <img class="shirt-img s-black-front" src="images/tshirt-black-front.png" alt="Black T-shirt front">
+      <img class="shirt-img s-black-back"  src="images/tshirt-black-back.png"  alt="Black T-shirt back">
+	  
       <div class="print-layer" id="dPrintLayer">
         <!--
           Two versions of each print sit here.
@@ -537,9 +543,11 @@
       <div class="mswatch mswatch-b" id="mSwB" onclick="setColor('black')"></div>
     </div>
     <div class="m-shirt-area">
-      <div class="m-shirt-wrap white" id="mShirtWrap">
-        <img class="shirt-img shirt-img-white" src="images/tshirt-white.png" alt="White T-shirt">
-        <img class="shirt-img shirt-img-black" src="images/tshirt-black.png" alt="Black T-shirt">
+      <div class="m-shirt-wrap white front" id="mShirtWrap">
+        <img class="shirt-img s-white-front" src="images/tshirt-white-front.png" alt="White T-shirt front">
+        <img class="shirt-img s-white-back"  src="images/tshirt-white-back.png"  alt="White T-shirt back">
+        <img class="shirt-img s-black-front" src="images/tshirt-black-front.png" alt="Black T-shirt front">
+        <img class="shirt-img s-black-back"  src="images/tshirt-black-back.png"  alt="Black T-shirt back">
         <div class="print-layer" id="mPrintLayer">
           <img class="print-img print-img-dark"  id="mPrintDark"  src="" alt="">
           <img class="print-img print-img-light" id="mPrintLight" src="" alt="">
@@ -848,7 +856,7 @@ mls.addEventListener('scroll', () => {
 
 function pick(p) {
   sel = p;
-
+ 
   /* Desktop */
   document.querySelectorAll('.pthumb').forEach(t => t.classList.toggle('sel', t.dataset.code === p.code));
   document.getElementById('dPrintDark').src  = p.dark;
@@ -858,7 +866,7 @@ function pick(p) {
   dc.textContent = p.code; dc.classList.remove('empty');
   document.getElementById('dBtnSend').classList.add('on');
   document.getElementById('dHint').classList.add('off');
-
+ 
   /* Mobile */
   document.querySelectorAll('.m-pthumb').forEach(t => t.classList.toggle('sel', t.dataset.code === p.code));
   document.getElementById('mPrintDark').src  = p.dark;
@@ -869,19 +877,26 @@ function pick(p) {
   document.getElementById('mBtnSend').classList.add('on');
   document.getElementById('mHint').classList.add('off');
 }
-
+ 
+function applyShirtState() {
+  /* Desktop */
+  document.getElementById('dShirtWrap').className = `shirt-wrap ${color} ${place}`;
+  /* Mobile */
+  document.getElementById('mShirtWrap').className = `m-shirt-wrap ${color} ${place}`;
+}
+ 
 function setColor(c) {
   color = c;
-  document.getElementById('dShirtWrap').className = 'shirt-wrap ' + c;
+  applyShirtState();
   document.getElementById('dBW').className = 'tog-btn' + (c==='white'?' on':'');
   document.getElementById('dBB').className = 'tog-btn' + (c==='black'?' on':'');
-  document.getElementById('mShirtWrap').className = 'm-shirt-wrap ' + c;
   document.getElementById('mSwW').className = 'mswatch mswatch-w' + (c==='white'?' on':'');
   document.getElementById('mSwB').className = 'mswatch mswatch-b' + (c==='black'?' on':'');
 }
-
+ 
 function setPlace(p) {
   place = p;
+  applyShirtState();
   ['dBFr','mBFr'].forEach(id => document.getElementById(id).className = 'tog-btn' + (p==='front'?' on':''));
   ['dBBk','mBBk'].forEach(id => document.getElementById(id).className = 'tog-btn' + (p==='back'?' on':''));
 }
