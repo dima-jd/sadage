@@ -653,6 +653,18 @@
   ╚══════════════════════════════════════════════════════════════════╝
 */
 const ITEMS = [
+  
+  {
+    code:        'MS-002',
+    name:        'Oversized Denim Shirt',
+    size:        'L / XL',
+    condition:   'Excellent',
+    material:    '100% cotton denim',
+    category:    'top',
+    description: 'Deadstock denim from a closed factory. Heavy weight, structured shoulders. Worn once and kept folded. Fades like nothing you can buy new.',
+    status:      'available',
+    photos:      ['items/MS-002-1.jpg', 'items/MS-002-2.jpg', 'items/MS-002-3.jpg', 'items/MS-002-4.jpg', 'items/MS-002-5.jpg', 'items/MS-002-6.jpg', 'items/MS-002-7.jpg', 'items/MS-002-8.jpg']
+  },
   {
     code:        'MS-001',
     name:        'Reworked Leather Jacket',
@@ -663,17 +675,6 @@ const ITEMS = [
     description: 'Vintage biker silhouette, hand-tattooed with original SadAge motifs. No two are the same. The leather has memory — worn-in creases and a patina that no new jacket will ever have.',
     status:      'available',
     photos:      ['items/MS-001-1.jpg', 'items/MS-001-2.jpg', 'items/MS-001-3.jpg', 'items/MS-001-4.jpg', 'items/MS-001-5.jpg']
-  },
-  {
-    code:        'MS-002',
-    name:        'Oversized Denim Shirt',
-    size:        'L / XL',
-    condition:   'Excellent',
-    material:    '100% cotton denim',
-    category:    'top',
-    description: 'Deadstock denim from a closed factory. Heavy weight, structured shoulders. Worn once and kept folded. Fades like nothing you can buy new.',
-    status:      'available',
-    photos:      ['items/MS-002-1.jpg', 'items/MS-002-2.jpg']
   },
   {
     code:        'MS-003',
@@ -953,7 +954,7 @@ function copyMessage() {
 }
 
 function openIG() {
-  window.open(`https://ig.me/m/sad_age.enterprise{IG_HANDLE}`, '_blank');
+  setTimeout(() => window.open('https://ig.me/m/sad_age.enterprise', '_blank'), 600);
 }
 
 /* ════ INIT ════ */
