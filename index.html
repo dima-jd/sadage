@@ -375,7 +375,7 @@
     .m-pthumb.sel { border-color: var(--fg); border-width: 2px; }
     /* Image fills most of the tile */
     .m-pthumb img {
-      width: 100%; height: calc(100% - 28px);
+      width: 100%; height: calc(100%);
       object-fit: cover; display: block;
     }
     .m-pthumb .pcode {
@@ -488,14 +488,13 @@
       </div>
     </div>
   </div>
-</div>
- 
-<div class="m-place">
-  <div class="m-place-inner">
-    <span class="cap" style="margin:0">Placement</span>
-    <div class="tog m-place-tog">
-      <button class="tog-btn on" id="mBFr" onclick="setPlace('front')">Front</button>
-      <button class="tog-btn" id="mBBk" onclick="setPlace('back')">Back</button>
+  <div class="m-place">
+    <div class="m-place-inner">
+      <span class="cap" style="margin:0">Placement</span>
+      <div class="tog m-place-tog">
+        <button class="tog-btn on" id="mBFr" onclick="setPlace('front')">Front</button>
+        <button class="tog-btn" id="mBBk" onclick="setPlace('back')">Back</button>
+      </div>
     </div>
   </div>
 </div>
