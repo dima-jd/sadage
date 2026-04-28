@@ -471,116 +471,6 @@
     display: none;
   }
   .sold-banner.show { display: block; }
-  
-    /* ── IAB Banner ── */
-  .iab-banner {
-    display: none;
-    align-items: center;
-    gap: 10px;
-    padding: 11px 20px;
-    background: #1e1a12;
-    border-bottom: 1px solid rgba(196,180,154,0.25);
-    position: sticky;
-    top: 62px;
-    z-index: 15;
-  }
-  .iab-banner.show { display: flex; }
-  .iab-icon { font-size: 13px; flex-shrink: 0; color: var(--accent); }
-  .iab-text { font-size: 9px; color: var(--accent); letter-spacing: 0.1em; line-height: 1.6; flex: 1; }
-  .iab-how {
-    flex-shrink: 0;
-    background: transparent;
-    border: 1px solid var(--accent);
-    color: var(--accent);
-    font-family: 'Space Mono', monospace;
-    font-size: 8px; letter-spacing: 0.16em; text-transform: uppercase;
-    padding: 5px 10px; cursor: pointer; transition: all 0.18s;
-  }
-  .iab-how:hover { background: var(--accent); color: var(--bg); }
- 
-  /* IAB button variant (amber) */
-  .btn-ig-iab {
-    width: 100%; padding: 16px;
-    background: #1e1a12;
-    border: 1px solid var(--accent);
-    color: var(--accent);
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 20px; letter-spacing: 0.1em;
-    cursor: pointer; transition: background 0.18s;
-  }
-  .btn-ig-iab:hover { background: rgba(196,180,154,0.1); }
- 
-  /* ── IAB Modal ── */
-  .iab-modal-bg {
-    position: fixed; inset: 0;
-    background: rgba(0,0,0,0.9);
-    display: flex; align-items: center; justify-content: center;
-    opacity: 0; pointer-events: none; transition: opacity 0.25s; z-index: 60;
-  }
-  .iab-modal-bg.open { opacity: 1; pointer-events: all; }
- 
-  .iab-modal {
-    background: #111;
-    border: 1px solid rgba(196,180,154,0.2);
-    padding: 32px 28px;
-    width: 420px; max-width: 92vw; max-height: 90vh; overflow-y: auto;
-  }
- 
-  .iab-modal-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 28px; letter-spacing: 0.08em; margin-bottom: 4px;
-  }
-  .iab-modal-sub {
-    font-size: 9px; color: var(--muted); letter-spacing: 0.2em;
-    text-transform: uppercase; margin-bottom: 28px;
-  }
- 
-  .iab-steps { display: flex; flex-direction: column; gap: 16px; margin-bottom: 24px; }
-  .iab-step { display: flex; gap: 14px; align-items: flex-start; }
-  .iab-step-n {
-    flex-shrink: 0;
-    width: 22px; height: 22px;
-    border: 1px solid var(--border-h);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 9px; color: var(--muted); letter-spacing: 0;
-    margin-top: 1px;
-  }
-  .iab-step-t { font-size: 11px; line-height: 1.7; color: rgba(240,237,230,0.75); letter-spacing: 0.04em; }
-  .iab-step-t strong { color: var(--fg); font-weight: 700; }
- 
-  .iab-or {
-    text-align: center; font-size: 9px; color: var(--muted);
-    letter-spacing: 0.2em; margin: 20px 0;
-    position: relative;
-  }
-  .iab-or::before, .iab-or::after {
-    content: ''; position: absolute; top: 50%;
-    width: 38%; height: 1px; background: var(--border);
-  }
-  .iab-or::before { left: 0; }
-  .iab-or::after  { right: 0; }
- 
-  .iab-manual { display: flex; flex-direction: column; gap: 8px; }
-  .iab-manual-label { font-size: 9px; color: var(--muted); letter-spacing: 0.18em; text-transform: uppercase; }
-  .iab-handle-btn {
-    width: 100%; padding: 13px;
-    background: transparent; border: 1px solid var(--border-h);
-    color: var(--fg); font-family: 'Space Mono', monospace;
-    font-size: 13px; letter-spacing: 0.1em;
-    cursor: pointer; transition: all 0.18s; text-align: center;
-  }
-  .iab-handle-btn:hover { border-color: var(--fg); background: rgba(240,237,230,0.04); }
-  .iab-handle-btn.done { border-color: var(--avail); color: var(--avail); }
-  .iab-manual-note { font-size: 8px; color: var(--muted); letter-spacing: 0.12em; line-height: 1.6; }
- 
-  .iab-close {
-    margin-top: 24px; width: 100%; padding: 12px;
-    background: transparent; border: 1px solid var(--border);
-    color: var(--muted); font-family: 'Space Mono', monospace;
-    font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase;
-    cursor: pointer; transition: all 0.18s;
-  }
-  .iab-close:hover { border-color: var(--border-h); color: var(--fg); }
 
   /* ════════════════════
      MOBILE  ≤ 720px
@@ -635,47 +525,6 @@
   <a class="header-link" href="index.html">Go to Print Room</a>
 </header>
 
-<!-- IAB warning banner — shown only inside Instagram browser -->
-<div class="iab-banner" id="iabBanner">
-  <span class="iab-icon">⚠</span>
-  <span class="iab-text">You're inside Instagram's browser. To send a DM, open this page in Safari or Chrome.</span>
-  <button class="iab-how" onclick="openIabModal()">How?</button>
-</div>
- 
-<!-- IAB instructions modal -->
-<div class="iab-modal-bg" id="iabModalBg">
-  <div class="iab-modal">
-    <div class="iab-modal-title">Open in your browser</div>
-    <div class="iab-modal-sub">Instagram's built-in browser can't open DMs</div>
- 
-    <div class="iab-steps">
-      <div class="iab-step">
-        <span class="iab-step-n">1</span>
-        <span class="iab-step-t">Tap the <strong>⋯</strong> menu in the top right corner of this screen</span>
-      </div>
-      <div class="iab-step">
-        <span class="iab-step-n">2</span>
-        <span class="iab-step-t">Select <strong>"Open in Safari"</strong> or <strong>"Open in Chrome"</strong></span>
-      </div>
-      <div class="iab-step">
-        <span class="iab-step-n">3</span>
-        <span class="iab-step-t">Come back to the item, copy the message and tap Open Instagram DM</span>
-      </div>
-    </div>
- 
-    <div class="iab-or">— or —</div>
- 
-    <div class="iab-manual">
-      <div class="iab-manual-label">Write us directly on Instagram</div>
-      <button class="iab-handle-btn" onclick="copyHandle()">
-        <span id="iabHandleText">Copy @<!-- handle injected by JS --></span>
-      </button>
-      <div class="iab-manual-note">Copy the handle, go to Instagram, search and send a DM manually</div>
-    </div>
- 
-    <button class="iab-close" onclick="closeIabModal()">Close</button>
-  </div>
-</div>
 
 <!-- ════ GRID VIEW ════ -->
 <div id="viewGrid">
@@ -766,8 +615,6 @@
       <div class="item-actions">
         <button class="btn-copy" id="btnCopy" onclick="copyMessage()">Copy item message</button>
         <button class="btn-ig" id="btnIG" onclick="openIG()">Open Instagram DM →</button>
-        <!-- shown instead of DM button when inside Instagram IAB -->
-        <button class="btn-ig-iab" id="btnIGiab" onclick="openIabModal()" style="display:none">Can't open DM from here →</button>
         <div class="action-note" id="actionNote">
           Copy the message, then paste it in the DM field
         </div>
@@ -896,35 +743,35 @@ const IG_HANDLE = 'sad_age.enterprise';
 let activeFilter = 'all';
 let currentItem  = null;
 let galleryIndex = 0;
- 
+
 /* ════ GRID ════ */
 function buildGrid(filter) {
   const grid  = document.getElementById('itemGrid');
   const empty = document.getElementById('gridEmpty');
- 
+
   /* clear existing cards */
   document.querySelectorAll('.card').forEach(c => c.remove());
- 
+
   const filtered = filter === 'all'
     ? ITEMS
     : ITEMS.filter(i => i.status === filter || i.category === filter);
- 
+
   document.getElementById('gridCount').textContent =
     `${filtered.length} item${filtered.length !== 1 ? 's' : ''}`;
- 
+
   if (filtered.length === 0) {
     empty.style.display = 'block';
     return;
   }
   empty.style.display = 'none';
- 
+
   filtered.forEach(item => {
     const card = document.createElement('div');
     card.className = 'card' + (item.status === 'sold' ? ' sold-card' : '');
     card.onclick = () => showItem(item);
- 
+
     const hasPhoto = item.photos.length > 0;
- 
+
     card.innerHTML = `
       <div class="card-img-wrap${hasPhoto ? '' : ' no-img'}" data-code="${item.code}">
         ${hasPhoto
@@ -938,23 +785,23 @@ function buildGrid(filter) {
           <span class="status-dot ${item.status}">${item.status}</span>
         </div>
       </div>`;
- 
+
     grid.appendChild(card);
   });
 }
- 
+
 function setFilter(btn, filter) {
   document.querySelectorAll('.flt').forEach(b => b.classList.remove('on'));
   btn.classList.add('on');
   activeFilter = filter;
   buildGrid(filter);
 }
- 
+
 /* ════ ITEM DETAIL ════ */
 function showItem(item) {
   currentItem  = item;
   galleryIndex = 0;
- 
+
   /* populate fields */
   document.getElementById('detailCode').textContent     = item.code;
   document.getElementById('detailName').textContent     = item.name;
@@ -963,15 +810,15 @@ function showItem(item) {
   document.getElementById('detailMaterial').textContent  = item.material;
   document.getElementById('detailCategory').textContent  = item.category.charAt(0).toUpperCase() + item.category.slice(1);
   document.getElementById('detailDesc').textContent      = item.description;
- 
+
   /* status badge */
   const badge = document.getElementById('detailStatus');
   badge.textContent  = item.status;
   badge.className    = 'item-status-badge ' + item.status;
- 
+
   /* sold banner */
   document.getElementById('soldBanner').classList.toggle('show', item.status === 'sold');
- 
+
   /* action buttons */
   const isSold = item.status === 'sold';
   document.getElementById('btnCopy').disabled = isSold;
@@ -980,58 +827,57 @@ function showItem(item) {
     ? 'This piece is no longer available'
     : 'Copy the message, then paste it in the DM field';
   document.getElementById('btnCopy').classList.remove('done');
-  updateIGButton(isSold);
- 
+
   /* gallery */
   buildGallery(item);
- 
+
   /* switch views */
   document.getElementById('viewGrid').style.display = 'none';
   document.getElementById('viewItem').style.display = 'block';
   window.scrollTo(0, 0);
- 
+
   /* push hash for browser back support */
   history.pushState({ itemCode: item.code }, '', '#' + item.code);
 }
- 
+
 function showGrid() {
   document.getElementById('viewItem').style.display = 'none';
   document.getElementById('viewGrid').style.display = 'block';
   history.pushState(null, '', window.location.pathname);
   window.scrollTo(0, 0);
 }
- 
+
 /* Browser back button */
 window.addEventListener('popstate', e => {
   if (!e.state || !e.state.itemCode) showGrid();
 });
- 
+
 /* ════ GALLERY ════ */
 function buildGallery(item) {
   const main   = document.getElementById('galleryMain');
   const thumbs = document.getElementById('galleryThumbs');
   const ph     = document.getElementById('galleryPlaceholder');
- 
+
   /* remove old images */
   main.querySelectorAll('.gallery-main-img').forEach(el => el.remove());
   thumbs.innerHTML = '';
- 
+
   if (item.photos.length === 0) {
     ph.textContent = item.code;
     ph.style.display = 'flex';
     document.getElementById('galleryCounter').textContent = '';
     return;
   }
- 
+
   ph.style.display = 'none';
- 
+
   item.photos.forEach((src, i) => {
     /* main image */
     const img = document.createElement('img');
     img.className = 'gallery-main-img' + (i === 0 ? ' on' : '');
     img.src = src; img.alt = item.name;
     main.insertBefore(img, main.querySelector('.gallery-nav'));
- 
+
     /* thumbnail */
     const t = document.createElement('img');
     t.className = 'g-thumb' + (i === 0 ? ' on' : '');
@@ -1039,10 +885,10 @@ function buildGallery(item) {
     t.onclick = () => setGallery(i);
     thumbs.appendChild(t);
   });
- 
+
   updateGalleryCounter();
 }
- 
+
 function setGallery(i) {
   const item = currentItem;
   if (!item || item.photos.length === 0) return;
@@ -1055,10 +901,10 @@ function setGallery(i) {
   });
   updateGalleryCounter();
 }
- 
+
 function galleryNext() { setGallery(galleryIndex + 1); }
 function galleryPrev() { setGallery(galleryIndex - 1); }
- 
+
 function updateGalleryCounter() {
   const item = currentItem;
   if (!item) return;
@@ -1066,7 +912,7 @@ function updateGalleryCounter() {
   document.getElementById('galleryCounter').textContent =
     n > 1 ? `${galleryIndex + 1} / ${n}` : '';
 }
- 
+
 /* Touch swipe on gallery */
 let touchStartX = 0;
 document.getElementById('galleryMain').addEventListener('touchstart', e => {
@@ -1076,12 +922,12 @@ document.getElementById('galleryMain').addEventListener('touchend', e => {
   const dx = e.changedTouches[0].clientX - touchStartX;
   if (Math.abs(dx) > 40) dx < 0 ? galleryNext() : galleryPrev();
 });
- 
+
 /* ════ ACTIONS ════ */
 function buildMessage() {
   const i = currentItem;
   return `Hi SadAge! I'm interested in this piece:
- 
+
 Item:      ${i.code}
 Name:      ${i.name}
 Size:      ${i.size}
@@ -1089,7 +935,7 @@ Condition: ${i.condition}
 —
 Could you tell me more / confirm availability?`;
 }
- 
+
 function copyMessage() {
   const msg = buildMessage();
   navigator.clipboard.writeText(msg).catch(() => {
@@ -1106,82 +952,13 @@ function copyMessage() {
     btn.classList.remove('done');
   }, 2500);
 }
- 
+
 function openIG() {
   window.open(`https://ig.me/m/${IG_HANDLE}`, '_blank');
 }
  
-/* ════ IAB DETECTION ════ */
-function isInstagramBrowser() {
-  return /Instagram/.test(navigator.userAgent);
-}
- 
-const IS_IAB = isInstagramBrowser();
- 
-function initIAB() {
-  if (!IS_IAB) return;
- 
-  /* Show banner */
-  document.getElementById('iabBanner').classList.add('show');
- 
-  /* Inject handle into copy button */
-  document.getElementById('iabHandleText').textContent = `Copy @${IG_HANDLE}`;
-}
- 
-/* Called when item detail opens — swap button if IAB */
-function updateIGButton(isSold) {
-  const btnIG    = document.getElementById('btnIG');
-  const btnIGiab = document.getElementById('btnIGiab');
- 
-  if (isSold) {
-    btnIG.style.display    = 'none';
-    btnIGiab.style.display = 'none';
-    return;
-  }
- 
-  if (IS_IAB) {
-    btnIG.style.display    = 'none';
-    btnIGiab.style.display = 'block';
-    document.getElementById('actionNote').textContent =
-      "You're in Instagram's browser — tap the button to see how to send a DM";
-  } else {
-    btnIG.style.display    = 'block';
-    btnIGiab.style.display = 'none';
-    document.getElementById('actionNote').textContent =
-      'Copy the message, then paste it in the DM field';
-  }
-}
- 
-function openIabModal() {
-  document.getElementById('iabModalBg').classList.add('open');
-}
- 
-function closeIabModal() {
-  document.getElementById('iabModalBg').classList.remove('open');
-}
- 
-function copyHandle() {
-  navigator.clipboard.writeText(`@${IG_HANDLE}`).catch(() => {
-    const ta = document.createElement('textarea');
-    ta.value = `@${IG_HANDLE}`; ta.style.position='fixed'; ta.style.opacity='0';
-    document.body.appendChild(ta); ta.select(); document.execCommand('copy');
-    document.body.removeChild(ta);
-  });
-  const btn = document.getElementById('iabHandleText');
-  const parent = btn.closest('button');
-  const orig = btn.textContent;
-  btn.textContent = 'Copied ✓';
-  parent.classList.add('done');
-  setTimeout(() => { btn.textContent = orig; parent.classList.remove('done'); }, 2500);
-}
- 
-document.getElementById('iabModalBg').addEventListener('click', e => {
-  if (e.target === document.getElementById('iabModalBg')) closeIabModal();
-});
- 
 /* ════ INIT ════ */
 buildGrid('all');
-initIAB();
  
 /* handle direct URL with hash */
 if (location.hash) {
