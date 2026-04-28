@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>SadAge — Under Construction</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- === IMPORTS & FONTS === -->
+    <!-- Google Font: Space Grotesk -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@200;400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- GSAP for all animations -->
+    <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+
+    <!-- Three.js for the background shader -->
+    <script src="https://unpkg.com/three@0.161.0/build/three.min.js"></script>
+
+    <style>
+      /* === RESET & VARIABLES === */
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+      }
+
+      :root {
+        --bg-soft: #0d0d0d;
+        --text-main: #ece8e1;
+        --text-soft: #8a847c;
+        --text-mono: #404040;
+        --text-meta: #252525;
+        --border-soft: #252525;
+        --error: #5a1a1a;
+      }
+
+      /* === BASE LAYOUT === */
+      body {
+        background: var(--bg-soft);
+        color: var(--text-main);
+        font-family: "Space Grotesk", system-ui, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", sans-serif;
+        overflow: hidden;
+        cursor: none;
+      }
+
+      /* Full-screen black overlay for initial hold */
+      .black-overlay {
+        position: fixed;
+        inset: 0;
+        background: #000000;
+        z-index: 999;
+      }
+
+      /* Three.js background canvas container */
+      #bg-canvas {
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        opacity: 0;
+      }
+
+      /* Main content wrapper centered on the screen */
+      .sadage-wrapper {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 0.5rem;
+        z-index: 10;
+        max-width: 500px;
+        width: 90%;
+      }
+
+      /* === TEXT BLOCK === */
+
+      /* 1. SADAGE */
+      .sadage-title {
+        font-size: clamp(3rem, 9vw, 5.5rem);
+        font-weight: 200;
+        letter-spacing: 0.4em;
+        text-transform: uppercase;
+        color: var(--text-main);
+      }
+
+      /* 2. becoming. */
+      .sadage-subtitle {
+        font-size: 0.95rem;
+        font-style: italic;
+        letter-spacing: 0.12em;
+        color: var(--text-soft);
+      }
+
+      /* 3. not finished. */
+      .sadage-status {
+        font-size: 0.7rem;
+        font-family: "Courier New", Courier, monospace;
+        letter-spacing: 0.1em;
+        color: var(--text-mono);
+      }
+
+      /* 4. Thin HR */
+      .sadage-divider {
+        width: 36px;
+        margin: 1.8rem auto 0;
+        border: 0;
+        border-top: 1px solid var(--border-soft);
+        transform-origin: center;
+        transform: scaleX(1);
+      }
+
+      /* 5. Loader text (three dots) */
+      .sadage-loader {
+        margin-top: 0.75rem;
+        font-size: 0.75rem;
+        font-family: "Courier New", Courier, monospace;
+        letter-spacing: 0.4em;
+        color: #555555;
+      }
+
+      .loader-dots span {
+        display: inline-block;
+      }
+
+      /* 6. made by humans... */
+      .sadage-meta {
+        margin-top: 1.5rem;
+        font-size: 0.6rem;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: var(--text-meta);
+      }
+
+      /* === EMAIL FORM === */
+      .email-form-wrapper {
+        margin-top: 1.5rem;
+        width: 100%;
+        max-width: 360px;
+      }
+
+      .email-row {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        border-bottom: 1px solid var(--border-soft);
+        padding-bottom: 0.4rem;
+      }
+
+      .email-input {
+        flex: 1;
+        background: transparent;
+        border: none;
+        outline: none;
+        color: var(--text-main);
+        font-size: 0.8rem;
+        letter-spacing: 0.12em;
+        padding: 0;
+        margin: 0;
+        caret-color: var(--text-main);
+      }
+
+      .email-input::placeholder {
+        color: #2e2e2e;
+      }
+
+      .email-arrow {
+        font-size: 0.85rem;
+        color: #3a3a3a;
+        cursor: pointer;
+        user-select: none;
+      }
+
+      .email-message {
+        margin-top: 0.5rem;
+        font-size: 0.65rem;
+        letter-spacing: 0.08em;
+      }
+
+      .email-message.error {
+        color: var(--error);
+      }
+
+      /* Success / error text (shown after form animates out) */
+      .email-result-text {
+        font-size: 0.8rem;
+        letter-spacing: 0.12em;
+        color: var(--text-mono);
+      }
+
+      /* === COUNTER === */
+      .entry-counter {
+        position: fixed;
+        bottom: 0.75rem;
+        left: 0.75rem;
+        padding: 0.5rem;
+        font-size: 0.5rem;
+        font-family: "Courier New", Courier, monospace;
+        color: #181818;
+        user-select: none;
+        z-index: 5;
+      }
+
+      /* === CURSOR === */
+      #custom-cursor {
+        position: fixed;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 100;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        background: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.02) 0%,
+          transparent 60%
+        );
+        transform: translate(-50%, -50%) scale(1);
+      }
+
+      /* === FOOTER === */
+      .sadage-footer {
+        position: fixed;
+        bottom: 1.5rem;
+        left: 0;
+        right: 0;
+        text-align: center;
+        z-index: 10;
+        font-size: 0.55rem;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+      }
+
+      .sadage-footer a {
+        color: #1c1c1c;
+        text-decoration: none;
+      }
+
+      /* === INITIAL VISIBILITY STATES FOR ENTRANCE SEQUENCE === */
+      #bg-canvas,
+      .sadage-title,
+	  .sadage-subtitle,
+      .stagger-line,
+      .sadage-divider,
+      .email-form-wrapper {
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- === THREE.JS BACKGROUND CONTAINER === -->
+    <div id="bg-canvas"></div>
+
+    <!-- === INITIAL BLACK OVERLAY FOR HOLD === -->
+    <div class="black-overlay"></div>
+
+    <!-- === HIDDEN COUNTER (LOCAL) === -->
+    <div class="entry-counter" id="entry-counter">0x0 entered</div>
+
+    <!-- === CUSTOM CURSOR ELEMENT === -->
+    <div id="custom-cursor"></div>
+
+    <!-- === MAIN CONTENT (CENTERED) === -->
+    <main class="sadage-wrapper">
+      <!-- Title -->
+      <h1 class="sadage-title title-main">SADAGE</h1>
+
+      <!-- Subtext lines (staggered) -->
+      <p class="sadage-subtitle stagger-line">in progress.system calibrating.artifact loading.</p>
+      <p class="sadage-status stagger-line">not finished.</p>
+
+      <!-- Loader text (three dots) -->
+      <div class="sadage-loader stagger-line">
+        <span class="loader-dots">
+          <span class="dot">.</span>
+          <span class="dot">.</span>
+          <span class="dot">.</span>
+        </span>
+      </div>
+
+      <!-- Meta line -->
+      <p class="sadage-meta stagger-line">made by humans.</p>
+
+      <!-- Divider line -->
+      <hr class="sadage-divider divider-line" />
+
+      <!-- Email form 
+      <div class="email-form-wrapper">
+        <form id="email-form" novalidate>
+          <div class="email-row">
+            <input
+              type="email"
+              id="email-input"
+              class="email-input hover-target"
+              placeholder="leave your email. we'll find you."
+              autocomplete="email"
+            />
+            <span
+              id="email-arrow"
+              class="email-arrow hover-target"
+              aria-label="Submit email"
+            >
+              →
+            </span>
+          </div>
+          <div id="email-message" class="email-message" aria-live="polite"></div>
+        </form>
+
+        Placeholder for success / error replacement text 
+        <div id="email-result" style="display: none;">
+          <span class="email-result-text"></span>
+        </div>
+      </div>
+	  -->
+    </main>
+
+    <!-- === FOOTER === -->
+    <footer class="sadage-footer">
+      <a
+        href="https://instagram.com/sad_age.enterprise"
+        target="_blank"
+        rel="noreferrer"
+        class="hover-target"
+        id="footer-link"
+      >
+        @sadage
+      </a>
+    </footer>
+
+    <!-- === GSAP ANIMATIONS & LOGIC === -->
+    <script>
+      (function () {
+        /* === THREE.JS BACKGROUND === */
+        const bgContainer = document.getElementById("bg-canvas");
+        let renderer, scene, camera, mesh, uniforms, animationId;
+
+        function initThree() {
+          try {
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+
+            renderer = new THREE.WebGLRenderer({
+              antialias: true,
+              alpha: true,
+            });
+            renderer.setSize(width, height);
+            renderer.setPixelRatio(window.devicePixelRatio || 1);
+            bgContainer.appendChild(renderer.domElement);
+
+            scene = new THREE.Scene();
+            camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0.1, 10);
+            camera.position.z = 1;
+
+            const geometry = new THREE.PlaneGeometry(2, 2);
+
+            uniforms = {
+              uTime: { value: 0 },
+            };
+
+            const vertexShader = `
+              varying vec2 vUv;
+              void main() {
+                vUv = uv;
+                gl_Position = vec4(position, 1.0);
+              }
+            `;
+
+            const fragmentShader = `
+              precision highp float;
+              varying vec2 vUv;
+              uniform float uTime;
+
+              // Simple hash-based noise
+              float hash(vec2 p) {
+                return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453123);
+              }
+
+              float noise(vec2 p) {
+                vec2 i = floor(p);
+                vec2 f = fract(p);
+
+                float a = hash(i);
+                float b = hash(i + vec2(1.0, 0.0));
+                float c = hash(i + vec2(0.0, 1.0));
+                float d = hash(i + vec2(1.0, 1.0));
+
+                vec2 u = f * f * (3.0 - 2.0 * f);
+
+                return mix(a, b, u.x) +
+                       (c - a) * u.y * (1.0 - u.x) +
+                       (d - b) * u.x * u.y;
+              }
+
+              void main() {
+                vec2 st = vUv * 6.0;
+                float t = uTime * 0.03;
+                float n = noise(st + t);
+
+                float grain = n * 0.12;
+                vec3 base = vec3(0.04, 0.04, 0.04);
+                vec3 tint = vec3(0.15, 0.13, 0.11);
+
+                vec3 color = base + tint * grain;
+
+                gl_FragColor = vec4(color, 1.0);
+              }
+            `;
+
+            const material = new THREE.ShaderMaterial({
+              uniforms: uniforms,
+              vertexShader,
+              fragmentShader,
+            });
+
+            mesh = new THREE.Mesh(geometry, material);
+            scene.add(mesh);
+
+            function render(time) {
+              uniforms.uTime.value = time * 0.001;
+              renderer.render(scene, camera);
+              animationId = requestAnimationFrame(render);
+            }
+
+            animationId = requestAnimationFrame(render);
+
+            window.addEventListener("resize", onResize);
+          } catch (e) {
+            console.warn("Three.js background failed, continuing without it.", e);
+          }
+        }
+
+        function onResize() {
+          if (!renderer) return;
+          const width = window.innerWidth;
+          const height = window.innerHeight;
+          renderer.setSize(width, height);
+        }
+
+        /* === CURSOR === */
+        const customCursor = document.getElementById("custom-cursor");
+        let moveX, moveY;
+
+        function initCursor() {
+          if (!customCursor || typeof gsap === "undefined") return;
+
+          moveX = gsap.quickTo(customCursor, "x", {
+            duration: 0.5,
+            ease: "power3.out",
+          });
+          moveY = gsap.quickTo(customCursor, "y", {
+            duration: 0.5,
+            ease: "power3.out",
+          });
+
+          window.addEventListener("mousemove", function (e) {
+            moveX(e.clientX);
+            moveY(e.clientY);
+          });
+
+          const hoverTargets = document.querySelectorAll(".hover-target");
+          hoverTargets.forEach(function (el) {
+            el.addEventListener("mouseenter", function () {
+              gsap.to(customCursor, {
+                duration: 0.3,
+                scale: 1.8,
+                borderColor: "rgba(255,255,255,0.12)",
+                ease: "power3.out",
+              });
+            });
+            el.addEventListener("mouseleave", function () {
+              gsap.to(customCursor, {
+                duration: 0.3,
+                scale: 1,
+                borderColor: "rgba(255,255,255,0.06)",
+                ease: "power3.out",
+              });
+            });
+          });
+        }
+
+        /* === COUNTER === */
+        const counterEl = document.getElementById("entry-counter");
+        const COUNTER_KEY = "sadage_email_submissions";
+
+        function loadCounter() {
+          let count = parseInt(localStorage.getItem(COUNTER_KEY) || "0", 10);
+          if (isNaN(count)) count = 0;
+          updateCounter(count, false);
+          return count;
+        }
+
+        function updateCounter(count, animate) {
+          if (!counterEl) return;
+          const hex = "0x" + count.toString(16);
+          counterEl.textContent = hex + " entered";
+
+          if (animate && typeof gsap !== "undefined") {
+            gsap.fromTo(
+              counterEl,
+              { color: "#444444" },
+              {
+                color: "#181818",
+                duration: 0.8,
+                ease: "power2.out",
+              }
+            );
+          }
+        }
+
+        function incrementCounter() {
+          let count = parseInt(localStorage.getItem(COUNTER_KEY) || "0", 10);
+          if (isNaN(count)) count = 0;
+          count += 1;
+          localStorage.setItem(COUNTER_KEY, String(count));
+          updateCounter(count, true);
+        }
+
+        /* === EMAIL FORM === */
+        const emailForm = document.getElementById("email-form");
+        const emailInput = document.getElementById("email-input");
+        const emailArrow = document.getElementById("email-arrow");
+        const emailMessage = document.getElementById("email-message");
+        const emailResult = document.getElementById("email-result");
+        const emailResultText = emailResult
+          ? emailResult.querySelector(".email-result-text")
+          : null;
+        const emailWrapper = document.querySelector(".email-row");
+        let submissionInProgress = false;
+
+        function isValidEmail(value) {
+          const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          return re.test(String(value).toLowerCase());
+        }
+
+        function shakeInput() {
+          if (!emailWrapper || typeof gsap === "undefined") return;
+          const tl = gsap.timeline();
+          tl.to(emailWrapper, {
+            x: -6,
+            borderBottomColor: "#5a1a1a",
+            duration: 0.08,
+          })
+            .to(emailWrapper, { x: 6, duration: 0.08 })
+            .to(emailWrapper, { x: -4, duration: 0.08 })
+            .to(emailWrapper, { x: 0, duration: 0.08 })
+            .to(emailWrapper, {
+              borderBottomColor: "var(--border-soft)",
+              duration: 0.5,
+              ease: "power2.out",
+            });
+        }
+
+        function showFormResult(type, text) {
+          if (!emailForm || !emailResult || !emailResultText) return;
+
+          emailMessage.textContent = "";
+          emailMessage.classList.remove("error");
+
+          if (type === "error") {
+            emailResultText.textContent = text;
+            emailResultText.style.color = "#5a1a1a";
+          } else {
+            emailResultText.textContent = text;
+            emailResultText.style.color = "#5a5a5a";
+          }
+
+          if (typeof gsap !== "undefined") {
+            gsap.to(emailForm, {
+              opacity: 0,
+              duration: 0.4,
+              onComplete: function () {
+                emailForm.style.display = "none";
+                emailResult.style.display = "block";
+                gsap.fromTo(
+                  emailResult,
+                  { opacity: 0 },
+                  { opacity: 1, duration: 0.5 }
+                );
+              },
+            });
+          } else {
+            emailForm.style.display = "none";
+            emailResult.style.display = "block";
+          }
+        }
+
+        function submitEmail() {
+          if (submissionInProgress || !emailInput) return;
+
+          const value = emailInput.value.trim();
+          if (!isValidEmail(value)) {
+            if (emailMessage) {
+              emailMessage.textContent = "invalid address.";
+              emailMessage.classList.add("error");
+            }
+            shakeInput();
+            return;
+          }
+
+          submissionInProgress = true;
+          if (emailMessage) {
+            emailMessage.textContent = "";
+            emailMessage.classList.remove("error");
+          }
+
+          // replace with your Formspree URL: https://formspree.io/f/YOUR_ID
+          const endpoint = "https://formspree.io/f/YOUR_ID";
+
+          fetch(endpoint, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+            },
+            body: JSON.stringify({ email: value }),
+          })
+            .then(function (res) {
+              if (!res.ok) throw new Error("Network error");
+              incrementCounter();
+              showFormResult("success", "noted.");
+            })
+            .catch(function () {
+              showFormResult("error", "something failed. try again.");
+            })
+            .finally(function () {
+              submissionInProgress = false;
+            });
+        }
+
+        function initEmailForm() {
+          if (!emailForm || !emailArrow || !emailInput) return;
+
+          if (typeof gsap !== "undefined") {
+            emailArrow.addEventListener("mouseenter", function () {
+              gsap.to(emailArrow, {
+                color: "#aaaaaa",
+                duration: 0.3,
+                ease: "power2.out",
+              });
+            });
+            emailArrow.addEventListener("mouseleave", function () {
+              gsap.to(emailArrow, {
+                color: "#3a3a3a",
+                duration: 0.3,
+                ease: "power2.out",
+              });
+            });
+          }
+
+          emailForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+            submitEmail();
+          });
+
+          emailArrow.addEventListener("click", function () {
+            submitEmail();
+          });
+        }
+
+        /* === LOADER === */
+        function initLoaderDots() {
+          const dots = document.querySelectorAll(".loader-dots .dot");
+          if (!dots.length || typeof gsap === "undefined") return;
+
+          gsap.set(dots, { opacity: 0.15 });
+          const tl = gsap.timeline({ repeat: -1 });
+          tl.to(dots, {
+            opacity: 0.6,
+            duration: 0.8,
+            stagger: 0.25,
+            ease: "sine.inOut",
+          }).to(
+            dots,
+            {
+              opacity: 0.15,
+              duration: 1.0,
+              stagger: 0.25,
+              ease: "sine.inOut",
+            },
+            "<"
+          );
+        }
+
+        /* === ENTRANCE SEQUENCE === */
+        function runEntranceSequence() {
+          if (typeof gsap === "undefined") return;
+
+          const overlay = document.querySelector(".black-overlay");
+          const bg = document.getElementById("bg-canvas");
+          const title = document.querySelector(".title-main");
+          const staggerLines = document.querySelectorAll(".stagger-line");
+          const divider = document.querySelector(".divider-line");
+          const emailWrapper = document.querySelector(".email-form-wrapper");
+
+          const tl = gsap.timeline({ delay: 2.5 });
+
+          tl.to(overlay, {
+            opacity: 0,
+            duration: 1.0,
+            ease: "power2.out",
+            onComplete: function () {
+              overlay.style.display = "none";
+            },
+          })
+            .to(
+              bg,
+              {
+                opacity: 1,
+                duration: 1.0,
+                ease: "power2.out",
+              },
+              "-=0.6"
+            )
+            .fromTo(
+              title,
+              { opacity: 0, y: 10 },
+              { opacity: 1, y: 0, duration: 1.0, ease: "power2.out" },
+              "-=0.4"
+            )
+            .from(
+              staggerLines,
+              {
+                opacity: 0,
+                y: 8,
+                duration: 0.8,
+                stagger: 0.15,
+                ease: "power2.out",
+              },
+              "-=0.3"
+            )
+            .fromTo(
+              divider,
+              { scaleX: 0, opacity: 0 },
+              { scaleX: 1, opacity: 1, duration: 0.6, ease: "power2.out" },
+              "-=0.2"
+            )
+            .to(
+              emailWrapper,
+              {
+                opacity: 1,
+                duration: 0.8,
+                ease: "power2.out",
+              },
+              "-=0.1"
+            );
+        }
+
+        /* === FOOTER HOVER ANIMATION === */
+        function initFooterHover() {
+          const footerLink = document.getElementById("footer-link");
+          if (!footerLink || typeof gsap === "undefined") return;
+
+          footerLink.addEventListener("mouseenter", function () {
+            gsap.to(footerLink, {
+              color: "#666666",
+              duration: 0.5,
+              ease: "power2.out",
+            });
+          });
+
+          footerLink.addEventListener("mouseleave", function () {
+            gsap.to(footerLink, {
+              color: "#1c1c1c",
+              duration: 0.5,
+              ease: "power2.out",
+            });
+          });
+        }
+
+        /* === INIT ALL SYSTEMS === */
+        window.addEventListener("load", function () {
+          const initialCount = loadCounter();
+          updateCounter(initialCount, false);
+          initThree();
+          initCursor();
+          initEmailForm();
+          initLoaderDots();
+          initFooterHover();
+          runEntranceSequence();
+        });
+      })();
+    </script>
+  </body>
+</html>
