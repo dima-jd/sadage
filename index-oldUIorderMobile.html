@@ -288,111 +288,73 @@
     .room-tag { font-size: 9px; letter-spacing: 0.3em; }
     .workspace, .d-library { display: none; }
     .m-stage, .m-place, .m-selprint, .m-library, .m-btns { display: block; }
- 
-    /* Stage — grey background matching mockup */
-    .m-stage {
-      padding: 18px 16px 20px;
-      background: #2e2e2e;
-      border-bottom: 1px solid rgba(0,0,0,0.3);
-    }
-    .m-stage .cap { margin-bottom: 14px; color: #a09e98; }
- 
-    .m-stage-row { display: flex; align-items: flex-start; gap: 10px; }
- 
-    /* Swatches — smaller, tight column */
-    .m-swatches { display: flex; flex-direction: column; gap: 8px; padding-top: 6px; flex-shrink: 0; }
- 
-    .mswatch { width: 32px; height: 32px; cursor: pointer; border: 2px solid rgba(240,237,230,0.15); transition: border-color 0.18s; }
+
+    .m-stage { padding: 18px 20px 0; border-bottom: 1px solid var(--border); }
+    .m-stage .cap { margin-bottom: 14px; }
+
+    .m-stage-row { display: flex; align-items: flex-start; gap: 12px; }
+
+    .m-swatches { display: flex; flex-direction: column; gap: 8px; padding-top: 8px; flex-shrink: 0; }
+
+    .mswatch { width: 52px; height: 52px; cursor: pointer; border: 2px solid rgba(240,237,230,0.12); transition: border-color 0.18s; }
     .mswatch-w { background: #f4f1eb; }
     .mswatch-b { background: #131313; }
     .mswatch.on { border-color: var(--fg); }
- 
-    /* Shirt — fills remaining width, taller */
+
     .m-shirt-area { flex: 1; position: relative; display: flex; justify-content: center; }
- 
-    .m-shirt-wrap { position: relative; width: 100%; height: 380px; user-select: none; }
+
+    .m-shirt-wrap { position: relative; width: 100%; max-width: 310px; height: 310px; user-select: none; }
     .m-shirt-wrap .shirt-img { width: 100%; height: 100%; object-fit: contain; display: block; position: absolute; top: 0; left: 0; transition: opacity 0.35s; }
     .m-shirt-wrap .shirt-img-white { opacity: 1; }
     .m-shirt-wrap .shirt-img-black { opacity: 0; }
     .m-shirt-wrap.black .shirt-img-white { opacity: 0; }
     .m-shirt-wrap.black .shirt-img-black { opacity: 1; }
- 
-    .m-shirt-wrap .print-layer { width: 140px; height: 140px; top: 40%; }
+
+    .m-shirt-wrap .print-layer { width: 108px; height: 108px; top: 50%; }
     .m-shirt-wrap.white .print-img-dark  { opacity: 1; }
     .m-shirt-wrap.white .print-img-light { opacity: 0; }
     .m-shirt-wrap.black .print-img-dark  { opacity: 0; }
     .m-shirt-wrap.black .print-img-light { opacity: 1; }
- 
+
     .m-hint {
-      position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%);
-      font-size: 8px; color: rgba(160,158,152,0.7); letter-spacing: 0.22em;
+      position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%);
+      font-size: 8px; color: var(--muted); letter-spacing: 0.22em;
       text-transform: uppercase; white-space: nowrap; transition: opacity 0.3s;
     }
     .m-hint.off { opacity: 0; }
- 
-    /* Placement — compact inline row, still on grey bg */
-    .m-place {
-      padding: 10px 16px 14px;
-      background: #2e2e2e;
-      border-bottom: 1px solid rgba(0,0,0,0.35);
-    }
-    .m-place-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-    }
-    .m-place-inner .cap { margin: 0; white-space: nowrap; color: #a09e98; }
-    .m-place-tog { flex: 0 0 auto; width: 200px; }
-    .m-place .tog { border-color: rgba(240,237,230,0.15); }
-    .m-place .tog-btn { padding: 8px 10px; font-size: 10px; }
-    .m-place .tog-btn:first-child { border-right-color: rgba(240,237,230,0.15); }
- 
-    /* Selected print */
-    .m-selprint { padding: 20px 16px; border-bottom: 1px solid var(--border); }
+
+    .m-place { padding: 20px 20px; border-bottom: 1px solid var(--border); }
+    .m-place .tog-btn { padding: 12px; font-size: 11px; }
+
+    .m-selprint { padding: 20px 20px; border-bottom: 1px solid var(--border); }
     .m-code {
-      font-family: 'Bebas Neue', sans-serif; font-size: 56px; line-height: 1;
-      letter-spacing: 0.04em; color: var(--fg); min-height: 58px;
+      font-family: 'Bebas Neue', sans-serif; font-size: 52px; line-height: 1;
+      letter-spacing: 0.04em; color: var(--fg); min-height: 54px;
     }
-    .m-code.empty { color: var(--muted); font-size: 28px; line-height: 2; }
- 
-    /* Library */
-    .m-library { padding: 20px 16px 0; background: #060606; border-top: 1px solid var(--border); }
+    .m-code.empty { color: var(--muted); font-size: 28px; line-height: 1.9; }
+
+    .m-library { padding: 20px 20px 0; background: #060606; border-top: 1px solid var(--border); }
     .m-lib-head { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
-    .m-lib-scroll { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; }
+    .m-lib-scroll { display: flex; gap: 10px; overflow-x: auto; scrollbar-width: none; }
     .m-lib-scroll::-webkit-scrollbar { display: none; }
- 
-    /* Thumbnails — large, ~45vw, artwork fills the tile */
+
     .m-pthumb {
-      flex-shrink: 0;
-      width: calc(47vw - 12px);
-      height: calc(47vw - 12px);
+      flex-shrink: 0; width: 168px; height: 168px;
       border: 1px solid var(--border); background: #0f0f0f; cursor: pointer;
       display: flex; flex-direction: column; align-items: center; justify-content: center;
-      transition: border-color 0.18s; position: relative; overflow: hidden;
+      transition: border-color 0.18s, background 0.18s; position: relative; overflow: hidden;
     }
-    .m-pthumb:active { opacity: 0.85; }
-    .m-pthumb.sel { border-color: var(--fg); border-width: 2px; }
-    /* Image fills most of the tile */
-    .m-pthumb img {
-      width: 100%; height: calc(100% - 28px);
-      object-fit: cover; display: block;
-    }
-    .m-pthumb .pcode {
-      font-size: 9px; letter-spacing: 0.14em; color: var(--muted);
-      position: absolute; bottom: 8px;
-    }
- 
-    .m-scroll-track { height: 2px; background: rgba(240,237,230,0.06); margin: 12px 0 0; position: relative; overflow: hidden; }
+    .m-pthumb:active { background: #151515; }
+    .m-pthumb.sel { border-color: var(--fg); }
+    .m-pthumb img { width: 110px; height: 110px; object-fit: contain; display: block; }
+    .m-pthumb .pcode { font-size: 9px; letter-spacing: 0.14em; color: var(--muted); position: absolute; bottom: 10px; }
+
+    .m-scroll-track { height: 2px; background: rgba(240,237,230,0.06); margin: 14px 0 0; position: relative; overflow: hidden; }
     .m-scroll-thumb { position: absolute; left: 0; top: 0; height: 100%; width: 30%; background: rgba(240,237,230,0.22); transition: transform 0.08s linear; }
- 
-    /* Bottom buttons */
-    .m-btns { padding: 12px 16px 36px; display: flex; flex-direction: column; gap: 10px; background: #060606; }
-    .m-btns .btn-r { margin-bottom: 0; padding: 15px; font-size: 11px; }
-    /* Active send button: cream fill, dark text — matching mockup */
-    .m-btns .btn-send { padding: 20px; font-size: 24px; background: #1a1a1a; }
-    .m-btns .btn-send.on { background: #f0ede6; color: #0a0a0a; }
-    .m-btns .btn-send.on:active { background: var(--accent); }
+
+    .m-btns { padding: 14px 20px 32px; display: flex; flex-direction: column; gap: 10px; background: #060606; }
+    .m-btns .btn-r { margin-bottom: 0; padding: 14px; font-size: 11px; }
+    .m-btns .btn-send { padding: 18px; font-size: 22px; }
   }
 </style>
 </head>
@@ -489,17 +451,20 @@
     </div>
   </div>
 </div>
- 
+
 <div class="m-place">
-  <div class="m-place-inner">
-    <span class="cap" style="margin:0">Placement</span>
-    <div class="tog m-place-tog">
-      <button class="tog-btn on" id="mBFr" onclick="setPlace('front')">Front</button>
-      <button class="tog-btn" id="mBBk" onclick="setPlace('back')">Back</button>
-    </div>
+  <div class="cap">Placement</div>
+  <div class="tog">
+    <button class="tog-btn on" id="mBFr" onclick="setPlace('front')">Front</button>
+    <button class="tog-btn" id="mBBk" onclick="setPlace('back')">Back</button>
   </div>
 </div>
- 
+
+<div class="m-selprint">
+  <div class="cap">Selected Print</div>
+  <div class="m-code empty" id="mCode">—</div>
+</div>
+
 <div class="m-library">
   <div class="m-lib-head">
     <span class="cap" style="margin:0">Print Archive</span>
@@ -508,12 +473,7 @@
   <div class="m-lib-scroll" id="mLibScroll"></div>
   <div class="m-scroll-track"><div class="m-scroll-thumb" id="mScrollThumb"></div></div>
 </div>
- 
-<div class="m-selprint">
-  <div class="cap">Selected Print</div>
-  <div class="m-code empty" id="mCode">—</div>
-</div>
- 
+
 <div class="m-btns">
   <button class="btn-r" onclick="reset()">Reset</button>
   <button class="btn-send" id="mBtnSend" onclick="openModal()">Ask SadAge to print this →</button>
