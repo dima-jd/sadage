@@ -614,6 +614,8 @@
   ║  Each item:                                                      ║
   ║    code       — unique reference, e.g. 'MS-001'                ║
   ║    name       — piece name                                      ║
+		cover       — square image used in the grid card              ║
+  ║                recommended: 800×800px JPG, subject centered
   ║    size       — 'S', 'M/L', 'One size', etc.                   ║
   ║    condition  — 'Excellent', 'Good', 'Well-loved', etc.        ║
   ║    material   — fabric or material description                  ║
@@ -637,6 +639,7 @@ const ITEMS = [
   
   {
     code:        'MS-002',
+	cover:       'items/MS-002-cover.jpg',
     name:        'Oversized Denim Shirt',
     size:        'L / XL',
     condition:   'Excellent',
@@ -648,6 +651,7 @@ const ITEMS = [
   },
   {
     code:        'MS-001',
+	cover:       'items/MS-001-cover.jpg',
     name:        'Reworked Leather Jacket',
     size:        'M',
     condition:   'Good',
@@ -659,6 +663,7 @@ const ITEMS = [
   },
   {
     code:        'MS-003',
+	cover:       'items/MS-003-cover.jpg',
     name:        'Military Field Jacket',
     size:        'S / M',
     condition:   'Well-loved',
@@ -666,10 +671,11 @@ const ITEMS = [
     category:    'jacket',
     description: 'Real surplus, not reproduction. Ink marks on the inner pocket. The kind of wear that comes from actual years, not distressing machines.',
     status:      'reserved',
-    photos:      ['items/MS-003-1.jpg']
+    photos:      ['items/MS-003-1.jpg','items/MS-003-2.jpg','items/MS-003-3.jpg','items/MS-003-4.jpg','items/MS-003-5.jpg']
   },
   {
     code:        'MS-004',
+	cover:       'items/MS-004-cover.jpg',
     name:        'Silk Slip Dress',
     size:        'XS / S',
     condition:   'Excellent',
@@ -681,6 +687,7 @@ const ITEMS = [
   },
   {
     code:        'MS-005',
+	cover:       'items/MS-005-cover.jpg',
     name:        'Wool Coach Jacket',
     size:        'M / L',
     condition:   'Good',
@@ -692,6 +699,7 @@ const ITEMS = [
   },
   {
     code:        'MS-006',
+	cover:       'items/MS-006-cover.jpg',
     name:        'Linen Wide Trousers',
     size:        'M',
     condition:   'Good',
@@ -705,7 +713,8 @@ const ITEMS = [
     ADD MORE ITEMS:
   ,{
     code:        'MS-007',
-    name:        '',
+    cover:        '',
+	name:        '',
     size:        '',
     condition:   '',
     material:    '',
@@ -753,10 +762,10 @@ function buildGrid(filter) {
     const card = document.createElement('div');
     card.className = 'card' + (item.status === 'sold' ? ' sold-card' : '');
     card.onclick = () => showItem(item);
-    const hasPhoto = item.photos.length > 0;
+    const hasCover = !!item.cover;
     card.innerHTML = `
-      <div class="card-img-wrap${hasPhoto ? '' : ' no-img'}" data-code="${item.code}">
-        ${hasPhoto ? `<img class="card-img" src="${item.photos[0]}" alt="${item.name}" loading="lazy">` : ''}
+      <div class="card-img-wrap${hasCover ? '' : ' no-img'}" data-code="${item.code}">
+        ${hasCover ? `<img class="card-img" src="${item.cover}" alt="${item.name}" loading="lazy">` : ''}
       </div>
       <div class="card-info">
         <div class="card-name">${item.name}</div>
