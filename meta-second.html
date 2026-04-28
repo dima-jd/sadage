@@ -954,12 +954,12 @@ function copyMessage() {
 }
 
 function openIG() {
-  window.open(`https://ig.me/m/{IG_HANDLE}`, '_blank');
+  window.open(`https://ig.me/m/${IG_HANDLE}`, '_blank');
 }
-
+ 
 /* ════ INIT ════ */
 buildGrid('all');
-
+ 
 /* handle direct URL with hash */
 if (location.hash) {
   const code = location.hash.slice(1);
