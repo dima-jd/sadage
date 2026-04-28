@@ -259,45 +259,7 @@
   .m-actions { display: flex; gap: 10px; margin-top: 22px; }
   
   
-  /* Confirm checkbox */
-  .m-confirm-check {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    margin-top: 18px;
-    cursor: pointer;
-    user-select: none;
-  }
-  .m-confirm-check input[type="checkbox"] { display: none; }
-  .m-check-box {
-    flex-shrink: 0;
-    width: 16px; height: 16px;
-    border: 1px solid var(--border-h);
-    background: transparent;
-    display: flex; align-items: center; justify-content: center;
-    margin-top: 1px;
-    transition: border-color 0.18s, background 0.18s;
-  }
-  .m-confirm-check input:checked + .m-check-box {
-    background: var(--fg);
-    border-color: var(--fg);
-  }
-  .m-confirm-check input:checked + .m-check-box::after {
-    content: '';
-    display: block;
-    width: 4px; height: 7px;
-    border: 2px solid var(--bg);
-    border-top: none; border-left: none;
-    transform: rotate(45deg) translate(-1px, -1px);
-  }
-  .m-check-text {
-    font-size: 9px;
-    line-height: 1.6;
-    letter-spacing: 0.1em;
-    color: var(--muted);
-    text-transform: uppercase;
-  }
-  .m-confirm-check:hover .m-check-box { border-color: var(--fg); }
+  .modal-note { font-size: 8px; color: var(--muted); letter-spacing: 0.14em; text-transform: uppercase; text-align: center; margin-top: 12px; line-height: 1.7; }
 
   .btn-confirm {
     flex: 1; padding: 13px; background: var(--fg); border: none; color: var(--bg);
@@ -472,13 +434,7 @@
   <div class="stage">
     <div class="shirt-wrap white front" id="dShirtWrap">
 
-      <!--
-        ╔══════════════════════════════════════════════════════╗
-        ║  SHIRT IMAGES — replace src with your PNG files     ║
-        ║  Put your files in the same folder as this HTML,    ║
-        ║  or use a subfolder: e.g. images/tshirt-white.png   ║
-        ╚══════════════════════════════════════════════════════╝
-      -->
+      
       <img class="shirt-img s-white-front" src="images/tshirt-white-front.png" alt="White T-shirt front">
       <img class="shirt-img s-white-back"  src="images/tshirt-white-back.png"  alt="White T-shirt back">
       <img class="shirt-img s-black-front" src="images/tshirt-black-front.png" alt="Black T-shirt front">
@@ -604,29 +560,14 @@
       <div class="ff"><label>Placement</label><input id="fPlace" type="text" readonly></div>
     </div>
     <div class="form-grid"><div class="ff full"><label>Your name</label><input id="fName" type="text" placeholder="—"></div></div>
-    <div class="form-grid"><div class="ff full"><label>Your Instagram handle</label><input id="fContact" type="text" placeholder="@username"></div></div>
     <div class="form-grid"><div class="ff full"><label>Comment</label><textarea id="fComment" placeholder="Any notes, references, adjustments..."></textarea></div></div>
  
-    <label class="m-confirm-check" id="confirmLabel">
-      <input type="checkbox" id="fConfirm" onchange="toggleConfirm()">
-      <span class="m-check-box" id="checkBox"></span>
-      <span class="m-check-text">I understand that pressing "Send Request" will open Instagram DM — all I need to do is tap the message field and paste</span>
-    </label>
- 
     <div class="m-actions">
-      <button class="btn-confirm" id="btnConfirm" onclick="send()">Send Request →</button>
+      <button class="btn-confirm" onclick="send()">Send via WhatsApp →</button>
       <button class="btn-cx" onclick="closeModal()">Cancel</button>
     </div>
+    <div class="modal-note">Opens WhatsApp with your order details already filled in</div>
   </div>
-</div>
- 
-<div class="sent" id="sentScreen">
-  <div class="sent-big">Copied.</div>
-  <div class="sent-note">Your order details are in your clipboard</div>
-  <div class="sent-ref" id="sentRef"></div>
-  <div class="sent-paste-note">Instagram is opening — just paste and send</div>
-  <button class="sent-copy-again" id="btnCopyAgain" onclick="copyAgain()">Copy again</button>
-  <button class="sent-back" onclick="hideSent()">← back to print room</button>
 </div>
 
 
@@ -910,84 +851,46 @@ function reset() {
   ['dHint','mHint'].forEach(id => document.getElementById(id).classList.remove('off'));
 }
 
-function toggleConfirm() {
-  const checked = document.getElementById('fConfirm').checked;
-  const btn = document.getElementById('btnConfirm');
-  btn.style.opacity = checked ? '1' : '0.35';
-  btn.style.pointerEvents = checked ? 'all' : 'none';
-}
+/*
+  ── Replace with your WhatsApp number ──
+  International format, no + no spaces: e.g. 972501234567
+*/
+const WA_NUMBER = '972504432225';
+ 
+function toggleConfirm() {} /* no longer needed, kept to avoid errors if called */
  
 function openModal() {
   if (!sel) return;
   document.getElementById('fPrint').value = sel.code;
   document.getElementById('fColor').value = color.toUpperCase();
   document.getElementById('fPlace').value = (place==='front'?'Front':'Back') + ' / Center';
-  /* reset checkbox each time modal opens */
-  document.getElementById('fConfirm').checked = false;
-  const btn = document.getElementById('btnConfirm');
-  btn.style.opacity = '0.35';
-  btn.style.pointerEvents = 'none';
   document.getElementById('modalBg').classList.add('open');
 }
-
+ 
 function closeModal() { document.getElementById('modalBg').classList.remove('open'); }
-
-function buildMessage() {
+ 
+function send() {
   const name    = document.getElementById('fName').value || '—';
-  const contact = document.getElementById('fContact').value || '—';
   const size    = document.getElementById('fSize').value;
-  const comment = document.getElementById('fComment').value || '—';
-  return `Hi SadAge! Print request:
+  const comment = document.getElementById('fComment').value || '';
+ 
+  const msg =
+`Hi SadAge! Print request:
  
 Print:     ${sel.code}
 T-shirt:   ${color.toUpperCase()}
 Size:      ${size}
 Placement: ${place} / center
-—
-From:    ${name}
-IG:      ${contact}
-Comment: ${comment}`;
-}
+Name:      ${name}${comment ? `\nComment:   ${comment}` : ''}
  
-let lastMessage = '';
+Can you confirm availability?`;
  
-function send() {
-  lastMessage = buildMessage();
-  navigator.clipboard.writeText(lastMessage).catch(() => {
-    /* fallback for browsers that block clipboard without interaction */
-    const ta = document.createElement('textarea');
-    ta.value = lastMessage;
-    ta.style.position = 'fixed'; ta.style.opacity = '0';
-    document.body.appendChild(ta); ta.select();
-    document.execCommand('copy');
-    document.body.removeChild(ta);
-  });
-
-	const size = document.getElementById('fSize').value;
   closeModal();
- 
-  document.getElementById('sentRef').textContent = `${sel.code} · ${color.toUpperCase()} · ${size}`;
-  document.getElementById('sentScreen').classList.add('show');
- 
-  /* ── Replace with your SadAge Instagram username ── */
-  setTimeout(() => window.open('https://ig.me/m/sad_age.enterprise', '_blank'), 600);
+  window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
 }
  
-function copyAgain() {
-  if (!lastMessage) return;
-  navigator.clipboard.writeText(lastMessage).catch(() => {
-    const ta = document.createElement('textarea');
-    ta.value = lastMessage; ta.style.position='fixed'; ta.style.opacity='0';
-    document.body.appendChild(ta); ta.select(); document.execCommand('copy');
-    document.body.removeChild(ta);
-  });
-  const btn = document.getElementById('btnCopyAgain');
-  btn.textContent = 'Copied ✓';
-  setTimeout(() => { btn.textContent = 'Copy again'; }, 2000);
-}
-
-function hideSent() { document.getElementById('sentScreen').classList.remove('show'); }
-
+function hideSent() {}
+ 
 document.getElementById('modalBg').addEventListener('click', e => {
   if (e.target === document.getElementById('modalBg')) closeModal();
 });
