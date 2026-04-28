@@ -737,7 +737,7 @@ const ITEMS = [
 ];
 
 /* ── Replace with your SadAge Instagram handle ── */
-const IG_HANDLE = 'yoursadagehandle';
+const IG_HANDLE = 'sad_age.enterprise';
 
 /* ════ STATE ════ */
 let activeFilter = 'all';
@@ -954,7 +954,7 @@ function copyMessage() {
 }
 
 function openIG() {
-  setTimeout(() => window.open('https://ig.me/m/sad_age.enterprise', '_blank'), 600);
+  window.open(`https://ig.me/m/{IG_HANDLE}`, '_blank');
 }
 
 /* ════ INIT ════ */
