@@ -421,44 +421,22 @@
     letter-spacing: 0.04em;
   }
 
-  .item-actions {
-    margin-top: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding-top: 20px;
-    border-top: 1px solid var(--border);
-  }
-
-  .btn-copy {
-    width: 100%; padding: 15px;
-    background: transparent;
-    border: 1px solid var(--border-h);
-    color: var(--fg);
-    font-family: 'Space Mono', monospace;
-    font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
-    cursor: pointer; transition: all 0.18s;
-  }
-  .btn-copy:hover { background: rgba(240,237,230,0.05); border-color: var(--fg); }
-  .btn-copy.done { border-color: var(--avail); color: var(--avail); }
-
-  .btn-ig {
-    width: 100%; padding: 16px;
-    background: var(--fg);
-    border: none;
-    color: var(--bg);
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 20px; letter-spacing: 0.1em;
+  /* Action buttons */
+  .item-actions { margin-top: auto; display: flex; flex-direction: column; gap: 10px; padding-top: 20px; border-top: 1px solid var(--border); }
+ 
+  .btn-wa {
+    width: 100%; padding: 17px;
+    background: var(--wa); border: none; color: #fff;
+    font-family: 'Bebas Neue', sans-serif; font-size: 21px; letter-spacing: 0.1em;
     cursor: pointer; transition: background 0.18s;
+    display: flex; align-items: center; justify-content: center; gap: 10px;
   }
-  .btn-ig:hover { background: var(--accent); }
-  .btn-ig:disabled { opacity: 0.3; pointer-events: none; }
-
-  .action-note {
-    font-size: 8px; color: var(--muted);
-    letter-spacing: 0.14em; text-transform: uppercase;
-    text-align: center; line-height: 1.7;
-  }
+  .btn-wa:hover { background: #1ebe5d; }
+  .btn-wa:disabled { opacity: 0.25; pointer-events: none; }
+ 
+  .btn-wa-icon { font-size: 18px; line-height: 1; }
+ 
+  .action-note { font-size: 8px; color: var(--muted); letter-spacing: 0.14em; text-transform: uppercase; text-align: center; line-height: 1.7; }
 
   /* sold overlay on detail */
   .sold-banner {
@@ -613,10 +591,12 @@
       <div class="item-desc" id="detailDesc"></div>
 
       <div class="item-actions">
-        <button class="btn-copy" id="btnCopy" onclick="copyMessage()">Copy item message</button>
-        <button class="btn-ig" id="btnIG" onclick="openIG()">Open Instagram DM →</button>
+        <button class="btn-wa" id="btnWA" onclick="openWA()">
+          <span class="btn-wa-icon">💬</span>
+          Ask about this piece
+        </button>
         <div class="action-note" id="actionNote">
-          Copy the message, then paste it in the DM field
+          Opens WhatsApp with the item details already filled in
         </div>
       </div>
 
@@ -736,47 +716,46 @@ const ITEMS = [
   */
 ];
 
-/* ── Replace with your SadAge Instagram handle ── */
-const IG_HANDLE = 'sad_age.enterprise';
+/*
+  ╔══════════════════════════════════════════════════════════════════╗
+  ║  CONFIGURATION                                                  ║
+  ║                                                                  ║
+  ║  WA_NUMBER — your WhatsApp number in international format,      ║
+  ║              no spaces, no + sign, no dashes                    ║
+  ║              e.g. Israel +972 50 123 4567 → '972501234567'      ║
+  ╚══════════════════════════════════════════════════════════════════╝
+*/
+const WA_NUMBER = '972504432225'; /* ← replace with your number */
 
 /* ════ STATE ════ */
 let activeFilter = 'all';
 let currentItem  = null;
 let galleryIndex = 0;
-
+ 
 /* ════ GRID ════ */
 function buildGrid(filter) {
   const grid  = document.getElementById('itemGrid');
   const empty = document.getElementById('gridEmpty');
-
-  /* clear existing cards */
   document.querySelectorAll('.card').forEach(c => c.remove());
-
+ 
   const filtered = filter === 'all'
     ? ITEMS
     : ITEMS.filter(i => i.status === filter || i.category === filter);
-
+ 
   document.getElementById('gridCount').textContent =
     `${filtered.length} item${filtered.length !== 1 ? 's' : ''}`;
-
-  if (filtered.length === 0) {
-    empty.style.display = 'block';
-    return;
-  }
+ 
+  if (filtered.length === 0) { empty.style.display = 'block'; return; }
   empty.style.display = 'none';
-
+ 
   filtered.forEach(item => {
     const card = document.createElement('div');
     card.className = 'card' + (item.status === 'sold' ? ' sold-card' : '');
     card.onclick = () => showItem(item);
-
     const hasPhoto = item.photos.length > 0;
-
     card.innerHTML = `
       <div class="card-img-wrap${hasPhoto ? '' : ' no-img'}" data-code="${item.code}">
-        ${hasPhoto
-          ? `<img class="card-img" src="${item.photos[0]}" alt="${item.name}" loading="lazy">`
-          : ''}
+        ${hasPhoto ? `<img class="card-img" src="${item.photos[0]}" alt="${item.name}" loading="lazy">` : ''}
       </div>
       <div class="card-info">
         <div class="card-name">${item.name}</div>
@@ -785,185 +764,131 @@ function buildGrid(filter) {
           <span class="status-dot ${item.status}">${item.status}</span>
         </div>
       </div>`;
-
     grid.appendChild(card);
   });
 }
-
+ 
 function setFilter(btn, filter) {
   document.querySelectorAll('.flt').forEach(b => b.classList.remove('on'));
   btn.classList.add('on');
-  activeFilter = filter;
   buildGrid(filter);
 }
-
+ 
 /* ════ ITEM DETAIL ════ */
 function showItem(item) {
   currentItem  = item;
   galleryIndex = 0;
-
-  /* populate fields */
-  document.getElementById('detailCode').textContent     = item.code;
-  document.getElementById('detailName').textContent     = item.name;
-  document.getElementById('detailSize').textContent     = item.size;
+ 
+  document.getElementById('detailCode').textContent      = item.code;
+  document.getElementById('detailName').textContent      = item.name;
+  document.getElementById('detailSize').textContent      = item.size;
   document.getElementById('detailCondition').textContent = item.condition;
   document.getElementById('detailMaterial').textContent  = item.material;
   document.getElementById('detailCategory').textContent  = item.category.charAt(0).toUpperCase() + item.category.slice(1);
   document.getElementById('detailDesc').textContent      = item.description;
-
-  /* status badge */
+ 
   const badge = document.getElementById('detailStatus');
-  badge.textContent  = item.status;
-  badge.className    = 'item-status-badge ' + item.status;
-
-  /* sold banner */
-  document.getElementById('soldBanner').classList.toggle('show', item.status === 'sold');
-
-  /* action buttons */
+  badge.textContent = item.status;
+  badge.className   = 'item-status-badge ' + item.status;
+ 
   const isSold = item.status === 'sold';
-  document.getElementById('btnCopy').disabled = isSold;
-  document.getElementById('btnIG').disabled   = isSold;
+  document.getElementById('soldBanner').classList.toggle('show', isSold);
+  document.getElementById('btnWA').disabled = isSold;
   document.getElementById('actionNote').textContent = isSold
-    ? 'This piece is no longer available'
-    : 'Copy the message, then paste it in the DM field';
-  document.getElementById('btnCopy').classList.remove('done');
-
-  /* gallery */
+    ? 'This piece has found its person'
+    : 'Opens WhatsApp with the item details already filled in';
+ 
   buildGallery(item);
-
-  /* switch views */
+ 
   document.getElementById('viewGrid').style.display = 'none';
   document.getElementById('viewItem').style.display = 'block';
   window.scrollTo(0, 0);
-
-  /* push hash for browser back support */
   history.pushState({ itemCode: item.code }, '', '#' + item.code);
 }
-
+ 
 function showGrid() {
   document.getElementById('viewItem').style.display = 'none';
   document.getElementById('viewGrid').style.display = 'block';
   history.pushState(null, '', window.location.pathname);
   window.scrollTo(0, 0);
 }
-
-/* Browser back button */
+ 
 window.addEventListener('popstate', e => {
   if (!e.state || !e.state.itemCode) showGrid();
 });
-
+ 
 /* ════ GALLERY ════ */
 function buildGallery(item) {
   const main   = document.getElementById('galleryMain');
   const thumbs = document.getElementById('galleryThumbs');
   const ph     = document.getElementById('galleryPlaceholder');
-
-  /* remove old images */
+ 
   main.querySelectorAll('.gallery-main-img').forEach(el => el.remove());
   thumbs.innerHTML = '';
-
+ 
   if (item.photos.length === 0) {
-    ph.textContent = item.code;
-    ph.style.display = 'flex';
+    ph.textContent = item.code; ph.style.display = 'flex';
     document.getElementById('galleryCounter').textContent = '';
     return;
   }
-
   ph.style.display = 'none';
-
+ 
   item.photos.forEach((src, i) => {
-    /* main image */
     const img = document.createElement('img');
     img.className = 'gallery-main-img' + (i === 0 ? ' on' : '');
     img.src = src; img.alt = item.name;
     main.insertBefore(img, main.querySelector('.gallery-nav'));
-
-    /* thumbnail */
+ 
     const t = document.createElement('img');
     t.className = 'g-thumb' + (i === 0 ? ' on' : '');
     t.src = src; t.alt = '';
     t.onclick = () => setGallery(i);
     thumbs.appendChild(t);
   });
-
-  updateGalleryCounter();
+  updateCounter();
 }
-
+ 
 function setGallery(i) {
-  const item = currentItem;
-  if (!item || item.photos.length === 0) return;
-  galleryIndex = (i + item.photos.length) % item.photos.length;
-  document.querySelectorAll('.gallery-main-img').forEach((el, j) => {
-    el.classList.toggle('on', j === galleryIndex);
-  });
-  document.querySelectorAll('.g-thumb').forEach((el, j) => {
-    el.classList.toggle('on', j === galleryIndex);
-  });
-  updateGalleryCounter();
+  if (!currentItem || !currentItem.photos.length) return;
+  galleryIndex = (i + currentItem.photos.length) % currentItem.photos.length;
+  document.querySelectorAll('.gallery-main-img').forEach((el, j) => el.classList.toggle('on', j === galleryIndex));
+  document.querySelectorAll('.g-thumb').forEach((el, j) => el.classList.toggle('on', j === galleryIndex));
+  updateCounter();
 }
-
 function galleryNext() { setGallery(galleryIndex + 1); }
 function galleryPrev() { setGallery(galleryIndex - 1); }
-
-function updateGalleryCounter() {
-  const item = currentItem;
-  if (!item) return;
-  const n = item.photos.length;
-  document.getElementById('galleryCounter').textContent =
-    n > 1 ? `${galleryIndex + 1} / ${n}` : '';
+function updateCounter() {
+  const n = currentItem.photos.length;
+  document.getElementById('galleryCounter').textContent = n > 1 ? `${galleryIndex + 1} / ${n}` : '';
 }
-
-/* Touch swipe on gallery */
-let touchStartX = 0;
-document.getElementById('galleryMain').addEventListener('touchstart', e => {
-  touchStartX = e.touches[0].clientX;
-}, { passive: true });
-document.getElementById('galleryMain').addEventListener('touchend', e => {
-  const dx = e.changedTouches[0].clientX - touchStartX;
-  if (Math.abs(dx) > 40) dx < 0 ? galleryNext() : galleryPrev();
-});
-
-/* ════ ACTIONS ════ */
-function buildMessage() {
+ 
+/* Swipe */
+let tx = 0;
+document.getElementById('galleryMain').addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, { passive: true });
+document.getElementById('galleryMain').addEventListener('touchend',   e => { const dx = e.changedTouches[0].clientX - tx; if (Math.abs(dx) > 40) dx < 0 ? galleryNext() : galleryPrev(); });
+ 
+/* ════ WHATSAPP ════ */
+function openWA() {
   const i = currentItem;
-  return `Hi SadAge! I'm interested in this piece:
-
-Item:      ${i.code}
-Name:      ${i.name}
-Size:      ${i.size}
+  const msg =
+`Hi SadAge! I'm interested in this piece:
+ 
+Item: ${i.code}
+Name: ${i.name}
+Size: ${i.size}
 Condition: ${i.condition}
-—
-Could you tell me more / confirm availability?`;
-}
-
-function copyMessage() {
-  const msg = buildMessage();
-  navigator.clipboard.writeText(msg).catch(() => {
-    const ta = document.createElement('textarea');
-    ta.value = msg; ta.style.position = 'fixed'; ta.style.opacity = '0';
-    document.body.appendChild(ta); ta.select(); document.execCommand('copy');
-    document.body.removeChild(ta);
-  });
-  const btn = document.getElementById('btnCopy');
-  btn.textContent = 'Copied ✓';
-  btn.classList.add('done');
-  setTimeout(() => {
-    btn.textContent = 'Copy item message';
-    btn.classList.remove('done');
-  }, 2500);
-}
-
-function openIG() {
-  window.open(`https://ig.me/m/${IG_HANDLE}`, '_blank');
+ 
+Is it still available?`;
+ 
+  const url = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
+  window.open(url, '_blank');
 }
  
 /* ════ INIT ════ */
 buildGrid('all');
  
-/* handle direct URL with hash */
 if (location.hash) {
-  const code = location.hash.slice(1);
-  const item = ITEMS.find(i => i.code === code);
+  const item = ITEMS.find(i => i.code === location.hash.slice(1));
   if (item) showItem(item);
 }
 </script>
