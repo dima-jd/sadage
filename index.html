@@ -3,19 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SadAge — Print Room</title>
+<title>SadAge — Meta Second</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --bg: #3f3f3f;
-    --fg: #f0ede6;
-    --muted: #c5b071;
-    --accent: #c4b49a;
-    --border: rgba(240,237,230,0.07);
+    --bg:       #0a0a0a;
+    --fg:       #f0ede6;
+    --muted:    #5e5c56;
+    --accent:   #c4b49a;
+    --border:   rgba(240,237,230,0.07);
     --border-h: rgba(240,237,230,0.18);
+    --avail:    #7a9e7e;
+    --reserved: #b8935a;
+    --sold:     #3e3d3a;
+	--wa:       #25d366;
   }
 
   html, body { height: 100%; }
@@ -28,394 +32,465 @@
     overflow-x: hidden;
   }
 
+  /* ── Header ── */
   header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 14px 40px 12px;
     border-bottom: 1px solid var(--border);
-    position: relative;
+    position: sticky;
     top: 0;
     background: var(--bg);
-    z-index: 10;
+    z-index: 20;
   }
- 
+
   .header-left { display: flex; flex-direction: column; gap: 3px; }
   .brand { font-family: 'Bebas Neue', sans-serif; font-size: 26px; letter-spacing: 0.1em; line-height: 1; }
-  .room-tag { font-size: 9px; color: var(--accent); letter-spacing: 0.24em; text-transform: uppercase; line-height: 1; }
- 
+  .page-tag { font-size: 9px; color: var(--accent); letter-spacing: 0.24em; text-transform: uppercase; line-height: 1; }
+
   .header-link {
     font-size: 10px; color: var(--muted);
     letter-spacing: 0.22em; text-transform: uppercase;
     text-decoration: none; transition: color 0.18s;
   }
   .header-link:hover { color: var(--fg); }
-  
-  .cap {
-    font-size: 9px;
-    letter-spacing: 0.24em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 10px;
+
+  /* ════════════════════
+     GRID VIEW
+  ════════════════════ */
+  #viewGrid { display: block; }
+  #viewItem { display: none; }
+
+  .grid-header {
+    padding: 32px 40px 20px;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border);
   }
 
-  .tog { display: flex; border: 1px solid var(--border); }
-  .tog-btn {
-    flex: 1; padding: 9px 12px;
-    background: transparent; border: none; cursor: pointer;
-    font-family: 'Space Mono', monospace; font-size: 10px;
-    letter-spacing: 0.16em; color: var(--muted);
-    transition: all 0.18s; text-transform: uppercase;
-  }
-  .tog-btn:first-child { border-right: 1px solid var(--border); }
-  .tog-btn.on { background: var(--fg); color: var(--bg); }
-
-  .btn-r {
-    width: 100%; padding: 11px;
-    background: transparent; border: 1px solid var(--border); color: var(--muted);
-    font-family: 'Space Mono', monospace; font-size: 10px;
-    letter-spacing: 0.16em; text-transform: uppercase;
-    cursor: pointer; transition: all 0.18s; margin-bottom: 8px;
-  }
-  .btn-r:hover { border-color: var(--border-h); color: var(--fg); }
-
-  .btn-send {
-    width: 100%; padding: 15px;
-    background: var(--fg); border: none; color: var(--bg);
-    font-family: 'Bebas Neue', sans-serif; font-size: 19px; letter-spacing: 0.12em;
-    cursor: pointer; transition: background 0.18s, opacity 0.18s;
-    opacity: 0.25; pointer-events: none;
-  }
-  .btn-send.on { opacity: 1; pointer-events: all; }
-  .btn-send.on:hover { background: var(--accent); }
-
-  /* ══ DESKTOP ══ */
-  .workspace {
-    display: grid;
-    grid-template-columns: 1fr 320px;
-    height: calc(100vh - 62px - 160px);
-    min-height: 460px;
-  }
-
-  .stage {
-    display: flex; align-items: center; justify-content: center;
-    border-right: 1px solid var(--border); padding: 40px; position: relative;
-  }
-
-  /* ── Shirt container – holds photo + print layer ── */
-  .shirt-wrap {
-    position: relative;
-    width: 340px; height: 400px;
-    user-select: none;
-  }
-
-  /*
-   * ── SHIRT IMAGES ──────────────────────────────────────────
-   * Replace the src values below with your own PNG files.
-   * Images should be PNG with transparent background.
-   * Recommended size: 800×950px or similar portrait ratio.
-   * ──────────────────────────────────────────────────────────
-   */
-  .shirt-img {
-    width: 100%; height: 100%;
-    object-fit: contain;
-    display: block;
-    transition: opacity 0.35s ease;
-    position: absolute;
-    top: 0; left: 0;
-	opacity: 0;
-  }
-
-  /* Only one of the 4 images visible at a time */
-  .shirt-wrap.white.front .s-white-front { opacity: 1; }
-  .shirt-wrap.white.back  .s-white-back  { opacity: 1; }
-  .shirt-wrap.black.front .s-black-front { opacity: 1; }
-  .shirt-wrap.black.back  .s-black-back  { opacity: 1; }
- 
-  /*
-   * ── PRINT OVERLAY ─────────────────────────────────────────
-   * top-front / top-back: adjust to match your shirt photos.
-   * front chest is typically ~38-42% from top.
-   * back yoke is typically ~30-36% from top.
-   * ──────────────────────────────────────────────────────────
-   */
-  .print-layer {
-    position: absolute;
-    width: 140px; height: 140px;
-    top: var(--print-top, 38%);
-    left: 50%;
-    transform: translate(-50%, -50%);
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 0.4s ease, top 0.35s ease;
-  }
-  .print-layer.on { opacity: 1; }
- 
-  .shirt-wrap.front { --print-top: 50%; }
-  .shirt-wrap.back  { --print-top: 43%; }
- 
-  /* ── Print image inside overlay ── */
-  .print-img {
-    width: 100%; height: 100%;
-    object-fit: contain;
-    display: block;
-    position: absolute;
-    top: 0; left: 0;
-    transition: opacity 0.25s;
-  }
-
-  /* Show dark version on white shirt, light version on black shirt */
-  .shirt-wrap.white .print-img-dark  { opacity: 1; }
-  .shirt-wrap.white .print-img-light { opacity: 0; }
-  .shirt-wrap.black .print-img-dark  { opacity: 0; }
-  .shirt-wrap.black .print-img-light { opacity: 1; }
-
-  .hint {
-    position: absolute; bottom: 12px; left: 50%;
-    transform: translateX(-50%);
-    font-size: 9px; color: var(--muted); letter-spacing: 0.22em;
-    text-transform: uppercase; white-space: nowrap; transition: opacity 0.3s;
-  }
-  .hint.off { opacity: 0; }
-
-  .panel {
-    padding: 36px 28px 28px;
-    display: flex; flex-direction: column; gap: 28px;
-  }
-
-  .code-big {
+  .grid-title {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 60px; line-height: 1; letter-spacing: 0.04em; color: var(--fg); min-height: 62px;
-  }
-  .code-big.empty { color: var(--muted); font-size: 36px; line-height: 1.7; }
-
-  .spacer { flex: 1; }
-
-  /* Desktop library */
-  .d-library { border-top: 1px solid var(--border); padding: 20px 40px 24px; background: #060606; }
-
-  .lib-head { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
-
-  .lib-scroll {
-    display: flex; gap: 10px; overflow-x: auto; padding-bottom: 6px;
-    scrollbar-width: thin; scrollbar-color: #222 transparent;
+    font-size: 48px;
+    letter-spacing: 0.06em;
+    line-height: 1;
   }
 
-  .pthumb {
-    flex-shrink: 0; width: 96px; height: 96px;
-    border: 1px solid var(--border); background: #adadad; cursor: pointer;
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    transition: border-color 0.18s, background 0.18s; position: relative; overflow: hidden;
+  .grid-count {
+    font-size: 9px;
+    color: var(--muted);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
   }
-  .pthumb:hover { border-color: var(--border-h); background: #151515; }
-  .pthumb.sel { border-color: var(--fg); }
 
-  /* Thumbnail preview image */
-  .pthumb img {
-    width: 64px; height: 64px;
+  .grid-intro {
+    padding: 18px 40px;
+    font-size: 10px;
+    line-height: 1.9;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    border-bottom: 1px solid var(--border);
+    max-width: 640px;
+  }
+
+  /* Filter bar */
+  .filter-bar {
+    padding: 14px 40px;
+    display: flex;
+    gap: 6px;
+    border-bottom: 1px solid var(--border);
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .filter-bar::-webkit-scrollbar { display: none; }
+
+  .flt {
+    padding: 6px 14px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--muted);
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.18s;
+    flex-shrink: 0;
+  }
+  .flt:hover { border-color: var(--border-h); color: var(--fg); }
+  .flt.on { border-color: var(--fg); color: var(--fg); background: rgba(240,237,230,0.05); }
+
+  /* Item grid */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border-top: 1px solid var(--border);
+  }
+
+  .card {
+    background: var(--bg);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 1;
+    transition: background 0.2s;
+  }
+  .card:hover { background: #111; }
+  .card:hover .card-img { transform: scale(1.03); }
+
+  .card-img-wrap {
+    width: 100%; height: 72%;
+    overflow: hidden;
+    background: #111;
+  }
+
+  .card-img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+
+  /* placeholder when no image */
+  .card-img-wrap.no-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .card-img-wrap.no-img::after {
+    content: attr(data-code);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    letter-spacing: 0.08em;
+    color: #222;
+  }
+
+  .card-info {
+    padding: 10px 12px 8px;
+    height: 28%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .card-name {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--fg);
+    line-height: 1.3;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+
+  .card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 4px;
+  }
+
+  .card-size {
+    font-size: 8px;
+    color: var(--muted);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .status-dot {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 8px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  .status-dot::before {
+    content: '';
+    display: block;
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .status-dot.available { color: var(--avail); }
+  .status-dot.available::before { background: var(--avail); }
+  .status-dot.reserved { color: var(--reserved); }
+  .status-dot.reserved::before { background: var(--reserved); }
+  .status-dot.sold { color: var(--sold); }
+  .status-dot.sold::before { background: var(--sold); }
+
+  /* sold overlay */
+  .card.sold-card .card-img-wrap { filter: grayscale(1) brightness(0.4); }
+  .card.sold-card .card-name { color: var(--muted); text-decoration: line-through; text-decoration-color: var(--sold); }
+
+  /* empty state */
+  .grid-empty {
+    grid-column: 1 / -1;
+    padding: 80px 40px;
+    text-align: center;
+    font-size: 9px;
+    color: var(--muted);
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    display: none;
+  }
+
+  /* ════════════════════
+     ITEM DETAIL VIEW
+  ════════════════════ */
+  #viewItem {
+    min-height: calc(100vh - 62px);
+  }
+
+  .item-back {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 40px;
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+    background: transparent;
+    border-left: none; border-right: none; border-top: none;
+    color: var(--muted);
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    transition: color 0.18s;
+    width: 100%;
+    text-align: left;
+  }
+  .item-back:hover { color: var(--fg); }
+  .item-back-arrow { font-size: 14px; line-height: 1; }
+
+  .item-layout {
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    min-height: calc(100vh - 62px - 49px);
+  }
+
+  /* Gallery */
+  .item-gallery {
+    position: sticky;
+    top: 62px;
+    height: calc(100vh - 62px);
+    background: #0d0d0d;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .gallery-main {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  .gallery-main-img {
+    width: 100%; height: 100%;
     object-fit: contain;
     display: block;
+    position: absolute;
+    top: 0; left: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
   }
+  .gallery-main-img.on { opacity: 1; }
 
-  .pthumb .pcode {
-    font-size: 7.5px; letter-spacing: 0.12em; color: var(--muted);
-    position: absolute; bottom: 6px;
-  }
-
-  /* Mobile-only hidden on desktop */
-  .m-stage, .m-place, .m-selprint, .m-library, .m-btns { display: none; }
-
-  /* ══ MODAL ══ */
-  .modal-bg {
-    position: fixed; inset: 0; background: rgba(0,0,0,0.88);
+  /* placeholder */
+  .gallery-placeholder {
+    width: 100%; height: 100%;
     display: flex; align-items: center; justify-content: center;
-    opacity: 0; pointer-events: none; transition: opacity 0.28s; z-index: 50;
-  }
-  .modal-bg.open { opacity: 1; pointer-events: all; }
-
-  .modal {
-    background: #0f0f0f; border: 1px solid rgba(240,237,230,0.12);
-    padding: 36px; width: 460px; max-width: 92vw; max-height: 90vh; overflow-y: auto;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 64px; letter-spacing: 0.06em; color: #1a1a1a;
   }
 
-  .m-title { font-family: 'Bebas Neue', sans-serif; font-size: 30px; letter-spacing: 0.08em; margin-bottom: 4px; }
-  .m-sub { font-size: 9px; color: var(--muted); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 28px; }
-
-  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
-  .ff { display: flex; flex-direction: column; gap: 5px; }
-  .ff.full { grid-column: 1 / -1; }
-  .ff label { font-size: 8px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); }
-
-  .ff input, .ff select, .ff textarea {
-    background: #060606; border: 1px solid var(--border); color: var(--fg);
-    font-family: 'Space Mono', monospace; font-size: 11px; padding: 9px 10px;
-    outline: none; width: 100%; transition: border-color 0.18s; appearance: none;
+  .gallery-nav {
+    position: absolute;
+    top: 50%; transform: translateY(-50%);
+    display: flex; justify-content: space-between;
+    width: 100%; padding: 0 16px;
+    pointer-events: none;
   }
-  .ff input:focus, .ff select:focus, .ff textarea:focus { border-color: rgba(240,237,230,0.28); }
-  .ff textarea { resize: vertical; min-height: 72px; }
-  .ff select { cursor: pointer; }
-  select option { background: #0f0f0f; }
 
-  .m-actions { display: flex; gap: 10px; margin-top: 22px; }
-  
-  
-  .modal-note { font-size: 8px; color: var(--muted); letter-spacing: 0.14em; text-transform: uppercase; text-align: center; margin-top: 12px; line-height: 1.7; }
+  .gallery-btn {
+    pointer-events: all;
+    background: rgba(10,10,10,0.7);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-family: 'Space Mono', monospace;
+    font-size: 16px; line-height: 1;
+    width: 36px; height: 36px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    transition: all 0.18s;
+  }
+  .gallery-btn:hover { color: var(--fg); border-color: var(--border-h); }
 
-  .btn-confirm {
-    flex: 1; padding: 13px; background: var(--fg); border: none; color: var(--bg);
-    font-family: 'Bebas Neue', sans-serif; font-size: 17px; letter-spacing: 0.12em;
+  .gallery-counter {
+    position: absolute;
+    bottom: 14px; right: 16px;
+    font-size: 8px; color: var(--muted); letter-spacing: 0.16em;
+  }
+
+  .gallery-thumbs {
+    display: flex;
+    gap: 2px;
+    padding: 8px;
+    background: #080808;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .gallery-thumbs::-webkit-scrollbar { display: none; }
+
+  .g-thumb {
+    flex-shrink: 0;
+    width: 56px; height: 56px;
+    object-fit: cover;
+    cursor: pointer;
+    opacity: 0.4;
+    transition: opacity 0.18s;
+    border: 1px solid transparent;
+  }
+  .g-thumb.on { opacity: 1; border-color: var(--fg); }
+
+  /* Item details panel */
+  .item-details {
+    padding: 36px 36px 48px;
+    border-left: 1px solid var(--border);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .item-code-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .item-code {
+    font-size: 9px;
+    color: var(--muted);
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+
+  .item-status-badge {
+    font-size: 8px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border: 1px solid;
+  }
+  .item-status-badge.available { color: var(--avail); border-color: var(--avail); }
+  .item-status-badge.reserved  { color: var(--reserved); border-color: var(--reserved); }
+  .item-status-badge.sold      { color: var(--sold); border-color: var(--sold); }
+
+  .item-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 44px;
+    letter-spacing: 0.04em;
+    line-height: 1.05;
+  }
+
+  .item-specs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px 20px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 20px 0;
+  }
+
+  .spec { display: flex; flex-direction: column; gap: 4px; }
+  .spec-label { font-size: 8px; color: var(--muted); letter-spacing: 0.22em; text-transform: uppercase; }
+  .spec-value { font-size: 11px; color: var(--fg); letter-spacing: 0.08em; }
+
+  .item-desc {
+    font-size: 11px;
+    line-height: 1.9;
+    color: rgba(240,237,230,0.7);
+    letter-spacing: 0.04em;
+  }
+
+  /* Action buttons */
+  .item-actions { margin-top: auto; display: flex; flex-direction: column; gap: 10px; padding-top: 20px; border-top: 1px solid var(--border); }
+ 
+  .btn-wa {
+    width: 100%; padding: 17px;
+    background: var(--wa); border: none; color: #fff;
+    font-family: 'Bebas Neue', sans-serif; font-size: 21px; letter-spacing: 0.1em;
     cursor: pointer; transition: background 0.18s;
+    display: flex; align-items: center; justify-content: center; gap: 10px;
   }
-  .btn-confirm:hover { background: var(--accent); }
+  .btn-wa:hover { background: #1ebe5d; }
+  .btn-wa:disabled { opacity: 0.25; pointer-events: none; }
+ 
+  .btn-wa-icon { font-size: 18px; line-height: 1; }
+ 
+  .action-note { font-size: 8px; color: var(--muted); letter-spacing: 0.14em; text-transform: uppercase; text-align: center; line-height: 1.7; }
 
-  .btn-cx {
-    padding: 13px 18px; background: transparent; border: 1px solid var(--border); color: var(--muted);
-    font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.16em;
-    text-transform: uppercase; cursor: pointer; transition: all 0.18s;
+  /* sold overlay on detail */
+  .sold-banner {
+    background: rgba(62,61,58,0.25);
+    border: 1px solid var(--sold);
+    padding: 10px 16px;
+    font-size: 9px; color: var(--sold);
+    letter-spacing: 0.2em; text-transform: uppercase;
+    text-align: center;
+    display: none;
   }
-  .btn-cx:hover { border-color: var(--border-h); color: var(--fg); }
+  .sold-banner.show { display: block; }
 
-  /* ══ SENT ══ */
-  .sent {
-    position: fixed; inset: 0; background: var(--bg);
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    gap: 10px; opacity: 0; pointer-events: none; transition: opacity 0.38s; z-index: 100;
-  }
-  .sent.show { opacity: 1; pointer-events: all; }
-  .sent-big { font-family: 'Bebas Neue', sans-serif; font-size: 90px; letter-spacing: 0.04em; line-height: 1; }
-  .sent-note { font-size: 10px; color: var(--muted); letter-spacing: 0.22em; text-transform: uppercase; }
-  .sent-ref { font-size: 10px; color: var(--accent); letter-spacing: 0.14em; margin-top: 4px; }
-  .sent-back {
-    margin-top: 28px; background: transparent; border: 1px solid var(--border); color: var(--muted);
-    font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.18em;
-    text-transform: uppercase; padding: 11px 22px; cursor: pointer; transition: all 0.18s;
-  }
-  .sent-back:hover { border-color: var(--border-h); color: var(--fg); }
-  .sent-paste-note { font-size: 10px; color: var(--accent); letter-spacing: 0.16em; text-transform: uppercase; margin-top: 10px; }
-  .sent-copy-again {
-    margin-top: 6px; background: transparent; border: 1px solid var(--border); color: var(--muted);
-    font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.18em;
-    text-transform: uppercase; padding: 9px 18px; cursor: pointer; transition: all 0.18s;
-  }
-  .sent-copy-again:hover { border-color: var(--border-h); color: var(--fg); }
-
-  /* ════════════════════════
+  /* ════════════════════
      MOBILE  ≤ 720px
-  ════════════════════════ */
+  ════════════════════ */
   @media (max-width: 720px) {
-   header { padding: 12px 16px; }
+    header { padding: 12px 16px; }
     .brand { font-size: 22px; }
-    .room-tag { font-size: 8px; letter-spacing: 0.28em; }
+    .page-tag { font-size: 8px; }
     .header-link { font-size: 9px; letter-spacing: 0.18em; }
-    .workspace, .d-library { display: none; }
-    .m-stage, .m-place, .m-selprint, .m-library, .m-btns { display: block; }
- 
-    /* Stage — grey background matching mockup */
-    .m-stage {
-      padding: 18px 16px 0px;
-      background: #2e2e2e;
-      border-bottom: 1px solid rgba(0,0,0,0.3);
+
+    .grid-header { padding: 20px 16px 14px; }
+    .grid-title { font-size: 36px; }
+    .grid-intro { padding: 14px 16px; font-size: 10px; }
+    .filter-bar { padding: 12px 16px; }
+
+    .grid { grid-template-columns: repeat(2, 1fr); }
+
+    .card-info { padding: 8px 10px 6px; }
+    .card-name { font-size: 9px; }
+
+    /* Item detail — stacked */
+    .item-back { padding: 12px 16px; }
+    .item-layout { grid-template-columns: 1fr; }
+
+    .item-gallery {
+      position: relative;
+      top: 0;
+      height: 100vw;
     }
-    .m-stage .cap { margin-bottom: 14px; color: #a09e98; }
- 
-    .m-stage-row { display: flex; align-items: flex-start; gap: 10px; }
- 
-    /* Swatches — smaller, tight column */
-    .m-swatches { display: flex; flex-direction: column; gap: 8px; padding-top: 6px; flex-shrink: 0; }
- 
-    .mswatch { width: 32px; height: 32px; cursor: pointer; border: 2px solid rgba(240,237,230,0.15); transition: border-color 0.18s; }
-    .mswatch-w { background: #f4f1eb; }
-    .mswatch-b { background: #131313; }
-    .mswatch.on { border-color: var(--fg); }
- 
-    /* Shirt — fills remaining width, taller */
-    .m-shirt-area { flex: 1; position: relative; display: flex; justify-content: center; }
- 
-    .m-shirt-wrap { position: relative; width: 100%; height: 380px; user-select: none; }
-    .m-shirt-wrap .shirt-img { width: 100%; height: 100%; object-fit: contain; display: block; position: absolute; top: 0; left: 0; transition: opacity 0.35s; opacity: 0; }
-    .m-shirt-wrap.white.front .s-white-front { opacity: 1; }
-    .m-shirt-wrap.white.back  .s-white-back  { opacity: 1; }
-    .m-shirt-wrap.black.front .s-black-front { opacity: 1; }
-    .m-shirt-wrap.black.back  .s-black-back  { opacity: 1; }
- 
-    .m-shirt-wrap .print-layer { width: 140px; height: 140px; top: var(--print-top, 38%); transition: opacity 0.4s ease, top 0.35s ease; }
-    .m-shirt-wrap.front { --print-top: 50%; }
-    .m-shirt-wrap.back  { --print-top: 43%; }
-    .m-shirt-wrap.white .print-img-dark  { opacity: 1; }
-    .m-shirt-wrap.white .print-img-light { opacity: 0; }
-    .m-shirt-wrap.black .print-img-dark  { opacity: 0; }
-    .m-shirt-wrap.black .print-img-light { opacity: 1; }
- 
-    .m-hint {
-      position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%);
-      font-size: 8px; color: rgba(160,158,152,0.7); letter-spacing: 0.22em;
-      text-transform: uppercase; white-space: nowrap; transition: opacity 0.3s;
+
+    .gallery-main { height: 72vw; }
+
+    .item-details {
+      padding: 24px 16px 40px;
+      border-left: none;
+      border-top: 1px solid var(--border);
+      gap: 20px;
     }
-    .m-hint.off { opacity: 0; }
- 
-    /* Placement — compact inline row, still on grey bg */
-    .m-place {
-      padding: 10px 16px 14px;
-      background: #2e2e2e;
-      border-bottom: 1px solid rgba(0,0,0,0.35);
-    }
-    .m-place-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-    }
-    .m-place-inner .cap { margin: 0; white-space: nowrap; color: #a09e98; }
-    .m-place-tog { flex: 0 0 auto; width: 200px; }
-    .m-place .tog { border-color: rgba(240,237,230,0.15); }
-    .m-place .tog-btn { padding: 8px 10px; font-size: 10px; }
-    .m-place .tog-btn:first-child { border-right-color: rgba(240,237,230,0.15); }
- 
-    /* Selected print */
-    .m-selprint { padding: 20px 16px; background: #060606; border-bottom: 1px solid var(--border); }
-    .m-code {
-      font-family: 'Bebas Neue', sans-serif; font-size: 56px; line-height: 1;
-      letter-spacing: 0.04em; color: var(--fg); min-height: 58px;
-    }
-    .m-code.empty { color: var(--muted); font-size: 28px; line-height: 2; }
- 
-    /* Library */
-    .m-library { padding: 20px 16px 0; background: #060606; border-top: 1px solid var(--border); }
-    .m-lib-head { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
-    .m-lib-scroll { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; }
-    .m-lib-scroll::-webkit-scrollbar { display: none; }
- 
-    /* Thumbnails — large, ~45vw, artwork fills the tile */
-    .m-pthumb {
-      flex-shrink: 0;
-      width: calc(47vw - 12px);
-      height: calc(47vw - 12px);
-      border: 1px solid var(--border); background: #dbdbdb; cursor: pointer;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      transition: border-color 0.18s; position: relative; overflow: hidden;
-    }
-    .m-pthumb:active { opacity: 0.85; }
-    .m-pthumb.sel { border-color: var(--fg); border-width: 2px; }
-    /* Image fills most of the tile */
-    .m-pthumb img {
-      width: 100%; height: calc(100%);
-      object-fit: cover; display: block;
-    }
-    .m-pthumb .pcode {
-      font-size: 9px; letter-spacing: 0.14em; color: var(--muted);
-      position: absolute; bottom: 8px;
-    }
- 
-    .m-scroll-track { height: 2px; background: rgba(240,237,230,0.06); margin: 12px 0 0; position: relative; overflow: hidden; }
-    .m-scroll-thumb { position: absolute; left: 0; top: 0; height: 100%; width: 30%; background: rgba(240,237,230,0.22); transition: transform 0.08s linear; }
- 
-    /* Bottom buttons */
-    .m-btns { padding: 12px 16px 36px; display: flex; flex-direction: column; gap: 10px; background: #060606; }
-    .m-btns .btn-r { margin-bottom: 0; padding: 15px; font-size: 11px; }
-    /* Active send button: cream fill, dark text — matching mockup */
-    .m-btns .btn-send { padding: 20px; font-size: 24px; background: #1a1a1a; }
-    .m-btns .btn-send.on { background: #f0ede6; color: #0a0a0a; }
-    .m-btns .btn-send.on:active { background: var(--accent); }
+
+    .item-name { font-size: 36px; }
+    .item-specs { grid-template-columns: 1fr 1fr; gap: 12px 16px; }
   }
 </style>
 </head>
@@ -424,149 +499,110 @@
 <header>
   <div class="header-left">
     <span class="brand">SadAge</span>
-    <span class="room-tag">Print Room</span>
+    <span class="page-tag">Meta Second</span>
   </div>
-  <a class="header-link" href="meta-second.html">Go to Meta Second</a>
+  <a class="header-link" href="print-room.html">Go to Print Room</a>
 </header>
 
-<!-- ════ DESKTOP ════ -->
-<div class="workspace">
-  <div class="stage">
-    <div class="shirt-wrap white front" id="dShirtWrap">
 
-      
-      <img class="shirt-img s-white-front" src="images/tshirt-white-front.png" alt="White T-shirt front">
-      <img class="shirt-img s-white-back"  src="images/tshirt-white-back.png"  alt="White T-shirt back">
-      <img class="shirt-img s-black-front" src="images/tshirt-black-front.png" alt="Black T-shirt front">
-      <img class="shirt-img s-black-back"  src="images/tshirt-black-back.png"  alt="Black T-shirt back">
-	  
-      <div class="print-layer" id="dPrintLayer">
-        <!--
-          Two versions of each print sit here.
-          dark  = shown on white shirt (your print in dark ink)
-          light = shown on black shirt (your print in light/white ink)
-        -->
-        <img class="print-img print-img-dark"  id="dPrintDark"  src="" alt="">
-        <img class="print-img print-img-light" id="dPrintLight" src="" alt="">
-      </div>
+<!-- ════ GRID VIEW ════ -->
+<div id="viewGrid">
 
-      <span class="hint" id="dHint">← select a print</span>
-    </div>
+  <div class="grid-header">
+    <div class="grid-title">Archive</div>
+    <div class="grid-count" id="gridCount">— items</div>
   </div>
 
-  <div class="panel">
-    <div>
-      <div class="cap">Selected print</div>
-      <div class="code-big empty" id="dCode">—</div>
-    </div>
-    <div>
-      <div class="cap">Garment color</div>
-      <div class="tog">
-        <button class="tog-btn on" id="dBW" onclick="setColor('white')">White</button>
-        <button class="tog-btn" id="dBB" onclick="setColor('black')">Black</button>
-      </div>
-    </div>
-    <div>
-      <div class="cap">Placement</div>
-      <div class="tog">
-        <button class="tog-btn on" id="dBFr" onclick="setPlace('front')">Front</button>
-        <button class="tog-btn" id="dBBk" onclick="setPlace('back')">Back</button>
-      </div>
-    </div>
-    <div class="spacer"></div>
-    <div>
-      <button class="btn-r" onclick="reset()">Reset</button>
-      <button class="btn-send" id="dBtnSend" onclick="openModal()">Ask SadAge to print this →</button>
-    </div>
+  <div class="grid-intro">
+    This is a small SadAge second-hand interface. Each piece exists in one version only. Open an item, check the photos, copy the item message and write us on WhatsApp.
   </div>
-</div>
 
-<div class="d-library">
-  <div class="lib-head">
-    <span class="cap" style="margin:0">Print archive</span>
-    <span style="font-size:9px;color:var(--muted);letter-spacing:.12em">— scroll →</span>
+  <div class="filter-bar">
+    <button class="flt on" data-filter="all" onclick="setFilter(this,'all')">All</button>
+    <button class="flt" data-filter="available" onclick="setFilter(this,'available')">Available</button>
+    <button class="flt" data-filter="reserved" onclick="setFilter(this,'reserved')">Reserved</button>
+    <button class="flt" data-filter="sold" onclick="setFilter(this,'sold')">Sold</button>
+    <button class="flt" data-filter="jacket" onclick="setFilter(this,'jacket')">Jackets</button>
+    <button class="flt" data-filter="top" onclick="setFilter(this,'top')">Tops</button>
+    <button class="flt" data-filter="bottom" onclick="setFilter(this,'bottom')">Bottoms</button>
+	<button class="flt" data-filter="other" onclick="setFilter(this,'other')">Other</button>
   </div>
-  <div class="lib-scroll" id="dLibScroll"></div>
+
+  <div class="grid" id="itemGrid">
+    <div class="grid-empty" id="gridEmpty">No items in this category yet</div>
+  </div>
+
 </div>
 
 
-<!-- ════ MOBILE ════ -->
-<div class="m-stage">
-  <div class="cap">Garment Color</div>
-  <div class="m-stage-row">
-    <div class="m-swatches">
-      <div class="mswatch mswatch-w on" id="mSwW" onclick="setColor('white')"></div>
-      <div class="mswatch mswatch-b" id="mSwB" onclick="setColor('black')"></div>
-    </div>
-    <div class="m-shirt-area">
-      <div class="m-shirt-wrap white front" id="mShirtWrap">
-        <img class="shirt-img s-white-front" src="images/tshirt-white-front.png" alt="White T-shirt front">
-        <img class="shirt-img s-white-back"  src="images/tshirt-white-back.png"  alt="White T-shirt back">
-        <img class="shirt-img s-black-front" src="images/tshirt-black-front.png" alt="Black T-shirt front">
-        <img class="shirt-img s-black-back"  src="images/tshirt-black-back.png"  alt="Black T-shirt back">
-        <div class="print-layer" id="mPrintLayer">
-          <img class="print-img print-img-dark"  id="mPrintDark"  src="" alt="">
-          <img class="print-img print-img-light" id="mPrintLight" src="" alt="">
+<!-- ════ ITEM DETAIL VIEW ════ -->
+<div id="viewItem">
+
+  <button class="item-back" onclick="showGrid()">
+    <span class="item-back-arrow">←</span>
+    <span>Back to Archive</span>
+  </button>
+
+  <div class="item-layout">
+
+    <!-- Gallery -->
+    <div class="item-gallery">
+      <div class="gallery-main" id="galleryMain" onclick="galleryNext()">
+        <div class="gallery-placeholder" id="galleryPlaceholder"></div>
+        <!-- images injected by JS -->
+        <div class="gallery-nav">
+          <button class="gallery-btn" onclick="event.stopPropagation();galleryPrev()">←</button>
+          <button class="gallery-btn" onclick="event.stopPropagation();galleryNext()">→</button>
         </div>
-        <span class="m-hint" id="mHint">← SELECT A PRINT</span>
+        <div class="gallery-counter" id="galleryCounter"></div>
       </div>
+      <div class="gallery-thumbs" id="galleryThumbs"></div>
     </div>
-  </div>
-  <div class="m-place">
-    <div class="m-place-inner">
-      <span class="cap" style="margin:0">Placement</span>
-      <div class="tog m-place-tog">
-        <button class="tog-btn on" id="mBFr" onclick="setPlace('front')">Front</button>
-        <button class="tog-btn" id="mBBk" onclick="setPlace('back')">Back</button>
-      </div>
-    </div>
-  </div>
-</div>
- 
-<div class="m-library">
-  <div class="m-lib-head">
-    <span class="cap" style="margin:0">Print Archive</span>
-    <span style="font-size:9px;color:var(--muted);letter-spacing:.12em">— scroll →</span>
-  </div>
-  <div class="m-lib-scroll" id="mLibScroll"></div>
-  <div class="m-scroll-track"><div class="m-scroll-thumb" id="mScrollThumb"></div></div>
-</div>
- 
-<div class="m-selprint">
-  <div class="cap">Selected Print</div>
-  <div class="m-code empty" id="mCode">—</div>
-</div>
- 
-<div class="m-btns">
-  <button class="btn-r" onclick="reset()">Reset</button>
-  <button class="btn-send" id="mBtnSend" onclick="openModal()">Ask SadAge to print this →</button>
-</div>
 
+    <!-- Details -->
+    <div class="item-details">
 
-<!-- ════ MODAL ════ -->
-<div class="modal-bg" id="modalBg">
-  <div class="modal">
-    <div class="m-title">Print Request</div>
-    <div class="m-sub">SadAge Print Room — your selection</div>
-    <div class="form-grid">
-      <div class="ff"><label>Print code</label><input id="fPrint" type="text" readonly></div>
-      <div class="ff"><label>T-shirt color</label><input id="fColor" type="text" readonly></div>
-    </div>
-    <div class="form-grid">
-      <div class="ff">
-        <label>Size</label>
-        <select id="fSize"><option>XS</option><option>S</option><option selected>M</option><option>L</option><option>XL</option><option>XXL</option></select>
+      <div class="item-code-row">
+        <span class="item-code" id="detailCode"></span>
+        <span class="item-status-badge" id="detailStatus"></span>
       </div>
-      <div class="ff"><label>Placement</label><input id="fPlace" type="text" readonly></div>
+
+      <div class="sold-banner" id="soldBanner">This piece has found its person</div>
+
+      <div class="item-name" id="detailName"></div>
+
+      <div class="item-specs">
+        <div class="spec">
+          <span class="spec-label">Size</span>
+          <span class="spec-value" id="detailSize"></span>
+        </div>
+        <div class="spec">
+          <span class="spec-label">Condition</span>
+          <span class="spec-value" id="detailCondition"></span>
+        </div>
+        <div class="spec">
+          <span class="spec-label">Material</span>
+          <span class="spec-value" id="detailMaterial"></span>
+        </div>
+        <div class="spec">
+          <span class="spec-label">Category</span>
+          <span class="spec-value" id="detailCategory"></span>
+        </div>
+      </div>
+
+      <div class="item-desc" id="detailDesc"></div>
+
+      <div class="item-actions">
+        <button class="btn-wa" id="btnWA" onclick="openWA()">
+          <span class="btn-wa-icon">💬</span>
+          Ask about this piece
+        </button>
+        <div class="action-note" id="actionNote">
+          Opens WhatsApp with the item details already filled in
+        </div>
+      </div>
+
     </div>
-    <div class="form-grid"><div class="ff full"><label>Your name</label><input id="fName" type="text" placeholder="—"></div></div>
-    <div class="form-grid"><div class="ff full"><label>Comment</label><textarea id="fComment" placeholder="Any notes, references, adjustments..."></textarea></div></div>
- 
-    <div class="m-actions">
-      <button class="btn-confirm" onclick="send()">Send via WhatsApp →</button>
-      <button class="btn-cx" onclick="closeModal()">Cancel</button>
-    </div>
-    <div class="modal-note">Opens WhatsApp with your order details already filled in</div>
   </div>
 </div>
 
@@ -574,326 +610,599 @@
 <script>
 /*
   ╔══════════════════════════════════════════════════════════════════╗
-  ║  PRINTS — ADD YOUR OWN DESIGNS HERE                             ║
+  ║  ITEMS — ADD YOUR PIECES HERE                                   ║
   ║                                                                  ║
-  ║  Each print needs:                                               ║
-  ║    code  — the print reference shown in the UI (e.g. 'SA-037') ║
-  ║    dark  — path to PNG shown on WHITE shirt (dark ink version)  ║
-  ║    light — path to PNG shown on BLACK shirt (light ink version) ║
-  ║    thumb — path to thumbnail shown in the library               ║
+  ║  Each item:                                                      ║
+  ║    code       — unique reference, e.g. 'MS-001'                ║
+  ║    name       — piece name                                      ║
+		cover       — square image used in the grid card              ║
+  ║                recommended: 800×800px JPG, subject centered
+  ║    size       — 'S', 'M/L', 'One size', etc.                   ║
+  ║    condition  — 'Excellent', 'Good', 'Well-loved', etc.        ║
+  ║    material   — fabric or material description                  ║
+  ║    category   — used for filtering: 'jacket','top','bottom'    ║
+  ║    description — free text, shown on item page                  ║
+  ║    status     — 'available' | 'reserved' | 'sold'              ║
+  ║    photos     — array of image paths (can be empty [])         ║
+  ║                 e.g. ['items/MS-001-1.jpg','items/MS-001-2.jpg']║
   ║                                                                  ║
   ║  FILE STRUCTURE:                                                 ║
   ║    /your-folder/                                                 ║
-  ║      index.html          ← this file                            ║
-  ║      images/                                                     ║
-  ║        tshirt-white.png  ← white tee photo, transparent bg      ║
-  ║        tshirt-black.png  ← black tee photo, transparent bg      ║
-  ║      prints/                                                     ║
-  ║        SA-037-dark.png   ← print for white shirt                ║
-  ║        SA-037-light.png  ← print for black shirt                ║
-  ║        SA-037-thumb.png  ← small preview (96×96 or 200×200px)  ║
+  ║      meta-second.html   ← this file                            ║
+  ║      items/                                                      ║
+  ║        MS-001-1.jpg                                              ║
+  ║        MS-001-2.jpg                                              ║
+  ║        MS-002-1.jpg                                              ║
   ║        ...                                                       ║
-  ║                                                                  ║
-  ║  THUMBNAIL TIP:                                                  ║
-  ║    You can use the same file for thumb and dark if you want.     ║
-  ║    Or make a separate smaller version.                           ║
-  ║                                                                  ║
-  ║  COLOR INVERSION:                                                ║
-  ║    dark  = your print as it will be printed on a white shirt     ║
-  ║            (e.g. black ink on white) — use PNG with             ║
-  ║            transparent background                                ║
-  ║    light = same design but in white/light ink version —          ║
-  ║            for the black shirt preview                           ║
-  ║    These are TWO SEPARATE FILES you prepare in your studio.      ║
   ╚══════════════════════════════════════════════════════════════════╝
 */
-const PRINTS = [
+const ITEMS = [
+  
   {
-    code:  'SA-001',
-    dark:  'prints/SA-001-dark.png',
-    light: 'prints/SA-001-light.png',
-    thumb: 'prints/SA-001-thumb.png'
+    code:        'MS-002',
+	cover:       'items/MS-002-cover.jpg',
+    name:        'Reworked Technical Jacket',
+    size:        'S / M',
+    condition:   'Excellent',
+    material:    'lightweight nylon',
+    category:    'jacket',
+    description: 'Black technical shell jacket reworked with gold SadAge graphics and large-scale back artwork.',
+    status:      'sold',
+    photos:      ['items/MS-002-1.jpg', 'items/MS-002-2.jpg', 'items/MS-002-3.jpg', 'items/MS-002-4.jpg', 'items/MS-002-5.jpg', 'items/MS-002-6.jpg', 'items/MS-002-7.jpg', 'items/MS-002-8.jpg']
   },
   {
-    code:  'SA-002',
-    dark:  'prints/SA-002-dark.png',
-    light: 'prints/SA-002-light.png',
-    thumb: 'prints/SA-002-thumb.png'
+    code:        'MS-001',
+	cover:       'items/MS-001-cover.jpg',
+    name:        'Vintage ASICS Windbreaker',
+    size:        'M',
+    condition:   'Good',
+    material:    'lightweight nylon',
+    category:    'jacket',
+    description: 'Bright red vintage ASICS windbreaker reworked with custom SadAge graphics and experimental prints.',
+    status:      'reserved',
+    photos:      ['items/MS-001-1.jpg', 'items/MS-001-2.jpg', 'items/MS-001-3.jpg', 'items/MS-001-4.jpg', 'items/MS-001-5.jpg']
   },
   {
-    code:  'SA-003',
-    dark:  'prints/SA-003-dark.png',
-    light: 'prints/SA-003-light.png',
-    thumb: 'prints/SA-003-thumb.png'
+    code:        'MS-003',
+	cover:       'items/MS-003-cover.jpg',
+    name:        'Graphic Trench Coat',
+    size:        'L',
+    condition:   'Excellent',
+    material:    'Cotton canvas, polyester lining',
+    category:    'jacket',
+    description: 'Black technical shell jacket reworked with gold SadAge graphics and large-scale back artwork.',
+    status:      'sold',
+    photos:      ['items/MS-003-1.jpg','items/MS-003-2.jpg','items/MS-003-3.jpg','items/MS-003-4.jpg','items/MS-003-5.jpg']
   },
   {
-    code:  'SA-004',
-    dark:  'prints/SA-004-dark.png',
-    light: 'prints/SA-004-light.png',
-    thumb: 'prints/SA-004-thumb.png'
+    code:        'MS-004',
+	cover:       'items/MS-004-cover.jpg',
+    name:        'Reworked Graphic Coat',
+    size:        'M / L',
+    condition:   'Excellent',
+    material:    'Cotton / poly blend',
+    category:    'jacket',
+    description: 'Beige lightweight coat reworked with SadAge collage graphics and text elements.',
+    status:      'available',
+    photos:      ['items/MS-004-1.jpg', 'items/MS-004-2.jpg', 'items/MS-004-3.jpg', 'items/MS-004-4.jpg', 'items/MS-004-5.jpg', 'items/MS-004-6.jpg', 'items/MS-004-7.jpg', 'items/MS-004-8.jpg', 'items/MS-004-9.jpg', 'items/MS-004-10.jpg', 'items/MS-004-11.jpg']
   },
   {
-    code:  'SA-005',
-    dark:  'prints/SA-005-dark.png',
-    light: 'prints/SA-005-light.png',
-    thumb: 'prints/SA-005-thumb.png'
+    code:        'MS-005',
+	cover:       'items/MS-005-cover.jpg',
+    name:        'Dickies Bleached Work Shirt',
+    size:        'M / L',
+    condition:   'Good',
+    material:    'Cotton / poly blend',
+    category:    'top',
+    description: 'Short sleeve Dickies work shirt reworked with SadAge graphics and heavy bleach treatment.',
+    status:      'available',
+    photos:      ['items/MS-005-1.jpg','items/MS-005-2.jpg','items/MS-005-3.jpg','items/MS-005-4.jpg','items/MS-005-5.jpg','items/MS-005-6.jpg','items/MS-005-7.jpg']
   },
   {
-    code:  'SA-006',
-    dark:  'prints/SA-006-dark.png',
-    light: 'prints/SA-006-light.png',
-    thumb: 'prints/SA-006-thumb.png'
+    code:        'MS-006',
+	cover:       'items/MS-006-cover.jpg',
+    name:        'Black Fade Distressed Denim Jeans',
+    size:        'L / XL',
+    condition:   'Excellent',
+    material:    'Denim',
+    category:    'bottom',
+    description: 'Reworked denim jeans featuring heavy black bleach treatment.',
+    status:      'available',
+    photos:      ['items/MS-006-1.jpg','items/MS-006-2.jpg','items/MS-006-3.jpg','items/MS-006-4.jpg','items/MS-006-5.jpg','items/MS-006-6.jpg','items/MS-006-7.jpg']
   },
   {
-    code:  'SA-007',
-    dark:  'prints/SA-007-dark.png',
-    light: 'prints/SA-007-light.png',
-    thumb: 'prints/SA-007-thumb.png'
+    code:        'MS-007',
+	cover:       'items/MS-007-cover.jpg',
+    name:        'Reworked Anorak',
+    size:        'M',
+    condition:   'Good',
+    material:    'Nylon / poly blend',
+    category:    'jacket',
+    description: 'Black and pink half-zip anorak reworked with SadAge graphics and bold text elements.',
+    status:      'sold',
+    photos:      ['items/MS-007-1.jpg','items/MS-007-2.jpg','items/MS-007-3.jpg','items/MS-007-4.jpg','items/MS-007-5.jpg','items/MS-007-6.jpg','items/MS-007-7.jpg','items/MS-007-8.jpg']
   },
   {
-    code:  'SA-008',
-    dark:  'prints/SA-008-dark.png',
-    light: 'prints/SA-008-light.png',
-    thumb: 'prints/SA-008-thumb.png'
+    code:        'MS-008',
+	cover:       'items/MS-008-cover.jpg',
+    name:        'Graphic Denim Jeans',
+    size:        'S / M',
+    condition:   'Excellent',
+    material:    'Denim',
+    category:    'bottom',
+    description: 'Strong one-of-one statement piece rooted in experimental streetwear. Bleached denim jeans reworked with SadAge collage graphics and large-scale printed imagery.',
+    status:      'available',
+    photos:      ['items/MS-008-1.jpg','items/MS-008-2.jpg','items/MS-008-3.jpg','items/MS-008-4.jpg','items/MS-008-5.jpg','items/MS-008-6.jpg']
   },
   {
-    code:  'SA-009',
-    dark:  'prints/SA-009-dark.png',
-    light: 'prints/SA-009-light.png',
-    thumb: 'prints/SA-009-thumb.png'
+    code:        'MS-009',
+	cover:       'items/MS-009-cover.jpg',
+    name:        'Reworked SadAge Graphic Robe Coat',
+    size:        'L / XL',
+    condition:   'Excellent',
+    material:    'Cotton / cotton-blend',
+    category:    'jacket',
+    description: 'Black robe-style coat reworked with extensive SadAge graphics with strong conceptual identity',
+	status:      'available',
+    photos:      ['items/MS-009-1.jpg','items/MS-009-2.jpg','items/MS-009-3.jpg','items/MS-009-4.jpg','items/MS-009-5.jpg','items/MS-009-6.jpg']
   },
   {
-    code:  'SA-010',
-    dark:  'prints/SA-010-dark.png',
-    light: 'prints/SA-010-light.png',
-    thumb: 'prints/SA-010-thumb.png'
+    code:        'MS-010',
+    cover:        'items/MS-010-cover.jpg',
+	name:        'Berghaus Waterproof Jacket',
+    size:        'M',
+    condition:   'Excellent',
+    material:    'Waterproof technical shell',
+    category:    'jacket',
+    description: 'Berghaus waterproof shell jacket reworked with SadAge graphics and large back artwork. The vibrant pink technical fabric contrasts with the dark graphic print, turning a functional outdoor jacket into a bold visual statement.',
+    status:      'available',
+    photos:      ['items/MS-010-1.jpg','items/MS-010-2.jpg','items/MS-010-3.jpg','items/MS-010-4.jpg','items/MS-010-5.jpg','items/MS-010-6.jpg']
   },
   {
-    code:  'SA-011',
-    dark:  'prints/SA-011-dark.png',
-    light: 'prints/SA-011-light.png',
-    thumb: 'prints/SA-011-thumb.png'
+    code:        'MS-011',
+    cover:        'items/MS-011-cover.jpg',
+	name:        'Reworked Wrangler SadAge Graphic Shirt',
+    size:        'L',
+    condition:   'Well-loved',
+    material:    'Cotton',
+    category:    'top',
+    description: 'Vintage Wrangler button-up shirt reworked with SadAge visual language. Features bleach/burn-style dye treatment. A balance between classic workwear structure and chaotic, expressive print intervention.',
+    status:      'available',
+    photos:      ['items/MS-011-1.jpg','items/MS-011-2.jpg','items/MS-011-3.jpg','items/MS-011-4.jpg','items/MS-011-5.jpg']
   },
   {
-    code:  'SA-012',
-    dark:  'prints/SA-012-dark.png',
-    light: 'prints/SA-012-light.png',
-    thumb: 'prints/SA-012-thumb.png'
+    code:        'MS-012',
+    cover:        'items/MS-012-cover.jpg',
+	name:        'Reworked SadAge White Graphic Shirt',
+    size:        'M / L',
+    condition:   'Excellent',
+    material:    'Cotton',
+    category:    'top',
+    description: 'White button-up shirt reworked with contrasting dual-panel graphics on the front. A minimal yet concept-driven piece balancing naive expression and structured symbolism.',
+    status:      'reserved',
+    photos:      ['items/MS-012-1.jpg','items/MS-012-2.jpg','items/MS-012-3.jpg','items/MS-012-4.jpg','items/MS-012-5.jpg']
   },
   {
-    code:  'SA-013',
-    dark:  'prints/SA-013-dark.png',
-    light: 'prints/SA-013-light.png',
-    thumb: 'prints/SA-013-thumb.png'
+    code:        'MS-013',
+    cover:        'items/MS-013-cover.jpg',
+	name:        'Reworked SadAge White Bone Graphic Shirt',
+    size:        'L / XL',
+    condition:   'Good',
+    material:    'Cotton',
+    category:    'top',
+    description: 'White button-up shirt with restrained SadAge intervention. Front features a bold anatomical bone print and subtle “SadAge” chest marking, while the side introduces a partially hidden graphic portrait. Back remains mostly clean with a small text detail “We have never been modern.”',
+    status:      'available',
+    photos:      ['items/MS-013-1.jpg','items/MS-013-2.jpg','items/MS-013-3.jpg','items/MS-013-4.jpg','items/MS-013-5.jpg','items/MS-013-6.jpg']
   },
   {
-    code:  'SA-014',
-    dark:  'prints/SA-014-dark.png',
-    light: 'prints/SA-014-light.png',
-    thumb: 'prints/SA-014-thumb.png'
+    code:        'MS-014',
+    cover:        'items/MS-014-cover.jpg',
+	name:        'SadAge Long Sleeve',
+    size:        'M / L',
+    condition:   'Excellent',
+    material:    'Cotton',
+    category:    'top',
+    description: 'Hand-dyed long sleeve in burnt earth tones with uneven, almost scorched gradients. Minimal front graphic with subtle chest marking, contrasted by a heavy back composition featuring a surreal multi-face architectural print. Sleeve detail reads “Softness is a weapon,” while the back is finished with raw “Hooligan Love” lettering.',
+    status:      'sold',
+    photos:      ['items/MS-014-1.jpg','items/MS-014-2.jpg','items/MS-014-3.jpg','items/MS-014-4.jpg']
   },
   {
-    code:  'SA-015',
-    dark:  'prints/SA-015-dark.png',
-    light: 'prints/SA-015-light.png',
-    thumb: 'prints/SA-015-thumb.png'
+    code:        'MS-015',
+    cover:        'items/MS-015-cover.jpg',
+	name:        'Mask Study Indigo Folk Jacket',
+    size:        'S / M',
+    condition:   'Well-loved',
+    material:    'Cotton',
+    category:    'top',
+    description: 'Indigo-dyed folk-style jacket with traditional toggle closure, reworked through SadAge visual language. Front remains restrained with a single geometric mask print and subtle distressing, while the back expands into a ritual composition of five primitive mask faces in saturated yellow pigment.',
+    status:      'sold',
+    photos:      ['items/MS-015-1.jpg','items/MS-015-2.jpg','items/MS-015-3.jpg','items/MS-015-4.jpg','items/MS-015-5.jpg']
   },
   {
-    code:  'SA-016',
-    dark:  'prints/SA-016-dark.png',
-    light: 'prints/SA-016-light.png',
-    thumb: 'prints/SA-016-thumb.png'
+    code:        'MS-016',
+    cover:        'items/MS-016-cover.jpg',
+	name:        'Reworked Grey Shirt',
+    size:        'L / XL',
+    condition:   'Good',
+    material:    'Cotton',
+    category:    'top',
+    description: 'Minimalist grey button-up reworked with restrained front detailing and a single pocket graphic, contrasted by a narrative back print of a cloaked figure aiming forward. The phrase “Learning isn’t about force” cuts across the composition, creating tension between aggression and reflection.',
+    status:      'available',
+    photos:      ['items/MS-016-1.jpg','items/MS-016-2.jpg','items/MS-016-3.jpg']
   },
   {
-    code:  'SA-017',
-    dark:  'prints/SA-017-dark.png',
-    light: 'prints/SA-017-light.png',
-    thumb: 'prints/SA-017-thumb.png'
+    code:        'MS-017',
+    cover:        'items/MS-017-cover.jpg',
+	name:        'Red Sun Manifest Reworked Striped Shirt',
+    size:        'L',
+    condition:   'Good',
+    material:    'Cotton',
+    category:    'top',
+    description: 'Light blue striped short sleeve shirt reworked with a restrained front and a dominant back intervention. The oversized red sun-face graphic disrupts the calm, almost office-like base, turning it into a confrontational object. Finished with the phrase “No nature : no culture”',
+    status:      'available',
+    photos:      ['items/MS-017-1.jpg','items/MS-017-2.jpg','items/MS-017-3.jpg','items/MS-017-4.jpg']
   },
   {
-    code:  'SA-018',
-    dark:  'prints/SA-018-dark.png',
-    light: 'prints/SA-018-light.png',
-    thumb: 'prints/SA-018-thumb.png'
+    code:        'MS-018',
+    cover:        'items/MS-018-cover.jpg',
+	name:        '??? Reworked Striped Shirt',
+    size:        'M / L',
+    condition:   'Good',
+    material:    'Cotton',
+    category:    'top',
+    description: 'Classic blue-white striped shirt disrupted by raw SadAge interventions. Front remains almost corporate with a subtle distorted logo, while the back carries a large primitive mask in deep red, paired with the cryptic “???” marking.',
+    status:      'available',
+    photos:      ['items/MS-018-1.jpg','items/MS-018-2.jpg','items/MS-018-3.jpg','items/MS-018-4.jpg']
   },
   {
-    code:  'SA-019',
-    dark:  'prints/SA-019-dark.png',
-    light: 'prints/SA-019-light.png',
-    thumb: 'prints/SA-019-thumb.png'
+    code:        'MS-019',
+    cover:        'items/MS-019-cover.jpg',
+	name:        'Multiplicity Study Black Shirt',
+    size:        'XL',
+    condition:   'Excellent',
+    material:    'Cotton',
+    category:    'top',
+    description: 'The piece operates as a contrast between silence and overload: front as control, back as accumulation. A quiet garment that reveals too much only when you turn away.',
+    status:      'available',
+    photos:       ['items/MS-019-1.jpg','items/MS-019-2.jpg','items/MS-019-3.jpg','items/MS-019-4.jpg','items/MS-019-5.jpg']
   },
   {
-    code:  'SA-020',
-    dark:  'prints/SA-020-dark.png',
-    light: 'prints/SA-020-light.png',
-    thumb: 'prints/SA-020-thumb.png'
+    code:        'MS-020',
+    cover:        'items/MS-020-cover.jpg',
+	name:        'Two-Panel Bowling Shirt',
+    size:        'M / L',
+    condition:   'Well-loved',
+    material:    'Cotton / viscose blend',
+    category:    'top',
+    description: 'A polite mid-century bowling shirt. The piece feels like something that used to belong to a normal life but stayed too long in a different reality. Now it carries both at once.',
+    status:      'available',
+    photos:       ['items/MS-020-1.jpg','items/MS-020-2.jpg']
   },
   {
-    code:  'SA-021',
-    dark:  'prints/SA-021-dark.png',
-    light: 'prints/SA-021-light.png',
-    thumb: 'prints/SA-021-thumb.png'
+    code:        'MS-021',
+    cover:        'items/MS-021-cover.jpg',
+	name:        'Hand-Dyed SadAge T-Shirt',
+    size:        'M / L',
+    condition:   'Excellent',
+    material:    'Cotton',
+    category:    'top',
+    description: 'Oh Sad Age Hand-Dyed T-Shirt. The front carries a ritual mask above a broken mantra: “OH SAD AGE,” repeated until it loses clarity and becomes texture. On the reverse, a corrupted image of a group portrait.',
+    status:      'sold',
+    photos:      ['items/MS-021-1.jpg','items/MS-021-2.jpg']
   },
   {
-    code:  'SA-022',
-    dark:  'prints/SA-022-dark.png',
-    light: 'prints/SA-022-light.png',
-    thumb: 'prints/SA-022-thumb.png'
+    code:        'MS-022',
+    cover:        'items/MS-022-cover.jpg',
+	name:        'Hand-Dyed Religion Coat',
+    size:        'L / XL',
+    condition:   'Excellent',
+    material:    'Cotton',
+    category:    'jacket',
+    description: 'The piece balances collapse and control: chaos in the fabric, clarity in the symbols. It wears like something between a uniform and a warning.',
+    status:      'available',
+    photos:      ['items/MS-022-1.jpg','items/MS-022-2.jpg','items/MS-022-3.jpg','items/MS-022-4.jpg','items/MS-022-5.jpg']
   },
   {
-    code:  'SA-023',
-    dark:  'prints/SA-023-dark.png',
-    light: 'prints/SA-023-light.png',
-    thumb: 'prints/SA-023-thumb.png'
+    code:        'MS-023',
+    cover:        'items/MS-023-cover.jpg',
+	name:        'Levi’s Hand-Dyed Signal Hoodie',
+    size:        'L',
+    condition:   'Good',
+    material:    'Cotton blend',
+    category:    'top',
+    description: 'The original Levi’s identity remains, but only as a ghost. Letters embedded into a surface that feels chemically eroded, uneven, almost mineral. On the front, a high-contrast negative image sits inside the pocket space, resembling mushroom branches. The back carries a single face: neutral, detached, almost naive in expression, yet placed like an icon.',
+    status:      'available',
+    photos:      ['items/MS-023-1.jpg','items/MS-023-2.jpg','items/MS-023-3.jpg','items/MS-023-4.jpg','items/MS-023-5.jpg','items/MS-023-6.jpg','items/MS-023-7.jpg']
   },
   {
-    code:  'SA-024',
-    dark:  'prints/SA-024-dark.png',
-    light: 'prints/SA-024-light.png',
-    thumb: 'prints/SA-024-thumb.png'
+    code:        'MS-024',
+    cover:        'items/MS-024-cover.jpg',
+	name:        'Reworked A-COLD-WALL* Canvas Utility Sling',
+    size:        'OS',
+    condition:   'Good',
+    material:    'Heavy cotton canvas',
+    category:    'other',
+    description: 'The A-COLD-WALL* sling with “SADAGE” sprayed across the surface. This contrast creates tension between order and intrusion, design and reaction. The object feels transitional, as if caught between factory output and personal claim.',
+    status:      'available',
+    photos:      ['items/MS-024-1.jpg','items/MS-024-2.jpg','items/MS-024-3.jpg']
   },
   {
-    code:  'SA-025',
-    dark:  'prints/SA-025-dark.png',
-    light: 'prints/SA-025-light.png',
-    thumb: 'prints/SA-025-thumb.png'
+    code:        'MS-025',
+    cover:        'items/MS-025-cover.jpg',
+	name:        'Reworked MM6 Asymmetric Drift Dress',
+    size:        'M',
+    condition:   'Good',
+    material:    'Viscose blend',
+    category:    'top',
+    description: 'Charcoal-toned sleeveless dress by MM6, built on an asymmetric, deconstructed silhouette. The front remains minimal and almost neutral, while the back introduces a restrained SadAge intervention.',
+    status:      'available',
+    photos:      ['items/MS-025-1.jpg','items/MS-025-2.jpg','items/MS-025-3.jpg']
+  },
+  {
+    code:        'MS-026',
+    cover:        'items/MS-026-cover.jpg',
+	name:        'Reworked Oakley Signal Hoodie',
+    size:        'M / L',
+    condition:   'Excellent',
+    material:    'Cotton fleece',
+    category:    'top',
+    description: 'Black technical hoodie with Oakley base construction, reworked through SadAge visual language. Front remains structured and controlled, with a minimal “SADAGE SOUL” mark and a distorted Albrecht Dürers Landscape with a Cannon etching print embedded into the pocket. The back expands into a stark monochrome composition of six figures, rendered in high-contrast negative tones. somewhere between sportswear, relic, and broadcast artifact',
+    status:      'available',
+    photos:      ['items/MS-026-1.jpg','items/MS-026-2.jpg']
+  },
+  {
+    code:        'MS-027',
+    cover:        'items/MS-027-cover.jpg',
+	name:        'Reworked Alpha Industries Sweatshirt',
+    size:        'M / L',
+    condition:   'Good',
+    material:    'Cotton fleece',
+    category:    'top',
+    description: 'Muted grey Alpha Industries sweatshirt reworked through SadAge visual language. The back remains almost silent, marked only by a small logo, while the front carries a fragmented, Basquiat-like composition of raw symbols, distorted figures, and layered graphic noise. The piece feels unstable and archival at once.',
+    status:      'available',
+    photos:      ['items/MS-027-1.jpg','items/MS-027-2.jpg','items/MS-027-3.jpg','items/MS-027-4.jpg']
+  },
+  {
+    code:        'MS-028',
+    cover:        'items/MS-028-cover.jpg',
+	name:        'Deconstruction Sweatshirt',
+    size:        'S / M',
+    condition:   'Well-loved',
+    material:    'Cotton fleece',
+    category:    'top',
+    description: 'Black Adidas base sweatshirt disrupted through SadAge visual language. The front is dominated by a confrontational graphic - corporate iconography overwritten by a crude weapon silhouette and the phrase “KILL ALL BRANDS,” turning familiar branding into an object of critique rather than desire.',
+    status:      'available',
+    photos:      ['items/MS-028-1.jpg','items/MS-028-2.jpg']
+  },
+  {
+    code:        'MS-029',
+    cover:        'items/MS-029-cover.jpg',
+	name:        'SadAge Oxidized Ritual T-Shirt',
+    size:        'M / L',
+    condition:   'Excellent',
+    material:    'Cotton',
+    category:    'top',
+    description: 'Oxidized, earth-stained T-shirt treated through SadAge visual language, where the fabric itself becomes the primary narrative. The contrast between the fragile, weathered ground and the aggressive graphic creates a tension between disappearance and confrontation.',
+    status:      'reserved',
+    photos:      ['items/MS-029-1.jpg','items/MS-029-2.jpg']
+  },
+  {
+    code:        'MS-030',
+    cover:        'items/MS-030-cover.jpg',
+	name:        'Carhartt Reworked Jacket',
+    size:        'L / XL',
+    condition:   'Well-loved',
+    material:    'Heavy cotton canvas',
+    category:    'jacket',
+    description: 'Vintage Carhartt work jacket heavily reworked with SadAge graphics and experimental prints. The faded beige canvas, distressed edges, and graphic layering.',
+    status:      'sold',
+    photos:      ['items/MS-030-1.jpg','items/MS-030-2.jpg','items/MS-030-3.jpg','items/MS-030-4.jpg','items/MS-030-5.jpg']
+  },
+  {
+    code:        'MS-031',
+    cover:        'items/MS-031-cover.jpg',
+	name:        'Levi’s Chambray Narrative Shirt SadAge Rework',
+    size:        'L / XL',
+    condition:   'Good',
+    material:    'Cotton chambray',
+    category:    'top',
+    description: 'Lightweight chambray Levi’s shirt reinterpreted through SadAge visual language. The front remains almost functional—punctuated only by a minimal symbolic mark and a small black patch, suggesting interruption rather than decoration. The back unfolds into a fragmented narrative: archival black-and-white imagery arranged alongside diagrammatic sequences of birds in motion, somewhere between scientific notation and poetic observation.',
+    status:      'sold',
+    photos:      ['items/MS-031-1.jpg','items/MS-031-2.jpg']
   }
   /*
-    ADD MORE PRINTS BELOW — copy the block above and change the code + paths:
-
-  ,{
-    code:  'SA-004',
-    dark:  'prints/SA-004-dark.png',
-    light: 'prints/SA-004-light.png',
-    thumb: 'prints/SA-004-thumb.png'
+    ADD MORE ITEMS:
+  ,
+  {
+    code:        'MS-010',
+    cover:        '',
+	name:        '',
+    size:        '',
+    condition:   '',
+    material:    '',
+    category:    '',
+    description: '',
+    status:      'available',
+    photos:      []
   }
   */
 ];
 
-let sel = null, color = 'white', place = 'front';
-
-/* Build libraries */
-['dLibScroll', 'mLibScroll'].forEach((id, idx) => {
-  const isMob = idx === 1;
-  const el = document.getElementById(id);
-  PRINTS.forEach(p => {
-    const t = document.createElement('div');
-    t.className = isMob ? 'm-pthumb' : 'pthumb';
-    t.dataset.code = p.code;
-    t.innerHTML = `<img src="${p.thumb}" alt="${p.code}"><span class="pcode">${p.code}</span>`;
-    t.onclick = () => pick(p);
-    el.appendChild(t);
-  });
-});
-
-/* Mobile scroll indicator */
-const mls = document.getElementById('mLibScroll');
-mls.addEventListener('scroll', () => {
-  const max = mls.scrollWidth - mls.clientWidth;
-  if (max <= 0) return;
-  document.getElementById('mScrollThumb').style.transform =
-    `translateX(${(mls.scrollLeft / max) * (mls.offsetWidth * 0.7)}px)`;
-});
-
-function pick(p) {
-  sel = p;
- 
-  /* Desktop */
-  document.querySelectorAll('.pthumb').forEach(t => t.classList.toggle('sel', t.dataset.code === p.code));
-  document.getElementById('dPrintDark').src  = p.dark;
-  document.getElementById('dPrintLight').src = p.light;
-  document.getElementById('dPrintLayer').classList.add('on');
-  const dc = document.getElementById('dCode');
-  dc.textContent = p.code; dc.classList.remove('empty');
-  document.getElementById('dBtnSend').classList.add('on');
-  document.getElementById('dHint').classList.add('off');
- 
-  /* Mobile */
-  document.querySelectorAll('.m-pthumb').forEach(t => t.classList.toggle('sel', t.dataset.code === p.code));
-  document.getElementById('mPrintDark').src  = p.dark;
-  document.getElementById('mPrintLight').src = p.light;
-  document.getElementById('mPrintLayer').classList.add('on');
-  const mc = document.getElementById('mCode');
-  mc.textContent = p.code; mc.classList.remove('empty');
-  document.getElementById('mBtnSend').classList.add('on');
-  document.getElementById('mHint').classList.add('off');
-}
- 
-function applyShirtState() {
-  /* Desktop */
-  document.getElementById('dShirtWrap').className = `shirt-wrap ${color} ${place}`;
-  /* Mobile */
-  document.getElementById('mShirtWrap').className = `m-shirt-wrap ${color} ${place}`;
-}
- 
-function setColor(c) {
-  color = c;
-  applyShirtState();
-  document.getElementById('dBW').className = 'tog-btn' + (c==='white'?' on':'');
-  document.getElementById('dBB').className = 'tog-btn' + (c==='black'?' on':'');
-  document.getElementById('mSwW').className = 'mswatch mswatch-w' + (c==='white'?' on':'');
-  document.getElementById('mSwB').className = 'mswatch mswatch-b' + (c==='black'?' on':'');
-}
- 
-function setPlace(p) {
-  place = p;
-  applyShirtState();
-  ['dBFr','mBFr'].forEach(id => document.getElementById(id).className = 'tog-btn' + (p==='front'?' on':''));
-  ['dBBk','mBBk'].forEach(id => document.getElementById(id).className = 'tog-btn' + (p==='back'?' on':''));
-}
-
-function reset() {
-  sel = null;
-  document.querySelectorAll('.pthumb,.m-pthumb').forEach(t => t.classList.remove('sel'));
-  ['dPrintLayer','mPrintLayer'].forEach(id => document.getElementById(id).classList.remove('on'));
-  ['dCode','mCode'].forEach(id => { const e = document.getElementById(id); e.textContent='—'; e.classList.add('empty'); });
-  ['dBtnSend','mBtnSend'].forEach(id => document.getElementById(id).classList.remove('on'));
-  ['dHint','mHint'].forEach(id => document.getElementById(id).classList.remove('off'));
-}
-
 /*
-  ── Replace with your WhatsApp number ──
-  International format, no + no spaces: e.g. 972501234567
+  ╔══════════════════════════════════════════════════════════════════╗
+  ║  CONFIGURATION                                                  ║
+  ║                                                                  ║
+  ║  WA_NUMBER — your WhatsApp number in international format,      ║
+  ║              no spaces, no + sign, no dashes                    ║
+  ║              e.g. Israel +972 50 123 4567 → '972501234567'      ║
+  ╚══════════════════════════════════════════════════════════════════╝
 */
-const WA_NUMBER = '972504432225';
+const WA_NUMBER = '972504432225'; /* ← replace with your number */
+
+/* ════ STATE ════ */
+let activeFilter = 'all';
+let currentItem  = null;
+let galleryIndex = 0;
  
-function toggleConfirm() {} /* no longer needed, kept to avoid errors if called */
+/* ════ GRID ════ */
+function buildGrid(filter) {
+  const grid  = document.getElementById('itemGrid');
+  const empty = document.getElementById('gridEmpty');
+  document.querySelectorAll('.card').forEach(c => c.remove());
  
-function openModal() {
-  if (!sel) return;
-  document.getElementById('fPrint').value = sel.code;
-  document.getElementById('fColor').value = color.toUpperCase();
-  document.getElementById('fPlace').value = (place==='front'?'Front':'Back') + ' / Center';
-  document.getElementById('modalBg').classList.add('open');
+  const filtered = filter === 'all'
+    ? ITEMS
+    : ITEMS.filter(i => i.status === filter || i.category === filter);
+ 
+  document.getElementById('gridCount').textContent =
+    `${filtered.length} item${filtered.length !== 1 ? 's' : ''}`;
+ 
+  if (filtered.length === 0) { empty.style.display = 'block'; return; }
+  empty.style.display = 'none';
+ 
+  filtered.forEach(item => {
+    const card = document.createElement('div');
+    card.className = 'card' + (item.status === 'sold' ? ' sold-card' : '');
+    card.onclick = () => showItem(item);
+    const hasCover = !!item.cover;
+    card.innerHTML = `
+      <div class="card-img-wrap${hasCover ? '' : ' no-img'}" data-code="${item.code}">
+        ${hasCover ? `<img class="card-img" src="${item.cover}" alt="${item.name}" loading="lazy">` : ''}
+      </div>
+      <div class="card-info">
+        <div class="card-name">${item.name}</div>
+        <div class="card-meta">
+          <span class="card-size">${item.size}</span>
+          <span class="status-dot ${item.status}">${item.status}</span>
+        </div>
+      </div>`;
+    grid.appendChild(card);
+  });
 }
  
-function closeModal() { document.getElementById('modalBg').classList.remove('open'); }
- 
-function send() {
-  const name    = document.getElementById('fName').value || '—';
-  const size    = document.getElementById('fSize').value;
-  const comment = document.getElementById('fComment').value || '';
- 
-  const msg =
-`Hi SadAge! Print request:
- 
-Print:     ${sel.code}
-T-shirt:   ${color.toUpperCase()}
-Size:      ${size}
-Placement: ${place} / center
-Name:      ${name}${comment ? `\nComment:   ${comment}` : ''}
- 
-Can you confirm availability?`;
- 
-  closeModal();
-  window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
+function setFilter(btn, filter) {
+  document.querySelectorAll('.flt').forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
+  buildGrid(filter);
 }
  
-function hideSent() {}
+/* ════ ITEM DETAIL ════ */
+function showItem(item) {
+  currentItem  = item;
+  galleryIndex = 0;
  
-document.getElementById('modalBg').addEventListener('click', e => {
-  if (e.target === document.getElementById('modalBg')) closeModal();
+  document.getElementById('detailCode').textContent      = item.code;
+  document.getElementById('detailName').textContent      = item.name;
+  document.getElementById('detailSize').textContent      = item.size;
+  document.getElementById('detailCondition').textContent = item.condition;
+  document.getElementById('detailMaterial').textContent  = item.material;
+  document.getElementById('detailCategory').textContent  = item.category.charAt(0).toUpperCase() + item.category.slice(1);
+  document.getElementById('detailDesc').textContent      = item.description;
+ 
+  const badge = document.getElementById('detailStatus');
+  badge.textContent = item.status;
+  badge.className   = 'item-status-badge ' + item.status;
+ 
+  const isSold = item.status === 'sold';
+  document.getElementById('soldBanner').classList.toggle('show', isSold);
+  document.getElementById('btnWA').disabled = isSold;
+  document.getElementById('actionNote').textContent = isSold
+    ? 'This piece has found its person'
+    : 'Opens WhatsApp with the item details already filled in';
+ 
+  buildGallery(item);
+ 
+  document.getElementById('viewGrid').style.display = 'none';
+  document.getElementById('viewItem').style.display = 'block';
+  window.scrollTo(0, 0);
+  history.pushState({ itemCode: item.code }, '', '#' + item.code);
+}
+ 
+function showGrid() {
+  document.getElementById('viewItem').style.display = 'none';
+  document.getElementById('viewGrid').style.display = 'block';
+  history.pushState(null, '', window.location.pathname);
+  window.scrollTo(0, 0);
+}
+ 
+window.addEventListener('popstate', e => {
+  if (!e.state || !e.state.itemCode) showGrid();
 });
+ 
+/* ════ GALLERY ════ */
+function buildGallery(item) {
+  const main   = document.getElementById('galleryMain');
+  const thumbs = document.getElementById('galleryThumbs');
+  const ph     = document.getElementById('galleryPlaceholder');
+ 
+  main.querySelectorAll('.gallery-main-img').forEach(el => el.remove());
+  thumbs.innerHTML = '';
+ 
+  if (item.photos.length === 0) {
+    ph.textContent = item.code; ph.style.display = 'flex';
+    document.getElementById('galleryCounter').textContent = '';
+    return;
+  }
+  ph.style.display = 'none';
+ 
+  item.photos.forEach((src, i) => {
+    const img = document.createElement('img');
+    img.className = 'gallery-main-img' + (i === 0 ? ' on' : '');
+    img.src = src; img.alt = item.name;
+    main.insertBefore(img, main.querySelector('.gallery-nav'));
+ 
+    const t = document.createElement('img');
+    t.className = 'g-thumb' + (i === 0 ? ' on' : '');
+    t.src = src; t.alt = '';
+    t.onclick = () => setGallery(i);
+    thumbs.appendChild(t);
+  });
+  updateCounter();
+}
+ 
+function setGallery(i) {
+  if (!currentItem || !currentItem.photos.length) return;
+  galleryIndex = (i + currentItem.photos.length) % currentItem.photos.length;
+  document.querySelectorAll('.gallery-main-img').forEach((el, j) => el.classList.toggle('on', j === galleryIndex));
+  document.querySelectorAll('.g-thumb').forEach((el, j) => el.classList.toggle('on', j === galleryIndex));
+  updateCounter();
+}
+function galleryNext() { setGallery(galleryIndex + 1); }
+function galleryPrev() { setGallery(galleryIndex - 1); }
+function updateCounter() {
+  const n = currentItem.photos.length;
+  document.getElementById('galleryCounter').textContent = n > 1 ? `${galleryIndex + 1} / ${n}` : '';
+}
+ 
+/* Swipe */
+let tx = 0;
+document.getElementById('galleryMain').addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, { passive: true });
+document.getElementById('galleryMain').addEventListener('touchend',   e => { const dx = e.changedTouches[0].clientX - tx; if (Math.abs(dx) > 40) dx < 0 ? galleryNext() : galleryPrev(); });
+ 
+/* ════ WHATSAPP ════ */
+function openWA() {
+  const i = currentItem;
+  const msg =
+`Hi SadAge! I'm interested in this piece:
+ 
+Item: ${i.code}
+Name: ${i.name}
+Size: ${i.size}
+Condition: ${i.condition}
+ 
+Is it still available?`;
+ 
+  const url = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
+  window.open(url, '_blank');
+}
+ 
+/* ════ INIT ════ */
+buildGrid('all');
+ 
+if (location.hash) {
+  const item = ITEMS.find(i => i.code === location.hash.slice(1));
+  if (item) showItem(item);
+}
 </script>
 </body>
 </html>
