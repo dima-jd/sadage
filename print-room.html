@@ -51,6 +51,12 @@
   }
   .header-link:hover { color: var(--fg); }
   
+  .header-linklogo {
+    font-size: 10px; color: var(--fg);
+    letter-spacing: 0.22em; text-transform: uppercase;
+    text-decoration: none; transition: color 0.18s;
+  }
+  .header-linklogo:hover { color: var(--muted); }
   .cap {
     font-size: 9px;
     letter-spacing: 0.24em;
@@ -423,10 +429,10 @@
 
 <header>
   <div class="header-left">
-    <span class="brand">SadAge</span>
+    <a class="header-linklogo" href="index.html"><span class="brand">SadAge</span></a>
     <span class="room-tag">Print Room</span>
   </div>
-  <a class="header-link" href="index.html">Go to Meta Second</a>
+  <a class="header-link" href="meta-second.html">Go to Meta Second</a>
 </header>
 
 <!-- ════ DESKTOP ════ -->
