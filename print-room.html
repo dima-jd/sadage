@@ -578,41 +578,7 @@
 
 
 <script>
-/*
-  ╔══════════════════════════════════════════════════════════════════╗
-  ║  PRINTS — ADD YOUR OWN DESIGNS HERE                             ║
-  ║                                                                  ║
-  ║  Each print needs:                                               ║
-  ║    code  — the print reference shown in the UI (e.g. 'SA-037') ║
-  ║    dark  — path to PNG shown on WHITE shirt (dark ink version)  ║
-  ║    light — path to PNG shown on BLACK shirt (light ink version) ║
-  ║    thumb — path to thumbnail shown in the library               ║
-  ║                                                                  ║
-  ║  FILE STRUCTURE:                                                 ║
-  ║    /your-folder/                                                 ║
-  ║      index.html          ← this file                            ║
-  ║      images/                                                     ║
-  ║        tshirt-white.png  ← white tee photo, transparent bg      ║
-  ║        tshirt-black.png  ← black tee photo, transparent bg      ║
-  ║      prints/                                                     ║
-  ║        SA-037-dark.png   ← print for white shirt                ║
-  ║        SA-037-light.png  ← print for black shirt                ║
-  ║        SA-037-thumb.png  ← small preview (96×96 or 200×200px)  ║
-  ║        ...                                                       ║
-  ║                                                                  ║
-  ║  THUMBNAIL TIP:                                                  ║
-  ║    You can use the same file for thumb and dark if you want.     ║
-  ║    Or make a separate smaller version.                           ║
-  ║                                                                  ║
-  ║  COLOR INVERSION:                                                ║
-  ║    dark  = your print as it will be printed on a white shirt     ║
-  ║            (e.g. black ink on white) — use PNG with             ║
-  ║            transparent background                                ║
-  ║    light = same design but in white/light ink version —          ║
-  ║            for the black shirt preview                           ║
-  ║    These are TWO SEPARATE FILES you prepare in your studio.      ║
-  ╚══════════════════════════════════════════════════════════════════╝
-*/
+
 const PRINTS = [
   {
     code:  'SA-001',
@@ -765,13 +731,13 @@ const PRINTS = [
     thumb: 'prints/SA-025-thumb.png'
   }
   /*
-    ADD MORE PRINTS BELOW — copy the block above and change the code + paths:
+   
 
   ,{
-    code:  'SA-004',
-    dark:  'prints/SA-004-dark.png',
-    light: 'prints/SA-004-light.png',
-    thumb: 'prints/SA-004-thumb.png'
+    code:  '',
+    dark:  '',
+    light: '',
+    thumb: ''
   }
   */
 ];
@@ -857,11 +823,8 @@ function reset() {
   ['dHint','mHint'].forEach(id => document.getElementById(id).classList.remove('off'));
 }
 
-/*
-  ── Replace with your WhatsApp number ──
-  International format, no + no spaces: e.g. 972501234567
-*/
-const WA_NUMBER = '972504432225';
+
+const WA_NUMBER = '380952059105';
  
 function toggleConfirm() {} /* no longer needed, kept to avoid errors if called */
  
