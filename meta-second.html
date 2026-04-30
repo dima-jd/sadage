@@ -506,7 +506,10 @@
 		  function gtag(){dataLayer.push(arguments);}
 		  gtag('js', new Date());
 
-		  gtag('config', 'G-RF3945XCP4');
+		  gtag('config', 'G-RF3945XCP4', {
+			  anonymize_ip: true,
+			  cookie_flags: 'SameSite=None;Secure'
+			});
 		</script>
 </head>
 <body>
@@ -1275,6 +1278,10 @@ function setFilter(btn, filter) {
  
 /* ════ ITEM DETAIL ════ */
 function showItem(item) {
+	gtag('event', 'item_opened', {
+    event_category: 'meta_second',
+    event_label: item.code + ' / ' + item.name
+  });
   currentItem  = item;
   galleryIndex = 0;
  
@@ -1368,6 +1375,10 @@ document.getElementById('galleryMain').addEventListener('touchend',   e => { con
  
 /* ════ WHATSAPP ════ */
 function openWA() {
+	gtag('event', 'whatsapp_click', {
+    event_category: 'meta_second',
+    event_label: currentItem.code + ' / ' + currentItem.name
+  });
   const i = currentItem;
   const msg =
 `Hi SadAge! I'm interested in this piece:

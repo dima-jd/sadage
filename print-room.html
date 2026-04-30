@@ -430,7 +430,10 @@
 		  function gtag(){dataLayer.push(arguments);}
 		  gtag('js', new Date());
 
-		  gtag('config', 'G-RF3945XCP4');
+		  gtag('config', 'G-RF3945XCP4', {
+			  anonymize_ip: true,
+			  cookie_flags: 'SameSite=None;Secure'
+			});
 		</script>
 </head>
 <body>
@@ -776,6 +779,10 @@ mls.addEventListener('scroll', () => {
 });
 
 function pick(p) {
+	gtag('event', 'print_selected', {
+    event_category: 'print_room',
+    event_label: p.code
+  });
   sel = p;
  
   /* Desktop */
@@ -847,6 +854,10 @@ function openModal() {
 function closeModal() { document.getElementById('modalBg').classList.remove('open'); }
  
 function send() {
+	gtag('event', 'whatsapp_click', {
+    event_category: 'print_room',
+    event_label: sel.code + ' / ' + color + ' / ' + place
+  });
   const name    = document.getElementById('fName').value || '—';
   const size    = document.getElementById('fSize').value;
   const comment = document.getElementById('fComment').value || '';

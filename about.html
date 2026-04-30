@@ -248,7 +248,10 @@
 		  function gtag(){dataLayer.push(arguments);}
 		  gtag('js', new Date());
 
-		  gtag('config', 'G-RF3945XCP4');
+		  gtag('config', 'G-RF3945XCP4', {
+			  anonymize_ip: true,
+			  cookie_flags: 'SameSite=None;Secure'
+			});
 		</script>
 </head>
 <body>

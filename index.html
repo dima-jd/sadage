@@ -195,7 +195,10 @@
 		  function gtag(){dataLayer.push(arguments);}
 		  gtag('js', new Date());
 
-		  gtag('config', 'G-RF3945XCP4');
+		  gtag('config', 'G-RF3945XCP4', {
+			  anonymize_ip: true,
+			  cookie_flags: 'SameSite=None;Secure'
+			});
 		</script>
 </head>
 <body>
@@ -208,7 +211,8 @@
 <main>
   <nav class="nav-list">
 
-    <a class="nav-item" href="meta-second.html">
+    <a class="nav-item" href="meta-second.html"
+		onclick="gtag('event','nav_click',{event_category:'homepage',event_label:'meta_secondhand'})">
       <span class="nav-num">01 /</span>
       <div class="nav-right">
         <span class="nav-name">Meta Secondhand</span>
@@ -216,7 +220,8 @@
       </div>
     </a>
 
-    <a class="nav-item" href="print-room.html">
+    <a class="nav-item" href="print-room.html"
+		onclick="gtag('event','nav_click',{event_category:'homepage',event_label:'print_room'})">
       <span class="nav-num">02 /</span>
       <div class="nav-right">
         <span class="nav-name">SadAge Print Room</span>
@@ -224,7 +229,8 @@
       </div>
     </a>
 
-    <a class="nav-item" href="about.html">
+    <a class="nav-item" href="about.html"
+		onclick="gtag('event','nav_click',{event_category:'homepage',event_label:'about'})">
       <span class="nav-num">03 /</span>
       <div class="nav-right">
         <span class="nav-name">About Us</span>
