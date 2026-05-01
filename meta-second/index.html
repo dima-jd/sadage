@@ -693,7 +693,7 @@ const ITEMS = [
     size:        'S / M',
     condition:   'Excellent',
     material:    'lightweight nylon',
-    category:    'jacket',
+    category:    ['jacket', 'top'],
     description: 'Black technical shell jacket reworked with gold SadAge graphics and large-scale back artwork.',
     status:      'sold',
     photos:      ['/items/MS-002-1.jpg', '/items/MS-002-2.jpg', '/items/MS-002-3.jpg', '/items/MS-002-4.jpg', '/items/MS-002-5.jpg', '/items/MS-002-6.jpg', '/items/MS-002-7.jpg', '/items/MS-002-8.jpg']
@@ -1333,7 +1333,10 @@ function buildGrid(filter) {
  
   const filtered = filter === 'all'
     ? ITEMS
-    : ITEMS.filter(i => i.status === filter || i.category === filter);
+    : ITEMS.filter(i => {
+    const cats = Array.isArray(i.category) ? i.category : [i.category];
+    return i.status === filter || cats.includes(filter);
+  });
  
   document.getElementById('gridCount').textContent =
     `${filtered.length} item${filtered.length !== 1 ? 's' : ''}`;
@@ -1381,7 +1384,8 @@ function showItem(item) {
   document.getElementById('detailSize').textContent      = item.size;
   document.getElementById('detailCondition').textContent = item.condition;
   document.getElementById('detailMaterial').textContent  = item.material;
-  document.getElementById('detailCategory').textContent  = item.category.charAt(0).toUpperCase() + item.category.slice(1);
+  const cats = Array.isArray(item.category) ? item.category : [item.category];
+	document.getElementById('detailCategory').textContent = cats.map(c => c.charAt(0).toUpperCase() + c.slice(1)).join(' / ');
   document.getElementById('detailDesc').textContent      = item.description;
  
   const badge = document.getElementById('detailStatus');
