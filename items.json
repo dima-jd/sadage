@@ -1,5 +1,100 @@
 [
   {
+    "code": "MS-082",
+    "cover": "/items/MS-082-cover.jpg",
+    "name": "SadAge Reworked Lace Panel Dress",
+    "price": "",
+    "size": "S / M",
+    "condition": "Good",
+    "material": "Cotton base",
+    "category": "top",
+    "description": "White lace dress reconstructed with contrasting black-and-white forest graphic panels and raw fringe detailing at the hem. reworked vintage, good condition with intentional alterations",
+    "status": "available",
+    "photos": [
+      "/items/MS-082-1.jpg",
+      "/items/MS-082-2.jpg",
+      "/items/MS-082-3.jpg",
+      "/items/MS-082-4.jpg"
+    ]
+  },{
+    "code": "MS-083",
+    "cover": "/items/MS-083-cover.jpg",
+    "name": "Reworked Patterned Kimono Coat",
+    "price": "",
+    "size": "M / L",
+    "condition": "Excellent",
+    "material": "Mixed textiles",
+    "category": "jacket",
+    "description": "Traditional patterned kimono-style coat reconstructed with contrasting central panel and integrated SadAge graphic insert. One-of-one piece that shifts a heritage garment into a fragmented, contemporary uniform balancing symmetry and interruption.",
+    "status": "available",
+    "photos": [
+      "/items/MS-083-1.jpg",
+      "/items/MS-083-2.jpg",
+      "/items/MS-083-3.jpg",
+      "/items/MS-083-4.jpg",
+      "/items/MS-083-5.jpg",
+      "/items/MS-083-6.jpg"
+    ]
+  },{
+    "code": "MS-084",
+    "cover": "/items/MS-084-cover.jpg",
+    "name": "Reworked Satin Slip Dress",
+    "price": "",
+    "size": "S / M",
+    "condition": "Excellent",
+    "material": "Polyester satin",
+    "category": "top",
+    "description": "Olive satin slip dress reworked with black lace trimming and layered SadAge graphic prints.",
+    "status": "available",
+    "photos": [
+      "/items/MS-084-1.jpg",
+      "/items/MS-084-2.jpg",
+      "/items/MS-084-3.jpg",
+      "/items/MS-084-4.jpg",
+      "/items/MS-084-5.jpg",
+      "/items/MS-084-6.jpg",
+      "/items/MS-084-7.jpg"
+    ]
+  },{
+    "code": "MS-085",
+    "cover": "/items/MS-085-cover.jpg",
+    "name": "SadAge Reworked Graphic Work Pants",
+    "price": "",
+    "size": "M / L",
+    "condition": "Well-loved",
+    "material": "Cotton",
+    "category": "bottom",
+    "description": "Light-toned work pants reworked with full-surface SadAge collage printing and irregular dye treatment.",
+    "status": "available",
+    "photos": [
+      "/items/MS-085-1.jpg",
+      "/items/MS-085-2.jpg",
+      "/items/MS-085-3.jpg",
+      "/items/MS-085-4.jpg",
+      "/items/MS-085-5.jpg",
+      "/items/MS-085-6.jpg",
+      "/items/MS-085-7.jpg",
+      "/items/MS-085-8.jpg"
+    ]
+  },{
+    "code": "MS-086",
+    "cover": "/items/MS-086-cover.jpg",
+    "name": "Diesel Reworked Corduroy Pants",
+    "price": "",
+    "size": "M / L",
+    "condition": "Excellent",
+    "material": "Cotton corduroy",
+    "category": "bottom",
+    "description": "Vintage Diesel corduroy pants reworked with uneven dye treatment and subtle SadAge intervention.",
+    "status": "available",
+    "photos": [
+      "/items/MS-086-1.jpg",
+      "/items/MS-086-2.jpg",
+      "/items/MS-086-3.jpg",
+      "/items/MS-086-4.jpg"
+    ]
+  },
+  {
     "code": "MS-062",
     "cover": "/items/MS-062-cover.jpg",
     "name": "Quicksilver Synthetic Border Cargo",
@@ -534,7 +629,7 @@
     "material": "Denim",
     "category": "bottom",
     "description": "Reworked denim jeans featuring heavy black bleach treatment.",
-    "status": "available",
+    "status": "sold",
     "photos": [
       "/items/MS-006-1.jpg",
       "/items/MS-006-2.jpg",
@@ -637,7 +732,7 @@
     "material": "Cotton",
     "category": "top",
     "description": "Vintage Wrangler button-up shirt reworked with SadAge visual language. Features bleach/burn-style dye treatment. A balance between classic workwear structure and chaotic, expressive print intervention.",
-    "status": "available",
+    "status": "sold",
     "photos": [
       "/items/MS-011-1.jpg",
       "/items/MS-011-2.jpg",
