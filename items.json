@@ -45,7 +45,7 @@
     "material": "Polyester satin",
     "category": "top",
     "description": "Olive satin slip dress reworked with black lace trimming and layered SadAge graphic prints.",
-    "status": "available",
+    "status": "sold",
     "photos": [
       "/items/MS-084-1.jpg",
       "/items/MS-084-2.jpg",
@@ -224,14 +224,14 @@
   {
     "code": "MS-068",
     "cover": "/items/MS-068-cover.jpg",
-    "name": "SadAge \"Don\\",
+    "name": "SadAge \"Dont follow me",
     "price": "150",
     "size": "M / L",
     "condition": "Good",
     "material": "Cotton",
     "category": "top",
     "description": "Long sleeve shirt reworked with subtle bleach fading and SadAge graphics. The front remains minimal with a small \"SadAge Soul\" print. The back carries the main composition with large Shia LaBeouf portrait print and layered text reading \"Don\\'t follow me I\\'m lost,\"",
-    "status": "available",
+    "status": "sold",
     "photos": [
       "/items/MS-068-1.jpg",
       "/items/MS-068-2.jpg",
@@ -844,7 +844,7 @@
     "material": "Cotton",
     "category": "top",
     "description": "Light blue striped short sleeve shirt reworked with a restrained front and a dominant back intervention. The oversized red sun-face graphic disrupts the calm, almost office-like base, turning it into a confrontational object. Finished with the phrase No nature no culture",
-    "status": "available",
+    "status": "sold",
     "photos": [
       "/items/MS-017-1.jpg",
       "/items/MS-017-2.jpg",
