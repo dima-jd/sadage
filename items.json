@@ -1,5 +1,22 @@
 [
   {
+    "code": "MS-092",
+    "cover": "/items/MS-092-cover.jpg",
+    "name": "SadAge Reworked Working Short",
+    "price": "97",
+    "size": "M / L",
+    "condition": "Excellent",
+    "material": "Cotton blend",
+    "category": "top",
+    "description": "Dark green reworked shirt with hand-drawn graphic intervention, and fragmented anti-brand visual language",
+    "status": "sold",
+    "photos": [
+      "/items/MS-092-1.jpg",
+      "/items/MS-092-2.jpg",
+      "/items/MS-092-3.jpg",
+      "/items/MS-092-4.jpg"
+    ]
+  },{
     "code": "MS-091",
     "cover": "/items/MS-091-cover.jpg",
     "name": "SadAge Cropped Tactical Hoodie",
