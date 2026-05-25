@@ -1,5 +1,56 @@
 [
   {
+    "code": "MS-087",
+    "cover": "/items/MS-087-cover.jpg",
+    "name": "Diesel Reworked Distressed Denim Shorts",
+    "price": "97",
+    "size": "S",
+    "condition": "Excellent",
+    "material": "Cotton denim",
+    "category": "bottom",
+    "description": "Vintage Diesel denim shorts reworked with aggressive bleach treatment, irregular contrast fading, and raw unfinished edges.",
+    "status": "available",
+    "photos": [
+      "/items/MS-087-1.jpg",
+      "/items/MS-087-2.jpg",
+      "/items/MS-087-3.jpg",
+      "/items/MS-087-4.jpg"
+    ]
+  },{
+    "code": "MS-088",
+    "cover": "/items/MS-088-cover.jpg",
+    "name": "Vans Reworked Wide-Leg Trousers",
+    "price": "87",
+    "size": "M",
+    "condition": "Good",
+    "material": "Cotton twill",
+    "category": "bottom",
+    "description": "Wide-leg Vans trousers reworked with layered SadAge graphics, oxidized dye treatment, and large-scale monochrome illustrations.",
+    "status": "available",
+    "photos": [
+      "/items/MS-088-1.jpg",
+      "/items/MS-088-2.jpg",
+      "/items/MS-088-3.jpg",
+      "/items/MS-088-4.jpg"
+    ]
+  },{
+    "code": "MS-089",
+    "cover": "/items/MS-089-cover.jpg",
+    "name": "Carhartt Reworked Newspaper Print Trousers",
+    "price": "169",
+    "size": "M",
+    "condition": "Good",
+    "material": "Cotton twill",
+    "category": "bottom",
+    "description": "Carhartt trousers reworked with faded all-over newspaper collage printing and monochrome SadAge graphic intervention. ",
+    "status": "available",
+    "photos": [
+      "/items/MS-089-1.jpg",
+      "/items/MS-089-2.jpg",
+      "/items/MS-089-3.jpg",
+      "/items/MS-089-4.jpg"
+    ]
+  },{
     "code": "MS-082",
     "cover": "/items/MS-082-cover.jpg",
     "name": "SadAge Reworked Lace Panel Dress",
