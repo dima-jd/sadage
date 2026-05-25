@@ -21,13 +21,13 @@
   },{
     "code": "MS-088",
     "cover": "/items/MS-088-cover.jpg",
-    "name": "Vans Reworked Wide-Leg Trousers",
+    "name": "Reworked Wide-Leg Trousers",
     "price": "87",
     "size": "M",
     "condition": "Good",
     "material": "Cotton twill",
     "category": "bottom",
-    "description": "Wide-leg Vans trousers reworked with layered SadAge graphics, oxidized dye treatment, and large-scale monochrome illustrations.",
+    "description": "Wide-leg  trousers reworked with layered SadAge graphics, oxidized dye treatment, and large-scale monochrome illustrations.",
     "status": "available",
     "photos": [
       "/items/MS-088-1.jpg",
@@ -203,7 +203,7 @@
     "material": "Cotton",
     "category": "top",
     "description": "The fabric is unevenly bleached and hand-dyed into a muted gradient of dusty rose and charcoal. The piece reads like something that tried to stay neutral but failed.",
-    "status": "available",
+    "status": "sold",
     "photos": [
       "/items/MS-064-1.jpg",
       "/items/MS-064-2.jpg",
