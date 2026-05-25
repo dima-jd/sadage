@@ -1,5 +1,38 @@
 [
   {
+    "code": "MS-091",
+    "cover": "/items/MS-091-cover.jpg",
+    "name": "SadAge Cropped Tactical Hoodie",
+    "price": "73",
+    "size": "S",
+    "condition": "Excellent",
+    "material": "Cotton blend jersey",
+    "category": "top",
+    "description": "Dark grey cropped hoodie",
+    "status": "sold",
+    "photos": [
+      "/items/MS-091-1.jpg",
+      "/items/MS-091-2.jpg",
+      "/items/MS-091-3.jpg"
+    ]
+  },{
+    "code": "MS-090",
+    "cover": "/items/MS-090-cover.jpg",
+    "name": "SadAge Chemical Noise Work Shirt",
+    "price": "157",
+    "size": "S / M",
+    "condition": "Well-loved",
+    "material": "Cotton",
+    "category": "top",
+    "description": "Blue work shirt reconstructed with large-scale bleach patterning, hand-drawn graphic intervention, and fragmented anti-brand visual language.",
+    "status": "available",
+    "photos": [
+      "/items/MS-090-1.jpg",
+      "/items/MS-090-2.jpg",
+      "/items/MS-090-3.jpg",
+      "/items/MS-090-4.jpg"
+    ]
+  },{
     "code": "MS-087",
     "cover": "/items/MS-087-cover.jpg",
     "name": "Diesel Reworked Distressed Denim Shorts",
