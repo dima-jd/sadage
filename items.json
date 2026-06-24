@@ -370,7 +370,7 @@
     "material": "Cotton",
     "category": "bottom",
     "description": "Nike utility pants reworked with aggressive bleach treatment and layered SadAge graphics.",
-    "status": "available",
+    "status": "sold",
     "photos": [
       "/items/MS-070-1.jpg",
       "/items/MS-070-2.jpg",
@@ -440,7 +440,7 @@
     "material": "Cotton",
     "category": "top",
     "description": "Faded grey T-shirt reworked with SadAge graphics and uneven discharge treatment.",
-    "status": "available",
+    "status": "sold",
     "photos": [
       "/items/MS-073-1.jpg",
       "/items/MS-073-2.jpg",
@@ -711,7 +711,7 @@
     "material": "Cotton / poly blend",
     "category": "top",
     "description": "Short sleeve Dickies work shirt reworked with SadAge graphics and heavy bleach treatment.",
-    "status": "available",
+    "status": "sold",
     "photos": [
       "/items/MS-005-1.jpg",
       "/items/MS-005-2.jpg",
