@@ -158,7 +158,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
   .flt:hover { border-color: var(--border-h); color: var(--fg); }
   .flt.on { border-color: var(--fg); color: var(--fg); background: rgba(240,237,230,0.05); }
-
+	
+	.flt-divider {
+    width: 1px;
+    height: 20px;
+    background: var(--border);
+    flex-shrink: 0;
+    align-self: center;
+    margin: 0 4px;
+  }
+  
   /* Item grid */
   .grid {
     display: grid;
@@ -577,10 +586,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <button class="flt" data-filter="available" onclick="setFilter(this,'available')">Available</button>
     <button class="flt" data-filter="reserved" onclick="setFilter(this,'reserved')">Reserved</button>
     <button class="flt" data-filter="sold" onclick="setFilter(this,'sold')">Sold</button>
-    <button class="flt" data-filter="jacket" onclick="setFilter(this,'jacket')">Jackets</button>
-    <button class="flt" data-filter="top" onclick="setFilter(this,'top')">Tops</button>
-    <button class="flt" data-filter="bottom" onclick="setFilter(this,'bottom')">Bottoms</button>
-	<button class="flt" data-filter="other" onclick="setFilter(this,'other')">Other</button>
+    <span class="flt-divider"></span>
+    <button class="flt" data-filter="jacket" onclick="setFilter(this,'jacket')">Jacket</button>
+    <button class="flt" data-filter="coat" onclick="setFilter(this,'coat')">Coat</button>
+    <button class="flt" data-filter="shirt" onclick="setFilter(this,'shirt')">Shirt</button>
+    <button class="flt" data-filter="tshirt" onclick="setFilter(this,'tshirt')">T-shirt</button>
+    <button class="flt" data-filter="hoodie" onclick="setFilter(this,'hoodie')">Hoodie</button>
+    <button class="flt" data-filter="longsleeve" onclick="setFilter(this,'longsleeve')">Longsleeve</button>
+    <button class="flt" data-filter="dress" onclick="setFilter(this,'dress')">Dress</button>
+    <button class="flt" data-filter="pants" onclick="setFilter(this,'pants')">Pants</button>
+    <button class="flt" data-filter="vest" onclick="setFilter(this,'vest')">Vest</button>
+    <button class="flt" data-filter="bag" onclick="setFilter(this,'bag')">Bag</button>
+    <button class="flt" data-filter="other" onclick="setFilter(this,'other')">Other</button>
   </div>
 
   <div class="grid" id="itemGrid">

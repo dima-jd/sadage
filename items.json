@@ -7,7 +7,7 @@
     "size": "M / L",
     "condition": "Excellent",
     "material": "Cotton blend",
-    "category": "top",
+    "category": "shirt",
     "description": "Dark green reworked shirt with hand-drawn graphic intervention, and fragmented anti-brand visual language",
     "status": "sold",
     "photos": [
@@ -16,7 +16,8 @@
       "/items/MS-092-3.jpg",
       "/items/MS-092-4.jpg"
     ]
-  },{
+  },
+  {
     "code": "MS-091",
     "cover": "/items/MS-091-cover.jpg",
     "name": "SadAge Cropped Tactical Hoodie",
@@ -24,7 +25,7 @@
     "size": "S",
     "condition": "Excellent",
     "material": "Cotton blend jersey",
-    "category": "top",
+    "category": "hoodie",
     "description": "Dark grey cropped hoodie",
     "status": "sold",
     "photos": [
@@ -32,7 +33,8 @@
       "/items/MS-091-2.jpg",
       "/items/MS-091-3.jpg"
     ]
-  },{
+  },
+  {
     "code": "MS-090",
     "cover": "/items/MS-090-cover.jpg",
     "name": "SadAge Chemical Noise Work Shirt",
@@ -40,7 +42,7 @@
     "size": "S / M",
     "condition": "Well-loved",
     "material": "Cotton",
-    "category": "top",
+    "category": "shirt",
     "description": "Blue work shirt reconstructed with large-scale bleach patterning, hand-drawn graphic intervention, and fragmented anti-brand visual language.",
     "status": "available",
     "photos": [
@@ -49,7 +51,8 @@
       "/items/MS-090-3.jpg",
       "/items/MS-090-4.jpg"
     ]
-  },{
+  },
+  {
     "code": "MS-087",
     "cover": "/items/MS-087-cover.jpg",
     "name": "Diesel Reworked Distressed Denim Shorts",
@@ -57,7 +60,7 @@
     "size": "S",
     "condition": "Excellent",
     "material": "Cotton denim",
-    "category": "bottom",
+    "category": "pants",
     "description": "Vintage Diesel denim shorts reworked with aggressive bleach treatment, irregular contrast fading, and raw unfinished edges.",
     "status": "available",
     "photos": [
@@ -68,7 +71,8 @@
       "/items/MS-087-5.jpg",
       "/items/MS-087-9.jpg"
     ]
-  },{
+  },
+  {
     "code": "MS-088",
     "cover": "/items/MS-088-cover.jpg",
     "name": "Reworked Wide-Leg Trousers",
@@ -76,8 +80,8 @@
     "size": "M",
     "condition": "Good",
     "material": "Cotton twill",
-    "category": "bottom",
-    "description": "Wide-leg  trousers reworked with layered SadAge graphics, oxidized dye treatment, and large-scale monochrome illustrations.",
+    "category": "pants",
+    "description": "Wide-leg trousers reworked with layered SadAge graphics, oxidized dye treatment, and large-scale monochrome illustrations.",
     "status": "sold",
     "photos": [
       "/items/MS-088-1.jpg",
@@ -85,7 +89,8 @@
       "/items/MS-088-3.jpg",
       "/items/MS-088-4.jpg"
     ]
-  },{
+  },
+  {
     "code": "MS-089",
     "cover": "/items/MS-089-cover.jpg",
     "name": "Carhartt Reworked Newspaper Print Trousers",
@@ -93,8 +98,8 @@
     "size": "M",
     "condition": "Good",
     "material": "Cotton twill",
-    "category": "bottom",
-    "description": "Carhartt trousers reworked with faded all-over newspaper collage printing and monochrome SadAge graphic intervention. ",
+    "category": "pants",
+    "description": "Carhartt trousers reworked with faded all-over newspaper collage printing and monochrome SadAge graphic intervention.",
     "status": "available",
     "photos": [
       "/items/MS-089-1.jpg",
@@ -102,7 +107,8 @@
       "/items/MS-089-3.jpg",
       "/items/MS-089-4.jpg"
     ]
-  },{
+  },
+  {
     "code": "MS-082",
     "cover": "/items/MS-082-cover.jpg",
     "name": "SadAge Reworked Lace Panel Dress",
@@ -110,8 +116,8 @@
     "size": "M",
     "condition": "Good",
     "material": "Cotton base",
-    "category": "top",
-    "description": "White lace dress reconstructed with contrasting black-and-white forest graphic panels and raw fringe detailing at the hem. reworked vintage, good condition with intentional alterations",
+    "category": "dress",
+    "description": "White lace dress reconstructed with contrasting black-and-white forest graphic panels and raw fringe detailing at the hem.",
     "status": "available",
     "photos": [
       "/items/MS-082-1.jpg",
@@ -119,7 +125,8 @@
       "/items/MS-082-3.jpg",
       "/items/MS-082-4.jpg"
     ]
-  },{
+  },
+  {
     "code": "MS-083",
     "cover": "/items/MS-083-cover.jpg",
     "name": "Reworked Patterned Kimono Coat",
@@ -127,8 +134,11 @@
     "size": "M / L",
     "condition": "Excellent",
     "material": "Mixed textiles",
-    "category": "jacket",
-    "description": "Traditional patterned kimono-style coat reconstructed with contrasting central panel and integrated SadAge graphic insert. One-of-one piece that shifts a heritage garment into a fragmented, contemporary uniform balancing symmetry and interruption.",
+    "category": [
+      "jacket",
+      "coat"
+    ],
+    "description": "Traditional patterned kimono-style coat reconstructed with contrasting central panel and integrated SadAge graphic insert.",
     "status": "available",
     "photos": [
       "/items/MS-083-1.jpg",
@@ -138,7 +148,8 @@
       "/items/MS-083-5.jpg",
       "/items/MS-083-6.jpg"
     ]
-  },{
+  },
+  {
     "code": "MS-084",
     "cover": "/items/MS-084-cover.jpg",
     "name": "Reworked Satin Slip Dress",
@@ -146,7 +157,7 @@
     "size": "S / M",
     "condition": "Excellent",
     "material": "Polyester satin",
-    "category": "top",
+    "category": "dress",
     "description": "Olive satin slip dress reworked with black lace trimming and layered SadAge graphic prints.",
     "status": "sold",
     "photos": [
@@ -158,7 +169,8 @@
       "/items/MS-084-6.jpg",
       "/items/MS-084-7.jpg"
     ]
-  },{
+  },
+  {
     "code": "MS-085",
     "cover": "/items/MS-085-cover.jpg",
     "name": "SadAge Reworked Graphic Work Pants",
@@ -166,7 +178,7 @@
     "size": "M / L",
     "condition": "Well-loved",
     "material": "Cotton",
-    "category": "bottom",
+    "category": "pants",
     "description": "Light-toned work pants reworked with full-surface SadAge collage printing and irregular dye treatment.",
     "status": "available",
     "photos": [
@@ -179,7 +191,8 @@
       "/items/MS-085-7.jpg",
       "/items/MS-085-8.jpg"
     ]
-  },{
+  },
+  {
     "code": "MS-086",
     "cover": "/items/MS-086-cover.jpg",
     "name": "Diesel Reworked Corduroy Pants",
@@ -187,7 +200,7 @@
     "size": "S / M",
     "condition": "Excellent",
     "material": "Cotton corduroy",
-    "category": "bottom",
+    "category": "pants",
     "description": "Vintage Diesel corduroy pants reworked with uneven dye treatment and subtle SadAge intervention.",
     "status": "sold",
     "photos": [
@@ -205,8 +218,8 @@
     "size": "L",
     "condition": "Well-loved",
     "material": "Cotton",
-    "category": "bottom",
-    "description": "Utility cargo pants disrupted by layered SadAge interventions, where structure stays functional but meaning collapses. The piece reads as a map of control versus instinct, where order (utility design) is slowly overridden by noise, emotion, and distortion. One-of-one garment where function survives, but clarity does not.",
+    "category": "pants",
+    "description": "Utility cargo pants disrupted by layered SadAge interventions.",
     "status": "available",
     "photos": [
       "/items/MS-062-1.jpg",
@@ -230,7 +243,7 @@
     "condition": "Excellent",
     "material": "Cotton / synthetic blend",
     "category": "jacket",
-    "description": "A functional anorak recontextualized into a narrative surface about inevitability and repetition. Text fragments run vertically and across the back in Ukrainian, carrying a fatalistic tone: a statement about not believing in a second chance at existence. The back hosts a ghosted portrait of Skryabin, barely present, as if emerging through the fabric rather than printed on it. The sleeve text \"THE LOST GENERATION\" reinforces the sense of dislocation and inherited exhaustion. One-of-one garment where protection becomes message, and function carries doubt.",
+    "description": "A functional anorak recontextualized into a narrative surface about inevitability and repetition.",
     "status": "available",
     "photos": [
       "/items/MS-063-1.jpg",
@@ -251,8 +264,8 @@
     "size": "L",
     "condition": "Excellent",
     "material": "Cotton",
-    "category": "top",
-    "description": "The fabric is unevenly bleached and hand-dyed into a muted gradient of dusty rose and charcoal. The piece reads like something that tried to stay neutral but failed.",
+    "category": "longsleeve",
+    "description": "The fabric is unevenly bleached and hand-dyed into a muted gradient of dusty rose and charcoal.",
     "status": "sold",
     "photos": [
       "/items/MS-064-1.jpg",
@@ -269,8 +282,8 @@
     "size": "S / M",
     "condition": "Excellent",
     "material": "Cotton",
-    "category": "top",
-    "description": "A sweatshirt stripped down to a shorter, more fragile silhouette and then quietly destabilized through dye and symbol.",
+    "category": "hoodie",
+    "description": "A sweatshirt stripped down to a shorter, more fragile silhouette.",
     "status": "available",
     "photos": [
       "/items/MS-065-1.jpg",
@@ -281,13 +294,13 @@
   {
     "code": "MS-066",
     "cover": "/items/MS-066-cover.jpg",
-    "name": "SadAge \"Immigrant\" Reworked Levi\\",
+    "name": "SadAge Immigrant Reworked Levis Hoodie",
     "price": "70",
     "size": "S / M",
     "condition": "Good",
     "material": "Cotton blend",
-    "category": "top",
-    "description": "Levi\\'s hoodie reworked with full-surface bleach treatment and SadAge graphics. The front combines original Levi\\'s branding with overlaid prints and hand-style graphics on the pocket. The back features a large-scale halftone sphere with \"ImMmigrant\" text and burning books graphic.",
+    "category": "hoodie",
+    "description": "Levi's hoodie reworked with full-surface bleach treatment and SadAge graphics.",
     "status": "sold",
     "photos": [
       "/items/MS-066-1.jpg",
@@ -306,8 +319,8 @@
     "size": "S",
     "condition": "Well-loved",
     "material": "Cotton denim",
-    "category": "bottom",
-    "description": "Yves Saint Laurent denim pants reworked with full-surface bleach treatment and layered SadAge collage graphics. The original base is transformed into a warm brown tone with aggressive black bleaching, creating high-contrast, irregular patterns across the garment. The front features dense compositions of drawings, symbols, and newspaper-style prints, while the back remains more fragmented with selective graphics and texture. One-of-one piece balancing classic YSL denim foundation with heavy surface manipulation and chaotic SadAge visual language.",
+    "category": "pants",
+    "description": "Yves Saint Laurent denim pants reworked with full-surface bleach treatment.",
     "status": "sold",
     "photos": [
       "/items/MS-067-1.jpg",
@@ -327,13 +340,13 @@
   {
     "code": "MS-068",
     "cover": "/items/MS-068-cover.jpg",
-    "name": "SadAge \"Dont follow me",
+    "name": "SadAge Dont Follow Me Reworked Long Sleeve",
     "price": "150",
     "size": "M / L",
     "condition": "Good",
     "material": "Cotton",
-    "category": "top",
-    "description": "Long sleeve shirt reworked with subtle bleach fading and SadAge graphics. The front remains minimal with a small \"SadAge Soul\" print. The back carries the main composition with large Shia LaBeouf portrait print and layered text reading \"Don\\'t follow me I\\'m lost,\"",
+    "category": "longsleeve",
+    "description": "Long sleeve shirt reworked with subtle bleach fading and SadAge graphics.",
     "status": "sold",
     "photos": [
       "/items/MS-068-1.jpg",
@@ -345,13 +358,13 @@
   {
     "code": "MS-069",
     "cover": "/items/MS-069-cover.jpg",
-    "name": "SadAge \"Sign of Lost Time\" Reworked T-Shirt",
+    "name": "SadAge Sign of Lost Time Reworked T-Shirt",
     "price": "110",
     "size": "L / XL",
     "condition": "Good",
     "material": "Cotton",
-    "category": "top",
-    "description": "Short sleeve T-shirt reworked with soft bleach fading and minimal SadAge graphics. The front features \"Sign of Lost Time\". The back introduces a secondary layer with bone graphic and fragmented symbolic text.",
+    "category": "tshirt",
+    "description": "Short sleeve T-shirt reworked with soft bleach fading and minimal SadAge graphics.",
     "status": "available",
     "photos": [
       "/items/MS-069-1.jpg",
@@ -368,7 +381,7 @@
     "size": "L / XL",
     "condition": "Well-loved",
     "material": "Cotton",
-    "category": "bottom",
+    "category": "pants",
     "description": "Nike utility pants reworked with aggressive bleach treatment and layered SadAge graphics.",
     "status": "sold",
     "photos": [
@@ -393,7 +406,7 @@
     "size": "L",
     "condition": "Well-loved",
     "material": "Cotton",
-    "category": "bottom",
+    "category": "pants",
     "description": "Light-colored pants fully reworked with all-over SadAge graphics and deep contrast dye treatment.",
     "status": "available",
     "photos": [
@@ -413,13 +426,13 @@
   {
     "code": "MS-072",
     "cover": "/items/MS-072-cover.jpg",
-    "name": "Levi\\",
+    "name": "Levis x SadAge Reworked Cropped Sweatshirt",
     "price": "90",
     "size": "M",
     "condition": "Good",
     "material": "Cotton",
-    "category": "top",
-    "description": "Levi\\'s sweatshirt reworked with faded wash and restrained SadAge interventions.",
+    "category": "hoodie",
+    "description": "Levi's sweatshirt reworked with faded wash and restrained SadAge interventions.",
     "status": "sold",
     "photos": [
       "/items/MS-072-1.jpg",
@@ -438,7 +451,7 @@
     "size": "L / XL",
     "condition": "Well-loved",
     "material": "Cotton",
-    "category": "top",
+    "category": "tshirt",
     "description": "Faded grey T-shirt reworked with SadAge graphics and uneven discharge treatment.",
     "status": "sold",
     "photos": [
@@ -456,8 +469,8 @@
     "size": "M",
     "condition": "Good",
     "material": "Cotton",
-    "category": "top",
-    "description": "Brown hoodie aggressively bleached to create high-contrast, organic surface patterns across the entire garment. The front is dominated by a distorted multi-face graphic, partially dissolved into the fabric, with subtle SadAge marking integrated into the composition. One-of-one piece that transforms a standard Adidas hoodie into a layered visual field balancing control, erosion, and accidental composition.",
+    "category": "hoodie",
+    "description": "Brown hoodie aggressively bleached to create high-contrast, organic surface patterns.",
     "status": "available",
     "photos": [
       "/items/MS-074-1.jpg",
@@ -477,8 +490,8 @@
     "size": "M / L",
     "condition": "Well-loved",
     "material": "Cotton",
-    "category": "top",
-    "description": "White Champion hoodie reworked with soft purple-grey gradient dyeing and layered SadAge graphics.Adidas Reworked Bleached Graphic Hoodie",
+    "category": "hoodie",
+    "description": "White Champion hoodie reworked with soft purple-grey gradient dyeing and layered SadAge graphics.",
     "status": "available",
     "photos": [
       "/items/MS-075-1.jpg",
@@ -500,8 +513,8 @@
     "size": "S / M",
     "condition": "Excellent",
     "material": "Polyester / viscose blend",
-    "category": "top",
-    "description": "Black jacquard dress with subtle floral pattern, reworked with a vertical sequence of high-contrast mask prints placed along the spine. One-of-one piece transforming a classic dress into a structured visual narrative.",
+    "category": "dress",
+    "description": "Black jacquard dress with subtle floral pattern, reworked with a vertical sequence of high-contrast mask prints.",
     "status": "sold",
     "photos": [
       "/items/MS-076-1.jpg",
@@ -520,8 +533,8 @@
     "size": "M / L",
     "condition": "Excellent",
     "material": "Cotton",
-    "category": "top",
-    "description": "White t-shirt reworked with soft green-grey gradient dyeing and dense mask-based composition across the front.",
+    "category": "tshirt",
+    "description": "White t-shirt reworked with soft green-grey gradient dyeing and dense mask-based composition.",
     "status": "sold",
     "photos": [
       "/items/MS-077-1.jpg",
@@ -534,12 +547,12 @@
   {
     "code": "MS-078",
     "cover": "/items/MS-078-cover.jpg",
-    "name": "Do Not Promise Yourself Another Birth\" Reworked T-Shirt",
+    "name": "Do Not Promise Yourself Another Birth Reworked T-Shirt",
     "price": "110",
     "size": "L / XL",
     "condition": "Excellent",
     "material": "Cotton",
-    "category": "top",
+    "category": "tshirt",
     "description": "White t-shirt reworked with soft blue-grey gradient dyeing.",
     "status": "available",
     "photos": [
@@ -553,13 +566,13 @@
   {
     "code": "MS-079",
     "cover": "/items/MS-079-cover.jpg",
-    "name": "SadAge \"Sorrow Sign of Lost Time\" Reworked Hoodie",
+    "name": "SadAge Sorrow Sign of Lost Time Reworked Hoodie",
     "price": "150",
     "size": "M / L",
     "condition": "Good",
     "material": "Cotton",
-    "category": "top",
-    "description": "Adidas reworked hodie. Hand-dyed dead grey and washed-out ash tones. Yellow accents appear sparingly, almost accidental, breaking the grayscale like small system errors.",
+    "category": "hoodie",
+    "description": "Adidas reworked hoodie. Hand-dyed dead grey and washed-out ash tones.",
     "status": "available",
     "photos": [
       "/items/MS-079-1.jpg",
@@ -576,13 +589,13 @@
   {
     "code": "MS-080",
     "cover": "/items/MS-080-cover.jpg",
-    "name": "SadAge \"Endless Feed / Printed Noise\" Wide-Leg Trousers",
+    "name": "SadAge Endless Feed Printed Noise Wide-Leg Trousers",
     "price": "90",
     "size": "M",
     "condition": "Good",
     "material": "Eco leather",
-    "category": "bottom",
-    "description": "A pair of trousers that reads like a collapsed information stream. Reworked vintage condition with full-surface print, slight wear, and soft structure.",
+    "category": "pants",
+    "description": "A pair of trousers that reads like a collapsed information stream.",
     "status": "sold",
     "photos": [
       "/items/MS-080-1.jpg",
@@ -597,13 +610,13 @@
   {
     "code": "MS-081",
     "cover": "/items/MS-081-cover.jpg",
-    "name": "SadAge \"Smiling Collapse\" Reworked Work Shirt",
+    "name": "SadAge Smiling Collapse Reworked Work Shirt",
     "price": "150",
     "size": "M / L",
     "condition": "Well-loved",
     "material": "Cotton",
-    "category": "jacket",
-    "description": "A work shirt that no longer serves work. Reworked vintage condition with heavy dye treatment, wear, and surface irregularities. This is not a finished garment. It\\'s a state.",
+    "category": "shirt",
+    "description": "A work shirt that no longer serves work.",
     "status": "available",
     "photos": [
       "/items/MS-081-1.jpg",
@@ -621,10 +634,7 @@
     "size": "S / M",
     "condition": "Excellent",
     "material": "lightweight nylon",
-    "category": [
-      "jacket",
-      "top"
-    ],
+    "category": "jacket",
     "description": "Black technical shell jacket reworked with gold SadAge graphics and large-scale back artwork.",
     "status": "sold",
     "photos": [
@@ -665,7 +675,10 @@
     "size": "L",
     "condition": "Excellent",
     "material": "Cotton canvas, polyester lining",
-    "category": "jacket",
+    "category": [
+      "jacket",
+      "coat"
+    ],
     "description": "Black technical shell jacket reworked with gold SadAge graphics and large-scale back artwork.",
     "status": "sold",
     "photos": [
@@ -684,7 +697,10 @@
     "size": "M / L",
     "condition": "Excellent",
     "material": "Cotton / poly blend",
-    "category": "jacket",
+    "category": [
+      "jacket",
+      "coat"
+    ],
     "description": "Beige lightweight coat reworked with SadAge collage graphics and text elements.",
     "status": "sold",
     "photos": [
@@ -709,7 +725,7 @@
     "size": "L / XL",
     "condition": "Good",
     "material": "Cotton / poly blend",
-    "category": "top",
+    "category": "shirt",
     "description": "Short sleeve Dickies work shirt reworked with SadAge graphics and heavy bleach treatment.",
     "status": "sold",
     "photos": [
@@ -730,7 +746,7 @@
     "size": "L / XL",
     "condition": "Excellent",
     "material": "Denim",
-    "category": "bottom",
+    "category": "pants",
     "description": "Reworked denim jeans featuring heavy black bleach treatment.",
     "status": "sold",
     "photos": [
@@ -773,8 +789,8 @@
     "size": "S / M",
     "condition": "Excellent",
     "material": "Denim",
-    "category": "bottom",
-    "description": "Strong one-of-one statement piece rooted in experimental streetwear. Bleached denim jeans reworked with SadAge collage graphics and large-scale printed imagery.",
+    "category": "pants",
+    "description": "Bleached denim jeans reworked with SadAge collage graphics and large-scale printed imagery.",
     "status": "available",
     "photos": [
       "/items/MS-008-1.jpg",
@@ -793,7 +809,10 @@
     "size": "L / XL",
     "condition": "Excellent",
     "material": "Cotton / cotton-blend",
-    "category": "jacket",
+    "category": [
+      "jacket",
+      "coat"
+    ],
     "description": "Black robe-style coat reworked with extensive SadAge graphics with strong conceptual identity",
     "status": "available",
     "photos": [
@@ -814,7 +833,7 @@
     "condition": "Excellent",
     "material": "Waterproof technical shell",
     "category": "jacket",
-    "description": "Berghaus waterproof shell jacket reworked with SadAge graphics and large back artwork. The vibrant pink technical fabric contrasts with the dark graphic print, turning a functional outdoor jacket into a bold visual statement.",
+    "description": "Berghaus waterproof shell jacket reworked with SadAge graphics and large back artwork.",
     "status": "available",
     "photos": [
       "/items/MS-010-1.jpg",
@@ -833,8 +852,8 @@
     "size": "L",
     "condition": "Well-loved",
     "material": "Cotton",
-    "category": "top",
-    "description": "Vintage Wrangler button-up shirt reworked with SadAge visual language. Features bleach/burn-style dye treatment. A balance between classic workwear structure and chaotic, expressive print intervention.",
+    "category": "shirt",
+    "description": "Vintage Wrangler button-up shirt reworked with SadAge visual language.",
     "status": "sold",
     "photos": [
       "/items/MS-011-1.jpg",
@@ -852,8 +871,8 @@
     "size": "M / L",
     "condition": "Excellent",
     "material": "Cotton",
-    "category": "top",
-    "description": "White button-up shirt reworked with contrasting dual-panel graphics on the front. A minimal yet concept-driven piece balancing naive expression and structured symbolism.",
+    "category": "shirt",
+    "description": "White button-up shirt reworked with contrasting dual-panel graphics on the front.",
     "status": "sold",
     "photos": [
       "/items/MS-012-1.jpg",
@@ -871,8 +890,8 @@
     "size": "M / L",
     "condition": "Good",
     "material": "Cotton",
-    "category": "top",
-    "description": "White button-up shirt with restrained SadAge intervention. Front features a bold anatomical bone print and subtle SadAge chest marking, while the side introduces a partially hidden graphic portrait. Back remains mostly clean with a small text detail We have never been modern.",
+    "category": "shirt",
+    "description": "White button-up shirt with restrained SadAge intervention.",
     "status": "available",
     "photos": [
       "/items/MS-013-1.jpg",
@@ -891,8 +910,8 @@
     "size": "M / L",
     "condition": "Excellent",
     "material": "Cotton",
-    "category": "top",
-    "description": "Hand-dyed long sleeve in burnt earth tones with uneven, almost scorched gradients. Minimal front graphic with subtle chest marking, contrasted by a heavy back composition featuring a surreal multi-face architectural print. Sleeve detail reads Softness is a weapon, while the back is finished with raw Hooligan Love lettering.",
+    "category": "longsleeve",
+    "description": "Hand-dyed long sleeve in burnt earth tones with uneven, almost scorched gradients.",
     "status": "sold",
     "photos": [
       "/items/MS-014-1.jpg",
@@ -909,8 +928,8 @@
     "size": "S / M",
     "condition": "Well-loved",
     "material": "Cotton",
-    "category": "top",
-    "description": "Indigo-dyed folk-style jacket with traditional toggle closure, reworked through SadAge visual language. Front remains restrained with a single geometric mask print and subtle distressing, while the back expands into a ritual composition of five primitive mask faces in saturated yellow pigment.",
+    "category": "jacket",
+    "description": "Indigo-dyed folk-style jacket with traditional toggle closure, reworked through SadAge visual language.",
     "status": "sold",
     "photos": [
       "/items/MS-015-1.jpg",
@@ -925,11 +944,11 @@
     "cover": "/items/MS-016-cover.jpg",
     "name": "Reworked Grey Shirt",
     "price": "73",
-    "size": "M /L",
+    "size": "M / L",
     "condition": "Good",
     "material": "Cotton",
-    "category": "top",
-    "description": "Minimalist grey button-up reworked with restrained front detailing and a single pocket graphic, contrasted by a narrative back print of a cloaked figure aiming forward. The phrase Learning is not about force cuts across the composition, creating tension between aggression and reflection.",
+    "category": "shirt",
+    "description": "Minimalist grey button-up reworked with restrained front detailing.",
     "status": "available",
     "photos": [
       "/items/MS-016-1.jpg",
@@ -945,8 +964,8 @@
     "size": "L / XL",
     "condition": "Good",
     "material": "Cotton",
-    "category": "top",
-    "description": "Light blue striped short sleeve shirt reworked with a restrained front and a dominant back intervention. The oversized red sun-face graphic disrupts the calm, almost office-like base, turning it into a confrontational object. Finished with the phrase No nature no culture",
+    "category": "shirt",
+    "description": "Light blue striped short sleeve shirt reworked with a restrained front and a dominant back intervention.",
     "status": "sold",
     "photos": [
       "/items/MS-017-1.jpg",
@@ -963,8 +982,8 @@
     "size": "M / L",
     "condition": "Good",
     "material": "Cotton",
-    "category": "top",
-    "description": "Classic blue-white striped shirt disrupted by raw SadAge interventions. Front remains almost corporate with a subtle distorted logo, while the back carries a large primitive mask in deep red, paired with the cryptic ??? marking.",
+    "category": "shirt",
+    "description": "Classic blue-white striped shirt disrupted by raw SadAge interventions.",
     "status": "available",
     "photos": [
       "/items/MS-018-1.jpg",
@@ -981,8 +1000,8 @@
     "size": "XL",
     "condition": "Excellent",
     "material": "Cotton",
-    "category": "top",
-    "description": "The piece operates as a contrast between silence and overload: front as control, back as accumulation. A quiet garment that reveals too much only when you turn away.",
+    "category": "shirt",
+    "description": "The piece operates as a contrast between silence and overload.",
     "status": "sold",
     "photos": [
       "/items/MS-019-1.jpg",
@@ -1000,8 +1019,8 @@
     "size": "M",
     "condition": "Well-loved",
     "material": "Cotton / viscose blend",
-    "category": "top",
-    "description": "A polite mid-century bowling shirt. The piece feels like something that used to belong to a normal life but stayed too long in a different reality. Now it carries both at once.",
+    "category": "shirt",
+    "description": "A polite mid-century bowling shirt.",
     "status": "sold",
     "photos": [
       "/items/MS-020-1.jpg",
@@ -1016,8 +1035,8 @@
     "size": "M / L",
     "condition": "Excellent",
     "material": "Cotton",
-    "category": "top",
-    "description": "Oh Sad Age Hand-Dyed T-Shirt. The front carries a ritual mask above a broken mantra: OH SAD AGE, repeated until it loses clarity and becomes texture. On the reverse, a corrupted image of a group portrait.",
+    "category": "tshirt",
+    "description": "Oh Sad Age Hand-Dyed T-Shirt.",
     "status": "sold",
     "photos": [
       "/items/MS-021-1.jpg",
@@ -1032,8 +1051,11 @@
     "size": "XL",
     "condition": "Excellent",
     "material": "Cotton",
-    "category": "jacket",
-    "description": "The piece balances collapse and control: chaos in the fabric, clarity in the symbols. It wears like something between a uniform and a warning.",
+    "category": [
+      "jacket",
+      "coat"
+    ],
+    "description": "The piece balances collapse and control.",
     "status": "available",
     "photos": [
       "/items/MS-022-1.jpg",
@@ -1051,8 +1073,8 @@
     "size": "M / L",
     "condition": "Good",
     "material": "Cotton blend",
-    "category": "top",
-    "description": "The original Levis identity remains, but only as a ghost. Letters embedded into a surface that feels chemically eroded, uneven, almost mineral. On the front, a high-contrast negative image sits inside the pocket space, resembling mushroom branches. The back carries a single face: neutral, detached, almost naive in expression, yet placed like an icon.",
+    "category": "hoodie",
+    "description": "The original Levis identity remains, but only as a ghost.",
     "status": "sold",
     "photos": [
       "/items/MS-023-1.jpg",
@@ -1072,8 +1094,8 @@
     "size": "OS",
     "condition": "Good",
     "material": "Heavy cotton canvas",
-    "category": "other",
-    "description": "The A-COLD-WALL sling with SADAGE sprayed across the surface. This contrast creates tension between order and intrusion, design and reaction. The object feels transitional, as if caught between factory output and personal claim.",
+    "category": "bag",
+    "description": "The A-COLD-WALL sling with SADAGE sprayed across the surface.",
     "status": "available",
     "photos": [
       "/items/MS-024-1.jpg",
@@ -1089,8 +1111,8 @@
     "size": "S / M",
     "condition": "Good",
     "material": "Viscose blend",
-    "category": "top",
-    "description": "Charcoal-toned sleeveless dress by MM6, built on an asymmetric, deconstructed silhouette. The front remains minimal and almost neutral, while the back introduces a restrained SadAge intervention.",
+    "category": "dress",
+    "description": "Charcoal-toned sleeveless dress by MM6.",
     "status": "available",
     "photos": [
       "/items/MS-025-1.jpg",
@@ -1106,8 +1128,8 @@
     "size": "M / L",
     "condition": "Excellent",
     "material": "Cotton fleece",
-    "category": "top",
-    "description": "Black technical hoodie with Oakley base construction, reworked through SadAge visual language. Front remains structured and controlled, with a minimal SADAGE SOUL mark and a distorted Albrecht Durers Landscape with a Cannon etching print embedded into the pocket. The back expands into a stark monochrome composition of six figures, rendered in high-contrast negative tones. somewhere between sportswear, relic, and broadcast artifact",
+    "category": "hoodie",
+    "description": "Black technical hoodie with Oakley base construction.",
     "status": "available",
     "photos": [
       "/items/MS-026-1.jpg",
@@ -1122,8 +1144,8 @@
     "size": "M / L",
     "condition": "Good",
     "material": "Cotton fleece",
-    "category": "top",
-    "description": "Muted grey Alpha Industries sweatshirt reworked through SadAge visual language. The back remains almost silent, marked only by a small logo, while the front carries a fragmented, Basquiat-like composition of raw symbols, distorted figures, and layered graphic noise. The piece feels unstable and archival at once.",
+    "category": "hoodie",
+    "description": "Muted grey Alpha Industries sweatshirt reworked through SadAge visual language.",
     "status": "available",
     "photos": [
       "/items/MS-027-1.jpg",
@@ -1140,8 +1162,8 @@
     "size": "S / M",
     "condition": "Well-loved",
     "material": "Cotton fleece",
-    "category": "top",
-    "description": "Black Adidas base sweatshirt disrupted through SadAge visual language. The front is dominated by a confrontational graphic - corporate iconography overwritten by a crude weapon silhouette and the phrase KILL ALL BRANDS, turning familiar branding into an object of critique rather than desire.",
+    "category": "hoodie",
+    "description": "Black Adidas base sweatshirt disrupted through SadAge visual language.",
     "status": "available",
     "photos": [
       "/items/MS-028-1.jpg",
@@ -1156,8 +1178,8 @@
     "size": "M / L",
     "condition": "Excellent",
     "material": "Cotton",
-    "category": "top",
-    "description": "Oxidized, earth-stained T-shirt treated through SadAge visual language, where the fabric itself becomes the primary narrative. The contrast between the fragile, weathered ground and the aggressive graphic creates a tension between disappearance and confrontation.",
+    "category": "tshirt",
+    "description": "Oxidized, earth-stained T-shirt treated through SadAge visual language.",
     "status": "sold",
     "photos": [
       "/items/MS-029-1.jpg",
@@ -1173,7 +1195,7 @@
     "condition": "Well-loved",
     "material": "Heavy cotton canvas",
     "category": "jacket",
-    "description": "Vintage Carhartt work jacket heavily reworked with SadAge graphics and experimental prints. The faded beige canvas, distressed edges, and graphic layering.",
+    "description": "Vintage Carhartt work jacket heavily reworked with SadAge graphics.",
     "status": "sold",
     "photos": [
       "/items/MS-030-1.jpg",
@@ -1191,8 +1213,8 @@
     "size": "L / XL",
     "condition": "Good",
     "material": "Cotton chambray",
-    "category": "top",
-    "description": "Lightweight chambray Levis shirt reinterpreted through SadAge visual language. The front remains almost functional punctuated only by a minimal symbolic mark and a small black patch, suggesting interruption rather than decoration. The back unfolds into a fragmented narrative: archival black-and-white imagery arranged alongside diagrammatic sequences of birds in motion, somewhere between scientific notation and poetic observation.",
+    "category": "shirt",
+    "description": "Lightweight chambray Levis shirt reinterpreted through SadAge visual language.",
     "status": "sold",
     "photos": [
       "/items/MS-031-1.jpg",
@@ -1207,8 +1229,11 @@
     "size": "M / L",
     "condition": "Excellent",
     "material": "Synthetic blend",
-    "category": "jacket",
-    "description": "Black coach-style coat reimagined through SadAge visual language, where high-contrast acid graphics disrupt the uniform surface. The front carries scattered interventions, The back expands into a dense visual field: fragmented imagery, anatomical distortions, and symbolic inserts.",
+    "category": [
+      "jacket",
+      "coat"
+    ],
+    "description": "Black coach-style coat reimagined through SadAge visual language.",
     "status": "sold",
     "photos": [
       "/items/MS-032-1.jpg",
@@ -1228,8 +1253,8 @@
     "size": "M / L",
     "condition": "Excellent",
     "material": "Cotton",
-    "category": "top",
-    "description": "Cold-dyed long sleeve in washed blue-black gradient, reworked through SadAge visual language. The front remains almost passive, the back unfolds into a chaotic acid-yellow composition: fragmented figures, organic bursts, and unstable forms dispersed across the surface like visual contamination. Item is somewhere between worn uniform, chemical imprint, and artifact of an unknown system.",
+    "category": "longsleeve",
+    "description": "Cold-dyed long sleeve in washed blue-black gradient.",
     "status": "sold",
     "photos": [
       "/items/MS-033-1.jpg",
@@ -1245,8 +1270,8 @@
     "size": "S / M",
     "condition": "Good",
     "material": "Cotton",
-    "category": "top",
-    "description": "Bleach-treated hoodie in ashen grey tones, reworked through SadAge visual language. The surface is unevenly corroded with oxidized stains, creating a worn, almost chemical patina. The tension between quiet observational front and aggressive symbolic back turns the piece into something unstable - part documentation, part hallucination, part artifact from a system already collapsing.",
+    "category": "hoodie",
+    "description": "Bleach-treated hoodie in ashen grey tones.",
     "status": "sold",
     "photos": [
       "/items/MS-034-1.jpg",
@@ -1262,8 +1287,11 @@
     "size": "M / L",
     "condition": "Good",
     "material": "Cotton",
-    "category": "jacket",
-    "description": "Artifact recovered from a system that no longer fully makes sense. Classic beige trench reworked through SadAge visual language into a layered archival surface. The front reads like a fragmented document - scattered photographic inserts, raw typography, primitive mask iconography, and repeated logo markings. The restraint of the base garment remains visible beneath the interventions, preserving its formal identity. The back transforms into a dense narrative field: collaged historical imagery, distorted figures, botanical eruptions, and multi-panel compositions arranged like a broken archive.",
+    "category": [
+      "jacket",
+      "coat"
+    ],
+    "description": "Classic beige trench reworked through SadAge visual language into a layered archival surface.",
     "status": "reserved",
     "photos": [
       "/items/MS-035-1.jpg",
@@ -1291,8 +1319,8 @@
     "size": "L",
     "condition": "Excellent",
     "material": "Cotton",
-    "category": "top",
-    "description": "Oxide-dyed T-shirt in washed red-brown tones, reworked through SadAge visual language. The surface is unevenly saturated, carrying a worn, almost biological texture. The front presents a fragmented portrait composition, partially dissolved into the fabric, the back withdraws into emptiness, interrupted only by a crude, stamped graphic resembling a plastic bag",
+    "category": "tshirt",
+    "description": "Oxide-dyed T-shirt in washed red-brown tones.",
     "status": "sold",
     "photos": [
       "/items/MS-036-1.jpg",
@@ -1311,8 +1339,8 @@
     "size": "L / XL",
     "condition": "Excellent",
     "material": "Cotton blend",
-    "category": "bottom",
-    "description": "Bleach-distressed Vans field pants in washed earth and ash tones, reworked through SadAge visual language. The front assembles a fragmented system of symbols: a crude smiling sun, a surveillance-tree structure, tribal mask iconography, and displaced typography that reads like a broken slogan. The back shifts into a quieter but heavier narrative - isolated photographic inserts and naive graphics floating within the same contaminated field, as if memory and propaganda were printed onto the same unstable surface.",
+    "category": "pants",
+    "description": "Bleach-distressed Vans field pants in washed earth and ash tones.",
     "status": "available",
     "photos": [
       "/items/MS-037-1.jpg",
@@ -1332,8 +1360,8 @@
     "size": "M / L",
     "condition": "Excellent",
     "material": "Cotton twill",
-    "category": "bottom",
-    "description": "Faded green cargo pants reworked through SadAge visual language, carrying the logic of a uniform that has been overwritten too many times. The base fabric holds a washed, oxidized tone, the front constructs a fragmented narrative: surveillance iconography, broken symbols, and a large photographic Skryabin portrait printed directly into the fabric, the back continues the system - camera-tree structures, primitive mask figures, and repeated SadAge markings arranged without hierarchy, like corrupted data looping across a field.",
+    "category": "pants",
+    "description": "Faded green cargo pants reworked through SadAge visual language.",
     "status": "sold",
     "photos": [
       "/items/MS-038-1.jpg",
@@ -1358,8 +1386,8 @@
     "size": "M / L",
     "condition": "Excellent",
     "material": "Cotton twill",
-    "category": "bottom",
-    "description": "Washed olive cargo pants with irregular bleach erosion, reworked through SadAge visual language. The front is structured by two dense rectangular panels of micro-symbol repetition, the back expands the composition into a more narrative field: primitive mask graphics, solar-like symbols, and fragmented typography arranged across the bleached ground. Utility pockets remain intact but visually absorbed into the system of prints, turning function into part of the visual noise.",
+    "category": "pants",
+    "description": "Washed olive cargo pants with irregular bleach erosion.",
     "status": "available",
     "photos": [
       "/items/MS-039-1.jpg",
@@ -1384,8 +1412,8 @@
     "size": "L / XL",
     "condition": "Excellent",
     "material": "Cotton",
-    "category": "top",
-    "description": "Overdyed cotton T-shirt in washed violet-grey tones, reworked through SadAge visual language. The contrast between the quiet, nearly erased front and the aggressive, iconic back creates a sharp visual tension - an object that reads as both minimal and confrontational, like a uniform carrying a hidden narrative.",
+    "category": "tshirt",
+    "description": "Overdyed cotton T-shirt in washed violet-grey tones.",
     "status": "sold",
     "photos": [
       "/items/MS-040-1.jpg",
@@ -1402,8 +1430,8 @@
     "size": "M / L",
     "condition": "Excellent",
     "material": "Cotton",
-    "category": "top",
-    "description": "Overdyed cotton T-shirt in washed grey-violet tones, reworked through SadAge visual language. A piece that exists somewhere between printed garment, corrupted archive, and psychological residue.",
+    "category": "tshirt",
+    "description": "Overdyed cotton T-shirt in washed grey-violet tones.",
     "status": "reserved",
     "photos": [
       "/items/MS-041-1.jpg",
@@ -1420,8 +1448,8 @@
     "size": "S",
     "condition": "Good",
     "material": "Cotton blend",
-    "category": "top",
-    "description": "Saturated pink bodycon dress reworked into a confrontational visual surface. The silhouette is clean and controlled, almost minimal, but the graphic layer disrupts it completely. The back intensifies the narrative, introducing mask-like faces, distorted figures, and repeated SadAge markings that feel ritualistic rather than decorative. The piece reads less as a dress and more as a controlled system of contradictions - beauty, propaganda, memory, and noise stitched into a single surface.",
+    "category": "dress",
+    "description": "Saturated pink bodycon dress reworked into a confrontational visual surface.",
     "status": "sold",
     "photos": [
       "/items/MS-042-1.jpg",
@@ -1439,8 +1467,8 @@
     "size": "L",
     "condition": "Excellent",
     "material": "Cotton",
-    "category": "top",
-    "description": "T-shirt reworked with SadAge graphics and subtle distressed treatment. The front features a minimal composition with faded surface marks, a small yellow accent print, and a low-positioned photographic patch. The back introduces a large-scale distorted face graphic combined with rough yellow overlays and SadAge branding, adding contrast and visual weight.",
+    "category": "tshirt",
+    "description": "T-shirt reworked with SadAge graphics and subtle distressed treatment.",
     "status": "sold",
     "photos": [
       "/items/MS-043-1.jpg",
@@ -1458,8 +1486,8 @@
     "size": "L",
     "condition": "Excellent",
     "material": "Cotton",
-    "category": "top",
-    "description": "Classic white oversized T-shirt reworked with SadAge graphics and washed treatment. The front features a large faded silhouette figure combined with abstract lettering and small technical-style elements. The back carries a bold oversized symbol print with additional graphic panels.",
+    "category": "tshirt",
+    "description": "Classic white oversized T-shirt reworked with SadAge graphics and washed treatment.",
     "status": "reserved",
     "photos": [
       "/items/MS-044-1.jpg",
@@ -1476,8 +1504,8 @@
     "size": "L / XL",
     "condition": "Excellent",
     "material": "Cotton",
-    "category": "top",
-    "description": "Classic white T-shirt cropped and reworked with SadAge graphics and heavy washed treatment. The surface is treated with uneven dye and wash effects, producing a cloudy, worn texture with slight yellow undertones.",
+    "category": "tshirt",
+    "description": "Classic white T-shirt cropped and reworked with SadAge graphics and heavy washed treatment.",
     "status": "sold",
     "photos": [
       "/items/MS-045-1.jpg",
@@ -1493,7 +1521,7 @@
     "size": "M / L",
     "condition": "Good",
     "material": "Cotton",
-    "category": "top",
+    "category": "longsleeve",
     "description": "Classic longsleeve shirt reworked with SadAge graphics and heavy wash treatment.",
     "status": "sold",
     "photos": [
@@ -1514,7 +1542,7 @@
     "condition": "Good",
     "material": "Nylon / Polyester blend",
     "category": "jacket",
-    "description": "Classic utility jacket reworked with SadAge graphics and large-scale print interventions. The front features multiple bold white graphics across sleeves and body, including symbolic figures, text elements, and emblem-style prints layered over a two-tone navy and black base.",
+    "description": "Classic utility jacket reworked with SadAge graphics.",
     "status": "sold",
     "photos": [
       "/items/MS-047-1.jpg",
@@ -1529,8 +1557,11 @@
     "size": "L / XL",
     "condition": "Good",
     "material": "Cotton / Poly blend",
-    "category": "jacket",
-    "description": "Black blazer-style coat reworked with SadAge graphics and large-scale collage prints. The front combines bold symbolic elements. The back features oversized Keep pessimism for better times. A one-of-one piece blending tailoring, graphic design, and experimental art clothing aesthetics.",
+    "category": [
+      "jacket",
+      "coat"
+    ],
+    "description": "Black blazer-style coat reworked with SadAge graphics.",
     "status": "available",
     "photos": [
       "/items/MS-048-1.jpg",
@@ -1545,8 +1576,11 @@
     "size": "M / L",
     "condition": "Excellent",
     "material": "Cotton / Poly blend",
-    "category": "jacket",
-    "description": "Beige trench-style coat reworked with SadAge graphics and full-surface collage printing. A one-of-one piece that transforms a traditional outerwear form into a wearable visual archive balancing control, repetition, and disruption.",
+    "category": [
+      "jacket",
+      "coat"
+    ],
+    "description": "Beige trench-style coat reworked with SadAge graphics and full-surface collage printing.",
     "status": "available",
     "photos": [
       "/items/MS-049-1.jpg",
@@ -1561,8 +1595,11 @@
     "size": "M / L",
     "condition": "Good",
     "material": "Cotton / Poly blend",
-    "category": "jacket",
-    "description": "Grey trench-style coat reworked with SadAge graphics and layered collage printing. The classic trench silhouette contrasts with the raw, distressed print treatment and uneven surface texture.",
+    "category": [
+      "jacket",
+      "coat"
+    ],
+    "description": "Grey trench-style coat reworked with SadAge graphics and layered collage printing.",
     "status": "available",
     "photos": [
       "/items/MS-050-1.jpg",
@@ -1578,7 +1615,7 @@
     "condition": "Excellent",
     "material": "Nylon",
     "category": "jacket",
-    "description": "Navy Nike anorak jacket reworked with SadAge graphics and bold contrast detailing. The original sportswear form is preserved but disrupted through graphic intervention and asymmetrical composition.",
+    "description": "Navy Nike anorak jacket reworked with SadAge graphics.",
     "status": "sold",
     "photos": [
       "/items/MS-051-1.jpg",
@@ -1593,8 +1630,8 @@
     "size": "M / L",
     "condition": "Excellent",
     "material": "Nylon",
-    "category": "top",
-    "description": "Black lightweight nylon jacket reworked with SadAge graphics in a muted gold tone. The front remains relatively minimal, featuring a small portrait print and subtle branded detail. The back introduces a strong visual composition with a large sun emblem and a structured grid panel of symbolic figures.",
+    "category": "jacket",
+    "description": "Black lightweight nylon jacket reworked with SadAge graphics in a muted gold tone.",
     "status": "sold",
     "photos": [
       "/items/MS-052-1.jpg",
@@ -1612,7 +1649,7 @@
     "condition": "Well-loved",
     "material": "Cotton blend workwear fabric",
     "category": "jacket",
-    "description": "90% of the sale will be donated to Energy Act for Ukraine Foundation, supporting solar power and energy storage systems for Ukrainian hospitals and schools affected by the war. This DTEK Pavlohrad workwear set was found second-hand, reprinted, and placed back into circulation as an overpriced artifact of a country trying to keep the lights on.",
+    "description": "90% of the sale will be donated to Energy Act for Ukraine Foundation.",
     "status": "available",
     "photos": [
       "/items/MS-053-1.jpg",
@@ -1627,8 +1664,8 @@
     "size": "2XL",
     "condition": "Well-loved",
     "material": "Cotton blend workwear fabric",
-    "category": "bottom",
-    "description": "90% of the sale will be donated to Energy Act for Ukraine Foundation, supporting solar power and energy storage systems for Ukrainian hospitals and schools affected by the war. This DTEK Pavlohrad workwear set was found second-hand, reprinted, and placed back into circulation as an overpriced artifact of a country trying to keep the lights on.",
+    "category": "pants",
+    "description": "90% of the sale will be donated to Energy Act for Ukraine Foundation.",
     "status": "available",
     "photos": [
       "/items/MS-054-1.jpg",
@@ -1643,8 +1680,8 @@
     "size": "M / L",
     "condition": "Excellent",
     "material": "Cotton",
-    "category": "top",
-    "description": "Faded hand-dyed black short-sleeve sweatshirt with raw-cut sleeves and heavy washed texture, reworked with layered SadAge graphics.",
+    "category": "hoodie",
+    "description": "Faded hand-dyed black short-sleeve sweatshirt.",
     "status": "sold",
     "photos": [
       "/items/MS-055-1.jpg",
@@ -1659,8 +1696,8 @@
     "size": "L / XL",
     "condition": "Excellent",
     "material": "Cotton",
-    "category": "top",
-    "description": "Washed grey hoodie with uneven bleach fading and heavy surface wear, reworked with layered SadAge graphics. One-of-one piece combining decay, irony, and aggressive storytelling through texture and print.",
+    "category": "hoodie",
+    "description": "Washed grey hoodie with uneven bleach fading and heavy surface wear.",
     "status": "reserved",
     "photos": [
       "/items/MS-056-1.jpg",
@@ -1676,8 +1713,8 @@
     "size": "XL",
     "condition": "Well-loved",
     "material": "Genuine leather",
-    "category": "top",
-    "description": "Vintage Gianni Versace black leather vest reworked with SadAge graphics, combining luxury heritage with raw intervention. The front remains mostly clean, featuring minimal gold SadAge print lab marking, preserving the original structure and premium leather texture. The back is transformed with large-scale gold prints.",
+    "category": "vest",
+    "description": "Vintage Gianni Versace black leather vest reworked with SadAge graphics.",
     "status": "available",
     "photos": [
       "/items/MS-057-1.jpg",
@@ -1692,8 +1729,8 @@
     "size": "M / L",
     "condition": "Good",
     "material": "Cotton",
-    "category": "top",
-    "description": "Carhartt base T-shirt transformed through aggressive discharge treatment and layered SadAge graphics. The Carhartt identity remains visible but displaced, functioning more as a relic than a brand.",
+    "category": "tshirt",
+    "description": "Carhartt base T-shirt transformed through aggressive discharge treatment.",
     "status": "sold",
     "photos": [
       "/items/MS-058-1.jpg",
@@ -1713,8 +1750,8 @@
     "size": "XL",
     "condition": "Excellent",
     "material": "Cotton",
-    "category": "top",
-    "description": "Carhartt base T-shirt reworked by SadAge aggressively treated with bleach discharge and graphics. Each stain is uncontrolled, making the garment less designed and more happened.",
+    "category": "tshirt",
+    "description": "Carhartt base T-shirt reworked by SadAge aggressively treated with bleach discharge.",
     "status": "sold",
     "photos": [
       "/items/MS-059-1.jpg",
@@ -1732,8 +1769,8 @@
     "size": "2XL",
     "condition": "Well-loved",
     "material": "Cotton",
-    "category": "top",
-    "description": "Carhartt base longsleeve reworked through heavy bleach inversion, shifting the fabric into a negative state.",
+    "category": "longsleeve",
+    "description": "Carhartt base longsleeve reworked through heavy bleach inversion.",
     "status": "sold",
     "photos": [
       "/items/MS-060-1.jpg",
@@ -1753,8 +1790,11 @@
     "size": "M",
     "condition": "Good",
     "material": "Cotton blend",
-    "category": "jacket",
-    "description": "AllSaints trench coat reworked by SadAge pushed through an aggressive chemical wash that erases its original identity. The fabric holds layered tones of ash, smoke, and burned beige, with irregular dark veins spreading across the garment like residue rather than design.",
+    "category": [
+      "jacket",
+      "coat"
+    ],
+    "description": "AllSaints trench coat reworked by SadAge pushed through an aggressive chemical wash.",
     "status": "available",
     "photos": [
       "/items/MS-061-1.jpg",
