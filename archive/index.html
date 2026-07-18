@@ -43,11 +43,11 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #f2f0ea;
-      --fg: #131312;
-      --muted: #7a7772;
-      --border: rgba(19, 19, 18, 0.08);
-      --border-focus: rgba(19, 19, 18, 0.4);
+      --bg: #eae7df;
+      --fg: #0d0d0d;
+      --muted: #6e6b65;
+      --border: #1a1a1a;
+      --transition: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     html { scroll-behavior: smooth; }
@@ -63,261 +63,287 @@
       -moz-osx-font-smoothing: grayscale;
     }
 
-    /* ── Nav ── */
+    /* ── Header Nav ── */
     nav {
-      padding: 32px 48px;
-      border-bottom: 1px solid var(--border);
+      padding: 24px 32px;
+      border-bottom: 2px solid var(--border);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 24px;
+      gap: 32px;
+      position: sticky;
+      top: 0;
+      background: var(--bg);
+      z-index: 100;
     }
 
     .nav-brand {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 26px;
-      letter-spacing: 0.08em;
+      font-size: 32px;
+      letter-spacing: 0.05em;
       color: var(--fg);
       text-decoration: none;
       line-height: 0.8;
+      transition: transform var(--transition);
+    }
+    .nav-brand:hover {
+      transform: skewX(-6deg);
     }
 
     .nav-links {
       display: flex;
-      gap: 32px;
+      gap: 40px;
     }
 
     .nav-links a {
-      font-size: 10px;
-      letter-spacing: 0.15em;
+      font-size: 11px;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--muted);
       text-decoration: none;
-      position: relative;
-      padding-bottom: 2px;
-      transition: color 0.2s cubic-bezier(0.215, 0.61, 0.355, 1);
+      font-weight: 700;
+      transition: color var(--transition);
     }
 
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 1px;
-      background: var(--fg);
-      transform: scaleX(0);
-      transform-origin: right;
-      transition: transform 0.25s cubic-bezier(0.215, 0.61, 0.355, 1);
+    .nav-links a:hover,
+    .nav-links a.on { 
+      color: var(--fg); 
+      text-decoration: underline;
+      text-underline-offset: 6px;
+      text-decoration-thickness: 2px;
     }
-
-    .nav-links a:hover { color: var(--fg); }
-    .nav-links a:hover::after { transform: scaleX(1); transform-origin: left; }
-    
-    .nav-links a.on { color: var(--fg); }
-    .nav-links a.on::after { transform: scaleX(1); }
 
     /* ── Main Layout ── */
     main {
-      max-width: 960px;
       width: 100%;
+      max-width: 1440px;
       margin: 0 auto;
-      padding: 96px 48px 120px;
+      padding: 0;
       flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      border-left: 2px solid var(--border);
+      border-right: 2px solid var(--border);
     }
 
-    /* ── Intro Block ── */
+    /* ── Massive Statement Intro ── */
     .intro {
-      margin-bottom: 96px;
-      padding-bottom: 64px;
-      border-bottom: 1px solid var(--border);
+      padding: 96px 48px;
+      border-bottom: 2px solid var(--border);
     }
 
     .intro-label {
-      font-size: 9px;
-      letter-spacing: 0.3em;
+      font-size: 10px;
+      letter-spacing: 0.4em;
       text-transform: uppercase;
       color: var(--muted);
       margin-bottom: 32px;
+      font-weight: 700;
     }
 
     .intro-heading {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(38px, 6vw, 64px);
-      letter-spacing: 0.02em;
-      line-height: 0.95;
+      font-size: clamp(44px, 7vw, 90px);
+      letter-spacing: 0.01em;
+      line-height: 0.9;
       color: var(--fg);
-      margin-bottom: 40px;
+      margin-bottom: 48px;
+      max-width: 1200px;
     }
 
     .intro-body {
-      font-size: 12px;
-      line-height: 1.8;
+      font-size: 13px;
+      line-height: 1.9;
       color: var(--fg);
-      max-width: 680px;
+      max-width: 720px;
     }
 
-    .intro-body p + p { margin-top: 18px; }
+    .intro-body p + p { margin-top: 20px; }
 
-    /* ── Asymmetrical Grid Sections ── */
+    /* ── Grid System Sections ── */
     .section {
       display: grid;
-      grid-template-columns: 160px 1fr;
-      column-gap: 48px;
-      margin-bottom: 64px;
-      padding-bottom: 64px;
-      border-bottom: 1px solid var(--border);
+      grid-template-columns: 240px 1fr;
+      border-bottom: 2px solid var(--border);
     }
     
     .section:last-of-type {
       border-bottom: none;
-      margin-bottom: 0;
-      padding-bottom: 0;
     }
 
     .section-label {
-      font-size: 10px;
-      letter-spacing: 0.2em;
+      font-size: 12px;
       font-weight: 700;
-      color: var(--muted);
-      padding-top: 6px;
+      color: var(--fg);
+      padding: 48px;
+      border-right: 2px solid var(--border);
+      letter-spacing: 0.1em;
     }
 
     .section-content {
-      max-width: 600px;
+      padding: 48px;
+      max-width: 840px;
     }
 
     .section-title {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 36px;
-      letter-spacing: 0.04em;
-      line-height: 1;
+      font-size: 48px;
+      letter-spacing: 0.03em;
+      line-height: 0.95;
       color: var(--fg);
       margin-bottom: 24px;
     }
 
     .section-body {
-      font-size: 12px;
-      line-height: 1.8;
+      font-size: 13px;
+      line-height: 1.9;
       color: var(--fg);
     }
 
-    .section-body p + p { margin-top: 16px; }
+    .section-body p + p { margin-top: 20px; }
 
-    /* ── List Elements ── */
+    /* ── Structural Raw List ── */
     .bare-list {
-      margin-top: 32px;
+      margin-top: 40px;
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: 12px;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      border-top: 2px solid var(--border);
+      border-left: 2px solid var(--border);
     }
 
     .bare-list li {
       list-style: none;
       font-size: 11px;
-      letter-spacing: 0.05em;
+      font-weight: 700;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--fg);
-      padding: 10px 14px;
-      background: rgba(19, 19, 18, 0.03);
-      border-left: 2px solid var(--muted);
+      padding: 20px;
+      border-right: 2px solid var(--border);
+      border-bottom: 2px solid var(--border);
+      background: rgba(0, 0, 0, 0.02);
     }
 
-    /* ── Directory Links ── */
+    /* ── Matrix Directory Blocks ── */
     .entry-links {
-      margin-top: 40px;
-      display: flex;
-      flex-direction: column;
+      margin-top: 48px;
+      border-top: 2px solid var(--border);
     }
 
     .entry-link {
       display: grid;
-      grid-template-columns: 200px 1fr;
-      column-gap: 32px;
+      grid-template-columns: 280px 1fr;
       align-items: center;
-      padding: 24px 16px;
-      border-top: 1px solid var(--border);
+      border-bottom: 2px solid var(--border);
       text-decoration: none;
       color: var(--fg);
-      transition: background 0.25s ease, border-color 0.25s ease;
-      margin: 0 -16px;
+      transition: background var(--transition), color var(--transition);
     }
     
-    .entry-link:last-child { border-bottom: 1px solid var(--border); }
+    .entry-link:last-child {
+      border-bottom: none;
+    }
     
     .entry-link:hover { 
-      background: rgba(19, 19, 18, 0.03);
-      border-top-color: var(--border-focus);
-    }
-    .entry-link:hover + .entry-link {
-      border-top-color: var(--border-focus);
+      background: var(--fg);
+      color: var(--bg);
     }
 
     .entry-link-name {
-      font-size: 11px;
+      font-size: 12px;
       font-weight: 700;
       letter-spacing: 0.15em;
       text-transform: uppercase;
+      padding: 32px 48px;
+      border-right: 2px solid var(--border);
+      height: 100%;
+      display: flex;
+      align-items: center;
     }
 
     .entry-link-desc {
-      font-size: 11px;
-      color: var(--muted);
+      font-size: 12px;
       line-height: 1.6;
+      padding: 32px 48px;
     }
 
-    /* ── Footer ── */
+    /* ── Footer Matrix ── */
     footer {
-      border-top: 1px solid var(--border);
-      padding: 40px 48px;
+      border-top: 2px solid var(--border);
+      padding: 48px 32px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
+      gap: 32px;
+      background: var(--fg);
+      color: var(--bg);
     }
 
     .footer-note {
-      font-size: 9px;
-      letter-spacing: 0.25em;
+      font-size: 10px;
+      letter-spacing: 0.3em;
       text-transform: uppercase;
-      color: var(--muted);
+      color: #9c9992;
+      font-weight: 700;
     }
 
     .footer-brand {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 20px;
-      letter-spacing: 0.08em;
-      color: var(--muted);
+      font-size: 28px;
+      letter-spacing: 0.05em;
+      color: var(--bg);
+      line-height: 0.8;
     }
 
-    /* ── Fluid Responsive Design ── */
-    @media (max-width: 768px) {
-      nav { padding: 24px; }
-      .nav-links { gap: 20px; }
+    /* ── Clean Fluid Responsiveness ── */
+    @media (max-width: 900px) {
+      nav { padding: 20px; }
+      .nav-links { gap: 24px; }
       
-      main { padding: 56px 24px 80px; }
-      .intro { margin-bottom: 64px; padding-bottom: 48px; }
+      main { 
+        border-left: none; 
+        border-right: none; 
+      }
+      
+      .intro { padding: 64px 20px; }
 
       .section { 
         grid-template-columns: 1fr; 
-        gap: 12px;
-        margin-bottom: 48px;
-        padding-bottom: 48px;
       }
       
-      .section-label { padding-top: 0; margin-bottom: 4px; font-size: 9px; }
-      .section-title { font-size: 28px; margin-bottom: 16px; }
+      .section-label { 
+        padding: 24px 20px; 
+        border-right: none;
+        border-bottom: 2px solid var(--border); 
+      }
+      
+      .section-content { padding: 32px 20px 48px; }
+      .section-title { font-size: 38px; }
+
+      .bare-list {
+        border-left: none;
+        grid-template-columns: 1fr;
+      }
+      .bare-list li {
+        border-right: none;
+      }
 
       .entry-link { 
         grid-template-columns: 1fr; 
-        gap: 8px; 
-        padding: 20px 12px;
-        margin: 0 -12px;
       }
-      .entry-link:hover { background: none; }
-      .entry-link-desc { max-width: 100%; }
+      .entry-link-name { 
+        padding: 24px 20px 12px;
+        border-right: none;
+      }
+      .entry-link-desc { 
+        padding: 0 20px 24px;
+      }
+      .entry-link:hover {
+        background: none;
+        color: inherit;
+      }
 
-      footer { padding: 32px 24px; }
+      footer { padding: 40px 20px; }
     }
   </style>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-RF3945XCP4"></script>
@@ -347,7 +373,7 @@
 
   <!-- Intro -->
   <div class="intro">
-    <div class="intro-label">About SadAge</div>
+    <div class="intro-label">System Meta // About</div>
     <div class="intro-heading">A clothing and print project about living in a strange, tired, overproduced world — and still trying to make something human inside it.</div>
     <div class="intro-body">
       <p>SadAge is not here to pretend that clothes can fix the world.</p>
@@ -357,7 +383,7 @@
 
   <!-- What is SadAge -->
   <div class="section">
-    <div class="section-label">// 01</div>
+    <div class="section-label">[ 01 ]</div>
     <div class="section-content">
       <div class="section-title">What is SadAge?</div>
       <div class="section-body">
@@ -369,7 +395,7 @@
 
   <!-- Why SadAge -->
   <div class="section">
-    <div class="section-label">// 02</div>
+    <div class="section-label">[ 02 ]</div>
     <div class="section-content">
       <div class="section-title">Why SadAge?</div>
       <div class="section-body">
@@ -382,7 +408,7 @@
 
   <!-- What we make -->
   <div class="section">
-    <div class="section-label">// 03</div>
+    <div class="section-label">[ 03 ]</div>
     <div class="section-content">
       <div class="section-title">What we make</div>
       <div class="section-body">
@@ -402,7 +428,7 @@
 
   <!-- How we work -->
   <div class="section">
-    <div class="section-label">// 04</div>
+    <div class="section-label">[ 04 ]</div>
     <div class="section-content">
       <div class="section-title">How we work</div>
       <div class="section-body">
@@ -414,7 +440,7 @@
 
   <!-- Why secondhand -->
   <div class="section">
-    <div class="section-label">// 05</div>
+    <div class="section-label">[ 05 ]</div>
     <div class="section-content">
       <div class="section-title">Why secondhand?</div>
       <div class="section-body">
@@ -426,7 +452,7 @@
 
   <!-- How to use this site -->
   <div class="section">
-    <div class="section-label">// 06</div>
+    <div class="section-label">[ 06 ]</div>
     <div class="section-content">
       <div class="section-title">How to use this site</div>
       <div class="section-body">
@@ -452,7 +478,7 @@
 </main>
 
 <footer>
-  <span class="footer-note">Made for humans.</span>
+  <span class="footer-note">Made for humans. © 2026</span>
   <span class="footer-brand">SadAge</span>
 </footer>
 
