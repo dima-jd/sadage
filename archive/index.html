@@ -47,7 +47,7 @@
       --fg: #0d0d0d;
       --muted: #6e6b65;
       --border: #1a1a1a;
-      --transition: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      --transition: 0.35s cubic-bezier(0.25, 1, 0.5, 1);
     }
 
     html { scroll-behavior: smooth; }
@@ -85,9 +85,10 @@
       text-decoration: none;
       line-height: 0.8;
       transition: transform var(--transition);
+      display: inline-block;
     }
     .nav-brand:hover {
-      transform: skewX(-6deg);
+      transform: skewX(-8deg) scale(1.03);
     }
 
     .nav-links {
@@ -102,15 +103,31 @@
       color: var(--muted);
       text-decoration: none;
       font-weight: 700;
+      position: relative;
+      padding: 4px 0;
       transition: color var(--transition);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: var(--fg);
+      transition: width var(--transition), left var(--transition);
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.on::after {
+      width: 100%;
+      left: 0;
     }
 
     .nav-links a:hover,
     .nav-links a.on { 
       color: var(--fg); 
-      text-decoration: underline;
-      text-underline-offset: 6px;
-      text-decoration-thickness: 2px;
     }
 
     /* ── Main Layout ── */
@@ -222,6 +239,12 @@
       border-right: 2px solid var(--border);
       border-bottom: 2px solid var(--border);
       background: rgba(0, 0, 0, 0.02);
+      transition: background var(--transition), transform var(--transition);
+    }
+
+    .bare-list li:hover {
+      background: rgba(0, 0, 0, 0.06);
+      transform: translateY(-2px);
     }
 
     /* ── Matrix Directory Blocks ── */
@@ -237,16 +260,55 @@
       border-bottom: 2px solid var(--border);
       text-decoration: none;
       color: var(--fg);
+      position: relative;
+      background: transparent;
       transition: background var(--transition), color var(--transition);
+      overflow: hidden;
     }
     
     .entry-link:last-child {
       border-bottom: none;
     }
     
-    .entry-link:hover { 
+    /* Premium Hover Physics */
+    .entry-link::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       background: var(--fg);
+      transform: scaleY(0);
+      transform-origin: bottom;
+      transition: transform var(--transition);
+      z-index: 1;
+    }
+
+    .entry-link:hover {
       color: var(--bg);
+    }
+
+    .entry-link:hover::before {
+      transform: scaleY(1);
+      transform-origin: top;
+    }
+
+    .entry-link-name,
+    .entry-link-desc {
+      position: relative;
+      z-index: 2;
+      transition: transform var(--transition), color var(--transition);
+    }
+
+    .entry-link:hover .entry-link-name {
+      transform: translateX(16px);
+      color: var(--bg);
+    }
+
+    .entry-link:hover .entry-link-desc {
+      transform: translateX(8px);
+      color: #c9c6be;
     }
 
     .entry-link-name {
@@ -331,6 +393,7 @@
       .entry-link { 
         grid-template-columns: 1fr; 
       }
+      .entry-link::before { display: none; }
       .entry-link-name { 
         padding: 24px 20px 12px;
         border-right: none;
@@ -338,8 +401,12 @@
       .entry-link-desc { 
         padding: 0 20px 24px;
       }
+      .entry-link:hover .entry-link-name,
+      .entry-link:hover .entry-link-desc {
+        transform: none;
+      }
       .entry-link:hover {
-        background: none;
+        background: rgba(0,0,0,0.05);
         color: inherit;
       }
 
