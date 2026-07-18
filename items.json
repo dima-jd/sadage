@@ -1,4 +1,22 @@
 [
+    {
+    "code": "MS-093",
+    "cover": "/items/MS-093-cover.jpg",
+    "name": "Hand-Dyed Pleated Wide-Leg Pants",
+    "price": "97",
+    "size": "M",
+    "condition": "Excellent",
+    "material": "Cotton Twill",
+    "category": "pants",
+    "description": "Wide-leg pleated pants reworked with a layered hand-dyed finish in muted grey, yellow, olive, and faded pink tones. The front remains restrained with a small black SadAge marking, while the back introduces a single monochrome photographic print across one leg. One-of-one piece balancing traditional tailored construction with uneven colour, softened texture, and minimal graphic intervention.",
+    "status": "available",
+    "photos": [
+      "/items/MS-093-1.jpg",
+      "/items/MS-093-2.jpg",
+      "/items/MS-093-3.jpg",
+      "/items/MS-093-4.jpg"
+    ]
+  },
   {
     "code": "MS-092",
     "cover": "/items/MS-092-cover.jpg",
