@@ -1,529 +1,802 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SadAge — Post-Industrial Garments & Artifacts</title>
-    <meta name="description" content="SadAge is an open-source garment mutation project. Reworking the debris of an overproduced civilization into tactile human artifacts.">
-    <link rel="canonical" href="https://sadage.com/about/">
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
-    
-    <!-- Open Graph -->
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="SadAge">
-    <meta property="og:title" content="SadAge — Manifesto">
-    <meta property="og:description" content="Decelerated fashion for a hyper-accelerated era. Reworked textiles, manual print typography, and high-fidelity cynicism.">
-    <meta property="og:url" content="https://sadage.com/about/">
-    <meta property="og:image" content="https://sadage.com/og-image.jpg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    
-    <!-- Twitter / X -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="SadAge">
-    <meta name="twitter:description" content="Decelerated fashion for a hyper-accelerated era.">
-    <meta name="twitter:image" content="https://sadage.com/og-image.jpg">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-    
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-PFDF6KVK');</script>
-    <!-- End Google Tag Manager -->
 
-    <style>
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+<meta charset="UTF-8">
 
-        :root {
-            /* Deep Dark Gray UI */
-            --bg: #fff;
-            --bg-nav: rgba(17, 17, 18, 0.9);
-            --bg-footer: #0a0a0b;
-            --fg: #ffffff;
-            --muted: #888580;
-            --accent: #ff3333; 
-            --border: rgba(255, 255, 255, 0.08);
-            --border-heavy: rgba(255, 255, 255, 0.18);
-            --transition: cubic-bezier(0.25, 1, 0.5, 1);
-        }
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        html { 
-            scroll-behavior: smooth; 
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            background-color: var(--bg);
-        }
+<title>About SadAge — Clothing, Print and Object Project</title>
 
-        body {
-            background: var(--bg);
-            color: var(--fg);
-            font-family: 'Space Mono', monospace;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            overflow-x: hidden;
-        }
+<meta name="description" content="SadAge is a clothing and print project about living in an overproduced world and still trying to make something human inside it. Read the full explanation.">
 
-        /* ── Nav ── */
-        nav {
-            padding: 28px 40px 24px;
-            border-bottom: 1px solid var(--border);
-            display: flex;
-            align-items: baseline;
-            justify-content: space-between;
-            gap: 20px;
-            position: sticky;
-            top: 0;
-            background: var(--bg-nav);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            z-index: 100;
-        }
+<link rel="canonical" href="https://sadage.com/about/">
 
-        .nav-brand {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 20px;
-            letter-spacing: 0.1em;
-            color: var(--fg);
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .nav-brand::before {
-            content: '';
-            display: inline-block;
-            width: 6px;
-            height: 6px;
-            background: var(--accent);
-            border-radius: 50%;
-        }
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
 
-        .nav-links {
-            display: flex;
-            gap: 24px;
-            flex-wrap: wrap;
-        }
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 
-        .nav-links a {
-            font-size: 9px;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--muted);
-            text-decoration: none;
-            position: relative;
-            padding-bottom: 1px;
-            transition: color 0.15s var(--transition);
-        }
-        
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 1px;
-            background: var(--accent);
-            transform: scaleX(0);
-            transform-origin: right;
-            transition: transform 0.3s var(--transition);
-        }
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
 
-        .nav-links a:hover { 
-            color: var(--fg); 
-        }
-        
-        .nav-links a:hover::after {
-            transform: scaleX(1);
-            transform-origin: left;
-        }
-        
-        .nav-links a.on { 
-            color: var(--fg); 
-        }
-        
-        .nav-links a.on::after {
-            transform: scaleX(1);
-            background: var(--fg);
-        }
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
 
-        /* ── Main Layout Architecture ── */
-        main {
-            max-width: 640px;
-            margin: 0 auto;
-            padding: 72px 40px 100px;
-            flex-grow: 1;
-        }
+<!-- Open Graph -->
 
-        /* ── Intro ── */
-        .intro {
-            margin-bottom: 72px;
-            padding-bottom: 48px;
-            border-bottom: 1px solid var(--border-heavy);
-        }
+<meta property="og:type" content="website">
 
-        .intro-label {
-            font-size: 8px;
-            letter-spacing: 0.28em;
-            text-transform: uppercase;
-            color: var(--muted);
-            margin-bottom: 24px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        
-        .intro-label::after {
-            content: '';
-            height: 1px;
-            flex-grow: 1;
-            background: var(--border);
-        }
+<meta property="og:site_name" content="SadAge">
 
-        .intro-heading {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 52px;
-            letter-spacing: 0.04em;
-            line-height: 1.02;
-            color: var(--fg);
-            margin-bottom: 28px;
-        }
+<meta property="og:title" content="About SadAge">
 
-        .intro-body {
-            font-size: 11px;
-            line-height: 2;
-            color: var(--fg);
-            letter-spacing: 0.04em;
-        }
+<meta property="og:description" content="What SadAge is, why it is called SadAge, what we make and why making clothes still matters in an overproduced world.">
 
-        .intro-body p + p { margin-top: 16px; }
+<meta property="og:url" content="https://sadage.com/about/">
 
-        /* ── Sections ── */
-        .section {
-            margin-bottom: 56px;
-            padding-bottom: 56px;
-            border-bottom: 1px solid var(--border);
-        }
-        
-        .section:last-of-type {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 16px;
-        }
+<meta property="og:image" content="https://sadage.com/og-image.jpg">
 
-        .section-label {
-            font-size: 8px;
-            letter-spacing: 0.28em;
-            text-transform: uppercase;
-            color: var(--muted);
-            margin-bottom: 20px;
-        }
+<meta property="og:image:width" content="1200">
 
-        .section-title {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 30px;
-            letter-spacing: 0.05em;
-            line-height: 1;
-            color: var(--fg);
-            margin-bottom: 20px;
-        }
+<meta property="og:image:height" content="630">
 
-        .section-body {
-            font-size: 11px;
-            line-height: 2;
-            color: var(--fg);
-            letter-spacing: 0.04em;
-        }
+<meta property="og:image:alt" content="About SadAge — SadAge">
 
-        .section-body p + p { margin-top: 14px; }
-        
-        .section-body strong {
-            color: var(--fg);
-            font-weight: 700;
-        }
+ 
 
-        /* ── List UI ── */
-        .bare-list {
-            margin-top: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-            border-top: 1px dashed var(--border);
-            padding-top: 20px;
-        }
+<!-- Twitter / X -->
 
-        .bare-list li {
-            list-style: none;
-            font-size: 10px;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--muted);
-            padding-left: 16px;
-            position: relative;
-            transition: color 0.2s var(--transition);
-        }
+<meta name="twitter:card" content="summary_large_image">
 
-        .bare-list li::before {
-            content: '—';
-            position: absolute;
-            left: 0;
-            color: var(--border-heavy);
-            transition: color 0.2s var(--transition);
-        }
-        
-        .bare-list li:hover {
-            color: var(--fg);
-        }
-        
-        .bare-list li:hover::before {
-            color: var(--accent);
-        }
+<meta name="twitter:title" content="About SadAge">
 
-        /* ── Navigation Actions List ── */
-        .entry-links {
-            margin-top: 24px;
-            display: flex;
-            flex-direction: column;
-            border-bottom: 1px solid var(--border);
-        }
+<meta name="twitter:description" content="What SadAge is, why it is called SadAge, what we make and why making clothes still matters in an overproduced world.">
 
-        .entry-link {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 14px 0;
-            border-top: 1px solid var(--border);
-            text-decoration: none;
-            color: var(--fg);
-            transition: padding 0.3s var(--transition), background 0.3s var(--transition);
-        }
-        
-        .entry-link:hover { 
-            padding-left: 12px;
-            padding-right: 12px;
-            background: rgba(255, 255, 255, 0.02);
-        }
+<meta name="twitter:image" content="https://sadage.com/og-image.jpg">
 
-        .entry-link-name {
-            font-size: 10px;
-            letter-spacing: 0.16em;
-            text-transform: uppercase;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .entry-link-name::before {
-            content: '//';
-            color: var(--muted);
-            transition: color 0.2s var(--transition);
-        }
-        
-        .entry-link:hover .entry-link-name::before {
-            color: var(--accent);
-        }
+<link rel="preconnect" href="https://fonts.googleapis.com">
 
-        .entry-link-desc {
-            font-size: 9px;
-            color: var(--muted);
-            letter-spacing: 0.08em;
-            text-align: right;
-            max-width: 260px;
-            line-height: 1.6;
-            transition: color 0.2s var(--transition);
-        }
-        
-        .entry-link:hover .entry-link-desc {
-            color: var(--fg);
-        }
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
-        /* ── Footer ── */
-        footer {
-            border-top: 1px solid var(--border);
-            padding: 28px 40px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 12px;
-            background: var(--bg-footer);
-            margin-top: auto;
-        }
+<!-- Google Tag Manager -->
 
-        .footer-note {
-            font-size: 8px;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--muted);
-        }
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 
-        .footer-brand {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 16px;
-            letter-spacing: 0.1em;
-            color: var(--muted);
-            transition: color 0.2s var(--transition);
-        }
-        
-        footer:hover .footer-brand {
-            color: var(--fg);
-        }
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 
-        /* ── Mobile Breakpoints ── */
-        @media (max-width: 600px) {
-            nav { padding: 20px 20px 16px; }
-            .nav-links { gap: 16px; }
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
-            main { padding: 48px 20px 80px; }
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 
-            .intro { margin-bottom: 48px; padding-bottom: 36px; }
-            .intro-heading { font-size: 38px; }
+})(window,document,'script','dataLayer','GTM-PFDF6KVK');</script>
 
-            .section { margin-bottom: 40px; padding-bottom: 40px; }
-            .section-title { font-size: 24px; }
+<!-- End Google Tag Manager -->
 
-            .entry-link { flex-direction: column; align-items: flex-start; gap: 6px; padding: 18px 0; }
-            .entry-link:hover { padding-left: 0; padding-right: 0; background: transparent; }
-            .entry-link-desc { text-align: left; max-width: 100%; }
 
-            footer { padding: 20px 20px; }
-        }
-    </style>
-    
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RF3945XCP4"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-RF3945XCP4', {
-            anonymize_ip: true,
-            cookie_flags: 'SameSite=None;Secure'
-        });
-    </script>
+
+<style>
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+
+
+  :root {
+
+    --bg:     #f0ede6;
+
+    --fg:     #111110;
+
+    --muted:  #888580;
+
+    --border: rgba(17,17,16,0.1);
+
+  }
+
+
+
+  html { scroll-behavior: smooth; }
+
+
+
+  body {
+
+    background: var(--bg);
+
+    color: var(--fg);
+
+    font-family: 'Space Mono', monospace;
+
+    min-height: 100vh;
+
+  }
+
+
+
+  /* ── Nav ── */
+
+  nav {
+
+    padding: 28px 40px 24px;
+
+    border-bottom: 1px solid var(--border);
+
+    display: flex;
+
+    align-items: baseline;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    flex-wrap: wrap;
+
+  }
+
+
+
+  .nav-brand {
+
+    font-family: 'Bebas Neue', sans-serif;
+
+    font-size: 20px;
+
+    letter-spacing: 0.1em;
+
+    color: var(--fg);
+
+    text-decoration: none;
+
+  }
+
+
+
+  .nav-links {
+
+    display: flex;
+
+    gap: 24px;
+
+    flex-wrap: wrap;
+
+  }
+
+
+
+  .nav-links a {
+
+    font-size: 9px;
+
+    letter-spacing: 0.2em;
+
+    text-transform: uppercase;
+
+    color: var(--muted);
+
+    text-decoration: none;
+
+    transition: color 0.15s;
+
+  }
+
+  .nav-links a:hover { color: var(--fg); }
+
+  .nav-links a.on { color: var(--fg); border-bottom: 1px solid var(--fg); padding-bottom: 1px; }
+
+
+
+  /* ── Main column ── */
+
+  main {
+
+    max-width: 640px;
+
+    margin: 0 auto;
+
+    padding: 72px 40px 100px;
+
+  }
+
+
+
+  /* ── Intro block ── */
+
+  .intro {
+
+    margin-bottom: 72px;
+
+    padding-bottom: 48px;
+
+    border-bottom: 1px solid var(--border);
+
+  }
+
+
+
+  .intro-label {
+
+    font-size: 8px;
+
+    letter-spacing: 0.28em;
+
+    text-transform: uppercase;
+
+    color: var(--muted);
+
+    margin-bottom: 24px;
+
+  }
+
+
+
+  .intro-heading {
+
+    font-family: 'Bebas Neue', sans-serif;
+
+    font-size: 52px;
+
+    letter-spacing: 0.04em;
+
+    line-height: 1.02;
+
+    color: var(--fg);
+
+    margin-bottom: 28px;
+
+  }
+
+
+
+  .intro-body {
+
+    font-size: 11px;
+
+    line-height: 2;
+
+    color: var(--fg);
+
+    letter-spacing: 0.04em;
+
+  }
+
+
+
+  .intro-body p + p { margin-top: 16px; }
+
+
+
+  /* ── Sections ── */
+
+  .section {
+
+    margin-bottom: 56px;
+
+    padding-bottom: 56px;
+
+    border-bottom: 1px solid var(--border);
+
+  }
+
+  .section:last-of-type {
+
+    border-bottom: none;
+
+    margin-bottom: 0;
+
+  }
+
+
+
+  .section-label {
+
+    font-size: 8px;
+
+    letter-spacing: 0.28em;
+
+    text-transform: uppercase;
+
+    color: var(--muted);
+
+    margin-bottom: 20px;
+
+  }
+
+
+
+  .section-title {
+
+    font-family: 'Bebas Neue', sans-serif;
+
+    font-size: 30px;
+
+    letter-spacing: 0.05em;
+
+    line-height: 1;
+
+    color: var(--fg);
+
+    margin-bottom: 20px;
+
+  }
+
+
+
+  .section-body {
+
+    font-size: 11px;
+
+    line-height: 2;
+
+    color: var(--fg);
+
+    letter-spacing: 0.04em;
+
+  }
+
+
+
+  .section-body p + p { margin-top: 14px; }
+
+
+
+  /* ── List ── */
+
+  .bare-list {
+
+    margin-top: 20px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 6px;
+
+  }
+
+
+
+  .bare-list li {
+
+    list-style: none;
+
+    font-size: 10px;
+
+    letter-spacing: 0.1em;
+
+    text-transform: uppercase;
+
+    color: var(--muted);
+
+    padding-left: 16px;
+
+    position: relative;
+
+  }
+
+
+
+  .bare-list li::before {
+
+    content: '—';
+
+    position: absolute;
+
+    left: 0;
+
+    color: var(--border);
+
+  }
+
+
+
+  /* ── How-to links ── */
+
+  .entry-links {
+
+    margin-top: 24px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 1px;
+
+  }
+
+
+
+  .entry-link {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 14px 0;
+
+    border-top: 1px solid var(--border);
+
+    text-decoration: none;
+
+    color: var(--fg);
+
+    transition: opacity 0.15s;
+
+  }
+
+  .entry-link:last-child { border-bottom: 1px solid var(--border); }
+
+  .entry-link:hover { opacity: 0.55; }
+
+
+
+  .entry-link-name {
+
+    font-size: 10px;
+
+    letter-spacing: 0.16em;
+
+    text-transform: uppercase;
+
+  }
+
+
+
+  .entry-link-desc {
+
+    font-size: 9px;
+
+    color: var(--muted);
+
+    letter-spacing: 0.08em;
+
+    text-align: right;
+
+    max-width: 220px;
+
+  }
+
+
+
+  /* ── Footer ── */
+
+  footer {
+
+    border-top: 1px solid var(--border);
+
+    padding: 28px 40px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+  }
+
+
+
+  .footer-note {
+
+    font-size: 8px;
+
+    letter-spacing: 0.2em;
+
+    text-transform: uppercase;
+
+    color: var(--muted);
+
+  }
+
+
+
+  .footer-brand {
+
+    font-family: 'Bebas Neue', sans-serif;
+
+    font-size: 16px;
+
+    letter-spacing: 0.1em;
+
+    color: var(--muted);
+
+  }
+
+
+
+  /* ── Mobile ── */
+
+  @media (max-width: 600px) {
+
+    nav { padding: 20px 20px 16px; }
+
+    .nav-links { gap: 16px; }
+
+
+
+    main { padding: 48px 20px 80px; }
+
+
+
+    .intro { margin-bottom: 48px; padding-bottom: 36px; }
+
+    .intro-heading { font-size: 38px; }
+
+
+
+    .section { margin-bottom: 40px; padding-bottom: 40px; }
+
+    .section-title { font-size: 24px; }
+
+
+
+    .entry-link { flex-direction: column; align-items: flex-start; gap: 4px; }
+
+    .entry-link-desc { text-align: left; max-width: 100%; }
+
+
+
+    footer { padding: 20px 20px; }
+
+  }
+
+</style>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RF3945XCP4"></script>
+
+<script>
+
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag(){dataLayer.push(arguments);}
+
+  gtag('js', new Date());
+
+
+
+  gtag('config', 'G-RF3945XCP4', {
+
+  anonymize_ip: true,
+
+  cookie_flags: 'SameSite=None;Secure'
+
+});
+
+</script>
+
 </head>
+
 <body>
 
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PFDF6KVK"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
 
-    <nav>
-        <a class="nav-brand" href="/">SadAge</a>
-        <div class="nav-links">
-            <a href="/meta-second/">Meta Secondhand</a>
-            <a href="/print-room/">Print Room</a>
-            <a href="/about/" class="on">Manifesto</a>
-            <a href="https://instagram.com/sad_age.enterprise" target="_blank" rel="noopener">Instagram</a>
-        </div>
-    </nav>
 
-    <main>
-        <!-- Intro -->
-        <div class="intro">
-            <div class="intro-label"></div>
-            <h1 class="intro-heading">Counter-production for an overproduced world. Making objects that still feel human.</h1>
-            <div class="intro-body">
-                <p>SadAge refuses to pretend that fashion can save or solve anything.</p>
-                <p>We exist because our world is drowned in excessive surplus, identical manufacturing, hyper-scalable noise, and systemic detachment. Amidst this static, we intercept discarded matter and modify it by hand. We build relics for the modern condition.</p>
-            </div>
-        </div>
+<nav>
 
-        <!-- What is SadAge -->
-        <div class="section">
-            <div class="section-label">01</div>
-            <h2 class="section-title">The Project</h2>
-            <div class="section-body">
-                <p>SadAge operates as an independent garment mutation studio and physical experiment layout. We cross-contaminate high-fidelity digital graphics with raw, physical execution: screen-printing, destructive chemical dyeing, panel reconstruction, and hardware manipulation.</p>
-                <p>Every dynamic drop alternates between <strong>one-of-one archival transformations</strong> extracted from existing garments, and heavy, tailored blank bodies built to last decades.</p>
-            </div>
-        </div>
+  <a class="nav-brand" href="/">SadAge</a>
 
-        <!-- Why SadAge -->
-        <div class="section">
-            <div class="section-label">02</div>
-            <h2 class="section-title">The Condition</h2>
-            <div class="section-body">
-                <p>The current age isn't tragically violent; it is profoundly, uniformly exhausted.</p>
-                <p>Hyper-connectivity has incubated severe hyper-isolation. Fast industries mass-manufacture disposable fast-trends while structural durability vanishes. Subcultures are instantaneously monetized, algorithm parameters dictate artistic value, and human emotion is optimized into data packets.</p>
-                <p>SadAge is the visual symptom of this baseline reality. We are not providing a remedy. We are logging the evidence.</p>
-            </div>
-        </div>
+  <div class="nav-links">
 
-        <!-- What we make -->
-        <div class="section">
-            <div class="section-label">03</div>
-            <h2 class="section-title">Output Spectrum</h2>
-            <div class="section-body">
-                <p>We dismiss standard seasonal collections. We drop artifacts when they reach a critical state of completion. Every item is treated as an organic structural surface, not a standardized retail commodity.</p>
-            </div>
-            <ul class="bare-list">
-                <li>Reworked post-consumer garments</li>
-                <li>Manual screen-printed editions</li>
-                <li>One-of-one custom configurations</li>
-                <li>Tactile subversion tools & objects</li>
-                <li>Typography print experiments</li>
-                <li>Digital-to-analog graphic objects</li>
-            </ul>
-        </div>
+    <a href="/meta-second/">Meta Secondhand</a>
 
-        <!-- How we work -->
-        <div class="section">
-            <div class="section-label">04</div>
-            <h2 class="section-title">Methodology</h2>
-            <div class="section-body">
-                <p>Nothing we drop escapes human touch. Our processes are deliberately slow and destructive: sourcing specific garments, distressing fabric, manual multi-layered printing, wash-fading, repairing, and cataloging the micro-variants.</p>
-                <p>We trace the exact coordinate where a standard utility garment shifts from a neutral commodity into a highly specific cultural signifier.</p>
-            </div>
-        </div>
+    <a href="/print-room/">Print Room</a>
 
-        <!-- Why secondhand -->
-        <div class="section">
-            <div class="section-label">05</div>
-            <h2 class="section-title">Surplus Sourcing</h2>
-            <div class="section-body">
-                <p>The biosphere does not require another linear assembly line producing fresh inventory under the guise of novelty.</p>
-                <p>Pre-owned textiles contain an uncopiable patina. They carry unique history, imperfect fits, authentic operational abrasions, and a rugged dignity that corporate supply chains cannot replicate. We enhance these anomalies rather than stripping them away.</p>
-            </div>
-        </div>
+    <a href="/about/" class="on">About</a>
 
-        <!-- How to use this site -->
-        <div class="section">
-            <div class="section-label">06</div>
-            <h2 class="section-title">Site Interface</h2>
-            <div class="section-body">
-                <p>No high-pressure digital cart countdowns. No automated checkouts. Transactions here begin as direct text communication.</p>
-            </div>
-            <div class="entry-links">
-                <a class="entry-link" href="/meta-second/">
-                    <span class="entry-link-name">Meta Secondhand</span>
-                    <span class="entry-link-desc">Explore heavily modified one-of-one archive drops. Inspect details, prompt us directly.</span>
-                </a>
-                <a class="entry-link" href="/print-room/">
-                    <span class="entry-link-name">Print Room</span>
-                    <span class="entry-link-desc">Test manual SadAge typography runs over select heavy blanks. Secure the custom variant.</span>
-                </a>
-                <a class="entry-link" href="https://instagram.com/sad_age.enterprise" target="_blank" rel="noopener">
-                    <span class="entry-link-name">Direct Network</span>
-                    <span class="entry-link-desc">Where active discourse, live updates, and raw studio documentation occur.</span>
-                </a>
-            </div>
-        </div>
-    </main>
+    <a href="https://instagram.com/sad_age.enterprise" target="_blank">Instagram</a>
 
-    <footer>
-        <span class="footer-note">Engineered for human entities. © 2026</span>
-        <span class="footer-brand">SadAge Enterprise</span>
-    </footer>
+  </div>
+
+</nav>
+
+
+
+<main>
+
+
+
+  <!-- Intro -->
+
+  <div class="intro">
+
+    <div class="intro-label">About SadAge</div>
+
+    <div class="intro-heading">A clothing and print project about living in a strange, tired, overproduced world — and still trying to make something human inside it.</div>
+
+    <div class="intro-body">
+
+      <p>SadAge is not here to pretend that clothes can fix the world.</p>
+
+      <p>It is here because the world is already full of clothes, images, systems, noise and sadness and some of it can still be reworked by human hands.</p>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- What is SadAge -->
+
+  <div class="section">
+
+    <div class="section-label">01</div>
+
+    <div class="section-title">What is SadAge?</div>
+
+    <div class="section-body">
+
+      <p>SadAge is a clothing brand, print and object project working with secondhand garments, original graphics, handmade printing, dyeing, reworking and digital tools.</p>
+
+      <p>We make one-of-one pieces, printed garments, small artifacts and visual experiments. Some things are made from existing clothes. Some are built from blank bodies.</p>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- Why SadAge -->
+
+  <div class="section">
+
+    <div class="section-label">02</div>
+
+    <div class="section-title">Why SadAge?</div>
+
+    <div class="section-body">
+
+      <p>Because the age we live in is sad in a very ordinary way.</p>
+
+      <p>People are more connected and more alone. The world produces too much and repairs too little. Rich people want to look poor. Poor people are forced to look rich. Algorithms decide what deserves attention. Every object becomes content. Every feeling becomes a product.</p>
+
+      <p>SadAge is a name for that condition.<br>Not a solution. A witness.</p>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- What we make -->
+
+  <div class="section">
+
+    <div class="section-label">03</div>
+
+    <div class="section-title">What we make</div>
+
+    <div class="section-body">
+
+      <p>We work with secondhand garments, reworked vintage pieces, hand-dyed T-shirts, handmade graphics, small objects and limited drops.</p>
+
+      <p>Each piece is treated as an existing body, not as a blank commercial unit. Some garments are found. Some are damaged. Some are repaired. Some are printed until they become something else.</p>
+
+    </div>
+
+    <ul class="bare-list">
+
+      <li>secondhand and reworked clothing</li>
+
+      <li>printed T-shirts and garments</li>
+
+      <li>one-of-one pieces</li>
+
+      <li>small artifacts and visual objects</li>
+
+      <li>print experiments</li>
+
+      <li>digital-to-physical graphics</li>
+
+    </ul>
+
+  </div>
+
+
+
+  <!-- How we work -->
+
+  <div class="section">
+
+    <div class="section-label">04</div>
+
+    <div class="section-title">How we work</div>
+
+    <div class="section-body">
+
+      <p>Most SadAge pieces pass through human hands several times. We select garments, prepare graphics, test placements, print manually, dye, rework, damage, repair and document the result.</p>
+
+      <p>We are interested in the moment where a normal piece of clothing stops being neutral and starts carrying a sign.</p>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- Why secondhand -->
+
+  <div class="section">
+
+    <div class="section-label">05</div>
+
+    <div class="section-title">Why secondhand?</div>
+
+    <div class="section-body">
+
+      <p>Because the world does not need another endless stream of new clothes pretending to be necessary.</p>
+
+      <p>Secondhand garments already have a history. They are not clean in the commercial sense. They have traces, shapes, fading, previous owners, wrong proportions and strange dignity. We work with that instead of hiding it.</p>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- How to use this site -->
+
+  <div class="section">
+
+    <div class="section-label">06</div>
+
+    <div class="section-title">How to use this site</div>
+
+    <div class="section-body">
+
+      <p>There is no cart. No checkout. No urgency. The sale starts as a conversation.</p>
+
+    </div>
+
+    <div class="entry-links">
+
+      <a class="entry-link" href="/meta-second/">
+
+        <span class="entry-link-name">Meta Secondhand</span>
+
+        <span class="entry-link-desc">One-of-one secondhand and reworked pieces. Open, inspect, message us.</span>
+
+      </a>
+
+      <a class="entry-link" href="/print-room/">
+
+        <span class="entry-link-name">Print Room</span>
+
+        <span class="entry-link-desc">Try SadAge prints on a blank T-shirt. Send us the version that looks alive.</span>
+
+      </a>
+
+      <a class="entry-link" href="https://instagram.com/sad_age.enterprise" target="_blank">
+
+        <span class="entry-link-name">Instagram</span>
+
+        <span class="entry-link-desc">Where most of the conversation happens.</span>
+
+      </a>
+
+    </div>
+
+  </div>
+
+
+
+</main>
+
+
+
+<footer>
+
+  <span class="footer-note">Made for humans.</span>
+
+  <span class="footer-brand">SadAge</span>
+
+</footer>
+
+
 
 </body>
-</html>
+
+</html> 
+
