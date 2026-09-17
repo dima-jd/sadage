@@ -1,5 +1,5 @@
 [
-    {
+  {
     "code": "MS-093",
     "cover": "/items/MS-093-cover.jpg",
     "name": "Hand-Dyed Pleated Wide-Leg Pants",
@@ -15,7 +15,8 @@
       "/items/MS-093-2.jpg",
       "/items/MS-093-3.jpg",
       "/items/MS-093-4.jpg"
-    ]
+    ],
+    "checkout_url": "https://buy.stripe.com/test_6oUdRa6Yq4Pw3zN5RsfUQ00"
   },
   {
     "code": "MS-092",
@@ -68,7 +69,8 @@
       "/items/MS-090-2.jpg",
       "/items/MS-090-3.jpg",
       "/items/MS-090-4.jpg"
-    ]
+    ],
+    "checkout_url": "https://buy.stripe.com/test_3cIeVe2Iagye8U70x8fUQ01"
   },
   {
     "code": "MS-087",
@@ -88,7 +90,8 @@
       "/items/MS-087-4.jpg",
       "/items/MS-087-5.jpg",
       "/items/MS-087-9.jpg"
-    ]
+    ],
+    "checkout_url": "https://buy.stripe.com/test_dRm28sfuW2Ho8U7gw6fUQ04"
   },
   {
     "code": "MS-088",
@@ -124,7 +127,8 @@
       "/items/MS-089-2.jpg",
       "/items/MS-089-3.jpg",
       "/items/MS-089-4.jpg"
-    ]
+    ],
+    "checkout_url": "https://buy.stripe.com/test_4gM8wQbeGgye7Q33JkfUQ02"
   },
   {
     "code": "MS-082",
@@ -142,7 +146,8 @@
       "/items/MS-082-2.jpg",
       "/items/MS-082-3.jpg",
       "/items/MS-082-4.jpg"
-    ]
+    ],
+    "checkout_url": "https://buy.stripe.com/test_dRm00kfuW4Pw9Yb93EfUQ05"
   },
   {
     "code": "MS-083",
@@ -165,7 +170,8 @@
       "/items/MS-083-4.jpg",
       "/items/MS-083-5.jpg",
       "/items/MS-083-6.jpg"
-    ]
+    ],
+    "checkout_url": "https://buy.stripe.com/test_00weVe2Ia81IeerbbMfUQ03"
   },
   {
     "code": "MS-084",
@@ -208,7 +214,8 @@
       "/items/MS-085-6.jpg",
       "/items/MS-085-7.jpg",
       "/items/MS-085-8.jpg"
-    ]
+    ],
+    "checkout_url": "https://buy.stripe.com/test_dRmfZieqS3Ls8U77ZAfUQ06"
   },
   {
     "code": "MS-086",
@@ -250,7 +257,8 @@
       "/items/MS-062-8.jpg",
       "/items/MS-062-9.jpg",
       "/items/MS-062-10.jpg"
-    ]
+    ],
+    "checkout_url": "https://buy.stripe.com/test_6oU4gAgz081Ib2fa7IfUQ07"
   },
   {
     "code": "MS-063",
@@ -272,7 +280,8 @@
       "/items/MS-063-6.jpg",
       "/items/MS-063-7.jpg",
       "/items/MS-063-8.jpg"
-    ]
+    ],
+    "checkout_url": "https://buy.stripe.com/test_7sY14ofuW81I3zN6VwfUQ08"
   },
   {
     "code": "MS-064",
@@ -307,7 +316,8 @@
       "/items/MS-065-1.jpg",
       "/items/MS-065-2.jpg",
       "/items/MS-065-3.jpg"
-    ]
+    ],
+    "checkout_url": "https://buy.stripe.com/test_3cI7sMaaC81Ifiv93EfUQ09"
   },
   {
     "code": "MS-066",
@@ -389,7 +399,8 @@
       "/items/MS-069-2.jpg",
       "/items/MS-069-3.jpg",
       "/items/MS-069-4.jpg"
-    ]
+    ],
+    "checkout_url": "https://buy.stripe.com/test_bJe00keqSbdU1rF4NofUQ0a"
   },
   {
     "code": "MS-070",
@@ -439,7 +450,8 @@
       "/items/MS-071-9.jpg",
       "/items/MS-071-10.jpg",
       "/items/MS-071-11.jpg"
-    ]
+    ],
+    "checkout_url": "https://buy.stripe.com/test_5kQaEYbeGbdU2vJ1BcfUQ0b"
   },
   {
     "code": "MS-072",
@@ -498,7 +510,8 @@
       "/items/MS-074-5.jpg",
       "/items/MS-074-6.jpg",
       "/items/MS-074-7.jpg"
-    ]
+    ],
+    "checkout_url": "https://buy.stripe.com/test_5kQ5kEaaCdm2fiv4NofUQ0c"
   },
   {
     "code": "MS-075",
@@ -521,7 +534,8 @@
       "/items/MS-075-7.jpg",
       "/items/MS-075-8.jpg",
       "/items/MS-075-9.jpg"
-    ]
+    ],
+    "checkout_url": "https://buy.stripe.com/test_cNi6oI5UmchY9Yb1BcfUQ0f"
   },
   {
     "code": "MS-076",
@@ -579,7 +593,8 @@
       "/items/MS-078-3.jpg",
       "/items/MS-078-4.jpg",
       "/items/MS-078-5.jpg"
-    ]
+    ],
+    "checkout_url": "https://buy.stripe.com/test_3cI4gAgz081Igmzfs2fUQ0e"
   },
   {
     "code": "MS-079",
@@ -602,7 +617,8 @@
       "/items/MS-079-7.jpg",
       "/items/MS-079-8.jpg",
       "/items/MS-079-9.jpg"
-    ]
+    ],
+    "checkout_url": "https://buy.stripe.com/test_aFafZi96ybdU6LZ4NofUQ0d"
   },
   {
     "code": "MS-080",
@@ -642,7 +658,8 @@
       "/items/MS-081-3.jpg",
       "/items/MS-081-4.jpg",
       "/items/MS-081-5.jpg"
-    ]
+    ],
+    "checkout_url": "https://buy.stripe.com/test_7sY00k3Me95MgmzcfQfUQ0g"
   },
   {
     "code": "MS-002",
@@ -817,7 +834,8 @@
       "/items/MS-008-4.jpg",
       "/items/MS-008-5.jpg",
       "/items/MS-008-6.jpg"
-    ]
+    ],
+    "checkout_url": "https://buy.stripe.com/test_9B64gA82u4Pw2vJbbMfUQ0i"
   },
   {
     "code": "MS-009",
@@ -840,7 +858,8 @@
       "/items/MS-009-4.jpg",
       "/items/MS-009-5.jpg",
       "/items/MS-009-6.jpg"
-    ]
+    ],
+    "checkout_url": "https://buy.stripe.com/test_eVq8wQdmOa9Qc6j6VwfUQ0h"
   },
   {
     "code": "MS-010",
@@ -860,7 +879,8 @@
       "/items/MS-010-4.jpg",
       "/items/MS-010-5.jpg",
       "/items/MS-010-6.jpg"
-    ]
+    ],
+    "checkout_url": "https://buy.stripe.com/test_00wbJ20A281I0nB93EfUQ0j"
   },
   {
     "code": "MS-011",
@@ -918,7 +938,8 @@
       "/items/MS-013-4.jpg",
       "/items/MS-013-5.jpg",
       "/items/MS-013-6.jpg"
-    ]
+    ],
+    "checkout_url": "https://buy.stripe.com/test_dRm6oI6Yq1Dk2vJfs2fUQ0k"
   },
   {
     "code": "MS-014",
@@ -972,7 +993,8 @@
       "/items/MS-016-1.jpg",
       "/items/MS-016-2.jpg",
       "/items/MS-016-3.jpg"
-    ]
+    ],
+    "checkout_url": "https://buy.stripe.com/test_cNiaEY4Qi2Ho4DR3JkfUQ0l"
   },
   {
     "code": "MS-017",
@@ -1008,7 +1030,8 @@
       "/items/MS-018-2.jpg",
       "/items/MS-018-3.jpg",
       "/items/MS-018-4.jpg"
-    ]
+    ],
+    "checkout_url": "https://buy.stripe.com/test_4gM28saaCfuafivfs2fUQ0o"
   },
   {
     "code": "MS-019",
@@ -1081,7 +1104,8 @@
       "/items/MS-022-3.jpg",
       "/items/MS-022-4.jpg",
       "/items/MS-022-5.jpg"
-    ]
+    ],
+    "checkout_url": "https://buy.stripe.com/test_14A8wQgz06XE2vJcfQfUQ0n"
   },
   {
     "code": "MS-023",
@@ -1119,7 +1143,8 @@
       "/items/MS-024-1.jpg",
       "/items/MS-024-2.jpg",
       "/items/MS-024-3.jpg"
-    ]
+    ],
+    "checkout_url": "https://buy.stripe.com/test_7sYfZibeGa9Q2vJa7IfUQ0m"
   },
   {
     "code": "MS-025",
@@ -1136,7 +1161,8 @@
       "/items/MS-025-1.jpg",
       "/items/MS-025-2.jpg",
       "/items/MS-025-3.jpg"
-    ]
+    ],
+    "checkout_url": "https://buy.stripe.com/test_9B67sM96ygye7Q3djUfUQ0r"
   },
   {
     "code": "MS-026",
@@ -1152,7 +1178,8 @@
     "photos": [
       "/items/MS-026-1.jpg",
       "/items/MS-026-2.jpg"
-    ]
+    ],
+    "checkout_url": "https://buy.stripe.com/test_3cIaEY2Ia6XE3zNbbMfUQ0p"
   },
   {
     "code": "MS-027",
@@ -1170,7 +1197,8 @@
       "/items/MS-027-2.jpg",
       "/items/MS-027-3.jpg",
       "/items/MS-027-4.jpg"
-    ]
+    ],
+    "checkout_url": "https://buy.stripe.com/test_eVq9AUdmOgye6LZ3JkfUQ0q"
   },
   {
     "code": "MS-028",
@@ -1186,7 +1214,8 @@
     "photos": [
       "/items/MS-028-1.jpg",
       "/items/MS-028-2.jpg"
-    ]
+    ],
+    "checkout_url": "https://buy.stripe.com/test_14A6oI82ugye8U7bbMfUQ0s"
   },
   {
     "code": "MS-029",
@@ -1368,7 +1397,8 @@
       "/items/MS-037-5.jpg",
       "/items/MS-037-6.jpg",
       "/items/MS-037-7.jpg"
-    ]
+    ],
+    "checkout_url": "https://buy.stripe.com/test_dRm00kfuWbdU4DRa7IfUQ0t"
   },
   {
     "code": "MS-038",
@@ -1420,7 +1450,8 @@
       "/items/MS-039-10.jpg",
       "/items/MS-039-11.jpg",
       "/items/MS-039-12.jpg"
-    ]
+    ],
+    "checkout_url": "https://buy.stripe.com/test_4gMeVegz06XE5HV2FgfUQ0u"
   },
   {
     "code": "MS-040",
@@ -1584,7 +1615,8 @@
     "photos": [
       "/items/MS-048-1.jpg",
       "/items/MS-048-2.jpg"
-    ]
+    ],
+    "checkout_url": "https://buy.stripe.com/test_dRm9AU82u1Dkfiv93EfUQ0w"
   },
   {
     "code": "MS-049",
@@ -1603,7 +1635,8 @@
     "photos": [
       "/items/MS-049-1.jpg",
       "/items/MS-049-2.jpg"
-    ]
+    ],
+    "checkout_url": "https://buy.stripe.com/test_cNi28sciK0zg3zNgw6fUQ0v"
   },
   {
     "code": "MS-050",
@@ -1622,7 +1655,8 @@
     "photos": [
       "/items/MS-050-1.jpg",
       "/items/MS-050-2.jpg"
-    ]
+    ],
+    "checkout_url": "https://buy.stripe.com/test_fZu28sbeGchYc6j6VwfUQ0y"
   },
   {
     "code": "MS-051",
@@ -1672,7 +1706,8 @@
     "photos": [
       "/items/MS-053-1.jpg",
       "/items/MS-053-2.jpg"
-    ]
+    ],
+    "checkout_url": "https://buy.stripe.com/test_cNi3cweqSgyec6j6VwfUQ0x"
   },
   {
     "code": "MS-054",
@@ -1688,7 +1723,8 @@
     "photos": [
       "/items/MS-054-1.jpg",
       "/items/MS-054-2.jpg"
-    ]
+    ],
+    "checkout_url": "https://buy.stripe.com/test_8x2bJ2aaCeq67Q3a7IfUQ0z"
   },
   {
     "code": "MS-055",
@@ -1737,7 +1773,8 @@
     "photos": [
       "/items/MS-057-1.jpg",
       "/items/MS-057-2.jpg"
-    ]
+    ],
+    "checkout_url": "https://buy.stripe.com/test_9B66oIaaC4Pw1rFcfQfUQ0A"
   },
   {
     "code": "MS-058",
@@ -1818,6 +1855,7 @@
       "/items/MS-061-1.jpg",
       "/items/MS-061-2.jpg",
       "/items/MS-061-3.jpg"
-    ]
+    ],
+    "checkout_url": "https://buy.stripe.com/test_28E14odmOgye9Yb5RsfUQ0B"
   }
 ]
