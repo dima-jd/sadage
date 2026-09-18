@@ -916,7 +916,7 @@ function showPaymentSuccess() {
 }
 
 /* ════ INIT ════ */
-fetch('/items.json')
+fetch('/items.json?catalog=20260918')
   .then(r => r.json())
   .then(data => {
     window.ITEMS = data;
