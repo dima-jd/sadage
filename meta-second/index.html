@@ -488,8 +488,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .btn-wa:hover { background: #1ebe5d; }
   .btn-wa:disabled { opacity: 0.25; pointer-events: none; }
  
-  .btn-wa-icon { font-size: 18px; line-height: 1; }
-
   .btn-stripe {
     width: 100%; padding: 17px;
     background: #fff; border: 1px solid var(--avail); color: #0a0a0a;
@@ -499,8 +497,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
   .btn-stripe:hover { background: #f0ede6; border-color: #25d366; }
   .btn-stripe:disabled { opacity: 0.25; pointer-events: none; }
-  .btn-stripe-icon { color: #1f6f43; font-size: 18px; line-height: 1; }
- 
   .action-note { font-size: 8px; color: var(--muted); letter-spacing: 0.14em; text-transform: uppercase; text-align: center; line-height: 1.7; }
 
   /* sold overlay on detail */
@@ -694,12 +690,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
       <div class="item-actions">
         <button class="btn-wa" id="btnWA" onclick="openWA()" disabled>
-          <span class="btn-wa-icon" aria-hidden="true">💬</span>
-          Ask via WhatsApp
+          Open chat
         </button>
         <button class="btn-stripe" id="btnCheckout" onclick="openCheckout()" disabled>
-          <span class="btn-stripe-icon" aria-hidden="true">↗</span>
-          Buy securely with Stripe
+          It’s mine
         </button>
         <div class="action-note" id="actionNote">
           Choose WhatsApp for questions or Stripe for secure payment
@@ -808,14 +802,12 @@ function showItem(item) {
 
   const waButton = document.getElementById('btnWA');
   waButton.disabled = !canWhatsApp;
-  waButton.innerHTML = canWhatsApp
-    ? '<span class="btn-wa-icon" aria-hidden="true">💬</span>Ask via WhatsApp'
-    : 'Sold';
+  waButton.textContent = canWhatsApp ? 'Open chat' : 'Sold';
 
   const checkoutButton = document.getElementById('btnCheckout');
   checkoutButton.disabled = !canBuy;
-  checkoutButton.innerHTML = canBuy
-    ? '<span class="btn-stripe-icon" aria-hidden="true">↗</span>' + (item.checkout_url.includes('/test_') ? 'Test checkout' : 'Buy securely with Stripe')
+  checkoutButton.textContent = canBuy
+    ? 'It’s mine'
     : (isReserved ? 'Reserved' : isSold ? 'Sold' : 'Checkout unavailable');
 
   document.getElementById('actionNote').textContent = canBuy
