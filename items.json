@@ -1,5 +1,217 @@
 [
    {
+    "code": "MS-094",
+    "cover": "/items/MS-094-cover.jpg",
+    "name": "SadAge Kill All Brands Graphic T-Shirt",
+    "price": "73",
+    "size": "M-L",
+    "condition": "Excellent",
+    "material": "Jersey fabric",
+    "category": "tshirt",
+    "description": "Black T-shirt with a white handgun graphic and bold “KILL ALL BRANDS” lettering across the front.",
+    "status": "available",
+    "photos": [
+      "/items/MS-094-1.jpg"
+    ]
+  },
+  {
+    "code": "MS-095",
+    "cover": "/items/MS-095-cover.jpg",
+    "name": "SadAge Immigrant Graphic T-Shirt",
+    "price": "73",
+    "size": "M-L",
+    "condition": "Excellent",
+    "material": "Jersey fabric",
+    "category": "tshirt",
+    "description": "Black T-shirt featuring a large dripping globe illustration and ornate “Immigrant” lettering on the front.",
+    "status": "available",
+    "photos": [
+      "/items/MS-095-1.jpg"
+    ]
+  },
+  {
+    "code": "MS-096",
+    "cover": "/items/MS-096-cover.jpg",
+    "name": "SadAge Wolf Illustration Tank Top",
+    "price": "73",
+    "size": "M-L",
+    "condition": "Excellent",
+    "material": "Jersey fabric",
+    "category": "tank-top",
+    "description": "Black sleeveless top with a large white illustrated figure surrounded by wolves, symbols, and hand-drawn markings.",
+    "status": "available",
+    "photos": [
+      "/items/MS-096-1.jpg"
+    ]
+  },
+  {
+    "code": "MS-097",
+    "cover": "/items/MS-097-cover.jpg",
+    "name": "SadAge White Tshirt Text T-Shirt",
+    "price": "73",
+    "size": "M-L",
+    "condition": "Excellent",
+    "material": "Jersey fabric",
+    "category": "tshirt",
+    "description": "Black T-shirt with centered white “White Tshirt” lettering and a minimal front graphic.",
+    "status": "available",
+    "photos": [
+      "/items/MS-097-1.jpg"
+    ]
+  },
+  {
+    "code": "MS-098",
+    "cover": "/items/MS-098-cover.jpg",
+    "name": "SadAge Ecology of Selves Graphic T-Shirt",
+    "price": "73",
+    "size": "M-L",
+    "condition": "Excellent",
+    "material": "Jersey fabric",
+    "category": "tshirt",
+    "description": "Black T-shirt with a compact white camcorder illustration, “ecology of selves” text, and SadAge lettering.",
+    "status": "available",
+    "photos": [
+      "/items/MS-098-1.jpg"
+    ]
+  },
+  {
+    "code": "MS-099",
+    "cover": "/items/MS-099-cover.jpg",
+    "name": "SadAge Symbol Pattern Socks",
+    "price": "73",
+    "size": "M-L",
+    "condition": "Excellent",
+    "material": "Knit fabric",
+    "category": "socks",
+    "description": "Black socks covered with a repeating white abstract symbol pattern.",
+    "status": "available",
+    "photos": [
+      "/items/MS-099-1.jpg"
+    ]
+  },
+  {
+    "code": "MS-100",
+    "cover": "/items/MS-100-cover.jpg",
+    "name": "SadAge Symbol Pattern Socks",
+    "price": "73",
+    "size": "M-L",
+    "condition": "Excellent",
+    "material": "Knit fabric",
+    "category": "socks",
+    "description": "White socks featuring a repeating black abstract symbol pattern.",
+    "status": "available",
+    "photos": [
+      "/items/MS-100-1.jpg"
+    ]
+  },
+  {
+    "code": "MS-101",
+    "cover": "/items/MS-101-cover.jpg",
+    "name": "SadAge Asbestos Graphic T-Shirt",
+    "price": "73",
+    "size": "M-L",
+    "condition": "Excellent",
+    "material": "Jersey fabric",
+    "category": "tshirt",
+    "description": "Faded purple T-shirt with a central skeletal figure graphic and “ASBESTOS” lettering.",
+    "status": "available",
+    "photos": [
+      "/items/MS-101-1.jpg"
+    ]
+  },
+  {
+    "code": "MS-102",
+    "cover": "/items/MS-102-cover.jpg",
+    "name": "SadAge Kill All Brands Graphic T-Shirt",
+    "price": "73",
+    "size": "M-L",
+    "condition": "Excellent",
+    "material": "Jersey fabric",
+    "category": "tshirt",
+    "description": "Black T-shirt with a handgun, cartoon hand graphic, and multicolored “SAD AGE OR DIE BRANDS” lettering.",
+    "status": "available",
+    "photos": [
+      "/items/MS-102-1.jpg"
+    ]
+  },{
+    "code": "MS-103",
+    "cover": "/items/MS-103-cover.jpg",
+    "name": "SadAge Portrait Graphic T-Shirt",
+    "price": "73",
+    "size": "M-L",
+    "condition": "Excellent",
+    "material": "Jersey fabric",
+    "category": "tshirt",
+    "description": "Muted beige cropped T-shirt with a large monochrome portrait graphic on the front and a small SadAge marking near the lower back.",
+    "status": "available",
+    "photos": [
+      "/items/MS-103-1.jpg",
+      "/items/MS-103-2.jpg"
+    ]
+  },
+  {
+    "code": "MS-104",
+    "cover": "/items/MS-104-cover.jpg",
+    "name": "SadAge Many Absences Graphic T-Shirt",
+    "price": "73",
+    "size": "M-L",
+    "condition": "Excellent",
+    "material": "Jersey fabric",
+    "category": "tshirt",
+    "description": "Off-white T-shirt with a small multicolored front text graphic and a large black illustrated back graphic featuring a distorted face.",
+    "status": "sold",
+    "photos": [
+      "/items/MS-104-1.jpg",
+      "/items/MS-104-2.jpg"
+    ]
+  },
+  {
+    "code": "MS-105",
+    "cover": "/items/MS-105-cover.jpg",
+    "name": "SadAge Trampoline Graphic T-Shirt",
+    "price": "53",
+    "size": "M-L",
+    "condition": "Good",
+    "material": "Jersey fabric",
+    "category": "tshirt",
+    "description": "Faded charcoal T-shirt with a light SadAge trampoline graphic on the front and a layered surveillance-tree and text composition on the back.",
+    "status": "available",
+    "photos": [
+      "/items/MS-105-1.jpg",
+      "/items/MS-105-2.jpg"
+    ]
+  },
+  {
+    "code": "MS-106",
+    "cover": "/items/MS-106-cover.jpg",
+    "name": "SadAge Surveillance Tree Graphic T-Shirt",
+    "price": "73",
+    "size": "M-L",
+    "condition": "Excellent",
+    "material": "Jersey fabric",
+    "category": "tshirt",
+    "description": "Light grey T-shirt with a large red, yellow, and black surveillance-tree graphic framed by a geometric urban composition.",
+    "status": "sold",
+    "photos": [
+      "/items/MS-106-1.jpg"
+    ]
+  },
+  {
+    "code": "MS-107",
+    "cover": "/items/MS-107-cover.jpg",
+    "name": "SadAge Blue Distress Graphic T-Shirt",
+    "price": "73",
+    "size": "M-L",
+    "condition": "Good",
+    "material": "Jersey fabric",
+    "category": "tshirt",
+    "description": "Dark distressed T-shirt with irregular blue surface treatment, yellow SadAge graphics on the front, and a large illustrated character composition across the back.",
+    "status": "available",
+    "photos": [
+      "/items/MS-107-1.jpg",
+      "/items/MS-107-2.jpg"
+    ]
+  },{
     "code": "MS-108",
     "cover": "/items/MS-108-cover.jpg",
     "name": "SadAge Reworked Graphic Work Shirt",
