@@ -1,5 +1,95 @@
 [
   {
+    "code": "MS-131",
+    "cover": "/items/MS-131-cover.jpg",
+    "name": "SadAge Street Photo Cropped T-Shirt",
+    "price": "170",
+    "size": "S-M",
+    "condition": "Excellent",
+    "material": "Jersey fabric",
+    "category": "tshirt",
+    "description": "Faded charcoal cropped T-shirt with a small street photograph patch at the center chest and raw lower edges.",
+    "status": "available",
+    "photos": [
+      "/items/MS-131-1.jpg",
+      "/items/MS-131-2.jpg"
+    ]
+  },
+  {
+    "code": "MS-133",
+    "cover": "/items/MS-133-cover.jpg",
+    "name": "SadAge Vans Reworked T-Shirt",
+    "price": "153",
+    "size": "M-L",
+    "condition": "Well-loved",
+    "material": "Jersey fabric",
+    "category": "tshirt",
+    "description": "Charcoal distressed Vans T-shirt with a large purple logo, reclining figure graphic, and heavily faded surface treatment.",
+    "status": "available",
+    "photos": [
+      "/items/MS-133-1.jpg",
+      "/items/MS-133-2.jpg",
+      "/items/MS-133-3.jpg"
+    ]
+  },
+  {
+    "code": "MS-134",
+    "cover": "/items/MS-134-cover.jpg",
+    "name": "SadAge Distressed Photo Tank Top",
+    "price": "93",
+    "size": "S-M",
+    "condition": "Excellent",
+    "material": "Ribbed knit fabric",
+    "category": "tank-top",
+    "description": "Black ribbed cropped tank top with a distressed wash and a small reclining figure graphic across the chest.",
+    "status": "available",
+    "photos": [
+      "/items/MS-134-1.jpg",
+      "/items/MS-134-2.jpg"
+    ]
+  },
+  {
+    "code": "MS-135",
+    "cover": "/items/MS-135-cover.jpg",
+    "name": "SadAge Primitive Culture Graphic Blazer",
+    "price": "353",
+    "size": "M",
+    "condition": "Excellent",
+    "material": "Woven fabric",
+    "category": "blazer",
+    "description": "Reworked grey blazer covered with layered SadAge graphics, including a wolf emblem, phone illustration, portrait patch, and bird-panel artwork.",
+    "status": "available",
+    "photos": [
+      "/items/MS-135-1.jpg",
+      "/items/MS-135-2.jpg",
+      "/items/MS-135-3.jpg",
+      "/items/MS-135-4.jpg",
+      "/items/MS-135-5.jpg",
+      "/items/MS-135-6.jpg",
+      "/items/MS-135-7.jpg",
+      "/items/MS-135-8.jpg"
+    ]
+  },
+  {
+    "code": "MS-136",
+    "cover": "/items/MS-136-cover.jpg",
+    "name": "SadAge Sign of Lost Time Reworked Shirt",
+    "price": "170",
+    "size": "S-M",
+    "condition": "Excellent",
+    "material": "Woven fabric",
+    "category": "shirt",
+    "description": "Dark reworked short-sleeve shirt with utility pockets, white “SIGN OF LOST TIME” lettering, and contrasting shoulder text.",
+    "status": "sold",
+    "photos": [
+      "/items/MS-136-1.jpg",
+      "/items/MS-136-2.jpg",
+      "/items/MS-136-3.jpg",
+      "/items/MS-136-4.jpg",
+      "/items/MS-136-5.jpg"
+    ]
+  },
+  {
     "code": "MS-124",
     "cover": "/items/MS-124-cover.jpg",
     "name": "SadAge Faded Graphic T-Shirt",
