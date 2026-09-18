@@ -1,5 +1,220 @@
 [
    {
+    "code": "MS-124",
+    "cover": "/items/MS-124-cover.jpg",
+    "name": "SadAge Faded Graphic T-Shirt",
+    "price": "73",
+    "size": "3XL",
+    "condition": "Good",
+    "material": "Jersey fabric",
+    "category": "tshirt",
+    "description": "Faded olive-grey oversized T-shirt with an understated dark illustrated panel near the lower front hem.",
+    "status": "available",
+    "photos": [
+      "/items/MS-124-1.jpg",
+       "/items/MS-124-2.jpg"
+    ]
+  },
+  {
+    "code": "MS-125",
+    "cover": "/items/MS-125-cover.jpg",
+    "name": "SadAge Immigrant Reworked Overshirt",
+    "price": "170",
+    "size": "S-M",
+    "condition": "Excellent",
+    "material": "Corduroy",
+    "category": "shirt",
+    "description": "Reworked purple corduroy overshirt with a large dripping globe graphic, SadAge pocket marking, and distressed raw edges.",
+    "status": "available",
+    "photos": [
+      "/items/MS-125-1.jpg",
+       "/items/MS-125-2.jpg",
+       "/items/MS-125-3.jpg",
+       "/items/MS-125-4.jpg",
+       "/items/MS-125-5.jpg"
+    ]
+  },
+  {
+    "code": "MS-126",
+    "cover": "/items/MS-126-cover.jpg",
+    "name": "SadAge Reworked Utility Shirt",
+    "price": "230",
+    "size": "M",
+    "condition": "Excellent",
+    "material": "Woven fabric",
+    "category": "shirt",
+    "description": "Short-sleeve reworked utility shirt with a smoky black, grey, and yellow finish, button front, and SadAge pocket detail.",
+    "status": "available",
+    "photos": [
+      "/items/MS-126-1.jpg",
+       "/items/MS-126-2.jpg",
+       "/items/MS-126-3.jpg",
+       "/items/MS-126-4.jpg",
+       "/items/MS-126-5.jpg",
+       "/items/MS-126-6.jpg"
+    ]
+  },
+  {
+    "code": "MS-127",
+    "cover": "/items/MS-127-cover.jpg",
+    "name": "SadAge Floral Graphic Swim Shorts",
+    "price": "190",
+    "size": "M",
+    "condition": "Excellent",
+    "material": "Technical fabric",
+    "category": "shorts",
+    "description": "Pale yellow drawstring shorts with a colorful floral and tree graphic on the front leg.",
+    "status": "available",
+    "photos": [
+      "/items/MS-127-1.jpg",
+       "/items/MS-127-2.jpg"
+       
+    ]
+  },
+  {
+    "code": "MS-128",
+    "cover": "/items/MS-128-cover.jpg",
+    "name": "SadAge Street Photo Reworked T-Shirt",
+    "price": "93",
+    "size": "S-M",
+    "condition": "Excellent",
+    "material": "Jersey fabric",
+    "category": "tshirt",
+    "description": "Blue-grey reworked T-shirt with a cream spray-dye border effect and a small street photograph patch at the center chest.",
+    "status": "sold",
+    "photos": [
+      "/items/MS-128-1.jpg",
+      "/items/MS-128-2.jpg",
+       
+    ]
+  },
+  {
+    "code": "MS-129",
+    "cover": "/items/MS-129-cover.jpg",
+    "name": "SadAge Jordan Photo Graphic T-Shirt",
+    "price": "93",
+    "size": "M",
+    "condition": "Excellent",
+    "material": "Jersey fabric",
+    "category": "tshirt",
+    "description": "Distressed grey Jordan T-shirt with a centered photograph graphic, white Jumpman mark, and mottled brown-black surface treatment.",
+    "status": "available",
+    "photos": [
+      "/items/MS-129-1.jpg",
+      "/items/MS-129-2.jpg"
+    ]
+  },
+  {
+    "code": "MS-130",
+    "cover": "/items/MS-130-cover.jpg",
+    "name": "SadAge Reworked Photo Cropped Hoodie",
+    "price": "170",
+    "size": "S-M",
+    "condition": "Excellent",
+    "material": "Fleece fabric",
+    "category": "hoodie",
+    "description": "Cropped burgundy hoodie with distressed holes, ribbed cuffs, and a small photographic patch on the front.",
+    "status": "sold",
+    "photos": [
+      "/items/MS-130-1.jpg"
+    ]
+  },{
+    "code": "MS-118",
+    "cover": "/items/MS-118-cover.jpg",
+    "name": "SadAge Surveillance Tree Cropped Top",
+    "price": "119",
+    "size": "M-L",
+    "condition": "Good",
+    "material": "Jersey fabric",
+    "category": "top",
+    "description": "Lime and yellow distressed cropped top with a large red surveillance-tree graphic and raw frayed edges.",
+    "status": "sold",
+    "photos": [
+      "/items/MS-118-1.jpg",
+       "/items/MS-118-2.jpg"
+    ]
+  },
+  {
+    "code": "MS-119",
+    "cover": "/items/MS-119-cover.jpg",
+    "name": "SadAge Lost Generation Graphic Shirt",
+    "price": "350",
+    "size": "M-L",
+    "condition": "Excellent",
+    "material": "Woven fabric",
+    "category": "shirt",
+    "description": "Light distressed short-sleeve shirt with a multi-face illustration, faded yellow-black treatment, and “The Last Generation / The Lost Generation” text.",
+    "status": "available",
+    "photos": [
+      "/items/MS-119-1.jpg","/items/MS-119-2.jpg","/items/MS-119-3.jpg","/items/MS-119-4.jpg","/items/MS-119-5.jpg","/items/MS-119-6.jpg","/items/MS-119-7.jpg","/items/MS-119-8.jpg","/items/MS-119-9.jpg","/items/MS-119-10.jpg"
+    ]
+  },
+  {
+    "code": "MS-120",
+    "cover": "/items/MS-120-cover.jpg",
+    "name": "SadAge Reworked Graphic Denim Shorts",
+    "price": "170",
+    "size": "M-L",
+    "condition": "Excellent",
+    "material": "Denim",
+    "category": "shorts",
+    "description": "Black reworked denim shorts with a faded abstract wash, raw hems, SadAge lettering, and a bold illustrated back-pocket graphic.",
+    "status": "available",
+    "photos": [
+      "/items/MS-120-1.jpg",
+      "/items/MS-120-2.jpg"
+    ]
+  },
+  {
+    "code": "MS-121",
+    "cover": "/items/MS-121-cover.jpg",
+    "name": "SadAge Sailing Graphic T-Shirt",
+    "price": "129",
+    "size": "S-M",
+    "condition": "Excellent",
+    "material": "Jersey fabric",
+    "category": "tshirt",
+    "description": "Light beige T-shirt with a black sailing-ship image, yellow illustrated accent, and small monochrome graphic details.",
+    "status": "available",
+    "photos": [
+      "/items/MS-121-1.jpg"
+    ]
+  },
+  {
+    "code": "MS-122",
+    "cover": "/items/MS-122-cover.jpg",
+    "name": "SadAge Asbestos Graphic T-Shirt",
+    "price": "109",
+    "size": "M-L",
+    "condition": "Well loved",
+    "material": "Jersey fabric",
+    "category": "tshirt",
+    "description": "Burgundy distressed T-shirt with a large gold skeletal illustration on the front and gothic lettering across the back.",
+    "status": "available",
+    "photos": [
+      "/items/MS-122-1.jpg",
+      "/items/MS-122-2.jpg",
+      "/items/MS-122-3.jpg"
+    ]
+  },
+  {
+    "code": "MS-123",
+    "cover": "/items/MS-123-cover.jpg",
+    "name": "SadAge Reworked Corduroy Jacket",
+    "price": "350",
+    "size": "M-L",
+    "condition": "Excellent",
+    "material": "Corduroy",
+    "category": "jacket",
+    "description": "Black and cream reworked corduroy jacket with bold vertical contrast panels, distressed edges, and a small chest symbol.",
+    "status": "available",
+    "photos": [
+      "/items/MS-123-1.jpg",
+      "/items/MS-123-2.jpg",
+      "/items/MS-123-3.jpg"
+    ]
+  },
+   {
     "code": "MS-103",
     "cover": "/items/MS-103-cover.jpg",
     "name": "SadAge Portrait Graphic T-Shirt",
