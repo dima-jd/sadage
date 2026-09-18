@@ -1,5 +1,82 @@
 [
    {
+    "code": "MS-108",
+    "cover": "/items/MS-108-cover.jpg",
+    "name": "SadAge Reworked Graphic Work Shirt",
+    "price": "109",
+    "size": "L-XL",
+    "condition": "Excellent",
+    "material": "Woven fabric",
+    "category": "shirt",
+    "description": "Black short-sleeve button-up work shirt with red contrast buttons, a chest pocket graphic, and layered illustrated artwork across the front and back.",
+    "status": "available",
+    "photos": [
+      "/items/MS-108-1.jpg",
+      "/items/MS-108-2.jpg"
+    ]
+  },
+  {
+    "code": "MS-109",
+    "cover": "/items/MS-109-cover.jpg",
+    "name": "SadAge Ukraine Graphic T-Shirt",
+    "price": "73",
+    "size": "L-XL",
+    "condition": "Excellent",
+    "material": "Jersey fabric",
+    "category": "tshirt",
+    "description": "Off-white T-shirt with a large black-and-white back graphic featuring a raised hand, Ukrainian text, and a stark editorial-style composition.",
+    "status": "sold",
+    "photos": [
+      "/items/MS-109-1.jpg"
+    ]
+  },
+  {
+    "code": "MS-110",
+    "cover": "/items/MS-110-cover.jpg",
+    "name": "Reebok Reworked Bleached Sweatshirt",
+    "price": "91",
+    "size": "M",
+    "condition": "Excellent",
+    "material": "Fleece fabric",
+    "category": "hoodie",
+    "description": "Reebok crewneck sweatshirt reworked with irregular lightened panels across a deep blue-grey base and a worn, uneven surface finish.",
+    "status": "available",
+    "photos": [
+      "/items/MS-110-1.jpg"
+    ]
+  },
+  {
+    "code": "MS-111",
+    "cover": "/items/MS-111-cover.jpg",
+    "name": "SadAge Reworked White Graphic Jacket",
+    "price": "173",
+    "size": "S-M",
+    "condition": "Excellent",
+    "material": "Lightweight woven fabric",
+    "category": "jacket",
+    "description": "White cropped jacket with ribbed trims, utility-inspired construction, SadAge chest branding, and multicolored graphic interventions across the sleeves and body.",
+    "status": "available",
+    "photos": [
+      "/items/MS-111-1.jpg",
+      "/items/MS-111-2.jpg"
+    ]
+  },
+  {
+    "code": "MS-112",
+    "cover": "/items/MS-112-cover.jpg",
+    "name": "SadAge Hooligan Love Graphic T-Shirt",
+    "price": "73",
+    "size": "L-XL",
+    "condition": "Excellent",
+    "material": "Jersey fabric",
+    "category": "tshirt",
+    "description": "Faded grey T-shirt with distressed edges and dense monochrome graphic artwork featuring skeletal, animal, and hand-drawn figures across the front and back.",
+    "status": "available",
+    "photos": [
+      "/items/MS-112-1.jpg",
+      "/items/MS-112-2.jpg"
+    ]
+  },{
     "code": "MS-113",
     "cover": "/items/MS-113-cover.jpg",
     "name": "SadAge Art Card Box",
