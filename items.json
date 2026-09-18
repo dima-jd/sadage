@@ -29,7 +29,7 @@
     "material": "Cotton Twill",
     "category": "pants",
     "description": "Wide-leg pleated pants reworked with a layered hand-dyed finish in muted grey, yellow, olive, and faded pink tones. The front remains restrained with a small black SadAge marking, while the back introduces a single monochrome photographic print across one leg. One-of-one piece balancing traditional tailored construction with uneven colour, softened texture, and minimal graphic intervention.",
-    "status": "available",
+    "status": "sold",
     "photos": [
       "/items/MS-093-1.jpg",
       "/items/MS-093-2.jpg",
@@ -141,7 +141,7 @@
     "material": "Cotton twill",
     "category": "pants",
     "description": "Carhartt trousers reworked with faded all-over newspaper collage printing and monochrome SadAge graphic intervention.",
-    "status": "available",
+    "status": "sold",
     "photos": [
       "/items/MS-089-1.jpg",
       "/items/MS-089-2.jpg",
@@ -331,7 +331,7 @@
     "material": "Cotton",
     "category": "hoodie",
     "description": "A sweatshirt stripped down to a shorter, more fragile silhouette.",
-    "status": "available",
+    "status": "sold",
     "photos": [
       "/items/MS-065-1.jpg",
       "/items/MS-065-2.jpg",
@@ -457,7 +457,7 @@
     "material": "Cotton",
     "category": "pants",
     "description": "Light-colored pants fully reworked with all-over SadAge graphics and deep contrast dye treatment.",
-    "status": "available",
+    "status": "sold",
     "photos": [
       "/items/MS-071-1.jpg",
       "/items/MS-071-2.jpg",
@@ -521,7 +521,7 @@
     "material": "Cotton",
     "category": "hoodie",
     "description": "Brown hoodie aggressively bleached to create high-contrast, organic surface patterns.",
-    "status": "available",
+    "status": "sold",
     "photos": [
       "/items/MS-074-1.jpg",
       "/items/MS-074-2.jpg",
@@ -846,7 +846,7 @@
     "material": "Denim",
     "category": "pants",
     "description": "Bleached denim jeans reworked with SadAge collage graphics and large-scale printed imagery.",
-    "status": "available",
+    "status": "sold",
     "photos": [
       "/items/MS-008-1.jpg",
       "/items/MS-008-2.jpg",
@@ -870,7 +870,7 @@
       "coat"
     ],
     "description": "Black robe-style coat reworked with extensive SadAge graphics with strong conceptual identity",
-    "status": "available",
+    "status": "sold",
     "photos": [
       "/items/MS-009-1.jpg",
       "/items/MS-009-2.jpg",
@@ -950,7 +950,7 @@
     "material": "Cotton",
     "category": "shirt",
     "description": "White button-up shirt with restrained SadAge intervention.",
-    "status": "available",
+    "status": "sold",
     "photos": [
       "/items/MS-013-1.jpg",
       "/items/MS-013-2.jpg",
@@ -1008,7 +1008,7 @@
     "material": "Cotton",
     "category": "shirt",
     "description": "Minimalist grey button-up reworked with restrained front detailing.",
-    "status": "available",
+    "status": "sold",
     "photos": [
       "/items/MS-016-1.jpg",
       "/items/MS-016-2.jpg",
@@ -1176,7 +1176,7 @@
     "material": "Viscose blend",
     "category": "dress",
     "description": "Charcoal-toned sleeveless dress by MM6.",
-    "status": "available",
+    "status": "sold",
     "photos": [
       "/items/MS-025-1.jpg",
       "/items/MS-025-2.jpg",
@@ -1456,7 +1456,7 @@
     "material": "Cotton twill",
     "category": "pants",
     "description": "Washed olive cargo pants with irregular bleach erosion.",
-    "status": "available",
+    "status": "sold",
     "photos": [
       "/items/MS-039-1.jpg",
       "/items/MS-039-2.jpg",
