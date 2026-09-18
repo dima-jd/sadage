@@ -1642,7 +1642,7 @@
     "code": "MS-050",
     "cover": "/items/MS-050-cover.jpg",
     "name": "SadAge Reworked Graphic Trench Coat",
-    "price": "210",
+    "price": "160",
     "size": "M / L",
     "condition": "Good",
     "material": "Cotton / Poly blend",
@@ -1656,7 +1656,7 @@
       "/items/MS-050-1.jpg",
       "/items/MS-050-2.jpg"
     ],
-    "checkout_url": "https://buy.stripe.com/eVq3cwfu46Ajgeu25D7IY0x"
+    "checkout_url": "https://buy.stripe.com/6oUdRagy81fZe6m25D7IY0C"
   },
   {
     "code": "MS-051",
