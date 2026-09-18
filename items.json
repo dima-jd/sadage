@@ -1,5 +1,5 @@
 [
-   {
+  {
     "code": "MS-124",
     "cover": "/items/MS-124-cover.jpg",
     "name": "SadAge Faded Graphic T-Shirt",
@@ -12,7 +12,7 @@
     "status": "available",
     "photos": [
       "/items/MS-124-1.jpg",
-       "/items/MS-124-2.jpg"
+      "/items/MS-124-2.jpg"
     ]
   },
   {
@@ -28,10 +28,10 @@
     "status": "available",
     "photos": [
       "/items/MS-125-1.jpg",
-       "/items/MS-125-2.jpg",
-       "/items/MS-125-3.jpg",
-       "/items/MS-125-4.jpg",
-       "/items/MS-125-5.jpg"
+      "/items/MS-125-2.jpg",
+      "/items/MS-125-3.jpg",
+      "/items/MS-125-4.jpg",
+      "/items/MS-125-5.jpg"
     ]
   },
   {
@@ -47,11 +47,11 @@
     "status": "available",
     "photos": [
       "/items/MS-126-1.jpg",
-       "/items/MS-126-2.jpg",
-       "/items/MS-126-3.jpg",
-       "/items/MS-126-4.jpg",
-       "/items/MS-126-5.jpg",
-       "/items/MS-126-6.jpg"
+      "/items/MS-126-2.jpg",
+      "/items/MS-126-3.jpg",
+      "/items/MS-126-4.jpg",
+      "/items/MS-126-5.jpg",
+      "/items/MS-126-6.jpg"
     ]
   },
   {
@@ -62,13 +62,12 @@
     "size": "M",
     "condition": "Excellent",
     "material": "Technical fabric",
-    "category": "shorts",
+    "category": "pants",
     "description": "Pale yellow drawstring shorts with a colorful floral and tree graphic on the front leg.",
     "status": "available",
     "photos": [
       "/items/MS-127-1.jpg",
-       "/items/MS-127-2.jpg"
-       
+      "/items/MS-127-2.jpg"
     ]
   },
   {
@@ -84,8 +83,7 @@
     "status": "sold",
     "photos": [
       "/items/MS-128-1.jpg",
-      "/items/MS-128-2.jpg",
-       
+      "/items/MS-128-2.jpg"
     ]
   },
   {
@@ -118,7 +116,8 @@
     "photos": [
       "/items/MS-130-1.jpg"
     ]
-  },{
+  },
+  {
     "code": "MS-118",
     "cover": "/items/MS-118-cover.jpg",
     "name": "SadAge Surveillance Tree Cropped Top",
@@ -126,12 +125,15 @@
     "size": "M-L",
     "condition": "Good",
     "material": "Jersey fabric",
-    "category": "top",
+    "category": [
+      "shirt",
+      "tshirt"
+    ],
     "description": "Lime and yellow distressed cropped top with a large red surveillance-tree graphic and raw frayed edges.",
     "status": "sold",
     "photos": [
       "/items/MS-118-1.jpg",
-       "/items/MS-118-2.jpg"
+      "/items/MS-118-2.jpg"
     ]
   },
   {
@@ -146,7 +148,16 @@
     "description": "Light distressed short-sleeve shirt with a multi-face illustration, faded yellow-black treatment, and “The Last Generation / The Lost Generation” text.",
     "status": "available",
     "photos": [
-      "/items/MS-119-1.jpg","/items/MS-119-2.jpg","/items/MS-119-3.jpg","/items/MS-119-4.jpg","/items/MS-119-5.jpg","/items/MS-119-6.jpg","/items/MS-119-7.jpg","/items/MS-119-8.jpg","/items/MS-119-9.jpg","/items/MS-119-10.jpg"
+      "/items/MS-119-1.jpg",
+      "/items/MS-119-2.jpg",
+      "/items/MS-119-3.jpg",
+      "/items/MS-119-4.jpg",
+      "/items/MS-119-5.jpg",
+      "/items/MS-119-6.jpg",
+      "/items/MS-119-7.jpg",
+      "/items/MS-119-8.jpg",
+      "/items/MS-119-9.jpg",
+      "/items/MS-119-10.jpg"
     ]
   },
   {
@@ -157,7 +168,7 @@
     "size": "M-L",
     "condition": "Excellent",
     "material": "Denim",
-    "category": "shorts",
+    "category": "pants",
     "description": "Black reworked denim shorts with a faded abstract wash, raw hems, SadAge lettering, and a bold illustrated back-pocket graphic.",
     "status": "available",
     "photos": [
@@ -214,7 +225,7 @@
       "/items/MS-123-3.jpg"
     ]
   },
-   {
+  {
     "code": "MS-103",
     "cover": "/items/MS-103-cover.jpg",
     "name": "SadAge Portrait Graphic T-Shirt",
@@ -292,7 +303,8 @@
       "/items/MS-107-1.jpg",
       "/items/MS-107-2.jpg"
     ]
-  },{
+  },
+  {
     "code": "MS-108",
     "cover": "/items/MS-108-cover.jpg",
     "name": "SadAge Reworked Graphic Work Shirt",
@@ -369,7 +381,8 @@
       "/items/MS-112-1.jpg",
       "/items/MS-112-2.jpg"
     ]
-  },{
+  },
+  {
     "code": "MS-113",
     "cover": "/items/MS-113-cover.jpg",
     "name": "SadAge Art Card Box",
@@ -431,7 +444,8 @@
       "/items/MS-115-6.jpg",
       "/items/MS-115-7.jpg"
     ]
-  },{
+  },
+  {
     "code": "MS-116",
     "cover": "/items/MS-116-cover.jpg",
     "name": "SadAge Sun Cult Graphic T-Shirt",
@@ -688,7 +702,7 @@
     ],
     "checkout_url": "https://buy.stripe.com/dRm9AUchSe2L4vMdOl7IY03"
   },
-   {
+  {
     "code": "MS-094",
     "cover": "/items/MS-094-cover.jpg",
     "name": "SadAge Kill All Brands Graphic T-Shirt",
@@ -726,7 +740,10 @@
     "size": "M-L",
     "condition": "Excellent",
     "material": "Jersey fabric",
-    "category": "tank-top",
+    "category": [
+      "shirt",
+      "tshirt"
+    ],
     "description": "Black sleeveless top with a large white illustrated figure surrounded by wolves, symbols, and hand-drawn markings.",
     "status": "available",
     "photos": [
@@ -771,7 +788,7 @@
     "size": "M-L",
     "condition": "Excellent",
     "material": "Knit fabric",
-    "category": "socks",
+    "category": "tshirt",
     "description": "Black socks covered with a repeating white abstract symbol pattern.",
     "status": "available",
     "photos": [
@@ -786,7 +803,7 @@
     "size": "M-L",
     "condition": "Excellent",
     "material": "Knit fabric",
-    "category": "socks",
+    "category": "tshirt",
     "description": "White socks featuring a repeating black abstract symbol pattern.",
     "status": "available",
     "photos": [
