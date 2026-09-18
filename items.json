@@ -1,5 +1,25 @@
 [
   {
+    "code": "MS-117",
+    "cover": "/items/MS-117-cover.jpg",
+    "name": "SadAge Reworked Contrast Western Shirt",
+    "price": "173",
+    "size": "M-L",
+    "condition": "Excellent",
+    "material": "Woven fabric; fiber composition unconfirmed",
+    "category": "shirt",
+    "description": "Long-sleeve western-style shirt with irregular sand-brown and black coloration, a pointed collar, and two flap chest pockets. Contrast stitching, dark cuffs, and a subtle SadAge marking near the curved hem complete the design.",
+    "status": "available",
+    "photos": [
+      "/items/MS-117-1.jpg",
+      "/items/MS-117-2.jpg",
+      "/items/MS-117-3.jpg",
+      "/items/MS-117-4.jpg",
+      "/items/MS-117-5.jpg",
+      "/items/MS-117-6.jpg"
+    ]
+  },
+  {
     "code": "MS-093",
     "cover": "/items/MS-093-cover.jpg",
     "name": "Hand-Dyed Pleated Wide-Leg Pants",
