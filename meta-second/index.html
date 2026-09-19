@@ -588,7 +588,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   @media (max-width: 700px) {
     .payment-success { margin: 16px 16px 0; }
   }
-  .card-price { font-size: 14px; color: var(--fg); margin-top: 8px; }
   .card:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
   .card-meta { flex-wrap: wrap; gap: 6px; }
   .grid-intro, .action-note { color: #aaa69d; }
@@ -775,7 +774,7 @@ function buildGrid(filter) {
     card.className = 'card' + (item.status === 'sold' ? ' sold-card' : '');
     card.setAttribute('role', 'button');
     card.tabIndex = 0;
-    card.setAttribute('aria-label', `${item.name}, ${item.price} euros, size ${item.size}, ${item.status}`);
+    card.setAttribute('aria-label', `${item.name}, size ${item.size}, ${item.status}`);
     card.onclick = () => showItem(item);
     card.onkeydown = event => {
       if (event.key === 'Enter' || event.key === ' ') {
@@ -790,7 +789,6 @@ function buildGrid(filter) {
       </div>
       <div class="card-info">
         <div class="card-name">${item.name}</div>
-        <div class="card-price">${item.price ? `${item.price} €` : "Ask for price"}</div>
         <div class="card-meta">
           <span class="card-size">${item.size}</span>
           <span class="status-dot ${item.status}">${item.status}</span>
