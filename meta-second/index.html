@@ -205,14 +205,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     cursor: pointer;
     position: relative;
     overflow: hidden;
-    aspect-ratio: 1;
+    min-width: 0;
     transition: background 0.2s;
   }
   .card:hover { background: #111; }
   .card:hover .card-img { transform: scale(1.03); }
 
   .card-img-wrap {
-    width: 100%; height: 72%;
+    width: 100%; aspect-ratio: 1;
     overflow: hidden;
     background: #111;
   }
@@ -240,7 +240,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   .card-info {
     padding: 10px 12px 8px;
-    height: 28%;
+    min-height: 106px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -588,6 +588,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   @media (max-width: 700px) {
     .payment-success { margin: 16px 16px 0; }
   }
+  .card-price { font-size: 14px; color: var(--fg); margin-top: 8px; }
+  .card:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+  .card-meta { flex-wrap: wrap; gap: 6px; }
+  .grid-intro, .action-note { color: #aaa69d; }
+  .action-note { font-size: 11px; letter-spacing: 0.03em; text-transform: none; }
+  .btn-wa { background: transparent; border: 1px solid var(--border-h); color: var(--fg); font-size: 17px; }
+  .btn-wa:hover { background: #18221b; }
 </style>
 		<script async src="https://www.googletagmanager.com/gtag/js?id=G-RF3945XCP4"></script>
 		<script>
@@ -616,7 +623,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <div id="viewGrid">
 
   <div class="grid-header">
-    <div class="grid-title">Archive</div>
+    <div class="grid-title">Shop available pieces</div>
     <div class="grid-tools">
       <input class="code-search" id="codeSearch" type="search" placeholder="Item code" aria-label="Search by item code" aria-controls="itemGrid" autocomplete="off" spellcheck="false">
       <div class="grid-count" id="gridCount" role="status" aria-live="polite">— items</div>
@@ -630,8 +637,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   </div>
 
   <div class="filter-bar">
-    <button class="flt on" data-filter="all" onclick="setFilter(this,'all')">All</button>
-    <button class="flt" data-filter="available" onclick="setFilter(this,'available')">Available</button>
+    <button class="flt" data-filter="all" onclick="setFilter(this,'all')">All</button>
+    <button class="flt on" data-filter="available" onclick="setFilter(this,'available')">Available</button>
     <button class="flt" data-filter="reserved" onclick="setFilter(this,'reserved')">Reserved</button>
     <button class="flt" data-filter="sold" onclick="setFilter(this,'sold')">Sold</button>
     <span class="flt-divider"></span>
@@ -650,7 +657,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   <div class="grid" id="itemGrid">
     <div class="grid-empty" id="gridEmpty">No items in this category yet</div>
-	<div class="grid-loading" id="gridLoading">Loading archive...</div>
+	<div class="grid-loading" id="gridLoading">Loading pieces...</div>
   </div>
 
 </div>
@@ -661,7 +668,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   <button class="item-back" onclick="showGrid()">
     <span class="item-back-arrow">←</span>
-    <span>Back to Archive</span>
+    <span>Back to shop</span>
   </button>
 
   <div class="item-layout">
@@ -715,15 +722,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <div class="item-desc" id="detailDesc"></div>
 
       <div class="item-actions">
-        <button class="btn-wa" id="btnWA" onclick="openWA()" disabled>
-          Open chat
-        </button>
         <button class="btn-stripe" id="btnCheckout" onclick="openCheckout()" disabled>
-          It’s mine
+          Buy now
         </button>
         <div class="action-note" id="actionNote">
-          Choose WhatsApp for questions or Stripe for secure payment
+          Secure payment via Stripe
         </div>
+        <button class="btn-wa" id="btnWA" onclick="openWA()" disabled>
+          Ask about fit or delivery
+        </button>
       </div>
 
     </div>
@@ -737,7 +744,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 const WA_NUMBER = '380952059105';
 
 /* ════ STATE ════ */
-let activeFilter = 'all';
+let activeFilter = 'available';
 let currentItem  = null;
 let galleryIndex = 0;
  
@@ -766,7 +773,16 @@ function buildGrid(filter) {
   filtered.forEach(item => {
     const card = document.createElement('div');
     card.className = 'card' + (item.status === 'sold' ? ' sold-card' : '');
+    card.setAttribute('role', 'button');
+    card.tabIndex = 0;
+    card.setAttribute('aria-label', `${item.name}, ${item.price} euros, size ${item.size}, ${item.status}`);
     card.onclick = () => showItem(item);
+    card.onkeydown = event => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        showItem(item);
+      }
+    };
     const hasCover = !!item.cover;
     card.innerHTML = `
       <div class="card-img-wrap${hasCover ? '' : ' no-img'}" data-code="${item.code}">
@@ -774,6 +790,7 @@ function buildGrid(filter) {
       </div>
       <div class="card-info">
         <div class="card-name">${item.name}</div>
+        <div class="card-price">${item.price ? `${item.price} €` : "Ask for price"}</div>
         <div class="card-meta">
           <span class="card-size">${item.size}</span>
           <span class="status-dot ${item.status}">${item.status}</span>
@@ -789,6 +806,7 @@ function setFilter(btn, filter) {
   activeFilter = filter;
   document.querySelectorAll('.flt').forEach(b => b.classList.remove('on'));
   btn.classList.add('on');
+  document.querySelector('.grid-title').textContent = filter === 'available' ? 'Shop available pieces' : filter === 'all' ? 'All pieces' : filter.charAt(0).toUpperCase() + filter.slice(1);
   buildGrid(filter);
 }
  
@@ -834,16 +852,16 @@ function showItem(item) {
 
   const waButton = document.getElementById('btnWA');
   waButton.disabled = !canWhatsApp;
-  waButton.textContent = canWhatsApp ? 'Open chat' : 'Sold';
+  waButton.textContent = canWhatsApp ? 'Ask about fit or delivery' : 'Sold';
 
   const checkoutButton = document.getElementById('btnCheckout');
   checkoutButton.disabled = !canBuy;
   checkoutButton.textContent = canBuy
-    ? 'It’s mine'
+    ? `Buy now — ${item.price} €`
     : (isReserved ? 'Reserved' : isSold ? 'Sold' : 'Checkout unavailable');
 
   document.getElementById('actionNote').textContent = canBuy
-    ? 'WhatsApp for questions · Stripe Checkout · Worldwide shipping €20'
+    ? 'Secure payment via Stripe · Shipping €20 (except Russia). Questions about fit or delivery? Ask below.'
     : canWhatsApp
       ? 'Ask about availability or delivery on WhatsApp'
       : isSold
@@ -1003,7 +1021,7 @@ fetch('/items.json?catalog=20260918-ms50-160')
     }
   })
   .catch(() => {
-    document.getElementById('gridLoading').textContent = 'Could not load archive. Please refresh.';
+    document.getElementById('gridLoading').textContent = 'Could not load pieces. Please refresh.';
   });
 </script>
 </body>
