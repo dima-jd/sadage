@@ -1,5 +1,95 @@
 [
   {
+    "code": "MS-137",
+    "cover": "/items/MS-137-cover.jpg",
+    "name": "SadAge Chained World Sleeveless T-Shirt",
+    "price": "153",
+    "size": "L-XL",
+    "condition": "Good",
+    "material": "Jersey fabric",
+    "category": "tshirt",
+    "description": "White sleeveless T-shirt with red SADAGE lettering above a colorful world graphic suspended in chains and barbed wire. Finished with raw armholes and a crew neck.",
+    "status": "sold",
+    "photos": [
+      "/items/MS-137-1.jpg"
+    ]
+  },
+  {
+    "code": "MS-138",
+    "cover": "/items/MS-138-cover.jpg",
+    "name": "SadAge Stacked Logos T-Shirt",
+    "price": "91",
+    "size": "M-L",
+    "condition": "Good",
+    "material": "Jersey fabric",
+    "category": "tshirt",
+    "description": "Stone grey T-shirt with six black SADAGE wordmarks stacked down the front in varied lettering styles. Short sleeves and a crew neck.",
+    "status": "sold",
+    "photos": [
+      "/items/MS-138-1.jpg"
+    ]
+  },
+  {
+    "code": "MS-139",
+    "cover": "/items/MS-139-cover.jpg",
+    "name": "SadAge Faces Graphic T-Shirt",
+    "price": "91",
+    "size": "M-L",
+    "condition": "Good",
+    "material": "Jersey fabric",
+    "category": "tshirt",
+    "description": "Pale sage grey T-shirt with a central arrangement of black illustrated faces, including a hand-shaped character and a larger face below. Short sleeves and a ribbed crew neck.",
+    "status": "sold",
+    "photos": [
+      "/items/MS-139-1.jpg"
+    ]
+  },
+  {
+    "code": "MS-140",
+    "cover": "/items/MS-140-cover.jpg",
+    "name": "SadAge War Vibes Burning Car Sleeveless T-Shirt",
+    "price": "91",
+    "size": "M-L",
+    "condition": "Good",
+    "material": "Jersey fabric",
+    "category": "tshirt",
+    "description": "Dusty mauve sleeveless T-shirt with black WAR VIBES ONLY lettering above a burning car graphic. Raw armholes and a cropped raw hem.",
+    "status": "sold",
+    "photos": [
+      "/items/MS-140-1.jpg"
+    ]
+  },
+  {
+    "code": "MS-141",
+    "cover": "/items/MS-141-cover.jpg",
+    "name": "SadAge Bulls Graphic T-Shirt",
+    "price": "91",
+    "size": "M-L",
+    "condition": "Good",
+    "material": "Jersey fabric",
+    "category": "tshirt",
+    "description": "Light grey T-shirt with a black illustration of overlapping bulls across the upper chest. Short sleeves and a crew neck.",
+    "status": "sold",
+    "photos": [
+      "/items/MS-141-1.jpg"
+    ]
+  },
+  {
+    "code": "MS-142",
+    "cover": "/items/MS-142-cover.jpg",
+    "name": "SadAge War Vibes Dagger T-Shirt",
+    "price": "91",
+    "size": "M-L",
+    "condition": "Good",
+    "material": "Jersey fabric",
+    "category": "tshirt",
+    "description": "Dusty rose T-shirt with stacked black WAR VIBES ONLY lettering and a diagonal dagger illustration. Short sleeves and a crew neck.",
+    "status": "sold",
+    "photos": [
+      "/items/MS-142-1.jpg"
+    ]
+  },
+  {
     "code": "MS-131",
     "cover": "/items/MS-131-cover.jpg",
     "name": "SadAge Street Photo Cropped T-Shirt",
