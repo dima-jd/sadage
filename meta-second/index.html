@@ -224,43 +224,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     transition: transform 0.5s ease;
   }
 
-  /* Page links occupy one product cell, including its information area. */
-  .page-card {
-    display: block;
-    color: var(--fg);
-    text-decoration: none;
-    align-self: stretch;
-  }
-  .page-card::before { content: ''; display: block; aspect-ratio: 1; }
-  .page-card::after { content: ''; display: block; height: 106px; }
-  .page-card > .card-img { position: absolute; inset: 0; }
-  .page-card-copy {
-    position: absolute;
-    inset: auto 0 0;
-    padding: 40px 12px 14px;
-    background: linear-gradient(transparent, rgba(0,0,0,0.92));
-    color: #fff;
-    overflow-wrap: anywhere;
-  }
-  .page-card-title {
-    display: block;
-    font-size: 14px;
-    line-height: 1.4;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-  .page-card-text {
-    display: block;
-    margin-top: 6px;
-    font-size: 14px;
-    line-height: 1.5;
-    white-space: pre-line;
-  }
-  .page-card:focus-visible .card-img { transform: scale(1.03); }
-  @media (prefers-reduced-motion: reduce) {
-    .page-card .card-img { transition: none; }
-  }
-
   /* placeholder when no image */
   .card-img-wrap.no-img {
     display: flex;
@@ -783,35 +746,6 @@ const WA_NUMBER = '380952059105';
 let activeFilter = 'available';
 let currentItem  = null;
 let galleryIndex = 0;
-let pageCards = [];
-
-// Edit images, destinations, titles and text in page-cards.json.
-function buildPageCard(page) {
-  const card = document.createElement('a');
-  card.className = 'card page-card';
-  card.href = page.href;
-  const image = document.createElement('img');
-  image.className = 'card-img';
-  image.src = page.image;
-  image.alt = '';
-  image.loading = 'lazy';
-  image.decoding = 'async';
-  const copy = document.createElement('span');
-  copy.className = 'page-card-copy';
-  const title = document.createElement('span');
-  title.className = 'page-card-title';
-  title.textContent = page.title;
-  copy.appendChild(title);
-  if (page.text) {
-    const text = document.createElement('span');
-    text.className = 'page-card-text';
-    text.textContent = page.text;
-    copy.appendChild(text);
-  }
-  card.append(image, copy);
-  return card;
-}
- 
 /* ════ GRID ════ */
 function buildGrid(filter) {
   if (!Array.isArray(window.ITEMS)) return;
@@ -834,7 +768,7 @@ function buildGrid(filter) {
   if (filtered.length === 0) { empty.style.display = 'block'; return; }
   empty.style.display = 'none';
  
-  filtered.forEach((item, index) => {
+  filtered.forEach(item => {
     const card = document.createElement('div');
     card.className = 'card' + (item.status === 'sold' ? ' sold-card' : '');
     card.setAttribute('role', 'button');
@@ -860,10 +794,7 @@ function buildGrid(filter) {
         </div>
       </div>`;
     grid.appendChild(card);
-    if ((index + 1) % 9 === 0 && pageCards.length) {
-      const pageIndex = (Math.floor((index + 1) / 9) - 1) % pageCards.length;
-      grid.appendChild(buildPageCard(pageCards[pageIndex]));
-    }
+
   });
 }
  
@@ -1075,24 +1006,6 @@ function showPaymentSuccess() {
 }
 
 /* ════ INIT ════ */
-fetch('/meta-second/page-cards.json')
-  .then(r => {
-    if (!r.ok) throw new Error('Page cards unavailable');
-    return r.json();
-  })
-  .then(data => {
-    pageCards = Array.isArray(data) ? data.filter(page => {
-      if (!page || page.enabled === false || typeof page.title !== 'string' || !page.title.trim()) return false;
-      if (typeof page.href !== 'string' || !page.href.trim() || typeof page.image !== 'string' || !page.image.trim()) return false;
-      try {
-        return [page.href, page.image].every(value =>
-          ['http:', 'https:'].includes(new URL(value, location.href).protocol));
-      } catch { return false; }
-    }) : [];
-    buildGrid(activeFilter);
-  })
-  .catch(() => { /* Optional page cards must never prevent shopping. */ });
-
 fetch('/items.json?catalog=20260918-ms50-160')
   .then(r => r.json())
   .then(data => {
