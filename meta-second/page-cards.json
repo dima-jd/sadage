@@ -1,0 +1,16 @@
+[
+  {
+    "title": "Print Room",
+    "text": "Try a print on a blank tee.",
+    "href": "/print-room/",
+    "image": "/prints/live/lp-001.jpg",
+    "enabled": true
+  },
+  {
+    "title": "About SadAge",
+    "text": "Clothing, print and objects.",
+    "href": "/about/",
+    "image": "/og-image.jpg",
+    "enabled": true
+  }
+]
