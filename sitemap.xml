@@ -25,4 +25,14 @@
     <priority>0.7</priority>
   </url>
 
+  <url><loc>https://sadage.com/people/</loc></url>
+  <url><loc>https://sadage.com/newspaper/</loc></url>
+  <url><loc>https://sadage.com/process/</loc></url>
+  <url><loc>https://sadage.com/support/</loc></url>
+  <url><loc>https://sadage.com/sad-world/</loc></url>
+  <url><loc>https://sadage.com/objects/</loc></url>
+  <url><loc>https://sadage.com/open-call/</loc></url>
+  <url><loc>https://sadage.com/contact/</loc></url>
+  <url><loc>https://sadage.com/survey/</loc></url>
+  <url><loc>https://sadage.com/game/</loc></url>
 </urlset>
