@@ -623,7 +623,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <div id="viewGrid">
 
   <div class="grid-header">
-    <div class="grid-title">Shop available pieces</div>
+    <div class="grid-title">Archive</div>
     <div class="grid-tools">
       <input class="code-search" id="codeSearch" type="search" placeholder="Item code" aria-label="Search by item code" aria-controls="itemGrid" autocomplete="off" spellcheck="false">
       <div class="grid-count" id="gridCount" role="status" aria-live="polite">— items</div>
@@ -668,7 +668,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   <button class="item-back" onclick="showGrid()">
     <span class="item-back-arrow">←</span>
-    <span>Back to shop</span>
+    <span>Back to Archive</span>
   </button>
 
   <div class="item-layout">
@@ -723,7 +723,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
       <div class="item-actions">
         <button class="btn-stripe" id="btnCheckout" onclick="openCheckout()" disabled>
-          Buy now
+          It's mine
         </button>
         <div class="action-note" id="actionNote">
           Secure payment via Stripe
@@ -857,7 +857,7 @@ function showItem(item) {
   const checkoutButton = document.getElementById('btnCheckout');
   checkoutButton.disabled = !canBuy;
   checkoutButton.textContent = canBuy
-    ? `Buy now — ${item.price} €`
+    ? `It's mine`
     : (isReserved ? 'Reserved' : isSold ? 'Sold' : 'Checkout unavailable');
 
   document.getElementById('actionNote').textContent = canBuy
