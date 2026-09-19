@@ -1,5 +1,114 @@
 [
   {
+    "code": "MS-143",
+    "cover": "/items/MS-143-cover.jpg",
+    "name": "SadAge Mottled Graphic Jeans",
+    "price": "190",
+    "size": "M-L",
+    "condition": "Excellent",
+    "material": "Denim",
+    "category": "pants",
+    "description": "Yellow-green jeans with mottled olive and brown shading, distressed pockets, and raw hems. Red portrait and text graphics cover one leg, with black sun-face illustrations on the other.",
+    "status": "sold",
+    "photos": [
+      "/items/MS-143-1.jpg",
+      "/items/MS-143-2.jpg",
+      "/items/MS-143-3.jpg",
+      "/items/MS-143-4.jpg",
+      "/items/MS-143-5.jpg",
+      "/items/MS-143-6.jpg",
+      "/items/MS-143-7.jpg"
+    ]
+  },
+  {
+    "code": "MS-144",
+    "cover": "/items/MS-144-cover.jpg",
+    "name": "SadAge Smiley Collage Longsleeve",
+    "price": "91",
+    "size": "M-L",
+    "condition": "Excellent",
+    "material": "Jersey fabric",
+    "category": "longsleeve",
+    "description": "Faded blue long-sleeve top with a pale washed effect across the shoulders, a large black dripping smiley, and layered text and graphics across the front and sleeves. A slit at the upper chest and a raw lower hem add distressed details.",
+    "status": "sold",
+    "photos": [
+      "/items/MS-144-1.jpg",
+      "/items/MS-144-2.jpg",
+      "/items/MS-144-3.jpg",
+      "/items/MS-144-4.jpg"
+    ]
+  },
+  {
+    "code": "MS-145",
+    "cover": "/items/MS-145-cover.jpg",
+    "name": "SadAge Blue Mask Sleeveless T-Shirt",
+    "price": "91",
+    "size": "M-L",
+    "condition": "Excellent",
+    "material": "Jersey fabric",
+    "category": "tshirt",
+    "description": "Mottled charcoal grey sleeveless T-shirt with a blue rectangular mask graphic, bold black Hebrew lettering, and a circular emblem near the lower hem. Cut armholes and a raw cropped hem give it a boxy shape.",
+    "status": "sold",
+    "photos": [
+      "/items/MS-145-1.jpg",
+      "/items/MS-145-2.jpg",
+      "/items/MS-145-3.jpg",
+      "/items/MS-145-4.jpg",
+      "/items/MS-145-5.jpg"
+    ]
+  },
+  {
+    "code": "MS-146",
+    "cover": "/items/MS-146-cover.jpg",
+    "name": "SadAge Kiosk Shalom Sleeveless T-Shirt",
+    "price": "91",
+    "size": "M-L",
+    "condition": "Excellent",
+    "material": "Jersey fabric",
+    "category": "tshirt",
+    "description": "Black sleeveless T-shirt with brown fading across the shoulders, cream Kiosk Shalom lettering at the chest, and a large pale graphic near the lower side. Raw edges and small holes at the neckline and lower front.",
+    "status": "reserved",
+    "photos": [
+      "/items/MS-146-1.jpg",
+      "/items/MS-146-2.jpg",
+      "/items/MS-146-3.jpg"
+    ]
+  },
+  {
+    "code": "MS-147",
+    "cover": "/items/MS-147-cover.jpg",
+    "name": "SadAge Postpeace Portrait Sleeveless T-Shirt",
+    "price": "91",
+    "size": "M-L",
+    "condition": "Excellent",
+    "material": "Jersey fabric",
+    "category": "tshirt",
+    "description": "Black sleeveless T-shirt with rust-brown mottling across the shoulders and a rectangular portrait above distressed POSTPEACE lettering. Raw armholes, a raw hem, and scattered small holes.",
+    "status": "sold",
+    "photos": [
+      "/items/MS-147-1.jpg",
+      "/items/MS-147-2.jpg",
+      "/items/MS-147-3.jpg"
+    ]
+  },
+  {
+    "code": "MS-148",
+    "cover": "/items/MS-148-cover.jpg",
+    "name": "SadAge Kiosk Shalom Shield Sleeveless T-Shirt",
+    "price": "91",
+    "size": "M-L",
+    "condition": "Excellent",
+    "material": "Jersey fabric",
+    "category": "tshirt",
+    "description": "Dark olive and black sleeveless T-shirt with a red-and-yellow shield emblem at the chest and green Kiosk Shalom lettering near the lower side. Cut armholes and an uneven raw hem.",
+    "status": "reserved",
+    "photos": [
+      "/items/MS-148-1.jpg",
+      "/items/MS-148-2.jpg",
+      "/items/MS-148-3.jpg"
+    ]
+  },
+  {
     "code": "MS-137",
     "cover": "/items/MS-137-cover.jpg",
     "name": "SadAge Chained World Sleeveless T-Shirt",
