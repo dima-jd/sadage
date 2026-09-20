@@ -247,6 +247,7 @@ let rowHeight = 270, cardWidth = 265, visibleColumns = 7, gridWidth = 1903;
 let travelledPasses = 0, lastScrollTop = 0, printOffset = 0, scrollFrame = 0;
 // Count user travel only. Recycling and resizing never advance the three-pass gate.
 function advanceScale(delta) {
+  if (viewport.clientWidth <= 760) return false;
   const passes = Math.abs(delta) * visibleColumns / rowHeight / PRINTS.length;
   const activePasses = Math.max(0, travelledPasses + passes - 3) - Math.max(0, travelledPasses - 3);
   travelledPasses += passes;
@@ -314,6 +315,8 @@ function layout() {
   const baseColumns = viewport.clientWidth < 560 ? 2 : Math.max(1, Math.floor((viewport.clientWidth - 8) / 273));
   const baseWidth = Math.min(265, (viewport.clientWidth - 16 - (baseColumns - 1) * 8) / baseColumns);
   gridWidth = baseColumns * baseWidth + (baseColumns - 1) * 8;
+  // Mobile always keeps its regular grid; restart the desktop gate after mobile use.
+  if (viewport.clientWidth <= 760) travelledPasses = 0;
   if (travelledPasses <= 3) visibleColumns = baseColumns;
   resizeCards();
 }
