@@ -39,10 +39,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <style>
 *{box-sizing:border-box}body{margin:0;background:#363636;color:#f0ede6;font-family:'Space Mono',monospace}button,a{-webkit-tap-highlight-color:transparent}button{font:inherit;cursor:pointer}button:focus-visible,a:focus-visible{outline:2px solid #dfd09b;outline-offset:4px}
 .toolbar{position:fixed;top:16px;left:24px;right:24px;z-index:4;display:flex;justify-content:space-between;align-items:start;gap:16px;pointer-events:none}.toolbar>*{pointer-events:auto}.brand,.controls,.checkout{background:#171717ed;border:1px solid #ffffff25;box-shadow:0 4px 20px #0002}.brand{padding:12px 16px;display:flex;gap:18px;align-items:center}.brand a{color:inherit;text-decoration:none;font-family:'Bebas Neue',sans-serif;font-size:25px;letter-spacing:2px}.brand span{font-size:9px;color:#c5b071;text-transform:uppercase;letter-spacing:2px}.controls{display:flex;align-items:center;padding:6px;gap:12px}.group{display:flex;gap:2px}.control{border:0;background:transparent;color:#bcbab4;padding:10px 12px;font-size:10px;text-transform:uppercase;letter-spacing:1px}.control[aria-pressed=true]{background:#f0ede6;color:#151515}.info-button{border-left:1px solid #ffffff25}.swatch::before{content:'';display:inline-block;width:9px;height:9px;border:1px solid #999;margin-right:7px;background:#eee}.swatch[data-color=black]::before{background:#111}
-#viewport{height:100dvh;overflow-y:auto;overflow-x:hidden;scrollbar-width:none;overscroll-behavior-y:contain;overflow-anchor:none}#viewport::-webkit-scrollbar{display:none}#grid{display:grid;grid-template-columns:repeat(var(--columns,7),var(--card-width,265px));grid-auto-rows:270px;justify-content:center;column-gap:8px}.card{position:relative;width:100%;height:270px;overflow:hidden;background:#3f3f3f;border:1px solid #ffffff09;padding:0;color:#ddd;touch-action:pan-y}.card:hover{background:#484848}.card[aria-pressed=true]{border:2px solid #d8cba2;background:#49483f}.mockup{position:absolute;width:220px;height:259px;left:50%;top:0;transform:translateX(-50%);pointer-events:none;user-select:none}.shirt{width:100%;height:100%;object-fit:contain}.print{position:absolute;width:90.6px;height:90.6px;object-fit:contain;left:50%;top:50%;transform:translate(-50%,-50%)}[data-place=back] .print{top:43%}.code{position:absolute;bottom:12px;left:14px;font-size:9px;letter-spacing:1.4px}.mark{position:absolute;bottom:10px;right:14px;font-size:13px;color:#d8cba2}.card[aria-pressed=false] .mark{visibility:hidden}
+#viewport{height:100dvh;overflow-y:auto;overflow-x:hidden;scrollbar-width:none;overscroll-behavior-y:contain;overflow-anchor:none}#viewport::-webkit-scrollbar{display:none}#grid{display:grid;grid-template-columns:repeat(var(--columns,7),var(--card-width,265px));grid-auto-rows:var(--card-height,270px);justify-content:center;column-gap:8px}.card{position:relative;width:100%;height:var(--card-height,270px);overflow:hidden;background:#3f3f3f;border:1px solid #ffffff09;padding:0;color:#ddd;touch-action:pan-y}.card:hover{background:#484848}.card[aria-pressed=true]{border:2px solid #d8cba2;background:#49483f}.mockup{position:absolute;width:83.02%;height:95.93%;left:50%;top:0;transform:translateX(-50%);pointer-events:none;user-select:none}.shirt{width:100%;height:100%;object-fit:contain}.print{position:absolute;width:41.18%;height:auto;aspect-ratio:1;object-fit:contain;left:50%;top:50%;transform:translate(-50%,-50%)}[data-place=back] .print{top:43%}.code{position:absolute;bottom:12px;left:14px;font-size:9px;letter-spacing:1.4px}.mark{position:absolute;bottom:10px;right:14px;font-size:13px;color:#d8cba2}.card[aria-pressed=false] .mark{visibility:hidden}
 .checkout{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);z-index:4;display:flex;align-items:center;gap:24px;padding:8px 8px 8px 18px;max-width:calc(100% - 24px)}.selection{font-size:10px;white-space:nowrap}.selection small{display:block;margin-top:4px;font-size:8px;color:#b5b2a9;letter-spacing:1px}.pay{border:0;padding:16px 24px;background:#e6dcc2;color:#151515;white-space:nowrap;font-size:12px}.pay:disabled{background:#555;color:#aaa;cursor:not-allowed}
 #about{position:fixed;inset:0 0 0 auto;width:min(440px,100%);max-height:100dvh;height:100dvh;margin:0;border:0;border-left:1px solid #777;background:#191919;color:#f0ede6;padding:32px;box-shadow:-20px 0 80px #0005}#about::backdrop{background:#0008}.close{float:right;border:1px solid #666;background:transparent;color:inherit;padding:8px 12px}#about h1{font-family:'Bebas Neue',sans-serif;font-size:64px;font-weight:400;line-height:.95;margin:90px 0 32px}#about p{font-size:12px;line-height:1.9;color:#c8c5be}#about .eyebrow{color:#c5b071;text-transform:uppercase;letter-spacing:2px;font-size:9px}#about a{color:#d8cba2}#about .note{border-top:1px solid #ffffff25;padding-top:24px;margin-top:32px}
-@media(max-width:760px){.toolbar{top:8px;left:8px;right:8px;gap:6px;flex-wrap:wrap}.brand{padding:6px 10px}.brand a{font-size:20px}.brand span{font-size:8px}.controls{gap:4px;padding:3px}.control{font-size:9px;padding:8px}.checkout{gap:12px;padding-left:12px}.selection{font-size:9px}.pay{padding:15px 12px}.mockup{width:min(220px,100%)}.print{width:41.18%;height:auto;aspect-ratio:1}}
+@media(max-width:760px){.toolbar{top:8px;left:8px;right:8px;gap:6px;flex-wrap:wrap}.brand{padding:6px 10px}.brand a{font-size:20px}.brand span{font-size:8px}.controls{gap:4px;padding:3px}.control{font-size:9px;padding:8px}.checkout{gap:12px;padding-left:12px}.selection{font-size:9px}.pay{padding:15px 12px}.print{width:41.18%;height:auto;aspect-ratio:1}}
 @media(prefers-reduced-motion:no-preference){.card{transition:background .2s,border-color .2s}}
 </style></head><body>
 <header class="toolbar"><div class="brand"><a href="/">SadAge</a><span>Print room / €91 + €20 shipping</span></div><nav class="controls" aria-label="Garment controls"><div class="group" aria-label="Garment color"><button class="control swatch" data-color="white" aria-pressed="false">White</button><button class="control swatch" data-color="black" aria-pressed="true">Black</button></div><div class="group" aria-label="Print placement"><button class="control" data-place="front" aria-pressed="true">Front</button><button class="control" data-place="back" aria-pressed="false">Back</button></div><button class="control info-button" id="info" aria-haspopup="dialog">About ↗</button></nav></header>
@@ -242,7 +242,40 @@ const viewport = document.getElementById('viewport'), grid = document.getElement
 const pay = document.getElementById('pay'), selection = document.getElementById('selection');
 let color = 'black', place = 'front', selected = null, columns = 7, firstRow = -1;
 // A recycled window keeps the looping collection bounded, even after prolonged scrolling.
-const totalRows = 2000, rowHeight = 270;
+const totalRows = 2000;
+let rowHeight = 270, cardWidth = 265, visibleColumns = 7, gridWidth = 1903;
+let travelledPasses = 0, lastScrollTop = 0, printOffset = 0, scrollFrame = 0;
+// Count user travel only. Recycling and resizing never advance the three-pass gate.
+function advanceScale(delta) {
+  const passes = Math.abs(delta) * visibleColumns / rowHeight / PRINTS.length;
+  const activePasses = Math.max(0, travelledPasses + passes - 3) - Math.max(0, travelledPasses - 3);
+  travelledPasses += passes;
+  if (!activePasses) return false;
+  if (delta < 0) visibleColumns = Math.max(0.75, visibleColumns - 0.75 * activePasses);
+  else {
+    // Visible card count is approximately columns² × height / width × aspect ratio.
+    const densityFactor = viewport.clientHeight / gridWidth * 265 / 270;
+    visibleColumns = Math.min(32, Math.sqrt(visibleColumns ** 2 + 12 * activePasses / densityFactor));
+  }
+  return true;
+}
+function resizeCards() {
+  const rowPosition = viewport.scrollTop / rowHeight;
+  const anchorRow = Math.floor(rowPosition);
+  const nextColumns = Math.ceil(visibleColumns - 0.000001);
+  printOffset = mod(printOffset + anchorRow * (columns - nextColumns), PRINTS.length);
+  columns = nextColumns;
+  cardWidth = (gridWidth + 8) / visibleColumns - 8;
+  rowHeight = cardWidth * 270 / 265;
+  grid.style.setProperty('--columns', columns);
+  grid.style.setProperty('--card-width', cardWidth + 'px');
+  grid.style.setProperty('--card-height', rowHeight + 'px');
+  // Establish the new scroll extent before restoring the same row and fractional offset.
+  grid.style.minHeight = totalRows * rowHeight + 'px';
+  viewport.scrollTop = rowPosition * rowHeight;
+  lastScrollTop = viewport.scrollTop;
+  render(true);
+}
 function mod(n, m) { return ((n % m) + m) % m; }
 function render(force = false) {
   const row = Math.max(0, Math.floor(viewport.scrollTop / rowHeight) - 1);
@@ -254,7 +287,7 @@ function render(force = false) {
   const existing = new Map([...grid.children].map(card => [Number(card.dataset.index), card]));
   const wanted = new Set();
   for (let i = row * columns; i < (row + count) * columns; i++) {
-    const p = PRINTS[mod(i, PRINTS.length)];
+    const p = PRINTS[mod(i + printOffset, PRINTS.length)];
     wanted.add(i);
     const card = existing.get(i) || document.createElement('button');
     card.dataset.index = i;
@@ -278,19 +311,26 @@ function update() {
   render(true);
 }
 function layout() {
-  columns = Math.max(1, Math.floor((viewport.clientWidth - 8) / 273));
-  // Seven 265px cards at 1920px, with a responsive two-column mobile layout.
-  if (viewport.clientWidth < 560) columns = 2;
-  grid.style.setProperty('--columns', columns);
-  grid.style.setProperty('--card-width', Math.min(265, (viewport.clientWidth - 16 - (columns - 1) * 8) / columns) + 'px');
-  render(true);
+  const baseColumns = viewport.clientWidth < 560 ? 2 : Math.max(1, Math.floor((viewport.clientWidth - 8) / 273));
+  const baseWidth = Math.min(265, (viewport.clientWidth - 16 - (baseColumns - 1) * 8) / baseColumns);
+  gridWidth = baseColumns * baseWidth + (baseColumns - 1) * 8;
+  if (travelledPasses <= 3) visibleColumns = baseColumns;
+  resizeCards();
 }
 viewport.addEventListener('scroll', () => {
-  const row = Math.floor(viewport.scrollTop / rowHeight);
-  // Shift by a complete library cycle to preserve the visible print sequence.
-  if (row < 100) viewport.scrollTop += PRINTS.length * 20 * rowHeight;
-  else if (row > totalRows - 100) viewport.scrollTop -= PRINTS.length * 20 * rowHeight;
-  render();
+  if (scrollFrame) return;
+  scrollFrame = requestAnimationFrame(() => {
+    scrollFrame = 0;
+    const delta = viewport.scrollTop - lastScrollTop;
+    lastScrollTop = viewport.scrollTop;
+    if (delta && advanceScale(delta)) resizeCards();
+    const row = Math.floor(viewport.scrollTop / rowHeight);
+    // Rebase by complete library cycles without counting the jump as user travel.
+    if (row < 100) viewport.scrollTop += PRINTS.length * 20 * rowHeight;
+    else if (row > totalRows - 100) viewport.scrollTop -= PRINTS.length * 20 * rowHeight;
+    lastScrollTop = viewport.scrollTop;
+    render();
+  });
 }, {passive:true});
 window.addEventListener('resize', layout);
 document.querySelectorAll('[data-color]').forEach(b => b.addEventListener('click', () => { color = b.dataset.color; update(); }));
