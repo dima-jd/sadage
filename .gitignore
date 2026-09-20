@@ -1,3 +1,4 @@
 # Local SSH host verification used during infrastructure setup.
 objects/.ssh-known-hosts
 objects/.ssh-known-hosts.old
+/.tmp-video-tools/

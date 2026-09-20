@@ -211,6 +211,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   @media (min-height: 900px) {
     .nav-item { padding-top: 36px; padding-bottom: 36px; }
   }
+.nav-item{position:relative;overflow:hidden;isolation:isolate}.nav-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;z-index:-2;pointer-events:none;transition:opacity .35s}.nav-item::after{content:'';position:absolute;inset:0;z-index:-1;background:rgba(0,0,0,.55);opacity:0;pointer-events:none;transition:opacity .35s}.nav-item.video-playing .nav-video,.nav-item.video-playing::after{opacity:1}.nav-item.video-playing .nav-name,.nav-item.video-playing .nav-desc{color:#fff}.nav-item:focus-visible{outline:2px solid currentColor;outline-offset:-4px}@media(prefers-reduced-motion:reduce){.nav-video,.nav-item::after{transition:none}}
+@media(hover:hover){.nav-desc{opacity:0;transform:translateY(6px);transition:opacity .3s,transform .3s}.nav-item:hover .nav-desc,.nav-item:focus-visible .nav-desc{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.nav-desc{transition:none;transform:none}}
 </style>
 		<script async src="https://www.googletagmanager.com/gtag/js?id=G-RF3945XCP4"></script>
 		<script>
@@ -243,6 +246,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     <a class="nav-item" href="/meta-second/"
 		onclick="gtag('event','nav_click',{event_category:'homepage',event_label:'meta_secondhand'})">
+      <video class="nav-video" data-src="/assets/video/secondhand-preview.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
       <div class="nav-right">
         <span class="nav-name">Meta Secondhand</span>
         <span class="nav-desc">Shop available secondhand and reworked garments.<br>See prices and sizes<br>Shipping €20 (except Russia).</span>
@@ -251,6 +255,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     <a class="nav-item" href="/sad-print-room/"
 		onclick="gtag('event','nav_click',{event_category:'homepage',event_label:'print_room'})">
+      <video class="nav-video" data-src="/assets/video/print-room-preview.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
       <div class="nav-right">
         <span class="nav-name">SadAge Print Room</span>
         <span class="nav-desc">Try SadAge prints on a blank T-shirt.<br>White body, black body, many possible errors.<br>Send us the version that looks alive.</span>
@@ -272,5 +277,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   </div>
 </footer>
 
+<script defer src="/assets/home-video.js"></script>
 </body>
 </html>
