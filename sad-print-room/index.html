@@ -29,7 +29,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+<script type="text/plain" data-consent="analytics">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
@@ -44,7 +44,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 #about{position:fixed;inset:0 0 0 auto;width:min(440px,100%);max-height:100dvh;height:100dvh;margin:0;border:0;border-left:1px solid #777;background:#191919;color:#f0ede6;padding:32px;box-shadow:-20px 0 80px #0005}#about::backdrop{background:#0008}.close{float:right;border:1px solid #666;background:transparent;color:inherit;padding:8px 12px}#about h1{font-family:'Bebas Neue',sans-serif;font-size:64px;font-weight:400;line-height:.95;margin:90px 0 32px}#about p{font-size:12px;line-height:1.9;color:#c8c5be}#about .eyebrow{color:#c5b071;text-transform:uppercase;letter-spacing:2px;font-size:9px}#about a{color:#d8cba2}#about .note{border-top:1px solid #ffffff25;padding-top:24px;margin-top:32px}
 @media(max-width:760px){.toolbar{top:8px;left:8px;right:8px;gap:6px;flex-wrap:wrap}.brand{padding:6px 10px}.brand a{font-size:20px}.brand span{font-size:8px}.controls{gap:4px;padding:3px}.control{font-size:9px;padding:8px}.checkout{gap:12px;padding-left:12px}.selection{font-size:9px}.pay{padding:15px 12px}.print{width:41.18%;height:auto;aspect-ratio:1}}
 @media(prefers-reduced-motion:no-preference){.card{transition:background .2s,border-color .2s}}
-</style></head><body>
+</style><script>window.gtag=window.gtag||function(){};</script><link rel="stylesheet" href="/assets/legal.css"></head><body>
 <header class="toolbar"><div class="brand"><a href="/">SadAge</a><span>Print room / €91 + €20 shipping</span></div><nav class="controls" aria-label="Garment controls"><div class="group" aria-label="Garment color"><button class="control swatch" data-color="white" aria-pressed="false">White</button><button class="control swatch" data-color="black" aria-pressed="true">Black</button></div><div class="group" aria-label="Print placement"><button class="control" data-place="front" aria-pressed="true">Front</button><button class="control" data-place="back" aria-pressed="false">Back</button></div><button class="control info-button" id="info" aria-haspopup="dialog">===+</button></nav></header>
 <main id="viewport" aria-label="Endless print collection" tabindex="0"><div id="grid" data-place="front"></div></main>
 <div class="checkout"><div class="selection" id="selection" aria-live="polite">Choose your print<small>Swipe a card to change garment color</small></div><button class="pay" id="pay" disabled> €111 ↗</button></div>
@@ -383,4 +383,4 @@ function resetGridView() {
 }
 resetGridView();
 window.addEventListener('pageshow', resetGridView);
-</script></body></html>
+</script><script defer src="/assets/privacy-controls.js"></script></body></html>
