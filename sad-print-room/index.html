@@ -365,7 +365,19 @@ const about = document.getElementById('about');
 document.getElementById('info').addEventListener('click', () => about.showModal());
 document.getElementById('close').addEventListener('click', () => about.close());
 about.addEventListener('click', e => { if (e.target === about && e.clientX < about.getBoundingClientRect().left) about.close(); });
-layout();
-viewport.scrollTop = PRINTS.length * 20 * rowHeight;
-render(true);
+// Always open at the regular responsive size, including browser back/forward restores.
+if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+function resetGridView() {
+  cancelAnimationFrame(scrollFrame);
+  scrollFrame = 0;
+  travelledPasses = 0;
+  printOffset = 0;
+  layout();
+  printOffset = 0;
+  viewport.scrollTop = PRINTS.length * 20 * rowHeight;
+  lastScrollTop = viewport.scrollTop;
+  render(true);
+}
+resetGridView();
+window.addEventListener('pageshow', resetGridView);
 </script></body></html>
