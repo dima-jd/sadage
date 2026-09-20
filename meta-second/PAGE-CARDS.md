@@ -4,7 +4,7 @@ Edit `meta-second/page-cards.json` to change the cards:
 
 - `title`: page name displayed over the image.
 - `text`: optional text displayed beneath the title; use `\n` for a line break.
-- `href`: destination page, such as `/print-room/` or a full HTTPS URL.
+- `href`: destination page, such as `/sad-print-room/` or a full HTTPS URL.
 - `image`: image path or HTTPS URL, cropped to fill the whole card.
 - `enabled`: set to `false` to hide a card.
 
