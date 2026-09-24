@@ -44,3 +44,6 @@ Payment links remain disabled in payments.js pending full Bitcoin synchronizatio
 Before launch: verify synchronization, test invoice amount/currency and receiving addresses, disable public account registration, inspect/remove the temporary sadage-admin-setup HTTPS IP restriction and persist the intended firewall rules. The temporary firewall restriction was added during initial server setup; verify its actual current state before changing it. Website changes are local and have not been published.
 
 The owner requested connecting the apps before synchronization completes. Both URLs are now configured in payments.js; EN/UA payment notices disclose the pending synchronization. Invoice verification and public launch checks above remain outstanding.
+
+## Temporary payment routing — 24 September 2026
+The 1 BTC option and its explanatory section are hidden, and initiationUrl is empty. Donation now uses the existing Stripe support Payment Link from /support/. Restore BTC only after a fresh server readiness check and an explicit decision to re-enable it. No automatic payment confirmation or fulfilment is added.

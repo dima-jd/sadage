@@ -23,11 +23,11 @@
     if (url) payment.href = url;
     else payment.removeAttribute('href');
     payment.textContent = language === 'uk'
-      ? (donation ? 'Донат через BTCPay ↗' : 'Ініціація · 1 BTC через BTCPay ↗')
-      : (donation ? 'Donate with BTCPay ↗' : 'Initiation · 1 BTC with BTCPay ↗');
+      ? (donation ? 'Підтримати через Stripe ↗' : 'Ініціація · 1 BTC через BTCPay ↗')
+      : (donation ? 'Support with Stripe ↗' : 'Initiation · 1 BTC with BTCPay ↗');
     paymentStatus.textContent = language === 'uk'
-      ? (url ? 'Bitcoin-вузол ще синхронізується; оплата може бути недоступна. BTCPay відкриється окремо. Перевір суму й валюту перед оплатою. Потім повернися та надішли свій запит.' : 'Приймання BTC через BTCPay ще не активовано. Ти можеш надіслати свій намір без оплати.')
-      : (url ? 'The Bitcoin node is still syncing; payment may be unavailable. BTCPay opens separately. Check the amount and currency before paying. Then return and send your request.' : 'Receiving BTC through BTCPay is not active yet. You can send your intention without paying.');
+      ? (url ? 'Stripe відкриється окремо. Обери суму підтримки та перевір валюту перед оплатою. Потім повернися та надішли свій запит.' : 'Приймання BTC через BTCPay ще не активовано. Ти можеш надіслати свій намір без оплати.')
+      : (url ? 'Stripe opens separately. Choose your support amount and check the currency before paying. Then return and send your request.' : 'Receiving BTC through BTCPay is not active yet. You can send your intention without paying.');
     const note = document.querySelector('#btc-fields .connection-note');
     note.textContent = language === 'uk'
       ? (paymentUrl(false) ? 'Ініціація — 1 BTC через BTCPay Server. Платіж відкриється після перегляду запиту.' : 'BTC-ініціація через BTCPay Server ще не відкрита. Ти можеш надіслати SadAge свій намір без оплати.')
@@ -54,6 +54,7 @@
   translate(requested === 'ua' || requested === 'uk' ? 'uk' : requested === 'en' ? 'en' : saved || 'en');
   document.querySelectorAll('[data-lang]').forEach(button => button.addEventListener('click', () => translate(button.dataset.lang)));
   function updateGesture() {
+    if (!config.initiationUrl) form.querySelector('[value=donation]').checked = true;
     const donation = form.elements.gesture.value === 'donation';
     document.querySelector('#donation-fields').hidden = !donation;
     form.elements.story.disabled = !donation;
