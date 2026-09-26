@@ -21,3 +21,5 @@ Example album:
 ```
 
 Keep each `number` unique. Albums with no photos display a coming-soon state. Each album uses the original full-screen slideshow transition: click or swipe horizontally to move through its photos. On mobile, swipe up to see that album's photos in a grid; tapping a photo returns to the slideshow at that image. Visitors can link directly to an album with `/people/#01`.
+
+The array order in `albums.json` controls slideshow and grid order. Current descriptions are temporary labels based on album and sequence; replace them with accurate descriptions when the final photo order is ready.

@@ -22,6 +22,7 @@
   }
 
   function showSelectedPhoto(index) {
+    if (!slides[index].src) slides[index].src = slides[index].dataset.src;
     slides.forEach((slide, i) => {
       slide.hidden = i !== index;
       slide.style.transform = '';
@@ -41,7 +42,8 @@
     slides = album.photos.map((image, i) => {
       const slide = document.createElement('img');
       slide.className = 'slide';
-      slide.src = image.src;
+      slide.dataset.src = image.src;
+      if (i === 0) slide.src = image.src;
       slide.alt = image.alt;
       slide.draggable = false;
       slide.decoding = 'async';
@@ -62,6 +64,7 @@
     moving = true;
     const next = (current + direction + slides.length) % slides.length;
     const outgoing = slides[current], incoming = slides[next];
+    if (!incoming.src) incoming.src = incoming.dataset.src;
     try { await incoming.decode(); } catch (_) { moving = false; return; }
     incoming.hidden = false;
     if (!reduced.matches) {

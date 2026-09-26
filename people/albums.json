@@ -1,17 +1,468 @@
 [
   {
     "number": "01",
-    "name": "Album 01",
-    "photos": []
+    "name": "SAD",
+    "photos": [
+      {
+        "src": "/people/photos/01/17-09.jpg",
+        "alt": "SAD album photograph 01"
+      },
+      {
+        "src": "/people/photos/01/17-12.jpg",
+        "alt": "SAD album photograph 02"
+      },
+      {
+        "src": "/people/photos/01/17-99.jpg",
+        "alt": "SAD album photograph 03"
+      },
+      {
+        "src": "/people/photos/01/18-04.jpg",
+        "alt": "SAD album photograph 04"
+      },
+      {
+        "src": "/people/photos/01/19-05.jpg",
+        "alt": "SAD album photograph 05"
+      },
+      {
+        "src": "/people/photos/01/19-06.jpg",
+        "alt": "SAD album photograph 06"
+      },
+      {
+        "src": "/people/photos/01/19-15.jpg",
+        "alt": "SAD album photograph 07"
+      },
+      {
+        "src": "/people/photos/01/19-17.jpg",
+        "alt": "SAD album photograph 08"
+      },
+      {
+        "src": "/people/photos/01/19-37.jpg",
+        "alt": "SAD album photograph 09"
+      },
+      {
+        "src": "/people/photos/01/19-42.jpg",
+        "alt": "SAD album photograph 10"
+      },
+      {
+        "src": "/people/photos/01/19-62.jpg",
+        "alt": "SAD album photograph 11"
+      },
+      {
+        "src": "/people/photos/01/19-63.jpg",
+        "alt": "SAD album photograph 12"
+      },
+      {
+        "src": "/people/photos/01/19-68.jpg",
+        "alt": "SAD album photograph 13"
+      },
+      {
+        "src": "/people/photos/01/19-126.jpg",
+        "alt": "SAD album photograph 14"
+      },
+      {
+        "src": "/people/photos/01/21-28.jpg",
+        "alt": "SAD album photograph 15"
+      },
+      {
+        "src": "/people/photos/01/21-30.jpg",
+        "alt": "SAD album photograph 16"
+      },
+      {
+        "src": "/people/photos/01/24-01.jpg",
+        "alt": "SAD album photograph 17"
+      },
+      {
+        "src": "/people/photos/01/24-02.jpg",
+        "alt": "SAD album photograph 18"
+      },
+      {
+        "src": "/people/photos/01/98-01.jpg",
+        "alt": "SAD album photograph 19"
+      },
+      {
+        "src": "/people/photos/01/98-02.jpg",
+        "alt": "SAD album photograph 20"
+      },
+      {
+        "src": "/people/photos/01/98-10.jpg",
+        "alt": "SAD album photograph 21"
+      },
+      {
+        "src": "/people/photos/01/98-11.jpg",
+        "alt": "SAD album photograph 22"
+      },
+      {
+        "src": "/people/photos/01/1919.jpg",
+        "alt": "SAD album photograph 23"
+      },
+      {
+        "src": "/people/photos/01/2025-07-08%2022.42.33.jpg",
+        "alt": "SAD album photograph 24"
+      },
+      {
+        "src": "/people/photos/01/2025-07-08%2022.46.46.jpg",
+        "alt": "SAD album photograph 25"
+      },
+      {
+        "src": "/people/photos/01/2025-07-08%2022.46.52.jpg",
+        "alt": "SAD album photograph 26"
+      },
+      {
+        "src": "/people/photos/01/2411.jpg",
+        "alt": "SAD album photograph 27"
+      },
+      {
+        "src": "/people/photos/01/2413.jpg",
+        "alt": "SAD album photograph 28"
+      },
+      {
+        "src": "/people/photos/01/2422.jpg",
+        "alt": "SAD album photograph 29"
+      },
+      {
+        "src": "/people/photos/01/2425.jpg",
+        "alt": "SAD album photograph 30"
+      },
+      {
+        "src": "/people/photos/01/2430.jpg",
+        "alt": "SAD album photograph 31"
+      },
+      {
+        "src": "/people/photos/01/2431.jpg",
+        "alt": "SAD album photograph 32"
+      },
+      {
+        "src": "/people/photos/01/2438.jpg",
+        "alt": "SAD album photograph 33"
+      },
+      {
+        "src": "/people/photos/01/2439.jpg",
+        "alt": "SAD album photograph 34"
+      },
+      {
+        "src": "/people/photos/01/iva-rastr.jpg",
+        "alt": "SAD album photograph 35"
+      },
+      {
+        "src": "/people/photos/01/photo_2025-07-09_20-29-48.jpg",
+        "alt": "SAD album photograph 36"
+      },
+      {
+        "src": "/people/photos/01/photo_2025-07-09_20-32-00.jpg",
+        "alt": "SAD album photograph 37"
+      }
+    ]
   },
   {
     "number": "02",
-    "name": "Album 02",
-    "photos": []
+    "name": "AGE",
+    "photos": [
+      {
+        "src": "/people/photos/02/17-15.jpg",
+        "alt": "AGE album photograph 01"
+      },
+      {
+        "src": "/people/photos/02/17-17.jpg",
+        "alt": "AGE album photograph 02"
+      },
+      {
+        "src": "/people/photos/02/17-18.jpg",
+        "alt": "AGE album photograph 03"
+      },
+      {
+        "src": "/people/photos/02/19-01.jpg",
+        "alt": "AGE album photograph 04"
+      },
+      {
+        "src": "/people/photos/02/19-04.jpg",
+        "alt": "AGE album photograph 05"
+      },
+      {
+        "src": "/people/photos/02/19-07.jpg",
+        "alt": "AGE album photograph 06"
+      },
+      {
+        "src": "/people/photos/02/19-22.jpg",
+        "alt": "AGE album photograph 07"
+      },
+      {
+        "src": "/people/photos/02/19-24.jpg",
+        "alt": "AGE album photograph 08"
+      },
+      {
+        "src": "/people/photos/02/19-31.jpg",
+        "alt": "AGE album photograph 09"
+      },
+      {
+        "src": "/people/photos/02/19-60.jpg",
+        "alt": "AGE album photograph 10"
+      },
+      {
+        "src": "/people/photos/02/19-61.jpg",
+        "alt": "AGE album photograph 11"
+      },
+      {
+        "src": "/people/photos/02/19-64.jpg",
+        "alt": "AGE album photograph 12"
+      },
+      {
+        "src": "/people/photos/02/21-00.jpg",
+        "alt": "AGE album photograph 13"
+      },
+      {
+        "src": "/people/photos/02/21-22.jpg",
+        "alt": "AGE album photograph 14"
+      },
+      {
+        "src": "/people/photos/02/21-26.jpg",
+        "alt": "AGE album photograph 15"
+      },
+      {
+        "src": "/people/photos/02/21-85.jpg",
+        "alt": "AGE album photograph 16"
+      },
+      {
+        "src": "/people/photos/02/21-87.jpg",
+        "alt": "AGE album photograph 17"
+      },
+      {
+        "src": "/people/photos/02/24-03.jpg",
+        "alt": "AGE album photograph 18"
+      },
+      {
+        "src": "/people/photos/02/98-04.jpg",
+        "alt": "AGE album photograph 19"
+      },
+      {
+        "src": "/people/photos/02/98-06.jpg",
+        "alt": "AGE album photograph 20"
+      },
+      {
+        "src": "/people/photos/02/98-07.jpg",
+        "alt": "AGE album photograph 21"
+      },
+      {
+        "src": "/people/photos/02/98-18.jpg",
+        "alt": "AGE album photograph 22"
+      },
+      {
+        "src": "/people/photos/02/98-20.jpg",
+        "alt": "AGE album photograph 23"
+      },
+      {
+        "src": "/people/photos/02/2025-07-08%2022.42.41.jpg",
+        "alt": "AGE album photograph 24"
+      },
+      {
+        "src": "/people/photos/02/2025-07-08%2022.51.41.jpg",
+        "alt": "AGE album photograph 25"
+      },
+      {
+        "src": "/people/photos/02/2167.jpg",
+        "alt": "AGE album photograph 26"
+      },
+      {
+        "src": "/people/photos/02/2407.jpg",
+        "alt": "AGE album photograph 27"
+      },
+      {
+        "src": "/people/photos/02/2419.jpg",
+        "alt": "AGE album photograph 28"
+      },
+      {
+        "src": "/people/photos/02/2421.jpg",
+        "alt": "AGE album photograph 29"
+      },
+      {
+        "src": "/people/photos/02/2426.jpg",
+        "alt": "AGE album photograph 30"
+      },
+      {
+        "src": "/people/photos/02/2432.jpg",
+        "alt": "AGE album photograph 31"
+      },
+      {
+        "src": "/people/photos/02/2434.jpg",
+        "alt": "AGE album photograph 32"
+      },
+      {
+        "src": "/people/photos/02/2435.jpg",
+        "alt": "AGE album photograph 33"
+      },
+      {
+        "src": "/people/photos/02/IMG_9200-1.jpg",
+        "alt": "AGE album photograph 34"
+      },
+      {
+        "src": "/people/photos/02/IMG_9333-1-2.jpg",
+        "alt": "AGE album photograph 35"
+      },
+      {
+        "src": "/people/photos/02/photo_2025-07-09_20-30-03.jpg",
+        "alt": "AGE album photograph 36"
+      }
+    ]
   },
   {
     "number": "03",
-    "name": "Album 03",
-    "photos": []
+    "name": "PEOPLE",
+    "photos": [
+      {
+        "src": "/people/photos/03/17-02.jpg",
+        "alt": "PEOPLE album photograph 01"
+      },
+      {
+        "src": "/people/photos/03/17-03.jpg",
+        "alt": "PEOPLE album photograph 02"
+      },
+      {
+        "src": "/people/photos/03/17-06.jpg",
+        "alt": "PEOPLE album photograph 03"
+      },
+      {
+        "src": "/people/photos/03/17-19.jpg",
+        "alt": "PEOPLE album photograph 04"
+      },
+      {
+        "src": "/people/photos/03/18-06.jpg",
+        "alt": "PEOPLE album photograph 05"
+      },
+      {
+        "src": "/people/photos/03/18-08.jpg",
+        "alt": "PEOPLE album photograph 06"
+      },
+      {
+        "src": "/people/photos/03/19-09.jpg",
+        "alt": "PEOPLE album photograph 07"
+      },
+      {
+        "src": "/people/photos/03/19-13%20(2).jpg",
+        "alt": "PEOPLE album photograph 08"
+      },
+      {
+        "src": "/people/photos/03/19-15%20(2).jpg",
+        "alt": "PEOPLE album photograph 09"
+      },
+      {
+        "src": "/people/photos/03/19-36.jpg",
+        "alt": "PEOPLE album photograph 10"
+      },
+      {
+        "src": "/people/photos/03/19-46.jpg",
+        "alt": "PEOPLE album photograph 11"
+      },
+      {
+        "src": "/people/photos/03/19-51.jpg",
+        "alt": "PEOPLE album photograph 12"
+      },
+      {
+        "src": "/people/photos/03/19-65.jpg",
+        "alt": "PEOPLE album photograph 13"
+      },
+      {
+        "src": "/people/photos/03/19-66.jpg",
+        "alt": "PEOPLE album photograph 14"
+      },
+      {
+        "src": "/people/photos/03/19-67.jpg",
+        "alt": "PEOPLE album photograph 15"
+      },
+      {
+        "src": "/people/photos/03/21-27.jpg",
+        "alt": "PEOPLE album photograph 16"
+      },
+      {
+        "src": "/people/photos/03/21-81.jpg",
+        "alt": "PEOPLE album photograph 17"
+      },
+      {
+        "src": "/people/photos/03/21-82.jpg",
+        "alt": "PEOPLE album photograph 18"
+      },
+      {
+        "src": "/people/photos/03/24-04.jpg",
+        "alt": "PEOPLE album photograph 19"
+      },
+      {
+        "src": "/people/photos/03/24-05.jpg",
+        "alt": "PEOPLE album photograph 20"
+      },
+      {
+        "src": "/people/photos/03/24-06.jpg",
+        "alt": "PEOPLE album photograph 21"
+      },
+      {
+        "src": "/people/photos/03/98-08.jpg",
+        "alt": "PEOPLE album photograph 22"
+      },
+      {
+        "src": "/people/photos/03/98-13.jpg",
+        "alt": "PEOPLE album photograph 23"
+      },
+      {
+        "src": "/people/photos/03/98-16.jpg",
+        "alt": "PEOPLE album photograph 24"
+      },
+      {
+        "src": "/people/photos/03/2025-07-08%2022.43.20.jpg",
+        "alt": "PEOPLE album photograph 25"
+      },
+      {
+        "src": "/people/photos/03/2025-07-08%2022.43.37.jpg",
+        "alt": "PEOPLE album photograph 26"
+      },
+      {
+        "src": "/people/photos/03/2025-07-08%2022.43.46.jpg",
+        "alt": "PEOPLE album photograph 27"
+      },
+      {
+        "src": "/people/photos/03/2410.jpg",
+        "alt": "PEOPLE album photograph 28"
+      },
+      {
+        "src": "/people/photos/03/2416.jpg",
+        "alt": "PEOPLE album photograph 29"
+      },
+      {
+        "src": "/people/photos/03/2418.jpg",
+        "alt": "PEOPLE album photograph 30"
+      },
+      {
+        "src": "/people/photos/03/2427.jpg",
+        "alt": "PEOPLE album photograph 31"
+      },
+      {
+        "src": "/people/photos/03/2428.jpg",
+        "alt": "PEOPLE album photograph 32"
+      },
+      {
+        "src": "/people/photos/03/2429.jpg",
+        "alt": "PEOPLE album photograph 33"
+      },
+      {
+        "src": "/people/photos/03/2436.jpg",
+        "alt": "PEOPLE album photograph 34"
+      },
+      {
+        "src": "/people/photos/03/2443.jpg",
+        "alt": "PEOPLE album photograph 35"
+      },
+      {
+        "src": "/people/photos/03/2446.jpg",
+        "alt": "PEOPLE album photograph 36"
+      },
+      {
+        "src": "/people/photos/03/photo_2025-07-09_20-31-51.jpg",
+        "alt": "PEOPLE album photograph 37"
+      },
+      {
+        "src": "/people/photos/03/photo_2025-07-09_20-31-54.jpg",
+        "alt": "PEOPLE album photograph 38"
+      },
+      {
+        "src": "/people/photos/03/photo_2025-07-09_20-31-57.jpg",
+        "alt": "PEOPLE album photograph 39"
+      }
+    ]
   }
 ]
