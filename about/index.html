@@ -44,7 +44,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     --fg:     #111110;
     --muted:  #888580;
     --border: rgba(17,17,16,0.1);
-    --menu-line: rgba(17,17,16,0.22);
+    --paper:  var(--bg);
+    --ink:    var(--fg);
+    --line:   rgba(17,17,16,0.22);
   }
 
   html { scroll-behavior: smooth; }
@@ -57,22 +59,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
 
   /* ── Header ── */
-  .site-header { width: 100%; max-width: 1460px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 16px 30px; font: 11px Arial, sans-serif; color: #242320; }
-  .site-header > .home-label { color: inherit; text-decoration: none; text-transform: uppercase; letter-spacing: .1em; }
-  .site-header .header-links { display: flex; align-items: center; gap: 24px; }
-  .site-header .header-links > a { color: inherit; font-size: 10px; text-transform: uppercase; text-decoration: none; }
-  .site-header .header-links > a:hover { text-decoration: underline; text-underline-offset: 3px; }
-  .site-header .site-menu { position: relative; z-index: 20; font: 12px/1.8 'Space Mono', monospace; }
-  .site-header .site-menu > summary { cursor: pointer; border: 1px solid var(--menu-line); padding: 8px 14px; list-style: none; }
-  .site-header .site-menu > summary::-webkit-details-marker { display: none; }
-  .site-header .site-menu > nav { position: absolute; right: 0; top: 44px; width: 270px; max-width: calc(100vw - 32px); max-height: 70vh; overflow: auto; background: var(--bg); color: var(--fg); border: 1px solid var(--menu-line); padding: 12px; }
-  .site-header .site-menu > nav > a { display: block; padding: 7px 12px; color: inherit; text-decoration: none; }
-  .site-header .site-menu > nav > a:hover, .site-header .site-menu > nav > a[aria-current] { background: var(--fg); color: var(--bg); }
-  .site-header .site-menu .legal-disclosure { padding: 7px 12px; font: inherit; }
-  .site-header .site-menu .legal-links { display: flex; flex-direction: column; gap: 12px; }
-  .site-header .site-menu :focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
-  @media (max-width: 800px) { .site-header .header-links > a { display: none; } }
-  @media (max-width: 640px) { .site-header { padding: 12px 16px; } }
+  .skip { position: absolute; top: -100px; left: 16px; z-index: 100; }
+  .skip:focus { top: 16px; background: var(--paper); padding: 12px; }
+  .site-header { padding: 23px 40px; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; gap: 24px; font: 12px/1.8 'Space Mono', monospace; }
+  .site-header a, .site-footer a { color: inherit; }
+  .site-header .brand { font: 28px/1 'Bebas Neue', sans-serif; text-decoration: none; letter-spacing: .12em; }
+  .header-links { display: flex; gap: 24px; align-items: center; }
+  .header-links > a { font-size: 10px; text-transform: uppercase; text-decoration: none; }
+  .site-menu { position: relative; }
+  .site-menu summary { cursor: pointer; list-style: none; border: 1px solid var(--line); padding: 8px 14px; }
+  .site-menu summary::-webkit-details-marker { display: none; }
+  .site-menu nav { position: absolute; right: 0; top: 44px; width: 270px; max-height: 70vh; overflow: auto; background: var(--paper); color: var(--ink); border: 1px solid var(--line); z-index: 40; padding: 12px; }
+  .site-menu nav a { display: block; padding: 7px 12px; text-decoration: none; }
+  .site-menu nav a:hover, .site-menu nav a[aria-current] { background: var(--ink); color: var(--paper); }
+  @media (max-width: 800px) { .site-header { padding: 18px 20px; } .header-links > a { display: none; } }
 
   /* ── Main column ── */
   main {
@@ -213,26 +213,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .contact-note { margin-top: 20px; font-size: 9px; line-height: 1.7; color: var(--muted); }
 
   /* ── Footer ── */
-  footer {
-    border-top: 1px solid var(--border);
-    padding: 20px 48px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 16px;
-  }
-
-  .footer-note {
-    font-size: 8px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
-
-  .footer-links { display: flex; gap: 20px; }
-  .footer-links a { font-size: 8px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.12s; }
-  .footer-links a:hover { color: var(--fg); }
+  .site-footer { padding: 28px 40px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; font: 10px/1.8 'Space Mono', monospace; }
+  .site-footer nav { display: flex; gap: 20px; flex-wrap: wrap; }
+  .site-footer a { text-decoration: none; }
+  @media (max-width: 800px) { .site-footer { padding: 24px 20px; } }
 
   /* ── Mobile ── */
   @media (max-width: 600px) {
@@ -247,8 +231,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .entry-link { flex-direction: column; align-items: flex-start; gap: 4px; }
     .entry-link-desc { text-align: left; max-width: 100%; }
 
-    footer { padding: 16px 20px; }
-    .footer-links { gap: 14px; }
   }
 </style>
 	<script type="text/plain" data-consent="analytics" async data-src="https://www.googletagmanager.com/gtag/js?id=G-RF3945XCP4"></script>
@@ -265,16 +247,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <script>window.gtag=window.gtag||function(){};</script><link rel="stylesheet" href="/assets/legal.css"></head>
 <body>
 
+<a class="skip" href="#main">Skip to content</a>
 <header class="site-header">
-  <a class="home-label" href="/">SadAge / Home</a>
+  <a class="brand" href="/" aria-label="SadAge home">SadAge</a>
   <div class="header-links">
     <a href="/meta-second/">Meta Secondhand</a>
     <a href="/print-room/">Print Room</a>
-    <details class="site-menu"><summary>Index +</summary><nav aria-label="SadAge"><a href="/meta-second/">Meta Secondhand</a><a href="/print-room/">Print Room</a><a href="/about/" aria-current="page">About</a><a href="/people/">People</a><a href="/newspaper/">Newspaper</a><a href="/contact/">Contact</a><details class="legal-disclosure"><summary>Legal</summary><nav class="legal-links" aria-label="Legal"><a href="/terms-of-service/">Terms of service</a><a href="/shipping-returns/">Shipping & return policy</a><a href="/privacy-policy/">Privacy policy</a><a href="/cookie-policy/">Cookie policy</a><button type="button" data-cookie-settings>Cookie settings</button></nav></details></nav></details>
+    <details class="site-menu">
+      <summary>Index +</summary>
+      <nav aria-label="All pages">
+        <a href="/meta-second/">Meta Secondhand</a><a href="/print-room/">Print Room</a><a href="/about/" aria-current="page">About</a><a href="/people/">People</a><a href="/newspaper/">Newspaper</a><a href="/contact/">Contact</a>
+      </nav>
+    </details>
   </div>
 </header>
 
-<main>
+<main id="main">
 
   <!-- Intro -->
   <div class="intro">
@@ -375,7 +363,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 </main>
 
-<footer><span class="footer-note">Made for humans.</span><div class="footer-links"><a href="/about/">About</a><a href="/objects/">Objects</a><a href="/contact/">Contact</a><a href="https://instagram.com/sad_age.enterprise" target="_blank" rel="noopener noreferrer">Instagram</a></div></footer>
+<footer class="site-footer">
+  <span>SadAge / Made for humans.</span>
+  <nav aria-label="Footer"><a href="/">Index</a><a href="/contact/">Contact</a><a href="/support/">Support</a><a href="https://instagram.com/sad_age.enterprise" target="_blank" rel="noopener noreferrer">Instagram ↗</a></nav>
+  <span>About</span>
+  <details class="legal-disclosure"><summary>Legal</summary><nav class="legal-links" aria-label="Legal"><a href="/terms-of-service/">Terms of service</a><a href="/shipping-returns/">Shipping &amp; return policy</a><a href="/privacy-policy/">Privacy policy</a><a href="/cookie-policy/">Cookie policy</a><button type="button" data-cookie-settings>Cookie settings</button></nav></details>
+</footer>
 
 <script defer src="/assets/editorial.js"></script><script defer src="/assets/privacy-controls.js"></script></body>
 </html>
