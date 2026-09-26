@@ -124,14 +124,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     margin-bottom: 0;
   }
 
-  .section-label {
-    font-size: 8px;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 20px;
-  }
-
   .section-title {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 30px;
@@ -210,6 +202,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     max-width: 220px;
   }
 
+  /* ── Contacts ── */
+  .contact-list { margin-top: 24px; border-bottom: 1px solid var(--border); }
+  .contact-link { display: block; padding: 18px 0; border-top: 1px solid var(--border); color: var(--fg); text-decoration: none; }
+  .contact-topic { display: block; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
+  .contact-link strong { display: block; margin: 6px 0; font-size: 12px; letter-spacing: 0.04em; overflow-wrap: anywhere; }
+  .contact-description { display: block; font-size: 10px; line-height: 1.7; color: var(--muted); }
+  .contact-link:hover strong { text-decoration: underline; text-underline-offset: 3px; }
+  .contact-note { margin-top: 20px; font-size: 9px; line-height: 1.7; color: var(--muted); }
+
   /* ── Footer ── */
   footer {
     border-top: 1px solid var(--border);
@@ -286,7 +287,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   <!-- What is SadAge -->
   <div class="section">
-    <div class="section-label">01</div>
     <div class="section-title">What is SadAge?</div>
     <div class="section-body">
       <p>SadAge is a clothing brand, print and object project working with secondhand garments, original graphics, handmade printing, dyeing, reworking and digital tools.</p>
@@ -296,7 +296,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   <!-- Why SadAge -->
   <div class="section">
-    <div class="section-label">02</div>
     <div class="section-title">Why SadAge?</div>
     <div class="section-body">
       <p>Because the age we live in is sad in a very ordinary way.</p>
@@ -307,7 +306,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   <!-- What we make -->
   <div class="section">
-    <div class="section-label">03</div>
     <div class="section-title">What we make</div>
     <div class="section-body">
       <p>We work with secondhand garments, reworked vintage pieces, hand-dyed T-shirts, handmade graphics, small objects and limited drops.</p>
@@ -325,7 +323,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   <!-- How we work -->
   <div class="section">
-    <div class="section-label">04</div>
     <div class="section-title">How we work</div>
     <div class="section-body">
       <p>Most SadAge pieces pass through human hands several times. We select garments, prepare graphics, test placements, print manually, dye, rework, damage, repair and document the result.</p>
@@ -335,7 +332,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   <!-- Why secondhand -->
   <div class="section">
-    <div class="section-label">05</div>
     <div class="section-title">Why secondhand?</div>
     <div class="section-body">
       <p>Because the world does not need another endless stream of new clothes pretending to be necessary.</p>
@@ -345,7 +341,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   <!-- How to use this site -->
   <div class="section">
-    <div class="section-label">06</div>
     <div class="section-title">How to use this site</div>
     <div class="section-body">
       <p>There is no cart. No checkout. No urgency. The sale starts as a conversation.</p>
@@ -364,6 +359,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <span class="entry-link-desc">Where most of the conversation happens.</span>
       </a>
     </div>
+  </div>
+
+  <!-- Contacts -->
+  <div class="section">
+    <h2 class="section-title">Contacts</h2>
+    <div class="section-body"><p>Choose the address that fits your message.</p></div>
+    <div class="contact-list">
+      <a class="contact-link" href="mailto:hello@sadage.com"><span class="contact-topic">General</span><strong>hello@sadage.com</strong><span class="contact-description">Questions about SadAge and where to begin.</span></a>
+      <a class="contact-link" href="mailto:shop@sadage.com"><span class="contact-topic">Shop &amp; prints</span><strong>shop@sadage.com</strong><span class="contact-description">Garment details, sizing and print ideas before you order.</span></a>
+      <a class="contact-link" href="mailto:support@sadage.com"><span class="contact-topic">Orders &amp; aftercare</span><strong>support@sadage.com</strong><span class="contact-description">Payments, delivery, returns and privacy requests. Include your order reference if you have one.</span></a>
+      <a class="contact-link" href="mailto:press@sadage.com"><span class="contact-topic">Press</span><strong>press@sadage.com</strong><span class="contact-description">Interviews, features and media requests.</span></a>
+      <a class="contact-link" href="mailto:friends@sadage.com"><span class="contact-topic">Friends</span><strong>friends@sadage.com</strong><span class="contact-description">Collaborations and community projects.</span></a>
+    </div>
+    <p class="contact-note">These addresses reach the same SadAge inbox. Replies may come from support@sadage.com.</p>
   </div>
 
 </main>
