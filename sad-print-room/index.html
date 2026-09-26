@@ -44,9 +44,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 #about{position:fixed;inset:0 0 0 auto;width:min(440px,100%);max-height:100dvh;height:100dvh;margin:0;border:0;border-left:1px solid #777;background:#191919;color:#f0ede6;padding:32px;box-shadow:-20px 0 80px #0005}#about::backdrop{background:#0008}.close{float:right;border:1px solid #666;background:transparent;color:inherit;padding:8px 12px}#about h1{font-family:'Bebas Neue',sans-serif;font-size:64px;font-weight:400;line-height:.95;margin:90px 0 32px}#about p{font-size:12px;line-height:1.9;color:#c8c5be}#about .eyebrow{color:#c5b071;text-transform:uppercase;letter-spacing:2px;font-size:9px}#about a{color:#d8cba2}#about .note{border-top:1px solid #ffffff25;padding-top:24px;margin-top:32px}
 @media(max-width:760px){.toolbar{top:8px;left:8px;right:8px;gap:6px;flex-wrap:wrap}.brand{padding:6px 10px}.brand a{font-size:20px}.brand span{font-size:8px}.controls{gap:4px;padding:3px}.control{font-size:9px;padding:8px}.checkout{gap:12px;padding-left:12px}.selection{font-size:9px}.pay{padding:15px 12px}.print{width:41.18%;height:auto;aspect-ratio:1}}
 @media(prefers-reduced-motion:no-preference){.card{transition:background .2s,border-color .2s}}
+/* Preview stays below the persistent toolbar and checkout (z-index 4). */
+.selection-preview[hidden]{display:none}.selection-preview{position:fixed;inset:0;z-index:3;display:grid;place-items:center;background:#171717d9;overscroll-behavior:contain}.preview-body{position:relative;width:min(66.667vw,calc((100dvh - 190px)*265/270));aspect-ratio:265/270;background:#3f3f3f}.preview-body .mockup{width:83.02%;height:95.93%}.preview-close{position:absolute;top:12px;right:12px;z-index:1;width:44px;height:44px;border:1px solid #aaa;background:#171717;color:#f0ede6;font-size:22px}.preview-caption{position:absolute;bottom:12px;left:16px;font-size:12px}.preview-open #viewport{overflow:hidden}
+@media(max-width:760px){.preview-body{width:min(92vw,calc((100dvh - 220px)*265/270))}.preview-close{top:4px;right:4px}}
 </style><script>window.gtag=window.gtag||function(){};</script><link rel="stylesheet" href="/assets/legal.css"></head><body>
 <header class="toolbar"><div class="brand"><a href="/">SadAge</a><span>Print room / €91 + €20 shipping</span></div><nav class="controls" aria-label="Garment controls"><div class="group" aria-label="Garment color"><button class="control swatch" data-color="white" aria-pressed="false">White</button><button class="control swatch" data-color="black" aria-pressed="true">Black</button></div><div class="group" aria-label="Print placement"><button class="control" data-place="front" aria-pressed="true">Front</button><button class="control" data-place="back" aria-pressed="false">Back</button></div><button class="control info-button" id="info" aria-haspopup="dialog">===+</button></nav></header>
 <main id="viewport" aria-label="Endless print collection" tabindex="0"><div id="grid" data-place="front"></div></main>
+<section class="selection-preview" id="selectionPreview" role="region" aria-label="Selected print preview" hidden><div class="preview-body" id="previewBody" data-place="front"><button class="preview-close" id="previewClose" aria-label="Close preview and deselect print">×</button><span class="mockup"><img class="shirt" id="previewShirt" alt="" draggable="false"><img class="print" id="previewPrint" alt="" draggable="false"></span><span class="preview-caption" id="previewCaption"></span></div></section>
 <div class="checkout"><div class="selection" id="selection" aria-live="polite">Choose your print<small>Swipe a card to change garment color</small></div><button class="pay" id="pay" disabled> €111 ↗</button></div>
 <dialog id="about" aria-labelledby="about-title"><button class="close" id="close" aria-label="Close about panel">✕</button><h1 id="about-title"><br></h1><p class="eyebrow">We live inside contradictions.</p><p>We build systems to make life easier, then let them make life harder. We produce more than we need while millions live without enough. We speak about progress while wars continue. We search for ways to heal ourselves while constantly inventing new ways to destroy ourselves.</p><p>We don't think clothes can fix them. We don't think another image, T-shirt or object will save the world. Making more things in a world already overflowing with things is itself a contradiction.</p><p>It is a place for images that came from watching the world what surrounds us: inequality, war and displacement, technology and loneliness, history, folklore, anxiety, fear, beauty, absurdity, memory, violence, tenderness and hope.</p><p>We print them on clothes because clothes are ordinary, physical and close to the body. They age, fade, tear, travel.</p><p class="note">Mockups show print placement; the finished garment may vary from the digital preview.</p><p>Questions about a print? <a href="mailto:shop@sadage.com">shop@sadage.com</a><br>Existing order? <a href="mailto:support@sadage.com">support@sadage.com</a></p><a href="/about/">More about SadAge ↗</a></dialog>
 <script>
@@ -303,12 +307,39 @@ function render(force = false) {
   }
   for (const [index, card] of existing) if (!wanted.has(index)) card.remove();
 }
+const selectionPreview = document.getElementById('selectionPreview');
+const previewClose = document.getElementById('previewClose');
+let previewTrigger = null;
+function syncPreview() {
+  const print = PRINTS.find(p => p.code === selected);
+  selectionPreview.hidden = !print;
+  document.body.classList.toggle('preview-open', Boolean(print));
+  viewport.inert = Boolean(print);
+  if (!print) return;
+  document.getElementById('previewBody').dataset.place = place;
+  document.getElementById('previewShirt').src = '/images/tshirt-' + color + '-' + place + '.png';
+  document.getElementById('previewShirt').alt = color + ' T-shirt, ' + place;
+  document.getElementById('previewPrint').src = print[color === 'white' ? 'dark' : 'light'];
+  document.getElementById('previewCaption').textContent = selected + ' / ' + color + ' / ' + place;
+}
+function closePreview() {
+  selected = null;
+  selection.innerHTML = 'Choose your print<small>Swipe a card to change garment color</small>';
+  update();
+  if (previewTrigger && previewTrigger.isConnected) previewTrigger.focus({preventScroll:true});
+  else viewport.focus({preventScroll:true});
+}
+previewClose.addEventListener('click', closePreview);
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && !selectionPreview.hidden && !document.getElementById('about').open) closePreview();
+});
 function update() {
   grid.dataset.place = place;
   document.querySelectorAll('[data-color]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.color === color)));
   document.querySelectorAll('button[data-place]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.place === place)));
   if (selected) selection.innerHTML = selected + ' / ' + color + ' / ' + place + '<small>€91 T-shirt + €20 shipping</small>';
   pay.disabled = !selected;
+  syncPreview();
   render(true);
 }
 function layout() {
@@ -357,6 +388,9 @@ grid.addEventListener('click', e => {
   document.querySelectorAll('.card').forEach(c => c.setAttribute('aria-pressed', String(c.dataset.code === selected)));
   selection.innerHTML = selected + ' / ' + color + ' / ' + place + '<small>€91 T-shirt + €20 shipping</small>';
   pay.disabled = false;
+  previewTrigger = card;
+  syncPreview();
+  previewClose.focus({preventScroll:true});
 });
 pay.addEventListener('click', () => {
   if (!selected) return;
