@@ -7,7 +7,6 @@
   const grid = document.querySelector('#grid-view');
   const gridTitle = document.querySelector('#grid-title');
   const photoGrid = document.querySelector('#photo-grid');
-  const hint = document.querySelector('#mobile-hint');
   const menu = document.querySelector('.site-menu');
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const mobile = matchMedia('(max-width: 700px)');
@@ -54,7 +53,6 @@
     viewer.replaceChildren(empty, ...slides);
     current = 0;
     announce();
-    hint.hidden = !slides.length;
     grid.hidden = true;
     if (updateHash) history.replaceState(null, '', `#${encodeURIComponent(album.number)}`);
   }
