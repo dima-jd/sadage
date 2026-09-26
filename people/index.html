@@ -1,36 +1,43 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>People — SadAge</title><meta name="description" content="People / SadAge. An image archive. Click to move through the studies.">
-<link rel="canonical" href="https://sadage.com/people/"><link rel="icon" href="/favicon.svg">
-<link rel="stylesheet" href="/people/people.css"><script defer src="/people/people.js"></script>
-<script>window.gtag=window.gtag||function(){};</script><link rel="stylesheet" href="/assets/legal.css"></head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>People — SadAge</title>
+  <meta name="description" content="People, a photo archive by SadAge.">
+  <link rel="canonical" href="https://sadage.com/people/">
+  <link rel="icon" href="/favicon.svg">
+  <link rel="stylesheet" href="/people/people.css">
+  <link rel="stylesheet" href="/assets/legal.css">
+  <script defer src="/people/people.js"></script>
+  <script defer src="/assets/privacy-controls.js"></script>
+  <script>window.gtag=window.gtag||function(){};</script>
+</head>
 <body>
-<nav class="index" aria-label="SadAge index">
-<a href="/people/" aria-label="1 — People" aria-current="page" title="People">1</a>
-<a href="/meta-second/" aria-label="2 — Meta Secondhand" title="Meta Secondhand">2</a>
-<a href="/sad-print-room/" aria-label="3 — Print Room" title="Print Room">3</a>
-<a href="/about/" aria-label="4 — About" title="About">4</a>
-<a href="/objects/" aria-label="5 — Objects" title="Objects">5</a>
-<a href="/contact/" aria-label="6 — Contact" title="Contact">6</a>
-<a href="/" aria-label="7 — SadAge home" title="SadAge home">7</a>
-</nav>
-<main aria-label="People image archive">
-<button class="viewer" type="button" aria-label="Next image. Use left and right arrow keys to browse." aria-describedby="position">
-<img src="/items/MS-137-1.jpg" alt="SadAge garment MS-137; sample image for the People archive" class="slide" draggable="false" decoding="async">
-<img src="/items/MS-144-1.jpg" alt="SadAge garment MS-144; sample image for the People archive" class="slide" hidden draggable="false" decoding="async">
-<img src="/items/MS-143-1.jpg" alt="SadAge garment MS-143; sample image for the People archive" class="slide" hidden draggable="false" decoding="async">
-<img src="/items/MS-135-1.jpg" alt="SadAge garment MS-135; sample image for the People archive" class="slide" hidden draggable="false" decoding="async">
-<img src="/items/MS-138-1.jpg" alt="SadAge garment MS-138; sample image for the People archive" class="slide" hidden draggable="false" decoding="async">
-<img src="/items/MS-151-1.jpg" alt="SadAge garment MS-151; sample image for the People archive" class="slide" hidden draggable="false" decoding="async">
-<img src="/items/MS-122-1.jpg" alt="SadAge garment MS-122; sample image for the People archive" class="slide" hidden draggable="false" decoding="async">
-<img src="/items/MS-130-1.jpg" alt="SadAge garment MS-130; sample image for the People archive" class="slide" hidden draggable="false" decoding="async">
-<img src="/items/MS-140-1.jpg" alt="SadAge garment MS-140; sample image for the People archive" class="slide" hidden draggable="false" decoding="async">
-<img src="/items/MS-148-1.jpg" alt="SadAge garment MS-148; sample image for the People archive" class="slide" hidden draggable="false" decoding="async">
-<img src="/items/MS-134-1.jpg" alt="SadAge garment MS-134; sample image for the People archive" class="slide" hidden draggable="false" decoding="async">
-<img src="/items/MS-150-1.jpg" alt="SadAge garment MS-150; sample image for the People archive" class="slide" hidden draggable="false" decoding="async">
-</button>
-<p id="position" class="sr-only" aria-live="polite" aria-atomic="true">Image 1 of 12. Archive study.</p>
-</main>
-<script defer src="/assets/privacy-controls.js"></script></body></html>
+  <nav class="albums" id="album-list" aria-label="Photo albums"></nav>
+  <details class="site-menu">
+    <summary aria-label="Site index" title="Index">+</summary>
+    <nav aria-label="SadAge index">
+      <a href="/">Home</a>
+      <a href="/meta-second/">Meta Secondhand</a>
+      <a href="/sad-print-room/">Print Room</a>
+      <a href="/about/">About</a>
+      <a href="/objects/">Objects</a>
+      <a href="/people/" aria-current="page">People</a>
+      <a href="/newspaper/">Newspaper</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+  </details>
+  <main>
+    <button class="viewer" id="viewer" type="button" aria-label="Next photograph. Swipe left or right to browse.">
+      <span class="empty-state" id="empty-state">Photographs coming soon.</span>
+    </button>
+    <p class="mobile-hint" id="mobile-hint" hidden>Swipe up to see all photographs</p>
+    <p class="sr-only" id="position" aria-live="polite" aria-atomic="true"></p>
+  </main>
+  <section class="grid-view" id="grid-view" aria-label="All photographs in this album" hidden>
+    <header class="grid-header"><span id="grid-title"></span><button type="button" id="close-grid" aria-label="Close photo grid">×</button></header>
+    <div class="photo-grid" id="photo-grid"></div>
+  </section>
+</body>
+</html>
