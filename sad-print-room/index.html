@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SadAge Print Room — Try Prints on a Blank T-Shirt</title>
-<meta name="description" content="Try SadAge prints on a blank black or white T-shirt. Choose a print, pick your color, wear it for €91 + €20 shipping.">
+<meta name="description" content="Try SadAge prints on a blank black or white T-shirt. Choose a print, pick your color, wear it for €91 + €35 shipping.">
 <link rel="canonical" href="https://sadage.com/sad-print-room/">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -14,7 +14,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="SadAge">
 <meta property="og:title" content="SadAge Print Room">
-<meta property="og:description" content="Try SadAge prints on a blank T-shirt. White body, black body, many possible errors. Choose a print. Wear it for €91 + €20 shipping.">
+<meta property="og:description" content="Try SadAge prints on a blank T-shirt. White body, black body, many possible errors. Choose a print. Wear it for €91 + €35 shipping.">
 <meta property="og:url" content="https://sadage.com/sad-print-room/">
 <meta property="og:image" content="https://sadage.com/og-image.jpg">
 <meta property="og:image:width" content="1200">
@@ -24,7 +24,7 @@
 <!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="SadAge Print Room">
-<meta name="twitter:description" content="Try SadAge prints on a blank T-shirt. White body, black body, many possible errors. Choose a print. Wear it for €91 + €20 shipping.">
+<meta name="twitter:description" content="Try SadAge prints on a blank T-shirt. White body, black body, many possible errors. Choose a print. Wear it for €91 + €35 shipping.">
 <meta name="twitter:image" content="https://sadage.com/og-image.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -48,7 +48,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .selection-preview[hidden]{display:none}.selection-preview{position:fixed;inset:0;z-index:3;display:grid;place-items:center;background:#171717d9;overscroll-behavior:contain}.preview-body{position:relative;width:min(66.667vw,calc((100dvh - 190px)*265/270));aspect-ratio:265/270;background:#3f3f3f}.preview-body .mockup{width:83.02%;height:95.93%}.preview-close{position:absolute;top:12px;right:12px;z-index:1;width:44px;height:44px;border:1px solid #aaa;background:#171717;color:#f0ede6;font-size:22px}.preview-caption{position:absolute;bottom:12px;left:16px;font-size:12px}.preview-open #viewport{overflow:hidden}
 @media(max-width:760px){.preview-body{width:min(92vw,calc((100dvh - 220px)*265/270))}.preview-close{top:4px;right:4px}}
 </style><script>window.gtag=window.gtag||function(){};</script><link rel="stylesheet" href="/assets/legal.css"></head><body>
-<header class="toolbar"><div class="brand"><a href="/">SadAge</a><span>Print room / €91 + €20 shipping</span></div><nav class="controls" aria-label="Garment controls"><div class="group" aria-label="Garment color"><button class="control swatch" data-color="white" aria-pressed="false">White</button><button class="control swatch" data-color="black" aria-pressed="true">Black</button></div><div class="group" aria-label="Print placement"><button class="control" data-place="front" aria-pressed="true">Front</button><button class="control" data-place="back" aria-pressed="false">Back</button></div><button class="control info-button" id="info" aria-haspopup="dialog">===+</button></nav></header>
+<header class="toolbar"><div class="brand"><a href="/">SadAge</a><span>Print room / €91 + €35 shipping</span></div><nav class="controls" aria-label="Garment controls"><div class="group" aria-label="Garment color"><button class="control swatch" data-color="white" aria-pressed="false">White</button><button class="control swatch" data-color="black" aria-pressed="true">Black</button></div><div class="group" aria-label="Print placement"><button class="control" data-place="front" aria-pressed="true">Front</button><button class="control" data-place="back" aria-pressed="false">Back</button></div><button class="control info-button" id="info" aria-haspopup="dialog">===+</button></nav></header>
 <main id="viewport" aria-label="Endless print collection" tabindex="0"><div id="grid" data-place="front"></div></main>
 <section class="selection-preview" id="selectionPreview" role="region" aria-label="Selected print preview" hidden><div class="preview-body" id="previewBody" data-place="front"><button class="preview-close" id="previewClose" aria-label="Close preview and deselect print">×</button><span class="mockup"><img class="shirt" id="previewShirt" alt="" draggable="false"><img class="print" id="previewPrint" alt="" draggable="false"></span><span class="preview-caption" id="previewCaption"></span></div></section>
 <div class="checkout"><div class="selection" id="selection" aria-live="polite">Choose your print<small>Swipe a card to change garment color</small></div><button class="pay" id="pay" disabled> €111 ↗</button></div>
@@ -241,7 +241,7 @@ const PRINTS = [
   }
   */
 ];
-const PAYMENT_LINK = 'https://buy.stripe.com/4gM00ka9KbUDe6m8u17IY1E';
+const PAYMENT_LINK = 'https://buy.stripe.com/00wcN6chSf6P1jA4dL7IY1T';
 const viewport = document.getElementById('viewport'), grid = document.getElementById('grid');
 const pay = document.getElementById('pay'), selection = document.getElementById('selection');
 let color = 'black', place = 'front', selected = null, columns = 7, firstRow = -1;
@@ -337,7 +337,7 @@ function update() {
   grid.dataset.place = place;
   document.querySelectorAll('[data-color]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.color === color)));
   document.querySelectorAll('button[data-place]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.place === place)));
-  if (selected) selection.innerHTML = selected + ' / ' + color + ' / ' + place + '<small>€91 T-shirt + €20 shipping</small>';
+  if (selected) selection.innerHTML = selected + ' / ' + color + ' / ' + place + '<small>€91 T-shirt + €35 shipping</small>';
   pay.disabled = !selected;
   syncPreview();
   render(true);
@@ -386,7 +386,7 @@ grid.addEventListener('click', e => {
   selected = card.dataset.code;
   // Preserve keyboard focus while updating selection.
   document.querySelectorAll('.card').forEach(c => c.setAttribute('aria-pressed', String(c.dataset.code === selected)));
-  selection.innerHTML = selected + ' / ' + color + ' / ' + place + '<small>€91 T-shirt + €20 shipping</small>';
+  selection.innerHTML = selected + ' / ' + color + ' / ' + place + '<small>€91 T-shirt + €35 shipping</small>';
   pay.disabled = false;
   previewTrigger = card;
   syncPreview();
