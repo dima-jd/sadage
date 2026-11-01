@@ -117,7 +117,7 @@
     "material": "Jersey fabric",
     "category": "tshirt",
     "description": "Faded navy T-shirt with tan mottling across the upper front and an orange rectangular pistol graphic at the chest. A wide, cropped shape with short sleeves and an uneven raw hem.",
-    "status": "available",
+    "status": "sold",
     "photos": [
       "/items/MS-151-1.jpg",
       "/items/MS-151-2.jpg"
@@ -333,7 +333,7 @@
     "material": "Jersey fabric",
     "category": "tshirt",
     "description": "Faded charcoal cropped T-shirt with a small street photograph patch at the center chest and raw lower edges.",
-    "status": "available",
+    "status": "sold",
     "photos": [
       "/items/MS-131-1.jpg",
       "/items/MS-131-2.jpg"
@@ -627,7 +627,7 @@
     "material": "Jersey fabric",
     "category": "tshirt",
     "description": "Burgundy distressed T-shirt with a large gold skeletal illustration on the front and gothic lettering across the back.",
-    "status": "available",
+    "status": "sold",
     "photos": [
       "/items/MS-122-1.jpg",
       "/items/MS-122-2.jpg",
@@ -793,7 +793,7 @@
     "material": "Lightweight woven fabric",
     "category": "jacket",
     "description": "White cropped jacket with ribbed trims, utility-inspired construction, SadAge chest branding, and multicolored graphic interventions across the sleeves and body.",
-    "status": "available",
+    "status": "sold",
     "photos": [
       "/items/MS-111-1.jpg",
       "/items/MS-111-2.jpg"
@@ -1309,7 +1309,7 @@
     "material": "Cotton",
     "category": "pants",
     "description": "Utility cargo pants disrupted by layered SadAge interventions.",
-    "status": "available",
+    "status": "sold",
     "photos": [
       "/items/MS-062-1.jpg",
       "/items/MS-062-2.jpg",
@@ -1456,7 +1456,7 @@
     "material": "Cotton",
     "category": "tshirt",
     "description": "Short sleeve T-shirt reworked with soft bleach fading and minimal SadAge graphics.",
-    "status": "available",
+    "status": "sold",
     "photos": [
       "/items/MS-069-1.jpg",
       "/items/MS-069-2.jpg",
@@ -2154,7 +2154,7 @@
       "coat"
     ],
     "description": "The piece balances collapse and control.",
-    "status": "available",
+    "status": "sold",
     "photos": [
       "/items/MS-022-1.jpg",
       "/items/MS-022-2.jpg",
