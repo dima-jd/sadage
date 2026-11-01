@@ -1,5 +1,90 @@
 [
   {
+    "code": "MS-165",
+    "cover": "/items/MS-165-cover.jpg",
+    "name": "SadAge Grey Yellow Collage Shirt",
+    "price": "291",
+    "size": "M-L",
+    "condition": "excellent",
+    "material": "Woven fabric; composition unconfirmed",
+    "category": "shirt",
+    "description": "Grey and pale yellow long-sleeve shirt with irregular black streaks, a pointed collar, button cuffs, and a chest pocket. Black collage graphics include a large smiling face and photo panels across the front and sleeve, with a mushroom image panel and question-mark motif on the back.",
+    "status": "available",
+    "photos": [
+      "/items/MS-165-1.jpg",
+      "/items/MS-165-2.jpg",
+      "/items/MS-165-3.jpg",
+      "/items/MS-165-4.jpg",
+      "/items/MS-165-5.jpg",
+      "/items/MS-165-6.jpg",
+      "/items/MS-165-7.jpg"
+    ],
+    "checkout_url": "https://buy.stripe.com/28E3cw2HicYH2nEfWt7IY2Y"
+  },
+  {
+    "code": "MS-164",
+    "cover": "/items/MS-164-cover.jpg",
+    "name": "SadAge Olive Hooligan Love Graphic Shirt",
+    "price": "231",
+    "size": "L-XL",
+    "condition": "good",
+    "material": "Woven fabric; composition unconfirmed",
+    "category": "shirt",
+    "description": "Loose olive button-front shirt with yellow shading, raw short sleeve openings, a curved hem, and red-and-black SadAge lettering on the chest pocket. The back features Hooligan Love lettering above a large portrait, bird diagrams, and a burgundy grinning face graphic.",
+    "status": "available",
+    "photos": [
+      "/items/MS-164-1.jpg",
+      "/items/MS-164-2.jpg",
+      "/items/MS-164-3.jpg",
+      "/items/MS-164-4.jpg",
+      "/items/MS-164-5.jpg"
+    ],
+    "checkout_url": "https://buy.stripe.com/4gMaEY1De7End2i5hP7IY2X"
+  },
+  {
+    "code": "MS-163",
+    "cover": "/items/MS-163-cover.jpg",
+    "name": "SadAge Grey Yellow Floral Graphic Jeans",
+    "price": "353",
+    "size": "M-L",
+    "condition": "excellent",
+    "material": "Denim; fiber composition unconfirmed",
+    "category": "pants",
+    "description": "Black and grey straight-leg jeans with irregular pale patches, raw hems, and yellow spiked floral graphics down one front leg. A portrait and newspaper-style collage prints cover sections of the back, with small yellow SadAge lettering.",
+    "status": "available",
+    "photos": [
+      "/items/MS-163-1.jpg",
+      "/items/MS-163-2.jpg",
+      "/items/MS-163-3.jpg",
+      "/items/MS-163-4.jpg",
+      "/items/MS-163-5.jpg",
+      "/items/MS-163-6.jpg",
+      "/items/MS-163-7.jpg"
+    ],
+    "checkout_url": "https://buy.stripe.com/aFa14o3Lm1fZ6DU11z7IY2W"
+  },
+  {
+    "code": "MS-162",
+    "cover": "/items/MS-162-cover.jpg",
+    "name": "SadAge Black Orange Collage Jeans",
+    "price": "353",
+    "size": "M-L",
+    "condition": "excellent",
+    "material": "Denim; fiber composition unconfirmed",
+    "category": "pants",
+    "description": "Black and burnt-orange straight-leg jeans with irregular mottled patterning, raw hems, and a small black symbol on the front. The back carries newspaper-style text, repeated marks, and a large sketched two-figure scene on one lower leg.",
+    "status": "available",
+    "photos": [
+      "/items/MS-162-1.jpg",
+      "/items/MS-162-2.jpg",
+      "/items/MS-162-3.jpg",
+      "/items/MS-162-4.jpg",
+      "/items/MS-162-5.jpg",
+      "/items/MS-162-6.jpg"
+    ],
+    "checkout_url": "https://buy.stripe.com/cNi3cw4Pq8Ir0fw11z7IY2V"
+  },
+  {
     "code": "MS-161",
     "cover": "/items/MS-161-cover.jpg",
     "name": "SadAge Grey Yellow Mask Sleeveless T-Shirt",
