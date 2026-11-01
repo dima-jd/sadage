@@ -1,5 +1,98 @@
 [
   {
+    "code": "MS-161",
+    "cover": "/items/MS-161-cover.jpg",
+    "name": "SadAge Grey Yellow Mask Sleeveless T-Shirt",
+    "price": "153",
+    "size": "M-L",
+    "condition": "excellent",
+    "material": "Composition unconfirmed",
+    "category": "tshirt",
+    "description": "Boxy sleeveless top with grey and pale yellow streaks, a ribbed crew neck, raw arm openings, and a raw lower hem. A black smiling mask graphic sits off-centre on the front, with green stitching around the neckline and shoulders.",
+    "status": "available",
+    "photos": [
+      "/items/MS-161-1.jpg",
+      "/items/MS-161-2.jpg",
+      "/items/MS-161-3.jpg",
+      "/items/MS-161-4.jpg"
+    ],
+    "checkout_url": "https://buy.stripe.com/3cI3cwbdO4sbgeu11z7IY2U"
+  },
+  {
+    "code": "MS-160",
+    "cover": "/items/MS-160-cover.jpg",
+    "name": "SadAge Black and Orange Mottled Jeans",
+    "price": "353",
+    "size": "M-L",
+    "condition": "excellent",
+    "material": "Denim; fiber composition unconfirmed",
+    "category": "pants",
+    "description": "Straight-leg jeans with irregular black and orange patterning across the front and back. Five-pocket styling, metal rivets, raw hems, and small SADAGE lettering near a front pocket.",
+    "status": "available",
+    "photos": [
+      "/items/MS-160-1.jpg",
+      "/items/MS-160-2.jpg"
+    ],
+    "checkout_url": "https://buy.stripe.com/00w3cweq06Aj1jAaC97IY2T"
+  },
+  {
+    "code": "MS-159",
+    "cover": "/items/MS-159-cover.jpg",
+    "name": "SadAge Burgundy Distressed Graphic Jeans",
+    "price": "353",
+    "size": "M-L",
+    "condition": "excellent",
+    "material": "Denim; fiber composition unconfirmed",
+    "category": "pants",
+    "description": "Burgundy wide-leg jeans with faded grey shading, frayed openings across the front, and raw hems. Black SadAge lettering sits above one knee, while stacked face graphics run down one back leg beside a pale symbol on the opposite pocket.",
+    "status": "available",
+    "photos": [
+      "/items/MS-159-1.jpg",
+      "/items/MS-159-2.jpg",
+      "/items/MS-159-3.jpg",
+      "/items/MS-159-4.jpg",
+      "/items/MS-159-5.jpg"
+    ],
+    "checkout_url": "https://buy.stripe.com/8x2aEYchSgaTe6m11z7IY2S"
+  },
+  {
+    "code": "MS-158",
+    "cover": "/items/MS-158-cover.jpg",
+    "name": "SadAge Nike Lubbert Das Graphic T-Shirt",
+    "price": "153",
+    "size": "M",
+    "condition": "excellent",
+    "material": "Composition unconfirmed",
+    "category": "tshirt",
+    "description": "Dark crew-neck T-shirt with mottled rust-red shading, yellow 'My name is Lubbert Das' lettering, and a small white Nike swoosh on the chest. Large yellow spiked floral forms and smaller figures cover the back.",
+    "status": "available",
+    "photos": [
+      "/items/MS-158-1.jpg",
+      "/items/MS-158-2.jpg",
+      "/items/MS-158-3.jpg"
+    ],
+    "checkout_url": "https://buy.stripe.com/5kQ7sMfu4aQz1jA39H7IY2R"
+  },
+  {
+    "code": "MS-157",
+    "cover": "/items/MS-157-cover.jpg",
+    "name": "SadAge Olive Napapijri Long-Sleeve Polo",
+    "price": "153",
+    "size": "M",
+    "condition": "excellent",
+    "material": "Textured knit fabric; composition unconfirmed",
+    "category": "longsleeve",
+    "description": "Olive long-sleeve polo with irregular yellow streaks, a pointed collar, short button placket, and ribbed cuffs. Yellow Napapijri and SadAge chest lettering and a face motif contrast with a red DMT graphic on the back.",
+    "status": "available",
+    "photos": [
+      "/items/MS-157-1.jpg",
+      "/items/MS-157-2.jpg",
+      "/items/MS-157-3.jpg",
+      "/items/MS-157-4.jpg"
+    ],
+    "checkout_url": "https://buy.stripe.com/3cI6oI6Xy7En3rIcKh7IY2Q"
+  },
+  {
     "code": "MS-156",
     "cover": "/items/MS-156-cover.jpg",
     "name": "SadAge Grey Kiosk Shalom T-Shirt",
