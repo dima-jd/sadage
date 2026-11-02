@@ -49,6 +49,7 @@
       slide.hidden = i !== 0;
       return slide;
     });
+    empty.textContent = 'No photographs in this album yet.';
     empty.hidden = slides.length > 0;
     viewer.replaceChildren(empty, ...slides);
     current = 0;
@@ -193,3 +194,4 @@
   });
   mobile.addEventListener('change', () => { if (!mobile.matches && !grid.hidden) closeGrid(); });
 })();
+
