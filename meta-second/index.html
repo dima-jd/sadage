@@ -758,9 +758,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <button class="btn-stripe" id="btnCheckout" onclick="openCheckout()" disabled>
           It's mine
         </button>
-        <div class="action-note" id="actionNote">
-          Secure payment via Stripe
-        </div>
+        <div class="action-note" id="actionNote" hidden></div>
         <details class="order-info"><summary>Delivery &amp; returns</summary><div class="order-info-content"><p>All tie-dyes are handmade at our studio in Tel Aviv. Each dye is unique, so colours may vary.</p><ul><li>Orders may take up to 30 days to dispatch. Transit time depends on the destination and carrier.</li><li>Please double-check your size and delivery address before paying.</li><li>No voluntary refunds or exchanges beyond your legal rights.</li><li>Please contact <a href="mailto:support@sadage.com">support@sadage.com</a> within 20 days of receiving your order with any issues or questions. This does not limit your statutory rights.</li></ul><a href="/shipping-returns/">Full shipping &amp; return policy</a></div></details>
         <button class="btn-wa" id="btnWA" onclick="openWA()" disabled>
           Ask about fit or delivery
@@ -927,8 +925,10 @@ function showItem(item) {
   document.getElementById('mobilePurchaseBar').hidden = !canBuy;
   document.getElementById('viewItem').classList.toggle('has-purchase-bar', canBuy);
 
-  document.getElementById('actionNote').textContent = canBuy
-    ? 'Secure payment via Stripe · Shipping €35 (except Russia). Orders may take up to 30 days to dispatch; delivery transit time is additional.'
+  const actionNote = document.getElementById('actionNote');
+  actionNote.hidden = canBuy;
+  actionNote.textContent = canBuy
+    ? ''
     : canWhatsApp
       ? 'Ask about availability or delivery on WhatsApp'
       : isSold
