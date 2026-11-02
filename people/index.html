@@ -9,27 +9,16 @@
   <link rel="icon" href="/favicon.svg">
   <link rel="stylesheet" href="/people/people.css?v=3">
   <link rel="stylesheet" href="/assets/legal.css">
-  <script defer src="/people/people.js?v=2"></script>
+  <script defer src="/people/people.js?v=3"></script>
   <script defer src="/assets/privacy-controls.js"></script>
   <script>window.gtag=window.gtag||function(){};</script>
-</head>
+<link rel="stylesheet" href="/assets/site-navigation.css"><script defer src="/assets/site-navigation.js"></script></head>
 <body>
   <nav class="albums" id="album-list" aria-label="Photo albums"></nav>
-  <details class="site-menu">
-    <summary aria-label="Site index" title="Index">+</summary>
-    <nav aria-label="SadAge index">
-      <a href="/">Home</a>
-      <a href="/meta-second/">Meta Secondhand</a>
-      <a href="/sad-print-room/">Print Room</a>
-      <a href="/about/">About</a>
-      <!--<a href="/objects/">Objects</a>
-      <a href="/people/" aria-current="page">People</a>-->
-      <a href="/contact/">Contact</a>
-    </nav>
-  </details>
+  <details class="site-menu sadage-navigation sadage-navigation--floating"><summary>Index +</summary><nav aria-label="SadAge"><a href="/">Home</a><a href="/meta-second/">Meta Secondhand</a><a href="/sad-print-room/">Print Room</a><a href="/about/">About</a><a href="/people/" aria-current="page">People</a><a href="/contact/">Contact</a><details class="legal-disclosure"><summary>Legal</summary><nav class="legal-links" aria-label="Legal"><a href="/terms-of-service/">Terms of service</a><a href="/shipping-returns/">Shipping &amp; return policy</a><a href="/privacy-policy/">Privacy policy</a><a href="/cookie-policy/">Cookie policy</a><button type="button" data-cookie-settings>Cookie settings</button></nav></details></nav></details>
   <main>
     <button class="viewer" id="viewer" type="button" aria-label="Next photograph. Swipe left or right to browse.">
-      <span class="empty-state" id="empty-state">Photographs coming soon.</span>
+      <span class="empty-state" id="empty-state">Loading photographs…</span>
     </button>
     <p class="sr-only" id="position" aria-live="polite" aria-atomic="true"></p>
   </main>
@@ -39,3 +28,4 @@
   </section>
 </body>
 </html>
+

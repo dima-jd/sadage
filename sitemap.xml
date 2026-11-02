@@ -14,7 +14,7 @@
   </url>
 
   <url>
-    <loc>https://sadage.com/print-room/</loc>
+    <loc>https://sadage.com/sad-print-room/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -26,16 +26,9 @@
   </url>
 
   <url><loc>https://sadage.com/people/</loc></url>
-  <url><loc>https://sadage.com/newspaper/</loc></url>
-  <url><loc>https://sadage.com/process/</loc></url>
-  <url><loc>https://sadage.com/support/</loc></url>
-  <url><loc>https://sadage.com/sad-world/</loc></url>
   <url><loc>https://sadage.com/objects/</loc></url>
-  <url><loc>https://sadage.com/open-call/</loc></url>
   <url><loc>https://sadage.com/contact/</loc></url>
   <url><loc>https://sadage.com/survey/</loc></url>
-  <url><loc>https://sadage.com/game/</loc></url>
-  <url><loc>https://sadage.com/sad-print-room/</loc></url>
   <url><loc>https://sadage.com/terms-of-service/</loc></url>
   <url><loc>https://sadage.com/shipping-returns/</loc></url>
   <url><loc>https://sadage.com/privacy-policy/</loc></url>

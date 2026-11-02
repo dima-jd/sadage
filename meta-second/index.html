@@ -627,6 +627,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .action-note { font-size: 11px; letter-spacing: 0.03em; text-transform: none; }
   .btn-wa { background: transparent; border: 1px solid var(--border-h); color: var(--fg); font-size: 17px; }
   .btn-wa:hover { background: #18221b; }
+\n.size-filter{display:flex;align-items:center;gap:8px;font-size:11px;color:#aaa69d;white-space:nowrap}
+.size-filter select{min-height:34px;border:1px solid #aaa69d;border-radius:0;background:#0a0a0a;color:#f0ede6;padding:6px 8px;font:11px 'Space Mono',monospace}
+.size-filter select:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.grid-tools{flex-wrap:wrap}.code-search{flex:1;min-width:110px}.grid-count{white-space:nowrap}
+@media(max-width:720px){.grid-tools{width:100%;margin-left:0;gap:10px}.grid-count{flex-basis:100%}}
 </style>
 		<script type="text/plain" data-consent="analytics" async data-src="https://www.googletagmanager.com/gtag/js?id=G-RF3945XCP4"></script>
 		<script type="text/plain" data-consent="analytics">
@@ -639,7 +644,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 			  cookie_flags: 'SameSite=None;Secure'
 			});
 		</script>
-<script>window.gtag=window.gtag||function(){};</script><link rel="stylesheet" href="/assets/legal.css"></head>
+<script>window.gtag=window.gtag||function(){};</script><link rel="stylesheet" href="/assets/legal.css"><link rel="stylesheet" href="/assets/site-navigation.css"><script defer src="/assets/site-navigation.js"></script></head>
 <body>
 
 <header>
@@ -647,16 +652,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <a class="header-linklogo" href="/"><span class="brand">SadAge</span></a>
     <span class="page-tag">Meta Second</span>
   </div>
-  <a class="header-link" href="/sad-print-room/">Go to Print Room</a>
-</header>
+
+<details class="site-menu sadage-navigation"><summary>Index +</summary><nav aria-label="SadAge"><a href="/">Home</a><a href="/meta-second/" aria-current="page">Meta Secondhand</a><a href="/sad-print-room/">Print Room</a><a href="/about/">About</a><a href="/people/">People</a><a href="/contact/">Contact</a><details class="legal-disclosure"><summary>Legal</summary><nav class="legal-links" aria-label="Legal"><a href="/terms-of-service/">Terms of service</a><a href="/shipping-returns/">Shipping &amp; return policy</a><a href="/privacy-policy/">Privacy policy</a><a href="/cookie-policy/">Cookie policy</a><button type="button" data-cookie-settings>Cookie settings</button></nav></details></nav></details></header>
 
 
 <!-- ════ GRID VIEW ════ -->
 <div id="viewGrid">
 
   <div class="grid-header">
-    <div class="grid-title">Archive</div>
+    <div class="grid-title">Available</div>
     <div class="grid-tools">
+      <label class="size-filter" for="sizeFilter">Size <select id="sizeFilter" aria-controls="itemGrid"><option value="">All sizes</option></select></label>
       <input class="code-search" id="codeSearch" type="search" placeholder="Item code" aria-label="Search by item code" aria-controls="itemGrid" autocomplete="off" spellcheck="false">
       <div class="grid-count" id="gridCount" role="status" aria-live="polite">— items</div>
     </div>
@@ -665,7 +671,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <div class="payment-success" id="paymentSuccess" hidden role="status" aria-live="polite"></div>
 
   <div class="grid-intro">
-    This is a small SadAge second-hand interface. Each piece exists in one version only. Open an item, check the photos, ask via WhatsApp, or buy securely through Stripe Checkout. Worldwide shipping is €35.
+    Shop one-of-one secondhand and reworked pieces. Each piece exists in one version only. Open an item, check the photos, ask via WhatsApp, or buy securely through Stripe Checkout. Worldwide shipping is €35.
   </div>
 
   <div class="filter-bar">
@@ -700,7 +706,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   <button class="item-back" onclick="showGrid()">
     <span class="item-back-arrow">←</span>
-    <span>Back to Archive</span>
+    <span>Back to catalog</span>
   </button>
 
   <div class="item-layout">
@@ -756,7 +762,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <div class="item-actions">
         <p class="purchase-total" id="checkoutTotal" hidden></p>
         <button class="btn-stripe" id="btnCheckout" onclick="openCheckout()" disabled>
-          It's mine
+          Buy
         </button>
         <div class="action-note" id="actionNote" hidden></div>
         <details class="order-info"><summary>Delivery &amp; returns</summary><div class="order-info-content"><p>All tie-dyes are handmade at our studio in Tel Aviv. Each dye is unique, so colours may vary.</p><ul><li>Orders may take up to 30 days to dispatch. Transit time depends on the destination and carrier.</li><li>Please double-check your size and delivery address before paying.</li><li>No voluntary refunds or exchanges beyond your legal rights.</li><li>Please contact <a href="mailto:support@sadage.com">support@sadage.com</a> within 20 days of receiving your order with any issues or questions. This does not limit your statutory rights.</li></ul><a href="/shipping-returns/">Full shipping &amp; return policy</a></div></details>
@@ -798,6 +804,78 @@ function formatEuro(price) { return euroFormatter.format(price); }
 let activeFilter = 'available';
 let currentItem  = null;
 let galleryIndex = 0;
+
+function normalizeSize(value) {
+  return String(value || '').trim().toUpperCase().replace(/\s*[-–—/]\s*/g, '–');
+}
+let gridState = { filter: 'available', size: '', query: '', scrollY: 0, focusCode: null };
+let restoreFrame = 0;
+history.scrollRestoration = 'manual';
+function historyEntry(fromGrid = history.state?.fromGrid || false) {
+  return { sadageCatalog: 1, catalog: { ...gridState }, itemCode: currentItem?.code || null,
+    scrollY: window.scrollY, fromGrid };
+}
+function saveCatalogEntry() {
+  if (!Array.isArray(window.ITEMS)) return;
+  if (!currentItem) gridState.scrollY = window.scrollY;
+  history.replaceState(historyEntry(), '', location.href);
+}
+function restoreScroll(y, focusCode) {
+  cancelAnimationFrame(restoreFrame);
+  restoreFrame = requestAnimationFrame(() => {
+    if (focusCode && !currentItem) {
+      const card = [...document.querySelectorAll('.card')].find(card => card.dataset.code === focusCode);
+      card?.focus({ preventScroll: true });
+    }
+    window.scrollTo({ top: Math.max(0, Number(y) || 0), left: 0, behavior: 'instant' });
+  });
+}
+function applyGridState(saved) {
+  const filters = [...document.querySelectorAll('.flt')].map(button => button.dataset.filter);
+  const sizes = [...document.getElementById('sizeFilter').options].map(option => option.value);
+  gridState = {
+    filter: filters.includes(saved?.filter) ? saved.filter : 'available',
+    size: sizes.includes(saved?.size) ? saved.size : '',
+    query: typeof saved?.query === 'string' ? saved.query : '',
+    scrollY: Math.max(0, Number(saved?.scrollY) || 0),
+    focusCode: typeof saved?.focusCode === 'string' ? saved.focusCode : null
+  };
+  activeFilter = gridState.filter;
+  document.getElementById('sizeFilter').value = gridState.size;
+  document.getElementById('codeSearch').value = gridState.query;
+  document.querySelectorAll('.flt').forEach(button => {
+    const selected = button.dataset.filter === activeFilter;
+    button.classList.toggle('on', selected);
+    button.setAttribute('aria-pressed', String(selected));
+  });
+  document.querySelector('.grid-title').textContent = activeFilter === 'available' ? 'Available'
+    : activeFilter === 'all' ? 'All pieces' : document.querySelector('.flt.on').textContent;
+  buildGrid(activeFilter);
+}
+function renderCatalogLocation() {
+  if (!Array.isArray(window.ITEMS)) return;
+  const saved = history.state?.sadageCatalog === 1 ? history.state : null;
+  applyGridState(saved?.catalog);
+  const item = window.ITEMS.find(item => item.code === location.hash.slice(1));
+  if (item) showItem(item, { navigate: false, scrollY: saved?.scrollY || 0 });
+  else renderGrid();
+  history.replaceState(historyEntry(Boolean(item && saved?.fromGrid)), '', location.href);
+}
+function updateFilters() {
+  gridState.query = document.getElementById('codeSearch').value;
+  gridState.size = document.getElementById('sizeFilter').value;
+  gridState.focusCode = null;
+  buildGrid(activeFilter);
+  saveCatalogEntry();
+}
+window.addEventListener('pagehide', saveCatalogEntry);
+let scrollSaveTimer;
+window.addEventListener('scroll', () => {
+  clearTimeout(scrollSaveTimer);
+  scrollSaveTimer = setTimeout(saveCatalogEntry, 150);
+}, { passive: true });
+window.addEventListener('popstate', renderCatalogLocation);
+
 /* ════ GRID ════ */
 function buildGrid(filter) {
   if (!Array.isArray(window.ITEMS)) return;
@@ -810,9 +888,9 @@ function buildGrid(filter) {
   const filtered = window.ITEMS.filter(i => {
     const cats = Array.isArray(i.category) ? i.category : [i.category];
     const matchesFilter = filter === 'all' || i.status === filter || cats.includes(filter);
-    return matchesFilter && normalizeCode(i.code).includes(query);
+    return matchesFilter && (!gridState.size || normalizeSize(i.size) === gridState.size) && normalizeCode(i.code).includes(query);
   });
-  empty.textContent = query ? 'No items match this code and filter' : 'No items in this category yet';
+  empty.textContent = 'No pieces match these filters.';
  
   document.getElementById('gridCount').textContent =
     `${filtered.length} item${filtered.length !== 1 ? 's' : ''}`;
@@ -823,6 +901,7 @@ function buildGrid(filter) {
   filtered.forEach(item => {
     const card = document.createElement('div');
     card.className = 'card' + (item.status === 'sold' ? ' sold-card' : '');
+    card.dataset.code = item.code;
     card.setAttribute('role', 'button');
     card.tabIndex = 0;
     const price = itemPrice(item);
@@ -853,18 +932,24 @@ function buildGrid(filter) {
   });
 }
  
-document.getElementById('codeSearch').addEventListener('input', () => buildGrid(activeFilter));
-
+document.getElementById('codeSearch').addEventListener('input', updateFilters);
+document.getElementById('sizeFilter').addEventListener('change', updateFilters);
 function setFilter(btn, filter) {
-  activeFilter = filter;
-  document.querySelectorAll('.flt').forEach(b => b.classList.remove('on'));
-  btn.classList.add('on');
-  document.querySelector('.grid-title').textContent = filter === 'available' ? 'Shop available pieces' : filter === 'all' ? 'All pieces' : filter.charAt(0).toUpperCase() + filter.slice(1);
-  buildGrid(filter);
+  gridState.filter = filter;
+  gridState.query = document.getElementById('codeSearch').value;
+  gridState.size = document.getElementById('sizeFilter').value;
+  gridState.scrollY = window.scrollY;
+  gridState.focusCode = null;
+  applyGridState(gridState);
+  saveCatalogEntry();
 }
- 
+
 /* ════ ITEM DETAIL ════ */
-function showItem(item) {
+function showItem(item, { navigate = true, scrollY = 0 } = {}) {
+  if (navigate) {
+    gridState.focusCode = item.code;
+    saveCatalogEntry();
+  }
 	gtag('event', 'item_opened', {
     event_category: 'meta_second',
     event_label: item.code + ' / ' + item.name
@@ -910,7 +995,7 @@ function showItem(item) {
   const checkoutButton = document.getElementById('btnCheckout');
   checkoutButton.disabled = !canBuy;
   checkoutButton.textContent = canBuy
-    ? `It's mine`
+    ? `Buy`
     : (isReserved ? 'Reserved' : isSold ? 'Sold' : 'Checkout unavailable');
 
   const price = itemPrice(item);
@@ -941,27 +1026,33 @@ function showItem(item) {
  
   document.getElementById('viewGrid').style.display = 'none';
   document.getElementById('viewItem').style.display = 'block';
-  window.scrollTo(0, 0);
-  const nextUrl = new URL(window.location.href);
-  nextUrl.hash = item.code;
-  history.pushState({ itemCode: item.code }, '', nextUrl);
+  if (navigate) {
+    const nextUrl = new URL(location.href);
+    nextUrl.hash = item.code;
+    history.pushState({ ...historyEntry(true), scrollY: 0 }, '', nextUrl);
+  }
+  restoreScroll(scrollY);
 }
- 
-function showGrid() {
+
+function renderGrid() {
+  currentItem = null;
   document.getElementById('mobilePurchaseBar').hidden = true;
   document.getElementById('viewItem').classList.remove('has-purchase-bar');
   document.getElementById('viewItem').style.display = 'none';
   document.getElementById('viewGrid').style.display = 'block';
-  const nextUrl = new URL(window.location.href);
-  nextUrl.hash = '';
-  history.pushState(null, '', nextUrl);
-  window.scrollTo(0, 0);
+  restoreScroll(gridState.scrollY, gridState.focusCode);
 }
- 
-window.addEventListener('popstate', e => {
-  if (!e.state || !e.state.itemCode) showGrid();
-});
- 
+function showGrid() {
+  if (history.state?.sadageCatalog === 1 && history.state.fromGrid) {
+    history.back();
+    return;
+  }
+  const nextUrl = new URL(location.href);
+  nextUrl.hash = '';
+  renderGrid();
+  history.replaceState({ ...historyEntry(false), scrollY: gridState.scrollY }, '', nextUrl);
+}
+
 /* ════ GALLERY ════ */
 function buildGallery(item) {
   const main   = document.getElementById('galleryMain');
@@ -1077,17 +1168,24 @@ function showPaymentSuccess() {
 }
 
 /* ════ INIT ════ */
-fetch('/items.json?catalog=20260918-ms50-160')
+fetch('/items.json?catalog=20261102')
   .then(r => r.json())
   .then(data => {
-    window.ITEMS = data;
+    window.ITEMS = data.map(item => ({ ...item, size: normalizeSize(item.size) }));
+    const sizeOrder = ['XS', 'S', 'S–M', 'M', 'M–L', 'L', 'L–XL', 'XL', '2XL', '3XL', 'OS'];
+    [...new Set(window.ITEMS.map(item => item.size).filter(Boolean))]
+      .sort((a, b) => {
+        const ai = sizeOrder.indexOf(a), bi = sizeOrder.indexOf(b);
+        return (ai < 0 ? 999 : ai) - (bi < 0 ? 999 : bi) || a.localeCompare(b);
+      }).forEach(size => {
+        const option = document.createElement('option');
+        option.value = size;
+        option.textContent = size === 'OS' ? 'OS (one size)' : size;
+        document.getElementById('sizeFilter').append(option);
+      });
     showPaymentSuccess();
     document.getElementById('gridLoading').style.display = 'none';
-    buildGrid(activeFilter);
-    if (location.hash) {
-      const item = data.find(i => i.code === location.hash.slice(1));
-      if (item) showItem(item);
-    }
+    renderCatalogLocation();
   })
   .catch(() => {
     document.getElementById('gridLoading').textContent = 'Could not load pieces. Please refresh.';
@@ -1095,3 +1193,4 @@ fetch('/items.json?catalog=20260918-ms50-160')
 </script>
 <script defer src="/assets/privacy-controls.js"></script></body>
 </html>
+
