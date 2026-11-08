@@ -27,7 +27,7 @@
     "price": "591",
     "size": "M-L",
     "condition": "excellent",
-    "material": "Woven fabric; composition unconfirmed",
+    "material": "composition unconfirmed",
     "category": "coat",
     "description": "Black snap-front coat with a pointed collar and tonal SadAge chest lettering. A large white back graphic shows a crying face beneath a radiating sun, with Emigrant's Tears lettering.",
     "status": "available",
@@ -35,8 +35,7 @@
       "/items/MS-169-1.jpg",
       "/items/MS-169-2.jpg",
       "/items/MS-169-3.jpg",
-      "/items/MS-169-4.jpg",
-      "/items/MS-169-5.jpg"
+      "/items/MS-169-4.jpg"
     ],
     "checkout_url": "https://buy.stripe.com/5kQaEYdlW9MvaUa4dL7IY32"
   },
